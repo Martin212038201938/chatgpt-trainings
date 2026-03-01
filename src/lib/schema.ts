@@ -85,7 +85,7 @@ export interface BreadcrumbItem {
  * generateBreadcrumbSchema([
  *   { name: "Startseite", url: "https://chatgpt-trainings.de/" },
  *   { name: "Unsere Angebote", url: "https://chatgpt-trainings.de/unsere-angebote" },
- *   { name: "GitHub Copilot Training", url: "https://chatgpt-trainings.de/trainings/chatgpt-entwickler" }
+ *   { name: "ChatGPT Training", url: "https://chatgpt-trainings.de/trainings/chatgpt-grundlagen" }
  * ])
  */
 export const generateBreadcrumbSchema = (items: BreadcrumbItem[]) => {
@@ -113,7 +113,7 @@ export interface TrainingModule {
  * Critical for LLM citation - enables AI assistants to quote answers directly
  *
  * @param faqs - Array of FAQ objects with question and answer
- * @param pageUrl - Optional page URL for unique @id (e.g., "https://chatgpt-trainings.de/wissen/copilot-roi-berechnen")
+ * @param pageUrl - Optional page URL for unique @id (e.g., "https://chatgpt-trainings.de/wissen/chatgpt-roi-berechnen")
  *                  If not provided, falls back to generic "https://chatgpt-trainings.de/#faq"
  */
 export const generateFAQPageSchema = (faqs: FAQ[], pageUrl?: string) => {
@@ -385,7 +385,7 @@ export const generateCourseSchema = (module: TrainingModule, index: number) => {
         "https://www.linkedin.com/company/yellow-boat-consulting"
       ]
     },
-    "courseCode": `COPILOT-${index + 1}`,
+    "courseCode": `CHATGPT-${index + 1}`,
     "hasCourseInstance": {
       "@type": "CourseInstance",
       "courseMode": ["online", "onsite", "blended"],
@@ -504,7 +504,7 @@ export const generateTrainingSchemas = (modules: TrainingModule[], faqs?: FAQ[])
         "@type": "Organization",
         "@id": "https://chatgpt-trainings.de/#organization",
         "name": "chatgpt-trainings.de",
-        "alternateName": ["ChatGPT-Trainings", "Copiloten Schule"],
+        "alternateName": ["ChatGPT-Trainings", "ChatGPT Schulungen"],
         "url": "https://chatgpt-trainings.de",
         "logo": "https://chatgpt-trainings.de/og-image.jpg",
         "description": "chatgpt-trainings.de bietet spezialisierte Weiterbildungen für den professionellen Einsatz von ChatGPT in der täglichen Büroarbeit. Wir befähigen Wissensarbeiter, Teams und Organisationen, ChatGPT produktiv, sicher und wertschöpfend im Arbeitsalltag einzusetzen.",
@@ -517,7 +517,7 @@ export const generateTrainingSchemas = (modules: TrainingModule[], faqs?: FAQ[])
           "ChatGPT Enablement",
           "ChatGPT Adoption",
           "Custom GPTs",
-          "GitHub Copilot",
+          "KI-Strategie",
           "KI-Agenten",
           "Prompt Engineering",
           "KI-gestützte Büroarbeit",
@@ -593,7 +593,7 @@ export const generateTrainingSchemas = (modules: TrainingModule[], faqs?: FAQ[])
           "ChatGPT für Büroarbeit",
           "ChatGPT Grundlagen",
           "ChatGPT Advanced Training",
-          "GitHub Copilot für Entwickler",
+          "Prompt Engineering für Teams",
           "Custom GPTs und KI-Agenten",
           "Prompt Engineering für ChatGPT",
           "KI Governance und Compliance",

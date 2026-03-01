@@ -137,7 +137,7 @@ export function getPublishedAsKnowledgeTopics() {
     title: article.title,
     description: article.description,
     link: `/wissen/${article.slug}`,
-    badge: article.category || "Copilot",
+    badge: article.category || "ChatGPT",
     icon: article.icon || "📝",
     readTime: article.readTime || "5 Minuten",
     lastUpdated: new Date(article.publishDate).toLocaleDateString('de-DE', {
