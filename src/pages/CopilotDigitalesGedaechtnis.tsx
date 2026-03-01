@@ -31,7 +31,7 @@ const CopilotDigitalesGedaechtnis = () => {
   ];
 
   const ids = generateSchemaIds(SLUG, 'wissen');
-  const pageUrl = `https://copilotenschule.de/wissen/${SLUG}`;
+  const pageUrl = `https://chatgpt-trainings.de/wissen/${SLUG}`;
   const breadcrumbItems = generateWissenBreadcrumbItems(PAGE_TITLE, pageUrl);
 
   const faqs = [
@@ -67,7 +67,7 @@ const CopilotDigitalesGedaechtnis = () => {
         "description": "Wie ich Microsoft Copilot als externes Gedächtnis nutze – für Meeting-Zusagen, Entscheidungen und Projektdetails. Praktische Prompts und Erfahrungen aus dem Alltag.",
         "author": getAuthorSchemaMarkup(author),
         "publisher": {
-          "@id": "https://copilotenschule.de/#organization"
+          "@id": "https://chatgpt-trainings.de/#organization"
         },
         "datePublished": "2026-02-03",
         "dateModified": "2026-02-03",

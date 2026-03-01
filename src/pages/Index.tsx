@@ -12,7 +12,7 @@ import { generateTrainingSchemas } from "@/lib/schema";
 import { homepageFAQs } from "@/data/faqs";
 
 /**
- * Homepage - copilotenschule.de
+ * Homepage - chatgpt-trainings.de
  *
  * Main entry point for the website. Displays:
  * - Hero section with value proposition
@@ -143,19 +143,19 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <SEOHead
-        title="Microsoft Copilot Schulungen & Trainings"
-        description="Praxisnahe Microsoft Copilot Trainings für Unternehmen: Hands-on Workshops, Inhouse-Enablement und Rollout-Begleitung. DSGVO-konform."
+        title="ChatGPT Training für Unternehmen | Workshops & Schulungen"
+        description="Professionelle ChatGPT Trainings für Unternehmen: Praxisnahe Workshops, Prompt Engineering und KI-Enablement. Maßgeschneidert für Ihr Team."
         keywords={[
-          "Microsoft Copilot Schulung",
-          "Microsoft 365 Copilot Training",
-          "Copilot Enablement",
-          "Copilot Rollout Begleitung",
-          "Microsoft Copilot Adoption",
-          "Copilot Workshop",
+          "ChatGPT Training",
+          "ChatGPT Schulung Unternehmen",
+          "ChatGPT Workshop",
+          "Prompt Engineering Training",
           "KI Training Unternehmen",
-          "Copilot für Büroarbeit"
+          "ChatGPT für Firmen",
+          "ChatGPT Enablement",
+          "KI Workshop"
         ]}
-        canonicalUrl="https://copilotenschule.de/"
+        canonicalUrl="https://chatgpt-trainings.de/"
         schema={schema}
       />
       <Header />

@@ -44,7 +44,7 @@ const UnsereAngebote = () => {
   return (
     <div className="min-h-screen">
       <SEOHead
-        title="Unsere Angebote – Microsoft Copilot Schulungen & Trainings | copilotenschule.de"
+        title="Unsere Angebote – Microsoft Copilot Schulungen & Trainings | chatgpt-trainings.de"
         description="Alle Microsoft Copilot Trainings im Überblick: Grundlagen, M365 Apps, GitHub Copilot, Compliance, Strategie, KI-Agenten und mehr. Trainings für Copilot Free und Copilot Paid Lizenzen."
         keywords={[
           "Microsoft Copilot Schulung",
@@ -56,7 +56,7 @@ const UnsereAngebote = () => {
           "Copilot Free Training",
           "Copilot Paid Training"
         ]}
-        canonicalUrl="https://copilotenschule.de/unsere-angebote"
+        canonicalUrl="https://chatgpt-trainings.de/unsere-angebote"
         schema={schema}
       />
       <Header />
@@ -217,7 +217,7 @@ const UnsereAngebote = () => {
                   Ihr Training, Ihre Module – individuell zusammengestellt
                 </h3>
                 <p className="text-muted-foreground max-w-2xl mx-auto mb-6">
-                  Kein passendes Training gefunden? Bei der Copilotenschule können Sie Ihr Training aus einzelnen Modulen
+                  Kein passendes Training gefunden? Bei der ChatGPT-Trainings können Sie Ihr Training aus einzelnen Modulen
                   selbst zusammenstellen – exakt auf die Bedürfnisse Ihres Teams zugeschnitten.
                 </p>
                 <Link to="/training-konfigurator" className="inline-block max-w-xs sm:max-w-none">

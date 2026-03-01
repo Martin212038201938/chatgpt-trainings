@@ -13,7 +13,7 @@ const PromptBibliothekenQuatsch = () => {
   const author = getAuthor("martin-lang");
 
   const ids = generateSchemaIds(SLUG, 'wissen');
-  const pageUrl = `https://copilotenschule.de/wissen/${SLUG}`;
+  const pageUrl = `https://chatgpt-trainings.de/wissen/${SLUG}`;
   const breadcrumbItems = generateWissenBreadcrumbItems(PAGE_TITLE, pageUrl);
 
   const tableOfContents = [
@@ -55,7 +55,7 @@ const PromptBibliothekenQuatsch = () => {
         "description": "Prompt-Listen klingen gut, bringen aber wenig. Erfahren Sie, warum echtes Prompting-Training und Copilot-Agenten die besseren Alternativen sind.",
         "author": getAuthorSchemaMarkup(author),
         "publisher": {
-          "@id": "https://copilotenschule.de/#organization"
+          "@id": "https://chatgpt-trainings.de/#organization"
         },
         "datePublished": "2026-02-03",
         "dateModified": "2026-02-03",
@@ -94,7 +94,7 @@ const PromptBibliothekenQuatsch = () => {
   return (
     <>
       <SEOHead
-        title="Warum Prompt-Bibliotheken Quatsch sind | Copilotenschule"
+        title="Warum Prompt-Bibliotheken Quatsch sind | ChatGPT-Trainings"
         description="Prompt-Listen klingen gut, bringen aber wenig. Erfahren Sie, warum echtes Prompting-Training und Copilot-Agenten die besseren Alternativen sind."
         keywords={["Prompt Bibliothek", "Prompting Training", "Copilot Agenten", "KI Training", "Prompt Engineering", "Copilot Training"]}
         canonicalUrl={pageUrl}

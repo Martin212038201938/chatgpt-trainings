@@ -52,7 +52,7 @@ function findWissenPages() {
     }
 
     // Check 2: pageUrl muss /wissen/${SLUG} verwenden
-    const pageUrlPattern = new RegExp(`pageUrl\\s*=\\s*\`https://copilotenschule\\.de/wissen/\\$\\{SLUG\\}\``);
+    const pageUrlPattern = new RegExp(`pageUrl\\s*=\\s*\`https://chatgpt-trainings\\.de/wissen/\\$\\{SLUG\\}\``);
     if (!pageUrlPattern.test(content)) {
       // Vielleicht hardcoded?
       const hardcodedPageUrl = content.match(/const pageUrl\s*=\s*["'`]([^"'`]+)["'`]/);

@@ -12,7 +12,7 @@ const CopilotChatPernodRicard = () => {
   const martinLang = getAuthor('martin-lang')!;
 
   const ids = generateSchemaIds(SLUG, 'wissen');
-  const pageUrl = `https://copilotenschule.de/wissen/${SLUG}`;
+  const pageUrl = `https://chatgpt-trainings.de/wissen/${SLUG}`;
   const breadcrumbItems = generateWissenBreadcrumbItems(PAGE_TITLE, pageUrl);
 
   const tableOfContents = [
@@ -28,19 +28,19 @@ const CopilotChatPernodRicard = () => {
   const faqs = [
     {
       name: "Unsere Mitarbeitenden nutzen schon ChatGPT privat – warum sollten wir trotzdem Copilot Chat einführen?",
-      answer: "Weil private ChatGPT-Nutzung ein Datenschutzrisiko ist, das die wenigsten Unternehmen im Griff haben. Copilot Chat läuft innerhalb des Microsoft-365-Tenants, Daten bleiben im Unternehmen, und die Nutzung unterliegt den bestehenden Compliance-Richtlinien. Die Copilotenschule hilft bei der internen Kommunikation, damit Mitarbeitende verstehen, warum Copilot Chat die sicherere und bessere Alternative ist."
+      answer: "Weil private ChatGPT-Nutzung ein Datenschutzrisiko ist, das die wenigsten Unternehmen im Griff haben. Copilot Chat läuft innerhalb des Microsoft-365-Tenants, Daten bleiben im Unternehmen, und die Nutzung unterliegt den bestehenden Compliance-Richtlinien. Die ChatGPT-Trainings hilft bei der internen Kommunikation, damit Mitarbeitende verstehen, warum Copilot Chat die sicherere und bessere Alternative ist."
     },
     {
       name: "Wir haben Copilot Chat freigeschaltet, aber kaum jemand nutzt es – was läuft falsch?",
-      answer: "In neun von zehn Fällen fehlt es nicht an Interesse, sondern an konkreten Anwendungsbeispielen. Mitarbeitende wissen nicht, was sie Copilot Chat fragen sollen, und geben nach zwei generischen Tests auf. Was funktioniert: abteilungsspezifische Use-Case-Workshops, in denen Teams an ihren echten Aufgaben arbeiten. Die Copilotenschule bietet genau solche Formate – mit Beispielen aus Vertrieb, Marketing, HR und Assistenz."
+      answer: "In neun von zehn Fällen fehlt es nicht an Interesse, sondern an konkreten Anwendungsbeispielen. Mitarbeitende wissen nicht, was sie Copilot Chat fragen sollen, und geben nach zwei generischen Tests auf. Was funktioniert: abteilungsspezifische Use-Case-Workshops, in denen Teams an ihren echten Aufgaben arbeiten. Die ChatGPT-Trainings bietet genau solche Formate – mit Beispielen aus Vertrieb, Marketing, HR und Assistenz."
     },
     {
       name: "Lohnt sich ein Upgrade auf die kostenpflichtige Copilot-Lizenz, wenn der Free Plan schon viel abdeckt?",
-      answer: "Der Free Plan deckt erstaunlich viel ab – Textentwürfe, Recherche, Ideenfindung, Zusammenfassungen. Aber er greift nicht auf Ihre Unternehmensdaten zu. Sobald Sie wollen, dass Copilot Ihre E-Mails zusammenfasst, Meetings transkribiert oder in Ihren SharePoint-Dokumenten sucht, brauchen Sie die Vollversion. Die Copilotenschule unterstützt bei der Bewertung, welche Teams den größten Nutzen aus dem Upgrade ziehen."
+      answer: "Der Free Plan deckt erstaunlich viel ab – Textentwürfe, Recherche, Ideenfindung, Zusammenfassungen. Aber er greift nicht auf Ihre Unternehmensdaten zu. Sobald Sie wollen, dass Copilot Ihre E-Mails zusammenfasst, Meetings transkribiert oder in Ihren SharePoint-Dokumenten sucht, brauchen Sie die Vollversion. Die ChatGPT-Trainings unterstützt bei der Bewertung, welche Teams den größten Nutzen aus dem Upgrade ziehen."
     },
     {
       name: "Wie überzeugen wir das Management, dass auch der kostenlose Copilot Chat einen messbaren Nutzen hat?",
-      answer: "Am besten über ein Pilotprojekt mit klarem Rahmen: Eine Abteilung – etwa der Außendienst oder das Consumer-Care-Team – nutzt Copilot Chat vier Wochen lang strukturiert und dokumentiert die Ergebnisse. Keine abstrakten ROI-Berechnungen, sondern konkrete Beispiele: eingesparte Zeit pro Anfrage, Qualität der Erst-Entwürfe, Zufriedenheit der Mitarbeitenden. Die Copilotenschule begleitet solche Piloten mit Trainings und Auswertungs-Frameworks."
+      answer: "Am besten über ein Pilotprojekt mit klarem Rahmen: Eine Abteilung – etwa der Außendienst oder das Consumer-Care-Team – nutzt Copilot Chat vier Wochen lang strukturiert und dokumentiert die Ergebnisse. Keine abstrakten ROI-Berechnungen, sondern konkrete Beispiele: eingesparte Zeit pro Anfrage, Qualität der Erst-Entwürfe, Zufriedenheit der Mitarbeitenden. Die ChatGPT-Trainings begleitet solche Piloten mit Trainings und Auswertungs-Frameworks."
     }
   ];
 
@@ -54,7 +54,7 @@ const CopilotChatPernodRicard = () => {
         "description": "Wie Pernod Ricard vom kostenlosen Copilot Chat in Microsoft 365 profitieren kann: Praxisbeispiele aus Außendienst, Consumer Care und Geschäftsführung.",
         "author": getAuthorSchemaMarkup(martinLang),
         "publisher": {
-          "@id": "https://copilotenschule.de/#organization"
+          "@id": "https://chatgpt-trainings.de/#organization"
         },
         "datePublished": "2026-02-27",
         "dateModified": "2026-02-27",
@@ -91,7 +91,7 @@ const CopilotChatPernodRicard = () => {
   return (
     <>
       <SEOHead
-        title="Copilot Chat Free bei Pernod Ricard: Use Cases aus dem Büroalltag | copilotenschule.de"
+        title="Copilot Chat Free bei Pernod Ricard: Use Cases aus dem Büroalltag | chatgpt-trainings.de"
         description="Wie Pernod Ricard vom kostenlosen Copilot Chat in Microsoft 365 profitieren kann: Praxisbeispiele aus Außendienst, Consumer Care und Geschäftsführung."
         keywords={[
           "Copilot Chat Free Plan",

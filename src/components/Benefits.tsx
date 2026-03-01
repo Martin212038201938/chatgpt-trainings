@@ -38,7 +38,7 @@ const benefits = [
   {
     icon: Medal,
     title: "Über ein Jahrzehnt Erfahrung",
-    description: "Die copilotenschule.de ist eine Marke der 2011 gegründeten Yellow-Boat Consulting. Seit über einem Jahrzehnt realisieren wir Agile Trainings und Digitalisierungsprojekte in Konzernen und im Mittelstand. Seit 2023 liegt ein starker Fokus auf praxisnahen Copilot-Anwendertrainings für Microsoft 365 Copilot und GitHub Copilot."
+    description: "Die chatgpt-trainings.de ist eine Marke der 2011 gegründeten Yellow-Boat Consulting. Seit über einem Jahrzehnt realisieren wir Agile Trainings und Digitalisierungsprojekte in Konzernen und im Mittelstand. Seit 2023 liegt ein starker Fokus auf praxisnahen Copilot-Anwendertrainings für Microsoft 365 Copilot und GitHub Copilot."
   }
 ];
 
@@ -123,7 +123,7 @@ const Benefits = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-8 sm:mb-16 animate-fade-in">
           <h2 className="text-2xl sm:text-4xl font-bold mb-4 animate-slide-up">
-            Warum die Copilotenschule die beste Partnerin zur Einführung des Microsoft Copiloten ist
+            Warum die ChatGPT-Trainings die beste Partnerin zur Einführung des Microsoft Copiloten ist
           </h2>
         </div>
 

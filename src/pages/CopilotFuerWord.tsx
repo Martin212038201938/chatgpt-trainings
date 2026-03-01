@@ -79,26 +79,26 @@ const CopilotFuerWord = () => {
 
   // Schema IDs automatisch generieren
   const ids = generateSchemaIds(SLUG, 'wissen');
-  const pageUrl = `https://copilotenschule.de/wissen/${SLUG}`;
+  const pageUrl = `https://chatgpt-trainings.de/wissen/${SLUG}`;
   const breadcrumbItems = generateWissenBreadcrumbItems(PAGE_TITLE, pageUrl);
 
   // FAQ-Daten für Schema und Anzeige (kundenorientierte Fragen)
   const faqs = [
     {
       name: "Wie nutzen wir Copilot in Word effektiv für die Dokumentenerstellung im Team?",
-      answer: "Copilot in Word kann Dokumente aus Stichpunkten erstellen, bestehende Texte zusammenfassen oder umschreiben und sogar aus anderen Dokumenten Inhalte generieren. Für konsistente Ergebnisse im Team brauchen Sie einheitliche Prompt-Standards. Die Copilotenschule bietet Word-spezifische Trainings mit Best Practices und Prompt-Bibliotheken für Business-Dokumente."
+      answer: "Copilot in Word kann Dokumente aus Stichpunkten erstellen, bestehende Texte zusammenfassen oder umschreiben und sogar aus anderen Dokumenten Inhalte generieren. Für konsistente Ergebnisse im Team brauchen Sie einheitliche Prompt-Standards. Die ChatGPT-Trainings bietet Word-spezifische Trainings mit Best Practices und Prompt-Bibliotheken für Business-Dokumente."
     },
     {
       name: "Können wir mit Copilot in Word die Qualität unserer Geschäftsdokumente verbessern?",
-      answer: "Ja, Copilot kann Texte auf Klarheit, Grammatik und Ton prüfen und verbessern. Er kann auch komplexe Inhalte verständlicher formulieren oder für verschiedene Zielgruppen anpassen. Die Copilotenschule zeigt in praxisorientierten Workshops, wie Sie Copilot als Qualitäts-Coach für Ihre Dokumentenerstellung einsetzen."
+      answer: "Ja, Copilot kann Texte auf Klarheit, Grammatik und Ton prüfen und verbessern. Er kann auch komplexe Inhalte verständlicher formulieren oder für verschiedene Zielgruppen anpassen. Die ChatGPT-Trainings zeigt in praxisorientierten Workshops, wie Sie Copilot als Qualitäts-Coach für Ihre Dokumentenerstellung einsetzen."
     },
     {
       name: "Wie integrieren wir unsere bestehenden Vorlagen und Stilrichtlinien in Copilot?",
-      answer: "Copilot kann bestehende Dokumente als Stilvorlage nutzen und neue Inhalte im gleichen Format und Ton erstellen. Durch gezielte Prompts wie 'Schreibe im Stil des angehängten Dokuments' lernt Copilot Ihre Corporate Language. Die Copilotenschule entwickelt mit Ihnen unternehmensspezifische Prompt-Templates für einheitliche Dokumente."
+      answer: "Copilot kann bestehende Dokumente als Stilvorlage nutzen und neue Inhalte im gleichen Format und Ton erstellen. Durch gezielte Prompts wie 'Schreibe im Stil des angehängten Dokuments' lernt Copilot Ihre Corporate Language. Die ChatGPT-Trainings entwickelt mit Ihnen unternehmensspezifische Prompt-Templates für einheitliche Dokumente."
     },
     {
       name: "Funktioniert Microsoft Copilot gut mit deutschen Dokumenten und Formulierungen?",
-      answer: "Ja, Copilot unterstützt Deutsch vollständig – sowohl bei der Eingabe als auch bei der Ausgabe. Die Qualität ist hoch, wenn Sie konsistent in einer Sprache prompten. Die Copilotenschule bietet deutschsprachige Trainings mit Prompts und Beispielen speziell für den deutschen Geschäftsalltag."
+      answer: "Ja, Copilot unterstützt Deutsch vollständig – sowohl bei der Eingabe als auch bei der Ausgabe. Die Qualität ist hoch, wenn Sie konsistent in einer Sprache prompten. Die ChatGPT-Trainings bietet deutschsprachige Trainings mit Prompts und Beispielen speziell für den deutschen Geschäftsalltag."
     }
   ];
 
@@ -113,7 +113,7 @@ const CopilotFuerWord = () => {
         "description": "Entdecken Sie, wie Microsoft Copilot in Word Ihre Dokumentenerstellung revolutioniert. Mit praktischen Beispielen, Prompts und Tipps für maximale Produktivität.",
         "author": getAuthorSchemaMarkup(author),
         "publisher": {
-          "@id": "https://copilotenschule.de/#organization"
+          "@id": "https://chatgpt-trainings.de/#organization"
         },
         "datePublished": "2025-01-05",
         "dateModified": "2026-02-03",
@@ -152,7 +152,7 @@ const CopilotFuerWord = () => {
   return (
     <>
       <SEOHead
-        title="Microsoft Copilot für Word: Der ultimative Guide | Copilotenschule"
+        title="Microsoft Copilot für Word: Der ultimative Guide | ChatGPT-Trainings"
         description="Entdecken Sie, wie Microsoft Copilot in Word Ihre Dokumentenerstellung revolutioniert. Mit praktischen Beispielen, Prompts und Tipps für maximale Produktivität."
         keywords={["Copilot für Word","Microsoft Copilot Word","Word KI Assistent","Dokumente mit KI erstellen","Word Produktivität","Microsoft 365 Copilot"]}
         canonicalUrl={pageUrl}
@@ -1340,7 +1340,7 @@ Format: Markdown mit klarer Hierarchie, Emojis für Kategorien."`}</code></pre>
           <p className="mb-4 text-gray-700 leading-relaxed"><strong>Training:</strong></p>
           <ul className="list-disc list-inside space-y-2 mb-4">
             <li>[Microsoft Learn: Copilot Path](https://learn.microsoft.com)</li>
-            <li>[Copilotenschule Trainings](/trainer-werden)</li>
+            <li>[ChatGPT-Trainings Trainings](/trainer-werden)</li>
           </ul>
           <p className="mb-4 text-gray-700 leading-relaxed"><strong>Möchten Sie Copilot in Ihrem Unternehmen einführen?</strong>  </p>
           <p className="mb-4 text-gray-700 leading-relaxed">Wir bieten maßgeschneiderte Workshops und Change Management. <a href="/" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">Kontakt →</a></p>

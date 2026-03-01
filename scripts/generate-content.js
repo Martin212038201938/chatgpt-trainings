@@ -608,7 +608,7 @@ function generateMetadata(component, transcript) {
 
   return {
     id: slug,
-    title: title.replace(' | Copilotenschule', ''),
+    title: title.replace(' | ChatGPT-Trainings', ''),
     description,
     content: isMarkdown ? component : 'IMPORTED FROM TSX FILE',
     contentType: isMarkdown ? 'markdown' : 'code',

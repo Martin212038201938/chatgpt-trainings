@@ -25,8 +25,8 @@ const Contact = () => {
       const referrer = document.referrer;
       if (referrer && referrer.length > 0) {
         const url = new URL(referrer);
-        // Nur interne Seiten erfassen (copilotenschule.de oder localhost)
-        if (url.hostname.includes('copilotenschule.de') ||
+        // Nur interne Seiten erfassen (chatgpt-trainings.de oder localhost)
+        if (url.hostname.includes('chatgpt-trainings.de') ||
             url.hostname === 'localhost' ||
             url.hostname === '127.0.0.1') {
           // Speichere den Pfad (z.B. /copilot-studio oder /wissen/copilot-fuer-word)
@@ -92,7 +92,7 @@ const Contact = () => {
       console.error('Error submitting form:', error);
       toast({
         title: "Fehler",
-        description: error instanceof Error ? error.message : "Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut oder kontaktieren Sie uns direkt unter info@copilotenschule.de",
+        description: error instanceof Error ? error.message : "Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut oder kontaktieren Sie uns direkt unter info@chatgpt-trainings.de",
         variant: "destructive",
       });
     } finally {
@@ -256,8 +256,8 @@ const Contact = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1">E-Mail</h3>
-                  <a href="mailto:info@copilotenschule.de" className="text-muted-foreground hover:text-primary transition-colors">
-                    info@copilotenschule.de
+                  <a href="mailto:info@chatgpt-trainings.de" className="text-muted-foreground hover:text-primary transition-colors">
+                    info@chatgpt-trainings.de
                   </a>
                 </div>
               </div>

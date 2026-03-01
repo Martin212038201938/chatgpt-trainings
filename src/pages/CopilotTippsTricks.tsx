@@ -24,7 +24,7 @@ const CopilotTippsTricks = () => {
   ];
 
   const ids = generateSchemaIds(SLUG, 'wissen');
-  const pageUrl = `https://copilotenschule.de/wissen/${SLUG}`;
+  const pageUrl = `https://chatgpt-trainings.de/wissen/${SLUG}`;
   const breadcrumbItems = generateWissenBreadcrumbItems(PAGE_TITLE, pageUrl);
 
   const faqs = [
@@ -56,7 +56,7 @@ const CopilotTippsTricks = () => {
         "description": "22 praxiserprobte Tipps für Microsoft 365 Copilot: Word, Excel, PowerPoint, Outlook und Teams. Sofort umsetzbare Tricks für mehr Produktivität im Büroalltag.",
         "author": getAuthorSchemaMarkup(author),
         "publisher": {
-          "@id": "https://copilotenschule.de/#organization"
+          "@id": "https://chatgpt-trainings.de/#organization"
         },
         "datePublished": "2025-11-18",
         "dateModified": "2026-02-03",
@@ -687,7 +687,7 @@ const CopilotTippsTricks = () => {
                 color: "purple"
               },
               {
-                href: "https://copilotenschule.de/wissen/prompt-engineering",
+                href: "https://chatgpt-trainings.de/wissen/prompt-engineering",
                 title: "Prompt Engineering Guide",
                 desc: "Vertiefte Prompt-Techniken",
                 color: "cyan"

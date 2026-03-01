@@ -72,9 +72,9 @@ const BecomeTrainer = () => {
   return (
     <div className="min-h-screen">
       <SEOHead
-        title="Trainer werden bei copilotenschule.de"
+        title="Trainer werden bei chatgpt-trainings.de"
         description="Werden Sie Teil unseres Trainer-Netzwerks für Microsoft Copilot Schulungen. Drei Wege zum Trainer: KI-Praktiker, erfahrene Trainer oder Unternehmen."
-        canonicalUrl="https://copilotenschule.de/trainer-werden"
+        canonicalUrl="https://chatgpt-trainings.de/trainer-werden"
       />
       <Header />
       <main className="pt-16">
@@ -86,7 +86,7 @@ const BecomeTrainer = () => {
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-5xl lg:text-7xl font-semibold tracking-tight leading-[1.1]">
-                Trainer der <span className="text-primary">Copilotenschule</span> werden
+                Trainer der <span className="text-primary">ChatGPT-Trainings</span> werden
               </h1>
               <p className="mt-6 text-xl text-muted-foreground max-w-3xl mx-auto animate-slide-up-delayed">
                 Werden Sie Teil unseres Teams und bringen Sie Ihre KI-Expertise in die
@@ -199,7 +199,7 @@ const BecomeTrainer = () => {
                     <div>
                       <h3 className="text-xl font-bold mb-3">Über uns</h3>
                       <p className="text-muted-foreground">
-                        Die Copilotenschule ist spezialisiert auf die Einführung und Weiterqualifizierungen
+                        Die ChatGPT-Trainings ist spezialisiert auf die Einführung und Weiterqualifizierungen
                         im Umfeld der Microsoft Copiloten. Im Gegensatz zu anderen Anbietern bieten wir den
                         Teilnehmern keinen Bauchladen an Tools an, die in ihrem Umfeld nicht compliant oder
                         wertschöpfend sind.

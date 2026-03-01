@@ -48,12 +48,12 @@ const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2 flex-shrink-0">
             <img
-              src="/images/copilotenschule_flugzeug.png"
-              alt="Copilotenschule Logo"
+              src="/images/chatgpt-trainings-logo.png"
+              alt="ChatGPT-Trainings Logo"
               className="h-10 sm:h-12 w-auto object-contain"
             />
             <span className="text-lg sm:text-xl font-bold text-foreground hidden xs:inline">
-              Copilotenschule.de
+              ChatGPT-Trainings.de
             </span>
           </Link>
 

@@ -25,7 +25,7 @@ const TrainingModules = () => {
               Ihr Training, Ihre Module – individuell zusammengestellt
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto mb-6">
-              Bei der Copilotenschule können Sie Ihr Microsoft Copilot Training aus einzelnen Modulen
+              Bei der ChatGPT-Trainings können Sie Ihr Microsoft Copilot Training aus einzelnen Modulen
               selbst zusammenstellen – exakt auf die Bedürfnisse Ihres Teams zugeschnitten.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center max-w-md sm:max-w-none mx-auto">

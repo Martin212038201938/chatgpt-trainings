@@ -12,7 +12,7 @@ const CopilotRoiBerechnen = () => {
   const author = getAuthor("martin-lang");
 
   const ids = generateSchemaIds(SLUG, 'wissen');
-  const pageUrl = `https://copilotenschule.de/wissen/${SLUG}`;
+  const pageUrl = `https://chatgpt-trainings.de/wissen/${SLUG}`;
   const breadcrumbItems = generateWissenBreadcrumbItems(PAGE_TITLE, pageUrl);
 
   const tableOfContents = [
@@ -33,19 +33,19 @@ const CopilotRoiBerechnen = () => {
   const faqs = [
     {
       name: "Wie überzeuge ich das Management, in Microsoft Copilot zu investieren?",
-      answer: "Mit einem fundierten Business Case: Berechnen Sie konkrete Zeiteinsparungen pro Mitarbeiter, multiplizieren Sie mit Stundensätzen und stellen Sie diese den Lizenzkosten (30 EUR/Monat) gegenüber. Die Copilotenschule bietet ROI-Rechner und Business-Case-Templates, die überzeugende Argumentationen für das Management liefern."
+      answer: "Mit einem fundierten Business Case: Berechnen Sie konkrete Zeiteinsparungen pro Mitarbeiter, multiplizieren Sie mit Stundensätzen und stellen Sie diese den Lizenzkosten (30 EUR/Monat) gegenüber. Die ChatGPT-Trainings bietet ROI-Rechner und Business-Case-Templates, die überzeugende Argumentationen für das Management liefern."
     },
     {
       name: "Wie berechne ich den ROI von Microsoft Copilot für unser Unternehmen realistisch?",
-      answer: "Der ROI ergibt sich aus: (Zeitersparnis × Stundensatz × Nutzerzahl) - Lizenzkosten - Implementierungskosten. Microsoft-Studien zeigen 1,2 Stunden Zeitersparnis pro Nutzer/Woche. Die Copilotenschule unterstützt Sie mit Excel-Vorlagen und branchenspezifischen Benchmarks für realistische ROI-Berechnungen."
+      answer: "Der ROI ergibt sich aus: (Zeitersparnis × Stundensatz × Nutzerzahl) - Lizenzkosten - Implementierungskosten. Microsoft-Studien zeigen 1,2 Stunden Zeitersparnis pro Nutzer/Woche. Die ChatGPT-Trainings unterstützt Sie mit Excel-Vorlagen und branchenspezifischen Benchmarks für realistische ROI-Berechnungen."
     },
     {
       name: "Wann amortisiert sich die Copilot-Investition typischerweise?",
-      answer: "Bei durchschnittlichen Produktivitätsgewinnen amortisiert sich Copilot innerhalb von 3-6 Monaten. Der Break-even liegt bei etwa 2-3 Stunden Zeitersparnis pro Nutzer und Monat. Die Copilotenschule hilft Ihnen, realistische Szenarien für Ihre Branche und Unternehmensstruktur zu entwickeln."
+      answer: "Bei durchschnittlichen Produktivitätsgewinnen amortisiert sich Copilot innerhalb von 3-6 Monaten. Der Break-even liegt bei etwa 2-3 Stunden Zeitersparnis pro Nutzer und Monat. Die ChatGPT-Trainings hilft Ihnen, realistische Szenarien für Ihre Branche und Unternehmensstruktur zu entwickeln."
     },
     {
       name: "Welche KPIs sollten wir für die Copilot-Erfolgsmessung definieren?",
-      answer: "Messen Sie quantitativ: Nutzungsrate, Time-to-Completion bei Standardtasks, Dokumentenerstellungszeit. Qualitativ: Mitarbeiterzufriedenheit, Dokumentenqualität, Innovationsrate. Die Copilotenschule entwickelt mit Ihnen ein KPI-Framework und unterstützt beim Aufbau eines Adoption-Dashboards."
+      answer: "Messen Sie quantitativ: Nutzungsrate, Time-to-Completion bei Standardtasks, Dokumentenerstellungszeit. Qualitativ: Mitarbeiterzufriedenheit, Dokumentenqualität, Innovationsrate. Die ChatGPT-Trainings entwickelt mit Ihnen ein KPI-Framework und unterstützt beim Aufbau eines Adoption-Dashboards."
     }
   ];
 
@@ -59,7 +59,7 @@ const CopilotRoiBerechnen = () => {
         "description": "Konkrete Methoden zur ROI-Berechnung von Microsoft Copilot. Mit Excel-Vorlage, Praxisbeispielen und messbaren KPIs für Ihr Business Case.",
         "author": getAuthorSchemaMarkup(author),
         "publisher": {
-          "@id": "https://copilotenschule.de/#organization"
+          "@id": "https://chatgpt-trainings.de/#organization"
         },
         "datePublished": "2025-11-07",
         "dateModified": "2026-02-03",
@@ -98,7 +98,7 @@ const CopilotRoiBerechnen = () => {
   return (
     <>
       <SEOHead
-        title="Copilot ROI berechnen: Lohnt sich die Investition? | Copilotenschule"
+        title="Copilot ROI berechnen: Lohnt sich die Investition? | ChatGPT-Trainings"
         description="Konkrete Methoden zur ROI-Berechnung von Microsoft Copilot. Mit Excel-Vorlage, Praxisbeispielen und messbaren KPIs für Ihr Business Case."
         keywords={["Copilot ROI","Microsoft Copilot ROI berechnen","Copilot Business Case","Copilot Kosten Nutzen","Return on Investment Copilot","Copilot Produktivitätssteigerung"]}
         canonicalUrl={pageUrl}

@@ -650,7 +650,7 @@ const DraftEditor = ({ draft, onSave, onCancel, initialTab }: DraftEditorProps) 
           messages: [
             {
               role: 'system',
-              content: `Du bist Martin Lang, ein Experte für Microsoft Copilot, KI-unterstützte Büroarbeit und Agile Methoden. Du schreibst SEO-optimierte Wissensartikel für copilotenschule.de.
+              content: `Du bist Martin Lang, ein Experte für Microsoft Copilot, KI-unterstützte Büroarbeit und Agile Methoden. Du schreibst SEO-optimierte Wissensartikel für chatgpt-trainings.de.
 
 Schreibe einen ausführlichen, praxisorientierten Artikel im Markdown-Format mit folgender Struktur:
 
@@ -711,7 +711,7 @@ Beschreibung: ${selectedTopic.description}
 Kontext aus dem Transkript:
 ${transcript}
 
-Schreibe einen vollständigen, praxisorientierten Artikel für copilotenschule.de.`
+Schreibe einen vollständigen, praxisorientierten Artikel für chatgpt-trainings.de.`
             }
           ],
           temperature: 0.7,
@@ -932,7 +932,7 @@ Analysiere dieses Transkript und extrahiere alle strukturierten Daten im JSON-Fo
           messages: [
             {
               role: 'system',
-              content: `Du bist Martin Lang, ein Experte für Microsoft Copilot, KI-unterstützte Büroarbeit und Agile Methoden. Du schreibst hochwertige, praxisorientierte Wissensartikel für copilotenschule.de.
+              content: `Du bist Martin Lang, ein Experte für Microsoft Copilot, KI-unterstützte Büroarbeit und Agile Methoden. Du schreibst hochwertige, praxisorientierte Wissensartikel für chatgpt-trainings.de.
 
 **ARTIKEL-STRUKTUR**:
 
@@ -1029,7 +1029,7 @@ ${contentAnalysis.potentialFAQs.map(faq => `- **${faq.question}** (Hinweise: ${f
 
 **SEO-KEYWORDS**: ${contentAnalysis.seoKeywords.join(', ')}
 
-Schreibe jetzt den vollständigen, praxisorientierten Artikel für copilotenschule.de. Nutze ALLE oben genannten Informationen und integriere sie natürlich in einen wertvollen, lesenswerten Artikel. BEHALTE DAS NIVEAU DES ORIGINALS BEI!`
+Schreibe jetzt den vollständigen, praxisorientierten Artikel für chatgpt-trainings.de. Nutze ALLE oben genannten Informationen und integriere sie natürlich in einen wertvollen, lesenswerten Artikel. BEHALTE DAS NIVEAU DES ORIGINALS BEI!`
             }
           ],
           temperature: 0.7,

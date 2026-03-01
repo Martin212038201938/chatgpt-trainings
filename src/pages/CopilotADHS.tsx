@@ -14,7 +14,7 @@ const CopilotADHS = () => {
   const martinLang = getAuthor('martin-lang')!;
 
   const ids = generateSchemaIds(SLUG, 'wissen');
-  const pageUrl = `https://copilotenschule.de/wissen/${SLUG}`;
+  const pageUrl = `https://chatgpt-trainings.de/wissen/${SLUG}`;
   const breadcrumbItems = generateWissenBreadcrumbItems(PAGE_TITLE, pageUrl);
 
   const tableOfContents = [
@@ -63,7 +63,7 @@ const CopilotADHS = () => {
         "description": "Ein persönlicher Erfahrungsbericht: Wie Microsoft Copilot mir als ADHS-Betroffener hilft, fokussierter und produktiver zu arbeiten - mit konkreten Workflows und ehrlichen Grenzen.",
         "author": getAuthorSchemaMarkup(martinLang),
         "publisher": {
-          "@id": "https://copilotenschule.de/#organization"
+          "@id": "https://chatgpt-trainings.de/#organization"
         },
         "datePublished": "2026-02-05",
         "dateModified": "2026-02-05",
@@ -100,7 +100,7 @@ const CopilotADHS = () => {
   return (
     <>
       <SEOHead
-        title="Microsoft Copilot und ADHS: Wie KI mir hilft, fokussierter zu arbeiten | copilotenschule.de"
+        title="Microsoft Copilot und ADHS: Wie KI mir hilft, fokussierter zu arbeiten | chatgpt-trainings.de"
         description="Ein persönlicher Erfahrungsbericht: Wie Microsoft Copilot mir als ADHS-Betroffener hilft, fokussierter und produktiver zu arbeiten - mit konkreten Workflows und ehrlichen Grenzen."
         keywords={[
           "ADHS Produktivität",

@@ -38,12 +38,12 @@ export const authors: Record<string, Author> = {
     qualifications: [
       'Über 14 Jahre Erfahrung in digitaler Transformation',
       'Gründer Yellow-Boat Consulting (2011)',
-      'Gründer copilotenschule.de (2025)',
+      'Gründer chatgpt-trainings.de (2025)',
       'Certified Scrum Master',
       'Agile Coach',
       'Microsoft Copilot Trainer'
     ],
-    bio: 'Martin Lang ist Gründer der Yellow-Boat Consulting (2011) und der copilotenschule.de (2025). Seit über einem Jahrzehnt realisiert er Agile Trainings und Digitalisierungsprojekte in Konzernen und im Mittelstand. Als Microsoft Copilot Experte befähigt er Wissensarbeiter, Teams und Organisationen, Microsoft Copilot produktiv, sicher und wertschöpfend im Arbeitsalltag einzusetzen. Sein praxisorientierter Trainingsansatz verbindet reale Arbeitsprozesse mit direkt anwendbaren Workflows.',
+    bio: 'Martin Lang ist Gründer der Yellow-Boat Consulting (2011) und der chatgpt-trainings.de (2025). Seit über einem Jahrzehnt realisiert er Agile Trainings und Digitalisierungsprojekte in Konzernen und im Mittelstand. Als Microsoft Copilot Experte befähigt er Wissensarbeiter, Teams und Organisationen, Microsoft Copilot produktiv, sicher und wertschöpfend im Arbeitsalltag einzusetzen. Sein praxisorientierter Trainingsansatz verbindet reale Arbeitsprozesse mit direkt anwendbaren Workflows.',
     image: '/images/authors/martin-lang.png',
     linkedin: 'https://www.linkedin.com/in/martin-lang-a95b1010',
     email: 'martin@yellow-boat.com',
@@ -67,14 +67,14 @@ export const getAuthor = (authorId: string): Author | undefined => {
 export const getAuthorSchemaMarkup = (author: Author) => {
   return {
     '@type': 'Person',
-    '@id': `https://copilotenschule.de/#${author.id}`,
+    '@id': `https://chatgpt-trainings.de/#${author.id}`,
     'name': author.name,
-    'url': `https://copilotenschule.de/trainer/${author.id}`,
+    'url': `https://chatgpt-trainings.de/trainer/${author.id}`,
     'jobTitle': author.role,
     'description': author.bio,
     'image': {
       '@type': 'ImageObject',
-      'url': `https://copilotenschule.de${author.image}`,
+      'url': `https://chatgpt-trainings.de${author.image}`,
       'width': 400,
       'height': 400
     },
@@ -86,7 +86,7 @@ export const getAuthorSchemaMarkup = (author: Author) => {
     })),
     'sameAs': author.sameAs,
     'worksFor': {
-      '@id': 'https://copilotenschule.de/#organization'
+      '@id': 'https://chatgpt-trainings.de/#organization'
     },
     ...(author.email && { 'email': `mailto:${author.email}` })
   };
@@ -99,12 +99,12 @@ export const getAuthorSchemaMarkup = (author: Author) => {
 export const getPublisherSchema = () => {
   return {
     '@type': 'Organization',
-    '@id': 'https://copilotenschule.de/#organization',
-    'name': 'copilotenschule.de',
-    'url': 'https://copilotenschule.de',
+    '@id': 'https://chatgpt-trainings.de/#organization',
+    'name': 'chatgpt-trainings.de',
+    'url': 'https://chatgpt-trainings.de',
     'logo': {
       '@type': 'ImageObject',
-      'url': 'https://copilotenschule.de/logo.png',
+      'url': 'https://chatgpt-trainings.de/logo.png',
       'width': 600,
       'height': 60
     }
@@ -129,25 +129,25 @@ export const getArticleSchema = (options: {
 
   return {
     '@type': 'Article',
-    '@id': `https://copilotenschule.de/wissen/${slug}#article`,
+    '@id': `https://chatgpt-trainings.de/wissen/${slug}#article`,
     'headline': title,
     'description': description,
-    'url': `https://copilotenschule.de/wissen/${slug}`,
+    'url': `https://chatgpt-trainings.de/wissen/${slug}`,
     'datePublished': publishDate,
     'dateModified': modifiedDate || publishDate,
     'author': {
-      '@id': `https://copilotenschule.de/#${author.id}`
+      '@id': `https://chatgpt-trainings.de/#${author.id}`
     },
     'publisher': {
-      '@id': 'https://copilotenschule.de/#organization'
+      '@id': 'https://chatgpt-trainings.de/#organization'
     },
     'mainEntityOfPage': {
       '@type': 'WebPage',
-      '@id': `https://copilotenschule.de/wissen/${slug}`
+      '@id': `https://chatgpt-trainings.de/wissen/${slug}`
     },
     'image': {
       '@type': 'ImageObject',
-      'url': `https://copilotenschule.de/og-image.jpg`
+      'url': `https://chatgpt-trainings.de/og-image.jpg`
     },
     'inLanguage': 'de-DE',
     ...(keywords && keywords.length > 0 && { 'keywords': keywords.join(', ') }),

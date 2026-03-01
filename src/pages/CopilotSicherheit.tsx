@@ -12,7 +12,7 @@ const CopilotSicherheit = () => {
   const martinLang = getAuthor('martin-lang')!;
 
   const ids = generateSchemaIds(SLUG, 'wissen');
-  const pageUrl = `https://copilotenschule.de/wissen/${SLUG}`;
+  const pageUrl = `https://chatgpt-trainings.de/wissen/${SLUG}`;
   const breadcrumbItems = generateWissenBreadcrumbItems(PAGE_TITLE, pageUrl);
 
   const tableOfContents = [
@@ -29,19 +29,19 @@ const CopilotSicherheit = () => {
   const faqs = [
     {
       name: "Unser Datenschutzbeauftragter blockiert die Copilot-Einführung – wie überzeugen wir ihn?",
-      answer: "In den meisten Fällen fehlt dem DSB nicht der Wille, sondern die Dokumentation. Microsoft bietet seit November 2025 das offizielle M365-Kit mit DSFA-Vorlagen, die in Abstimmung mit deutschen Datenschutzbehörden entwickelt wurden. Damit hat Ihr DSB eine belastbare Grundlage. Die Copilotenschule unterstützt bei der Aufbereitung und Kommunikation gegenüber dem Datenschutzbeauftragten – in unseren Compliance-Workshops klären wir genau diese Fragen."
+      answer: "In den meisten Fällen fehlt dem DSB nicht der Wille, sondern die Dokumentation. Microsoft bietet seit November 2025 das offizielle M365-Kit mit DSFA-Vorlagen, die in Abstimmung mit deutschen Datenschutzbehörden entwickelt wurden. Damit hat Ihr DSB eine belastbare Grundlage. Die ChatGPT-Trainings unterstützt bei der Aufbereitung und Kommunikation gegenüber dem Datenschutzbeauftragten – in unseren Compliance-Workshops klären wir genau diese Fragen."
     },
     {
       name: "Wir haben historisch gewachsene SharePoint-Berechtigungen – ist Copilot dann gefährlich?",
-      answer: "Nicht gefährlich, aber entlarvend. Copilot zeigt schonungslos, was in Ihrer Organisation schon immer falsch berechtigt war – nur hat es vorher niemand gemerkt, weil niemand gezielt danach gesucht hat. Das ist kein Copilot-Problem, sondern ein bestehendes Berechtigungsproblem, das Sie ohnehin lösen sollten. Die Copilotenschule empfiehlt, vor dem Rollout einen Access Review durchzuführen und bietet Beratung an, wie Sie das pragmatisch angehen."
+      answer: "Nicht gefährlich, aber entlarvend. Copilot zeigt schonungslos, was in Ihrer Organisation schon immer falsch berechtigt war – nur hat es vorher niemand gemerkt, weil niemand gezielt danach gesucht hat. Das ist kein Copilot-Problem, sondern ein bestehendes Berechtigungsproblem, das Sie ohnehin lösen sollten. Die ChatGPT-Trainings empfiehlt, vor dem Rollout einen Access Review durchzuführen und bietet Beratung an, wie Sie das pragmatisch angehen."
     },
     {
       name: "Können wir Copilot nur für bestimmte Abteilungen freischalten und andere ausschließen?",
-      answer: "Ja, absolut. Sie können Copilot-Lizenzen gezielt an einzelne Nutzer oder Gruppen vergeben. Viele Unternehmen starten mit einer Pilotgruppe – zum Beispiel Marketing und Vertrieb – und rollen erst nach einem erfolgreichen Piloten breiter aus. In den Copilot-Trainings der Copilotenschule arbeiten wir mit genau solchen Pilotgruppen und helfen bei der schrittweisen Einführung."
+      answer: "Ja, absolut. Sie können Copilot-Lizenzen gezielt an einzelne Nutzer oder Gruppen vergeben. Viele Unternehmen starten mit einer Pilotgruppe – zum Beispiel Marketing und Vertrieb – und rollen erst nach einem erfolgreichen Piloten breiter aus. In den Copilot-Trainings der ChatGPT-Trainings arbeiten wir mit genau solchen Pilotgruppen und helfen bei der schrittweisen Einführung."
     },
     {
       name: "Was passiert, wenn ein Mitarbeiter versehentlich vertrauliche Informationen in Copilot eingibt?",
-      answer: "Copilot-Prompts und -Antworten bleiben innerhalb Ihres Microsoft-365-Tenants und werden nicht zum Training von KI-Modellen verwendet. Trotzdem sollten Sie klare Nutzungsrichtlinien kommunizieren, was in Prompts gehört und was nicht. Besonders sensible Daten wie Passwörter oder Kreditkartennummern können durch DLP-Richtlinien in Microsoft Purview automatisch erkannt und blockiert werden. Die Copilotenschule unterstützt bei der Erstellung solcher Richtlinien."
+      answer: "Copilot-Prompts und -Antworten bleiben innerhalb Ihres Microsoft-365-Tenants und werden nicht zum Training von KI-Modellen verwendet. Trotzdem sollten Sie klare Nutzungsrichtlinien kommunizieren, was in Prompts gehört und was nicht. Besonders sensible Daten wie Passwörter oder Kreditkartennummern können durch DLP-Richtlinien in Microsoft Purview automatisch erkannt und blockiert werden. Die ChatGPT-Trainings unterstützt bei der Erstellung solcher Richtlinien."
     }
   ];
 
@@ -55,7 +55,7 @@ const CopilotSicherheit = () => {
         "description": "Kann Copilot alle Firmendaten sehen? Liest Microsoft mit? Was ist mit der DSGVO? Ehrliche Antworten auf die häufigsten Datenschutz-Fragen rund um Microsoft 365 Copilot.",
         "author": getAuthorSchemaMarkup(martinLang),
         "publisher": {
-          "@id": "https://copilotenschule.de/#organization"
+          "@id": "https://chatgpt-trainings.de/#organization"
         },
         "datePublished": "2025-11-11",
         "dateModified": "2026-02-28",
@@ -92,7 +92,7 @@ const CopilotSicherheit = () => {
   return (
     <>
       <SEOHead
-        title="Microsoft Copilot und Datenschutz: Kann die KI jetzt alles sehen? | copilotenschule.de"
+        title="Microsoft Copilot und Datenschutz: Kann die KI jetzt alles sehen? | chatgpt-trainings.de"
         description="Kann Copilot alle Firmendaten sehen? Liest Microsoft mit? Was ist mit der DSGVO? Ehrliche Antworten auf die häufigsten Datenschutz-Fragen rund um Microsoft 365 Copilot."
         keywords={[
           "Copilot Datenschutz",

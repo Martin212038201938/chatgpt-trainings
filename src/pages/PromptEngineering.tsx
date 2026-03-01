@@ -13,7 +13,7 @@ const PromptEngineering = () => {
   const author = getAuthor('martin-lang');
 
   const ids = generateSchemaIds(SLUG, 'wissen');
-  const pageUrl = `https://copilotenschule.de/wissen/${SLUG}`;
+  const pageUrl = `https://chatgpt-trainings.de/wissen/${SLUG}`;
   const breadcrumbItems = generateWissenBreadcrumbItems(PAGE_TITLE, pageUrl);
 
   const tableOfContents = [
@@ -35,7 +35,7 @@ const PromptEngineering = () => {
     },
     {
       name: "Wie können wir die Prompt-Qualität im Unternehmen standardisieren?",
-      answer: "Durch die Einführung von Prompt-Frameworks wie CRAFT (Context, Role, Action, Format, Tone) und unternehmensspezifischen Guidelines. Die Copilotenschule entwickelt mit Ihnen maßgeschneiderte Prompt-Standards für Ihre häufigsten Use Cases."
+      answer: "Durch die Einführung von Prompt-Frameworks wie CRAFT (Context, Role, Action, Format, Tone) und unternehmensspezifischen Guidelines. Die ChatGPT-Trainings entwickelt mit Ihnen maßgeschneiderte Prompt-Standards für Ihre häufigsten Use Cases."
     },
     {
       name: "Brauchen wir wirklich Prompt-Training oder reicht eine Prompt-Bibliothek?",
@@ -57,7 +57,7 @@ const PromptEngineering = () => {
         "description": "Prompt Engineering Masterclass: Das CRAFT-Framework, bewährte Techniken und der Zauberstab-Prompt für bessere Copilot-Ergebnisse.",
         "author": getAuthorSchemaMarkup(author),
         "publisher": {
-          "@id": "https://copilotenschule.de/#organization"
+          "@id": "https://chatgpt-trainings.de/#organization"
         },
         "datePublished": "2025-11-07",
         "dateModified": "2026-02-03",
@@ -96,7 +96,7 @@ const PromptEngineering = () => {
   return (
     <>
       <SEOHead
-        title="Prompt Engineering: Effektive KI-Prompts für Microsoft Copilot | Copilotenschule"
+        title="Prompt Engineering: Effektive KI-Prompts für Microsoft Copilot | ChatGPT-Trainings"
         description="Prompt Engineering Masterclass: Das CRAFT-Framework, bewährte Techniken und der Zauberstab-Prompt für bessere Copilot-Ergebnisse."
         keywords={["Prompt Engineering", "CRAFT Framework", "Microsoft Copilot Prompts", "Prompt Techniken", "KI Prompts", "Copilot Best Practices"]}
         canonicalUrl={pageUrl}

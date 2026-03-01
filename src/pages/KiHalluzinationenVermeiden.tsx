@@ -11,7 +11,7 @@ const KiHalluzinationenVermeiden = () => {
   const martinLang = getAuthor('martin-lang')!;
 
   const ids = generateSchemaIds(SLUG, 'wissen');
-  const pageUrl = `https://copilotenschule.de/wissen/${SLUG}`;
+  const pageUrl = `https://chatgpt-trainings.de/wissen/${SLUG}`;
   const breadcrumbItems = generateWissenBreadcrumbItems(PAGE_TITLE, pageUrl);
 
   const tableOfContents = [
@@ -28,19 +28,19 @@ const KiHalluzinationenVermeiden = () => {
   const faqs = [
     {
       name: "Wie erkenne ich, ob eine KI-Antwort halluziniert ist?",
-      answer: "Achten Sie auf drei Warnsignale: überraschend präzise Zahlen ohne Quellenangabe, Aussagen die zu gut zum eigenen Standpunkt passen, und Formulierungen die sich nicht durch eine kurze Gegenrecherche bestätigen lassen. Im Zweifel hilft ein einfacher Trick: Fragen Sie die KI nach der Quelle. Wenn sie keine nennen kann oder eine erfundene URL liefert, ist Vorsicht geboten. Die Copilotenschule trainiert Teams darin, diese Signale systematisch zu erkennen."
+      answer: "Achten Sie auf drei Warnsignale: überraschend präzise Zahlen ohne Quellenangabe, Aussagen die zu gut zum eigenen Standpunkt passen, und Formulierungen die sich nicht durch eine kurze Gegenrecherche bestätigen lassen. Im Zweifel hilft ein einfacher Trick: Fragen Sie die KI nach der Quelle. Wenn sie keine nennen kann oder eine erfundene URL liefert, ist Vorsicht geboten. Die ChatGPT-Trainings trainiert Teams darin, diese Signale systematisch zu erkennen."
     },
     {
       name: "Kann man Copilot so einstellen, dass er nicht halluziniert?",
-      answer: "Nein, Halluzinationen lassen sich nicht abschalten – sie sind eine Eigenschaft der Technologie, kein Konfigurationsfehler. Was Sie tun können: den Kontext so präzise wie möglich vorgeben, Copilot auf vorhandene Dokumente referenzieren lassen statt frei generieren zu lassen, und bei faktenbasierten Inhalten immer eine Gegenprüfung einbauen. Die Copilotenschule vermittelt diese Techniken in praxisnahen Workshops."
+      answer: "Nein, Halluzinationen lassen sich nicht abschalten – sie sind eine Eigenschaft der Technologie, kein Konfigurationsfehler. Was Sie tun können: den Kontext so präzise wie möglich vorgeben, Copilot auf vorhandene Dokumente referenzieren lassen statt frei generieren zu lassen, und bei faktenbasierten Inhalten immer eine Gegenprüfung einbauen. Die ChatGPT-Trainings vermittelt diese Techniken in praxisnahen Workshops."
     },
     {
       name: "Ist es sinnvoll, KI-Texte von einer anderen KI prüfen zu lassen?",
-      answer: "Ja, wenn man es richtig macht. Der Schlüssel liegt darin, den Prüf-Prompt anders zu formulieren als den Erstellungs-Prompt. Bitten Sie die KI nicht um Bestätigung, sondern um kritische Prüfung: Welche Aussagen sind nicht belegt? Wo fehlen Einschränkungen? Welche Gegenargumente gibt es? So nutzen Sie die Stärke der KI – schnelles Analysieren großer Textmengen – als Qualitätskontrolle. Die Copilotenschule zeigt Ihren Teams, wie sie solche Review-Workflows aufsetzen."
+      answer: "Ja, wenn man es richtig macht. Der Schlüssel liegt darin, den Prüf-Prompt anders zu formulieren als den Erstellungs-Prompt. Bitten Sie die KI nicht um Bestätigung, sondern um kritische Prüfung: Welche Aussagen sind nicht belegt? Wo fehlen Einschränkungen? Welche Gegenargumente gibt es? So nutzen Sie die Stärke der KI – schnelles Analysieren großer Textmengen – als Qualitätskontrolle. Die ChatGPT-Trainings zeigt Ihren Teams, wie sie solche Review-Workflows aufsetzen."
     },
     {
       name: "Wie gehen wir damit um, dass Mitarbeitende KI-Texte ungeprüft übernehmen?",
-      answer: "Das ist weniger ein Technologie- als ein Kulturproblem. In vielen Unternehmen fehlt ein gemeinsames Verständnis davon, wann KI-Output direkt verwendbar ist und wann er geprüft werden muss. Die Lösung: klare Richtlinien nach Risikostufen. Ein interner E-Mail-Entwurf braucht weniger Prüfung als ein Kundenangebot. Ein Brainstorming-Input weniger als eine Vertragsklausel. Die Copilotenschule entwickelt mit Ihnen solche Richtlinien und schult Ihre Teams in der praktischen Anwendung."
+      answer: "Das ist weniger ein Technologie- als ein Kulturproblem. In vielen Unternehmen fehlt ein gemeinsames Verständnis davon, wann KI-Output direkt verwendbar ist und wann er geprüft werden muss. Die Lösung: klare Richtlinien nach Risikostufen. Ein interner E-Mail-Entwurf braucht weniger Prüfung als ein Kundenangebot. Ein Brainstorming-Input weniger als eine Vertragsklausel. Die ChatGPT-Trainings entwickelt mit Ihnen solche Richtlinien und schult Ihre Teams in der praktischen Anwendung."
     }
   ];
 
@@ -54,7 +54,7 @@ const KiHalluzinationenVermeiden = () => {
         "description": "Wie KI-Halluzinationen entstehen, wie man sie vermeidet und wie man KI selbst als Werkzeug zur Qualitätssicherung und Fehlerkorrektur einsetzt.",
         "author": getAuthorSchemaMarkup(martinLang),
         "publisher": {
-          "@id": "https://copilotenschule.de/#organization"
+          "@id": "https://chatgpt-trainings.de/#organization"
         },
         "datePublished": "2026-02-15",
         "dateModified": "2026-02-17",
@@ -91,7 +91,7 @@ const KiHalluzinationenVermeiden = () => {
   return (
     <>
       <SEOHead
-        title="KI-Halluzinationen vermeiden: So wird KI-Output verlässlich | copilotenschule.de"
+        title="KI-Halluzinationen vermeiden: So wird KI-Output verlässlich | chatgpt-trainings.de"
         description="Wie KI-Halluzinationen entstehen, wie man sie durch besseres Prompting vermeidet und wie man KI selbst zur Qualitätssicherung und Fehlerkorrektur einsetzt."
         keywords={[
           "KI Halluzinationen vermeiden",

@@ -152,7 +152,7 @@ const KnowledgePagePreview = ({
     }).format(date);
   };
 
-  const canonicalUrl = `https://copilotenschule.de/wissen/${slug}`;
+  const canonicalUrl = `https://chatgpt-trainings.de/wissen/${slug}`;
   const breadcrumbs = [
     { label: 'Home', href: '/' },
     { label: 'Wissen', href: '/wissen' },

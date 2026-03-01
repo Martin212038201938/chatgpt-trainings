@@ -16,7 +16,7 @@ const CopilotLernreisen = () => {
   const martinLang = getAuthor('martin-lang')!;
 
   const ids = generateSchemaIds(SLUG, 'wissen');
-  const pageUrl = `https://copilotenschule.de/wissen/${SLUG}`;
+  const pageUrl = `https://chatgpt-trainings.de/wissen/${SLUG}`;
   const breadcrumbItems = generateWissenBreadcrumbItems(PAGE_TITLE, pageUrl);
 
   const tableOfContents = [
@@ -50,7 +50,7 @@ const CopilotLernreisen = () => {
       answer: "Ja, sogar besonders gut. 2-Stunden-Blöcke lassen sich hervorragend als Online-Sessions durchführen. Tagesschulungen über 8 Stunden am Bildschirm sind dagegen für alle Beteiligten extrem anstrengend – die Aufmerksamkeit sinkt nach spätestens 90 Minuten drastisch, und die letzten Stunden eines Online-Schulungstages sind meist verschwendete Zeit."
     },
     {
-      name: "Welche Copilot-Trainings bietet die copilotenschule.de als Lernreise an?",
+      name: "Welche Copilot-Trainings bietet die chatgpt-trainings.de als Lernreise an?",
       answer: "Alle unsere Basic-Trainings – von Microsoft 365 Copilot Grundlagen bis zu den App-spezifischen Trainings für Word, Excel, PowerPoint, Outlook und Teams – sind als Lernreise buchbar. Das Format umfasst typischerweise 4×2 Stunden über 4 Wochen, für tiefere Inhalte auch 8×2 Stunden über 8 Wochen. Jede Session baut auf der vorherigen auf und enthält konkrete Praxisaufträge für die Zeit dazwischen."
     }
   ];
@@ -65,7 +65,7 @@ const CopilotLernreisen = () => {
         "description": "Warum Copilot-Lernreisen (4×2 oder 8×2 Stunden) nachhaltiger wirken als ganztägige Schulungen. Wissenschaftliche Grundlagen, Praxis-Szenarien und Entscheidungshilfe für Unternehmen.",
         "author": getAuthorSchemaMarkup(martinLang),
         "publisher": {
-          "@id": "https://copilotenschule.de/#organization"
+          "@id": "https://chatgpt-trainings.de/#organization"
         },
         "datePublished": "2026-02-04",
         "dateModified": "2026-02-04",
@@ -102,7 +102,7 @@ const CopilotLernreisen = () => {
   return (
     <>
       <SEOHead
-        title="Copilot Lernreise vs. Tagesschulung: Warum 4×2 Stunden mehr bringen als 1×8 | copilotenschule.de"
+        title="Copilot Lernreise vs. Tagesschulung: Warum 4×2 Stunden mehr bringen als 1×8 | chatgpt-trainings.de"
         description="Warum Copilot-Lernreisen nachhaltiger wirken als ganztägige Schulungen. Vergessenskurve, Praxistransfer, Kalenderfreundlichkeit – 8 Gründe für verteiltes Lernen."
         keywords={[
           "Copilot Lernreise",

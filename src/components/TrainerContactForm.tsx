@@ -90,7 +90,7 @@ const TrainerContactForm = () => {
       console.error('Error submitting form:', error);
       toast({
         title: "Fehler",
-        description: error instanceof Error ? error.message : "Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut oder kontaktieren Sie uns direkt unter info@copilotenschule.de",
+        description: error instanceof Error ? error.message : "Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut oder kontaktieren Sie uns direkt unter info@chatgpt-trainings.de",
         variant: "destructive",
       });
     } finally {

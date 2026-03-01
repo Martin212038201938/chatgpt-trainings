@@ -12,7 +12,7 @@
 import { FAQ } from "@/data/faqs";
 
 // Base URL for schema IDs
-const BASE_URL = "https://copilotenschule.de";
+const BASE_URL = "https://chatgpt-trainings.de";
 
 /**
  * Schema ID types for different page types
@@ -34,18 +34,18 @@ export interface SchemaIds {
  * // Knowledge page
  * generateSchemaIds("github-copilot", "wissen")
  * // Returns: {
- * //   article: "https://copilotenschule.de/wissen/github-copilot#article",
- * //   faq: "https://copilotenschule.de/wissen/github-copilot#faq",
- * //   breadcrumb: "https://copilotenschule.de/wissen/github-copilot#breadcrumb"
+ * //   article: "https://chatgpt-trainings.de/wissen/github-copilot#article",
+ * //   faq: "https://chatgpt-trainings.de/wissen/github-copilot#faq",
+ * //   breadcrumb: "https://chatgpt-trainings.de/wissen/github-copilot#breadcrumb"
  * // }
  *
  * @example
  * // Training page
  * generateSchemaIds("microsoft-365-copilot-grundlagen", "trainings")
  * // Returns: {
- * //   article: "https://copilotenschule.de/trainings/microsoft-365-copilot-grundlagen#course",
- * //   faq: "https://copilotenschule.de/trainings/microsoft-365-copilot-grundlagen#faq",
- * //   breadcrumb: "https://copilotenschule.de/trainings/microsoft-365-copilot-grundlagen#breadcrumb"
+ * //   article: "https://chatgpt-trainings.de/trainings/microsoft-365-copilot-grundlagen#course",
+ * //   faq: "https://chatgpt-trainings.de/trainings/microsoft-365-copilot-grundlagen#faq",
+ * //   breadcrumb: "https://chatgpt-trainings.de/trainings/microsoft-365-copilot-grundlagen#breadcrumb"
  * // }
  */
 export const generateSchemaIds = (slug: string, type: 'wissen' | 'trainings'): SchemaIds => {
@@ -83,15 +83,15 @@ export interface BreadcrumbItem {
  *
  * @example
  * generateBreadcrumbSchema([
- *   { name: "Startseite", url: "https://copilotenschule.de/" },
- *   { name: "Unsere Angebote", url: "https://copilotenschule.de/unsere-angebote" },
- *   { name: "GitHub Copilot Training", url: "https://copilotenschule.de/trainings/github-copilot-entwickler" }
+ *   { name: "Startseite", url: "https://chatgpt-trainings.de/" },
+ *   { name: "Unsere Angebote", url: "https://chatgpt-trainings.de/unsere-angebote" },
+ *   { name: "GitHub Copilot Training", url: "https://chatgpt-trainings.de/trainings/github-copilot-entwickler" }
  * ])
  */
 export const generateBreadcrumbSchema = (items: BreadcrumbItem[]) => {
   return {
     "@type": "BreadcrumbList",
-    "@id": `${items[items.length - 1]?.url || "https://copilotenschule.de"}#breadcrumb`,
+    "@id": `${items[items.length - 1]?.url || "https://chatgpt-trainings.de"}#breadcrumb`,
     "itemListElement": items.map((item, index) => ({
       "@type": "ListItem",
       "position": index + 1,
@@ -113,11 +113,11 @@ export interface TrainingModule {
  * Critical for LLM citation - enables AI assistants to quote answers directly
  *
  * @param faqs - Array of FAQ objects with question and answer
- * @param pageUrl - Optional page URL for unique @id (e.g., "https://copilotenschule.de/wissen/copilot-roi-berechnen")
- *                  If not provided, falls back to generic "https://copilotenschule.de/#faq"
+ * @param pageUrl - Optional page URL for unique @id (e.g., "https://chatgpt-trainings.de/wissen/copilot-roi-berechnen")
+ *                  If not provided, falls back to generic "https://chatgpt-trainings.de/#faq"
  */
 export const generateFAQPageSchema = (faqs: FAQ[], pageUrl?: string) => {
-  const faqId = pageUrl ? `${pageUrl}#faq` : "https://copilotenschule.de/#faq";
+  const faqId = pageUrl ? `${pageUrl}#faq` : "https://chatgpt-trainings.de/#faq";
   return {
     "@type": "FAQPage",
     "@id": faqId,
@@ -137,7 +137,7 @@ export const generateFAQPageSchema = (faqs: FAQ[], pageUrl?: string) => {
  * Used by knowledge pages that define FAQs inline
  *
  * @param faqs - Array of FAQ objects with name and answer
- * @param faqId - The @id for the FAQPage (e.g., "https://copilotenschule.de/github-copilot#faq")
+ * @param faqId - The @id for the FAQPage (e.g., "https://chatgpt-trainings.de/github-copilot#faq")
  */
 export const generateSimpleFAQSchema = (
   faqs: Array<{ name: string; answer: string }>,
@@ -379,8 +379,8 @@ export const generateCourseSchema = (module: TrainingModule, index: number) => {
     "description": module.description,
     "provider": {
       "@type": "Organization",
-      "name": "copilotenschule.de",
-      "url": "https://copilotenschule.de",
+      "name": "chatgpt-trainings.de",
+      "url": "https://chatgpt-trainings.de",
       "sameAs": [
         "https://www.linkedin.com/company/yellow-boat-consulting"
       ]
@@ -453,7 +453,7 @@ export const generateEducationEventSchema = (module: TrainingModule) => {
     "location": [
       {
         "@type": "VirtualLocation",
-        "url": "https://copilotenschule.de"
+        "url": "https://chatgpt-trainings.de"
       },
       {
         "@type": "Place",
@@ -466,13 +466,13 @@ export const generateEducationEventSchema = (module: TrainingModule) => {
     ],
     "organizer": {
       "@type": "Organization",
-      "name": "copilotenschule.de",
-      "url": "https://copilotenschule.de"
+      "name": "chatgpt-trainings.de",
+      "url": "https://chatgpt-trainings.de"
     },
     "performer": {
       "@type": "Organization",
       "name": "Yellow-Boat Consulting",
-      "url": "https://copilotenschule.de"
+      "url": "https://chatgpt-trainings.de"
     },
     "educationalLevel": "Professional Development",
     "inLanguage": "de-DE",
@@ -502,12 +502,12 @@ export const generateTrainingSchemas = (modules: TrainingModule[], faqs?: FAQ[])
       // Organization - Primary entity for LLM trust
       {
         "@type": "Organization",
-        "@id": "https://copilotenschule.de/#organization",
-        "name": "copilotenschule.de",
-        "alternateName": ["Copilotenschule", "Copiloten Schule"],
-        "url": "https://copilotenschule.de",
-        "logo": "https://copilotenschule.de/og-image.jpg",
-        "description": "copilotenschule.de bietet spezialisierte Weiterbildungen für den professionellen Einsatz von Microsoft Copilot in der täglichen Büroarbeit. Wir befähigen Wissensarbeiter, Teams und Organisationen, Microsoft Copilot produktiv, sicher und wertschöpfend im Arbeitsalltag einzusetzen.",
+        "@id": "https://chatgpt-trainings.de/#organization",
+        "name": "chatgpt-trainings.de",
+        "alternateName": ["ChatGPT-Trainings", "Copiloten Schule"],
+        "url": "https://chatgpt-trainings.de",
+        "logo": "https://chatgpt-trainings.de/og-image.jpg",
+        "description": "chatgpt-trainings.de bietet spezialisierte Weiterbildungen für den professionellen Einsatz von Microsoft Copilot in der täglichen Büroarbeit. Wir befähigen Wissensarbeiter, Teams und Organisationen, Microsoft Copilot produktiv, sicher und wertschöpfend im Arbeitsalltag einzusetzen.",
         "foundingDate": "2025",
         "slogan": "Büroarbeit durch Microsoft Copilot messbar produktiver, wirksamer und menschlicher machen",
         "knowsAbout": [
@@ -550,7 +550,7 @@ export const generateTrainingSchemas = (modules: TrainingModule[], faqs?: FAQ[])
         "contactPoint": {
           "@type": "ContactPoint",
           "contactType": "customer service",
-          "email": "info@copilotenschule.de",
+          "email": "info@chatgpt-trainings.de",
           "telephone": "+49 221 950 187 74",
           "availableLanguage": ["de", "en"],
           "areaServed": "DACH"
@@ -566,26 +566,26 @@ export const generateTrainingSchemas = (modules: TrainingModule[], faqs?: FAQ[])
       // Website
       {
         "@type": "WebSite",
-        "@id": "https://copilotenschule.de/#website",
-        "name": "copilotenschule.de",
-        "url": "https://copilotenschule.de",
+        "@id": "https://chatgpt-trainings.de/#website",
+        "name": "chatgpt-trainings.de",
+        "url": "https://chatgpt-trainings.de",
         "description": "Spezialisierte Weiterbildungen für Microsoft Copilot. Praxis-Trainings, Workshops, Inhouse-Enablement und Coaching für Wissensarbeiter, Teams und Organisationen.",
         "inLanguage": "de-DE",
         "publisher": {
-          "@id": "https://copilotenschule.de/#organization"
+          "@id": "https://chatgpt-trainings.de/#organization"
         },
         "potentialAction": {
           "@type": "SearchAction",
-          "target": "https://copilotenschule.de/wissen?q={search_term_string}",
+          "target": "https://chatgpt-trainings.de/wissen?q={search_term_string}",
           "query-input": "required name=search_term_string"
         }
       },
       // Educational Organization - For training credibility
       {
         "@type": "EducationalOrganization",
-        "@id": "https://copilotenschule.de/#educationalOrganization",
-        "name": "copilotenschule.de",
-        "url": "https://copilotenschule.de",
+        "@id": "https://chatgpt-trainings.de/#educationalOrganization",
+        "name": "chatgpt-trainings.de",
+        "url": "https://chatgpt-trainings.de",
         "description": "Spezialisierte Akademie für Microsoft Copilot Trainings mit klarem Fokus auf die Nutzung von Microsoft Copilot im beruflichen Kontext. Praxisorientierter Trainingsansatz mit realen Arbeitsprozessen und direkt anwendbaren Workflows.",
         "areaServed": "DACH",
         "parentOrganization": {

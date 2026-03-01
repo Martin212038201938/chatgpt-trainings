@@ -13,7 +13,7 @@ const CopilotFehler = () => {
 
   // Schema IDs automatisch generieren
   const ids = generateSchemaIds(SLUG, 'wissen');
-  const pageUrl = `https://copilotenschule.de/wissen/${SLUG}`;
+  const pageUrl = `https://chatgpt-trainings.de/wissen/${SLUG}`;
   const breadcrumbItems = generateWissenBreadcrumbItems(PAGE_TITLE, pageUrl);
 
   const tableOfContents = [
@@ -33,19 +33,19 @@ const CopilotFehler = () => {
   const faqs = [
     {
       name: "Unsere Copilot-Einführung stockt und die Nutzung ist gering – was machen wir falsch?",
-      answer: "Die häufigsten Ursachen sind fehlendes Training, mangelndes Change Management und keine klaren Use Cases. Ohne gezielte Befähigung nutzen Mitarbeiter Copilot nicht oder falsch. Die Copilotenschule bietet Adoption-Programme mit Training, Champions-Konzepten und messbaren Erfolgsmetriken für nachhaltige Nutzungssteigerung."
+      answer: "Die häufigsten Ursachen sind fehlendes Training, mangelndes Change Management und keine klaren Use Cases. Ohne gezielte Befähigung nutzen Mitarbeiter Copilot nicht oder falsch. Die ChatGPT-Trainings bietet Adoption-Programme mit Training, Champions-Konzepten und messbaren Erfolgsmetriken für nachhaltige Nutzungssteigerung."
     },
     {
       name: "Wie vermeiden wir, dass vertrauliche Daten über Copilot ungewollt geteilt werden?",
-      answer: "Implementieren Sie Data Governance vor dem Rollout: Sensitivity Labels, DLP-Policies und klare Zugriffsrechte in SharePoint. Copilot greift nur auf Daten zu, für die Nutzer berechtigt sind. Die Copilotenschule behandelt in Compliance-Trainings die technischen und organisatorischen Maßnahmen für sicheren Copilot-Einsatz."
+      answer: "Implementieren Sie Data Governance vor dem Rollout: Sensitivity Labels, DLP-Policies und klare Zugriffsrechte in SharePoint. Copilot greift nur auf Daten zu, für die Nutzer berechtigt sind. Die ChatGPT-Trainings behandelt in Compliance-Trainings die technischen und organisatorischen Maßnahmen für sicheren Copilot-Einsatz."
     },
     {
       name: "Warum nutzen unsere Mitarbeiter den Copilot kaum, obwohl wir teure Lizenzen bezahlen?",
-      answer: "Geringe Nutzung resultiert meist aus Unsicherheit: Mitarbeiter wissen nicht, wofür und wie sie Copilot einsetzen sollen. Ohne konkrete Anwendungsbeispiele und Prompt-Training bleibt das Potenzial ungenutzt. Die Copilotenschule aktiviert Ihre Teams mit praxisorientierten Use-Case-Workshops und begleiteten Lernreisen."
+      answer: "Geringe Nutzung resultiert meist aus Unsicherheit: Mitarbeiter wissen nicht, wofür und wie sie Copilot einsetzen sollen. Ohne konkrete Anwendungsbeispiele und Prompt-Training bleibt das Potenzial ungenutzt. Die ChatGPT-Trainings aktiviert Ihre Teams mit praxisorientierten Use-Case-Workshops und begleiteten Lernreisen."
     },
     {
       name: "Wie stellen wir sicher, dass Copilot-Antworten in unseren Dokumenten korrekt sind?",
-      answer: "KI kann Halluzinationen erzeugen – plausible, aber falsche Informationen. Etablieren Sie Verifizierungsprozesse: kritische Prüfung bei Zahlen und Fakten, Quellenangaben einfordern, 4-Augen-Prinzip bei wichtigen Dokumenten. Die Copilotenschule schult Ihre Teams in kritischer KI-Nutzung und Quality Assurance."
+      answer: "KI kann Halluzinationen erzeugen – plausible, aber falsche Informationen. Etablieren Sie Verifizierungsprozesse: kritische Prüfung bei Zahlen und Fakten, Quellenangaben einfordern, 4-Augen-Prinzip bei wichtigen Dokumenten. Die ChatGPT-Trainings schult Ihre Teams in kritischer KI-Nutzung und Quality Assurance."
     }
   ];
 
@@ -60,7 +60,7 @@ const CopilotFehler = () => {
         "description": "Microsoft 365 Copilot sicher einführen: DSGVO, Governance, Betriebsrat & Schulung. Praxisleitfaden mit Checklisten für Unternehmen.",
         "author": getAuthorSchemaMarkup(martinLang),
         "publisher": {
-          "@id": "https://copilotenschule.de/#organization"
+          "@id": "https://chatgpt-trainings.de/#organization"
         },
         "datePublished": "2025-11-07",
         "dateModified": "2026-02-02",

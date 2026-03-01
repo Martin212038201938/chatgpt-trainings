@@ -44,7 +44,7 @@ export const trainings: Training[] = [
       "Buchbar als: Halbtag (4h), Ganztag (7h) oder Lernreise (3×2h über 3 Wochen)"
     ],
     tiers: ["free"],
-    metaTitle: "Copilot Grundlagen Training – Prompt Design & KI-Kompetenz | copilotenschule.de",
+    metaTitle: "Copilot Grundlagen Training – Prompt Design & KI-Kompetenz | chatgpt-trainings.de",
     metaDescription: "Lernen Sie effektives Prompt Engineering für Microsoft Copilot. Einsteiger-Training für KI-Assistenten: Prompts formulieren, Outputs bewerten, produktiv arbeiten.",
     keywords: ["Copilot Grundlagen", "Prompt Engineering Training", "KI-Kompetenz Schulung", "Microsoft Copilot Einsteiger", "Prompt Design lernen"],
     faqs: [
@@ -84,7 +84,7 @@ export const trainings: Training[] = [
       "Buchbar als: Halbtag (4h), Ganztag (7h) oder Lernreise (3×2h über 3 Wochen)"
     ],
     tiers: ["paid"],
-    metaTitle: "Microsoft 365 Copilot Training – Word, Excel, PowerPoint, Outlook, Teams | copilotenschule.de",
+    metaTitle: "Microsoft 365 Copilot Training – Word, Excel, PowerPoint, Outlook, Teams | chatgpt-trainings.de",
     metaDescription: "Praxistraining für Microsoft 365 Copilot: Lernen Sie Copilot in Word, Excel, PowerPoint, Outlook und Teams produktiv einzusetzen. Mit echten Workflows.",
     keywords: ["Microsoft 365 Copilot Training", "Copilot Word Excel", "Office Copilot Schulung", "Copilot PowerPoint", "Copilot Outlook Teams"],
     faqs: [
@@ -127,7 +127,7 @@ export const trainings: Training[] = [
       "Buchbar als: 2 Tage intensiv (14h) oder Lernreise (8×2h über 8 Wochen mit Praxisaufgaben)"
     ],
     tiers: ["paid"],
-    metaTitle: "Ausbildung KI-Wissensarbeiter – Intensivtraining Microsoft Copilot | copilotenschule.de",
+    metaTitle: "Ausbildung KI-Wissensarbeiter – Intensivtraining Microsoft Copilot | chatgpt-trainings.de",
     metaDescription: "2-tägige Intensiv-Ausbildung zum KI-unterstützten Wissensarbeiter. Von Grundlagen bis Expertenniveau: 20+ Übungen, alle M365 Apps, Zertifikat.",
     keywords: ["KI Ausbildung", "Wissensarbeiter Training", "Copilot Intensivkurs", "KI-Kompetenz Zertifikat", "Microsoft Copilot Ausbildung"],
     faqs: [
@@ -169,7 +169,7 @@ export const trainings: Training[] = [
       "Team-Konfiguration: Copilot Business/Enterprise Features, Policies, Content Exclusions, Audit Logs"
     ],
     tiers: ["free", "paid"],
-    metaTitle: "GitHub Copilot Training für Entwickler – Coding-Produktivität steigern | copilotenschule.de",
+    metaTitle: "GitHub Copilot Training für Entwickler – Coding-Produktivität steigern | chatgpt-trainings.de",
     metaDescription: "Hands-on GitHub Copilot Training: Code generieren, testen, debuggen und dokumentieren. Für Entwickler-Teams. Mit VS Code, JetBrains, CI/CD-Integration.",
     keywords: ["GitHub Copilot Training", "Entwickler Schulung", "AI Coding", "Copilot VS Code", "GitHub Copilot Unternehmen"],
     faqs: [
@@ -207,7 +207,7 @@ export const trainings: Training[] = [
       "Rechtliche Fallstricke vermeiden: Urheberrecht, Haftungsfragen, Vertragsgestaltung mit Microsoft"
     ],
     tiers: ["free", "paid"],
-    metaTitle: "Copilot Compliance Training – DSGVO & EU AI Act | copilotenschule.de",
+    metaTitle: "Copilot Compliance Training – DSGVO & EU AI Act | chatgpt-trainings.de",
     metaDescription: "Rechtssichere KI-Nutzung mit Microsoft Copilot: DSGVO-Compliance, EU AI Act, Datenschutz-Assessment. Mit Checklisten und Templates.",
     keywords: ["Copilot DSGVO", "KI Compliance Training", "EU AI Act Schulung", "Copilot Datenschutz", "rechtssichere KI-Nutzung"],
     faqs: [
@@ -245,7 +245,7 @@ export const trainings: Training[] = [
       "Best Practices aus erfolgreichen Copilot-Rollouts: Lessons learned, typische Stolpersteine, Erfolgsfaktoren"
     ],
     tiers: ["free", "paid"],
-    metaTitle: "Copilot Strategie Workshop – Rollout & Change Management | copilotenschule.de",
+    metaTitle: "Copilot Strategie Workshop – Rollout & Change Management | chatgpt-trainings.de",
     metaDescription: "Strategischer Copilot-Workshop: ROI berechnen, Rollout planen, Change Management gestalten. Für erfolgreiche Microsoft Copilot Einführung.",
     keywords: ["Copilot Strategie", "Copilot Rollout", "Change Management KI", "Copilot ROI", "Copilot Einführung Unternehmen"],
     faqs: [
@@ -283,7 +283,7 @@ export const trainings: Training[] = [
       "Use Cases aus der Praxis: HR-Assistent, IT-Helpdesk-Agent, Sales-Support-Bot, Onboarding-Assistent"
     ],
     tiers: ["paid"],
-    metaTitle: "Copilot Studio Training – KI-Agenten entwickeln | copilotenschule.de",
+    metaTitle: "Copilot Studio Training – KI-Agenten entwickeln | chatgpt-trainings.de",
     metaDescription: "Entwickeln Sie KI-Agenten mit Microsoft Copilot Studio: Custom Agents, Teams-Integration, Power Automate. Praxis-Training für Unternehmen.",
     keywords: ["Copilot Studio Training", "KI-Agenten entwickeln", "Microsoft Copilot Agents", "Copilot Automatisierung", "Custom Copilot"],
     faqs: [
@@ -322,7 +322,7 @@ export const trainings: Training[] = [
       "Use Cases: HR-Bot, IT-Helpdesk, Onboarding-Assistent, FAQ-Bot, Wissensmanagement-Agent"
     ],
     tiers: ["paid"],
-    metaTitle: "Chatbot-Workshop – KI-Assistenten entwickeln mit Copilot Studio | copilotenschule.de",
+    metaTitle: "Chatbot-Workshop – KI-Assistenten entwickeln mit Copilot Studio | chatgpt-trainings.de",
     metaDescription: "Hands-on Chatbot-Workshop: Entwickeln Sie Ihren ersten Unternehmens-Chatbot mit Microsoft Copilot Studio. Am Ende: fertiger Bot in Teams.",
     keywords: ["Chatbot Workshop", "Copilot Studio Chatbot", "KI-Assistent entwickeln", "Unternehmens-Chatbot", "Teams Bot erstellen"],
     faqs: [
@@ -360,7 +360,7 @@ export const trainings: Training[] = [
       "Praktische Projekte: Von der Idee zur fertigen App – Teilnehmer entwickeln eigene Anwendungen"
     ],
     tiers: ["paid"],
-    metaTitle: "Low-Code Training – Power Platform mit Copilot | copilotenschule.de",
+    metaTitle: "Low-Code Training – Power Platform mit Copilot | chatgpt-trainings.de",
     metaDescription: "Low-Code Entwicklung mit Microsoft Power Platform und Copilot: Power Apps, Power Automate, Dataverse. Training für Citizen Developer.",
     keywords: ["Low-Code Training", "Power Platform Schulung", "Citizen Developer", "Power Apps Copilot", "Power Automate Training"],
     faqs: [
@@ -398,7 +398,7 @@ export const trainings: Training[] = [
       "Nachweisführung: Schulungszertifikat und Dokumentation für Audits und Behörden"
     ],
     tiers: ["free", "paid"],
-    metaTitle: "EU AI Act Pflichtschulung – Artikel 4 KI-Kompetenz | copilotenschule.de",
+    metaTitle: "EU AI Act Pflichtschulung – Artikel 4 KI-Kompetenz | chatgpt-trainings.de",
     metaDescription: "EU AI Act Pflichtschulung nach Artikel 4: KI-Kompetenz, Risikobewusstsein, Compliance. Mit Schulungszertifikat für Audits.",
     keywords: ["EU AI Act Schulung", "Artikel 4 KI-Kompetenz", "KI Pflichtschulung", "AI Act Training", "KI Compliance Zertifikat"],
     faqs: [
@@ -437,7 +437,7 @@ export const trainings: Training[] = [
       "Preise und Anerkennung: Beste Lösungen werden ausgezeichnet und können implementiert werden"
     ],
     tiers: ["free", "paid"],
-    metaTitle: "Copilot Hackathon – Innovation ohne Code | copilotenschule.de",
+    metaTitle: "Copilot Hackathon – Innovation ohne Code | chatgpt-trainings.de",
     metaDescription: "Copilot Hackathon für Business-Anwender: Kreative KI-Lösungen entwickeln ohne Programmierkenntnisse. Team-Event mit Pitch und Preisen.",
     keywords: ["Copilot Hackathon", "KI Innovation Workshop", "Business Hackathon", "Copilot Team Event", "KI ohne Code"],
     faqs: [
@@ -475,7 +475,7 @@ export const trainings: Training[] = [
       "Q&A Session: Ihre Fragen zu Copilot, KI-Strategie und Implementierung"
     ],
     tiers: ["free", "paid"],
-    metaTitle: "Copilot Keynote – KI-Vortrag für Führungskräfte | copilotenschule.de",
+    metaTitle: "Copilot Keynote – KI-Vortrag für Führungskräfte | chatgpt-trainings.de",
     metaDescription: "Inspirierende Keynote zu Microsoft Copilot: Vision, Live-Demos, Praxisbeispiele. Für All-Hands, Kick-offs und Führungskräfte-Events.",
     keywords: ["Copilot Keynote", "KI Vortrag", "Copilot Führungskräfte", "KI Transformation", "Microsoft Copilot Speaker"],
     faqs: [
@@ -515,7 +515,7 @@ export const trainings: Training[] = [
       "Zwischen den Sessions: Praxisaufgaben, Peer-Learning, Support via Teams-Kanal"
     ],
     tiers: ["paid"],
-    metaTitle: "Copilot Lernreise – 8 Wochen Kompetenzaufbau | copilotenschule.de",
+    metaTitle: "Copilot Lernreise – 8 Wochen Kompetenzaufbau | chatgpt-trainings.de",
     metaDescription: "Nachhaltige Copilot-Lernreise: 8 Wochen, 8 Sessions, 8 Use Cases. Schrittweiser Kompetenzaufbau für Teams mit Praxisaufgaben.",
     keywords: ["Copilot Lernreise", "Copilot 8 Wochen", "nachhaltiges KI-Training", "Copilot Blended Learning", "Copilot Kompetenzaufbau"],
     faqs: [
@@ -556,7 +556,7 @@ export const trainings: Training[] = [
       "Flexible Gestaltung: Anpassbar an Ihre Location, Teilnehmerzahl und Corporate Identity"
     ],
     tiers: ["free", "paid"],
-    metaTitle: "Copilot Launch Event – Kick-off für Ihre KI-Einführung | copilotenschule.de",
+    metaTitle: "Copilot Launch Event – Kick-off für Ihre KI-Einführung | chatgpt-trainings.de",
     metaDescription: "Copilot-Launch als Highlight: Eventtag mit Live-Demos, Challenges, Gamification. Perfekter Kick-off für die Copilot-Einführung.",
     keywords: ["Copilot Launch Event", "KI Kick-off", "Copilot Einführung Event", "Copilot Gamification", "KI Eventtag"],
     faqs: [
@@ -594,7 +594,7 @@ export const trainings: Training[] = [
       "Flexible Durchführung: Vor Ort, Remote oder Hybrid – passend zu Ihren Rahmenbedingungen"
     ],
     tiers: ["free", "paid"],
-    metaTitle: "Individuelle Copilot-Schulung – Maßgeschneidert für Ihr Unternehmen | copilotenschule.de",
+    metaTitle: "Individuelle Copilot-Schulung – Maßgeschneidert für Ihr Unternehmen | chatgpt-trainings.de",
     metaDescription: "Maßgeschneiderte Copilot-Trainings für Ihre Branche und Abteilung. Mit echten Unternehmensdaten, individuellen Use Cases, flexibler Durchführung.",
     keywords: ["individuelle Copilot Schulung", "maßgeschneidertes KI-Training", "Copilot Inhouse", "branchenspezifisches Copilot Training", "Copilot nach Maß"],
     faqs: [

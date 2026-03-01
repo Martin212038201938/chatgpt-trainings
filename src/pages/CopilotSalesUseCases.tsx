@@ -12,7 +12,7 @@ const CopilotSalesUseCases = () => {
   const martinLang = getAuthor('martin-lang')!;
 
   const ids = generateSchemaIds(SLUG, 'wissen');
-  const pageUrl = `https://copilotenschule.de/wissen/${SLUG}`;
+  const pageUrl = `https://chatgpt-trainings.de/wissen/${SLUG}`;
   const breadcrumbItems = generateWissenBreadcrumbItems(PAGE_TITLE, pageUrl);
 
   const tableOfContents = [
@@ -32,19 +32,19 @@ const CopilotSalesUseCases = () => {
   const faqs = [
     {
       name: "Unsere Vertriebler nutzen Copilot kaum – wie bekommen wir die Adoption hoch?",
-      answer: "Geringe Nutzung im Vertrieb hat fast immer denselben Grund: Die Mitarbeitenden wissen nicht, welche konkreten Aufgaben Copilot ihnen abnehmen kann. Abstrakte Feature-Demos helfen wenig. Was funktioniert: Use-Case-basierte Trainings, in denen Vertriebler an ihren eigenen E-Mails, Meetings und Pipeline-Daten arbeiten. Die Copilotenschule bietet Sales-spezifische Workshops, die genau an den täglichen Aufgaben von Innen- und Außendienst ansetzen."
+      answer: "Geringe Nutzung im Vertrieb hat fast immer denselben Grund: Die Mitarbeitenden wissen nicht, welche konkreten Aufgaben Copilot ihnen abnehmen kann. Abstrakte Feature-Demos helfen wenig. Was funktioniert: Use-Case-basierte Trainings, in denen Vertriebler an ihren eigenen E-Mails, Meetings und Pipeline-Daten arbeiten. Die ChatGPT-Trainings bietet Sales-spezifische Workshops, die genau an den täglichen Aufgaben von Innen- und Außendienst ansetzen."
     },
     {
       name: "Lohnt sich Copilot auch für kleine Vertriebsteams mit fünf oder weniger Mitarbeitern?",
-      answer: "Ja, aber mit einer Einschränkung: Bei kleinen Teams reicht der M365 Copilot für 28 Euro pro Nutzer und Monat in der Regel völlig aus. Die teurere Dynamics-365-Integration rechnet sich erst bei größeren Teams mit komplexen Deal-Strukturen. Die Copilotenschule hilft Ihnen, den richtigen Lizenz-Mix für Ihre Teamgröße zu finden."
+      answer: "Ja, aber mit einer Einschränkung: Bei kleinen Teams reicht der M365 Copilot für 28 Euro pro Nutzer und Monat in der Regel völlig aus. Die teurere Dynamics-365-Integration rechnet sich erst bei größeren Teams mit komplexen Deal-Strukturen. Die ChatGPT-Trainings hilft Ihnen, den richtigen Lizenz-Mix für Ihre Teamgröße zu finden."
     },
     {
       name: "Wie messen wir, ob Copilot im Vertrieb tatsächlich Zeit spart?",
-      answer: "Messen Sie nicht die Copilot-Nutzung, sondern die Ergebnisse: durchschnittliche Response-Zeit auf Kundenanfragen, CRM-Datenqualität (Vollständigkeit der Opportunity-Notizen), Sales Cycle Length und die Zeit zwischen Kundengespräch und Follow-up-Mail. Wenn diese KPIs sich verbessern, wirkt Copilot. Die Copilotenschule unterstützt bei der Definition von Erfolgsmetriken und begleitender Messung."
+      answer: "Messen Sie nicht die Copilot-Nutzung, sondern die Ergebnisse: durchschnittliche Response-Zeit auf Kundenanfragen, CRM-Datenqualität (Vollständigkeit der Opportunity-Notizen), Sales Cycle Length und die Zeit zwischen Kundengespräch und Follow-up-Mail. Wenn diese KPIs sich verbessern, wirkt Copilot. Die ChatGPT-Trainings unterstützt bei der Definition von Erfolgsmetriken und begleitender Messung."
     },
     {
       name: "Brauchen wir Dynamics 365 oder reicht Microsoft 365 Copilot für den Vertrieb?",
-      answer: "Für die meisten Use Cases – Meeting-Zusammenfassungen, Follow-up-Mails, Angebotsentwürfe, Pipeline-Analysen in Excel – reicht M365 Copilot. Dynamics 365 Sales lohnt sich, wenn Sie KI-gestütztes Lead Scoring, Predictive Forecasting oder Conversation Intelligence benötigen. Die Copilotenschule berät Sie zur richtigen Kombination passend zu Ihrer Vertriebsstruktur."
+      answer: "Für die meisten Use Cases – Meeting-Zusammenfassungen, Follow-up-Mails, Angebotsentwürfe, Pipeline-Analysen in Excel – reicht M365 Copilot. Dynamics 365 Sales lohnt sich, wenn Sie KI-gestütztes Lead Scoring, Predictive Forecasting oder Conversation Intelligence benötigen. Die ChatGPT-Trainings berät Sie zur richtigen Kombination passend zu Ihrer Vertriebsstruktur."
     }
   ];
 
@@ -58,7 +58,7 @@ const CopilotSalesUseCases = () => {
         "description": "Die wirkungsvollsten Copilot Use Cases für Vertriebsteams: Konkrete Zeitersparnis für Innendienst und Außendienst mit M365 Copilot und Dynamics 365 Sales.",
         "author": getAuthorSchemaMarkup(martinLang),
         "publisher": {
-          "@id": "https://copilotenschule.de/#organization"
+          "@id": "https://chatgpt-trainings.de/#organization"
         },
         "datePublished": "2026-02-14",
         "dateModified": "2026-02-14",
@@ -114,7 +114,7 @@ const CopilotSalesUseCases = () => {
   return (
     <>
       <SEOHead
-        title="Copilot im Vertrieb: Use Cases mit echter Zeitersparnis | copilotenschule.de"
+        title="Copilot im Vertrieb: Use Cases mit echter Zeitersparnis | chatgpt-trainings.de"
         description="Die wirkungsvollsten Copilot Use Cases für Vertriebsteams: Konkrete Zeitersparnis für Innendienst und Außendienst mit M365 Copilot und Dynamics 365 Sales."
         keywords={[
           "Microsoft Copilot Vertrieb",

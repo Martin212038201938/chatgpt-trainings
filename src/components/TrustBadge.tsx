@@ -37,23 +37,23 @@ export const TrustBadge = ({ variant = 'full' }: TrustBadgeProps) => {
               <div className="w-32 h-32 rounded-full bg-gradient-to-br from-primary/20 to-orange-500/20 flex items-center justify-center border-4 border-primary/20">
                 <img
                   src="/logo.svg"
-                  alt="Copilotenschule Logo"
+                  alt="ChatGPT-Trainings Logo"
                   className="w-20 h-20 object-contain"
                 />
               </div>
             </div>
             <div className="flex-1">
-              <h3 className="text-xl font-bold mb-2">Über die Copilotenschule</h3>
+              <h3 className="text-xl font-bold mb-2">Über die ChatGPT-Trainings</h3>
               <div className="text-lg font-semibold text-primary mb-1">Ihr Partner für Microsoft Copilot Trainings</div>
               <div className="text-sm text-muted-foreground mb-3">Eine Marke der Yellow-Boat Consulting</div>
               <p className="text-sm leading-relaxed mb-4">
-                Die copilotenschule.de ist Deutschlands spezialisierter Anbieter für Microsoft Copilot Schulungen und KI-Trainings.
+                Die chatgpt-trainings.de ist Deutschlands spezialisierter Anbieter für Microsoft Copilot Schulungen und KI-Trainings.
                 Als Marke der 2011 gegründeten Yellow-Boat Consulting verbinden wir über ein Jahrzehnt Erfahrung in digitaler
                 Transformation mit tiefgreifender Expertise im Microsoft-Ökosystem. Unsere Trainings fokussieren konsequent
                 auf reale Arbeitsprozesse – praxisnah, compliance-konform und wertschöpfend.
               </p>
               <div className="mb-3">
-                <div className="text-sm font-semibold mb-2">Warum Copilotenschule?</div>
+                <div className="text-sm font-semibold mb-2">Warum ChatGPT-Trainings?</div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   {trustFacts.map((fact, idx) => (
                     <div key={idx} className="flex items-center gap-2">

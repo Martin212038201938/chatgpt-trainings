@@ -502,7 +502,7 @@ ${formData.additionalInfo ? `---\nINFORMATIONEN UND WEITERE BENÖTIGTE INHALTE:\
       <SEOHead
         title="Training Konfigurator | Copilot Schulungen individuell zusammenstellen"
         description="Stellen Sie Ihr individuelles Microsoft Copilot Training zusammen. Wählen Sie aus unseren Modulen und erhalten Sie ein maßgeschneidertes Angebot."
-        canonicalUrl="https://copilotenschule.de/training-konfigurator"
+        canonicalUrl="https://chatgpt-trainings.de/training-konfigurator"
       />
       <Header />
 

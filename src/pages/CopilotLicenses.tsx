@@ -14,7 +14,7 @@ const CopilotLicenses = () => {
 
   // Schema IDs automatisch generieren
   const ids = generateSchemaIds(SLUG, 'wissen');
-  const pageUrl = `https://copilotenschule.de/wissen/${SLUG}`;
+  const pageUrl = `https://chatgpt-trainings.de/wissen/${SLUG}`;
   const breadcrumbItems = generateWissenBreadcrumbItems(PAGE_TITLE, pageUrl);
 
   const tableOfContents = [
@@ -33,19 +33,19 @@ const CopilotLicenses = () => {
   const faqs = [
     {
       name: "Welche Microsoft Copilot Lizenz brauchen wir für unser Unternehmen?",
-      answer: "Das hängt von Ihrem Use Case ab: Für Office-Produktivität brauchen Sie Microsoft 365 Copilot (30 USD/Nutzer/Monat), für Entwickler GitHub Copilot (19-39 USD/Nutzer/Monat), für eigene KI-Agenten Copilot Studio (ab 200 USD/Monat). Die Copilotenschule berät Sie bei der optimalen Lizenzstrategie für Ihre Anforderungen."
+      answer: "Das hängt von Ihrem Use Case ab: Für Office-Produktivität brauchen Sie Microsoft 365 Copilot (30 USD/Nutzer/Monat), für Entwickler GitHub Copilot (19-39 USD/Nutzer/Monat), für eigene KI-Agenten Copilot Studio (ab 200 USD/Monat). Die ChatGPT-Trainings berät Sie bei der optimalen Lizenzstrategie für Ihre Anforderungen."
     },
     {
       name: "Lohnt sich Microsoft Copilot auch für kleine Teams unter 50 Mitarbeitern?",
-      answer: "Ja, es gibt keine Mindestabnahmemenge mehr. Auch kleine Teams profitieren von Copilot – entscheidend ist die Nutzungsintensität, nicht die Teamgröße. Starten Sie mit einem Pilot für die Mitarbeiter mit den meisten repetitiven Aufgaben. Die Copilotenschule bietet auch Trainings für kleine Teams mit maßgeschneiderten Formaten."
+      answer: "Ja, es gibt keine Mindestabnahmemenge mehr. Auch kleine Teams profitieren von Copilot – entscheidend ist die Nutzungsintensität, nicht die Teamgröße. Starten Sie mit einem Pilot für die Mitarbeiter mit den meisten repetitiven Aufgaben. Die ChatGPT-Trainings bietet auch Trainings für kleine Teams mit maßgeschneiderten Formaten."
     },
     {
       name: "Können wir Copilot-Lizenzen zunächst nur für eine Abteilung pilotieren?",
-      answer: "Ja, ein abteilungsweiser Pilot ist empfehlenswert. Wählen Sie eine Abteilung mit messbaren Routineaufgaben (z.B. HR, Marketing, Finance). Microsoft verlangt keine unternehmensweite Lizenzierung. Die Copilotenschule unterstützt bei der Pilot-Planung mit KPI-Definition und Erfolgsmessung."
+      answer: "Ja, ein abteilungsweiser Pilot ist empfehlenswert. Wählen Sie eine Abteilung mit messbaren Routineaufgaben (z.B. HR, Marketing, Finance). Microsoft verlangt keine unternehmensweite Lizenzierung. Die ChatGPT-Trainings unterstützt bei der Pilot-Planung mit KPI-Definition und Erfolgsmessung."
     },
     {
       name: "Was sind die versteckten Kosten bei Microsoft Copilot neben der Lizenzgebühr?",
-      answer: "Planen Sie Kosten für: Training der Mitarbeiter (essentiell für ROI), evtl. Azure-Infrastruktur für Copilot Studio, Change Management und Governance-Anpassungen. Ohne Training bleibt das Potenzial ungenutzt. Die Copilotenschule bietet transparente Trainingsbudgets und hilft bei der Gesamtkostenplanung."
+      answer: "Planen Sie Kosten für: Training der Mitarbeiter (essentiell für ROI), evtl. Azure-Infrastruktur für Copilot Studio, Change Management und Governance-Anpassungen. Ohne Training bleibt das Potenzial ungenutzt. Die ChatGPT-Trainings bietet transparente Trainingsbudgets und hilft bei der Gesamtkostenplanung."
     }
   ];
 
@@ -60,7 +60,7 @@ const CopilotLicenses = () => {
         "description": "Welche Copilot-Lizenz lohnt sich? M365 Copilot (30€/User), GitHub Copilot & Copilot Studio im direkten Vergleich – mit konkreter Kaufempfehlung für Ihr Unternehmen.",
         "author": getAuthorSchemaMarkup(martinLang),
         "publisher": {
-          "@id": "https://copilotenschule.de/#organization"
+          "@id": "https://chatgpt-trainings.de/#organization"
         },
         "datePublished": "2025-01-06",
         "dateModified": "2026-02-03T10:00:00+01:00",

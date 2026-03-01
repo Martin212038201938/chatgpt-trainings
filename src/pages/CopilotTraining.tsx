@@ -17,7 +17,7 @@ const CopilotTraining = () => {
   const martinLang = getAuthor('martin-lang')!;
 
   const ids = generateSchemaIds(SLUG, 'wissen');
-  const pageUrl = `https://copilotenschule.de/wissen/${SLUG}`;
+  const pageUrl = `https://chatgpt-trainings.de/wissen/${SLUG}`;
   const breadcrumbItems = generateWissenBreadcrumbItems(PAGE_TITLE, pageUrl);
 
   const tableOfContents = [
@@ -58,7 +58,7 @@ const CopilotTraining = () => {
     },
     {
       name: "Bieten Sie auch Prüfungen und Zertifikate für Copilot-Trainings an?",
-      answer: "Ja, die Copilotenschule bietet maßgeschneiderte Quizze und Prüfungen, bei denen Teilnehmer aktiv beweisen müssen, dass sie das Gelernte verstanden haben – keine Multiple-Choice-Tests, sondern praxisnahe Aufgaben. Nach bestandener Prüfung erhalten sowohl die Mitarbeiter als auch das Unternehmen ein offizielles Zertifikat. Wir bieten auch aufeinander aufbauende Zertifizierungsstufen wie 'Copilot in der Praxis I-IV' (Beginner bis Expert), die einen strukturierten Kompetenzaufbau ermöglichen. Das gibt Unternehmen Investitionssicherheit und Mitarbeitern einen handfesten Nachweis ihrer KI-Fähigkeiten."
+      answer: "Ja, die ChatGPT-Trainings bietet maßgeschneiderte Quizze und Prüfungen, bei denen Teilnehmer aktiv beweisen müssen, dass sie das Gelernte verstanden haben – keine Multiple-Choice-Tests, sondern praxisnahe Aufgaben. Nach bestandener Prüfung erhalten sowohl die Mitarbeiter als auch das Unternehmen ein offizielles Zertifikat. Wir bieten auch aufeinander aufbauende Zertifizierungsstufen wie 'Copilot in der Praxis I-IV' (Beginner bis Expert), die einen strukturierten Kompetenzaufbau ermöglichen. Das gibt Unternehmen Investitionssicherheit und Mitarbeitern einen handfesten Nachweis ihrer KI-Fähigkeiten."
     }
   ];
 
@@ -72,7 +72,7 @@ const CopilotTraining = () => {
         "description": "Professionelles Copilot-Training ist der Schlüssel zum ROI. Erfahren Sie, warum interne Taskforces scheitern und wie systematische Schulung Ihre Adoption auf 80%+ steigert.",
         "author": getAuthorSchemaMarkup(martinLang),
         "publisher": {
-          "@id": "https://copilotenschule.de/#organization"
+          "@id": "https://chatgpt-trainings.de/#organization"
         },
         "datePublished": "2026-02-02",
         "dateModified": "2026-02-02",
@@ -892,7 +892,7 @@ const CopilotTraining = () => {
 
           <p className="mb-6">
             Training allein reicht nicht – erst der <strong>nachweisbare Kompetenzaufbau</strong> gibt Unternehmen
-            Investitionssicherheit und Mitarbeitern einen handfesten Beweis ihrer Fähigkeiten. Die Copilotenschule
+            Investitionssicherheit und Mitarbeitern einen handfesten Beweis ihrer Fähigkeiten. Die ChatGPT-Trainings
             bietet maßgeschneiderte Prüfungen und Zertifizierungsprogramme, die echtes Können validieren.
           </p>
 
@@ -1307,7 +1307,7 @@ const CopilotTraining = () => {
         <div className="bg-gradient-to-r from-orange-500/10 to-amber-500/10 rounded-xl p-8 text-center my-12 border-2 border-orange-500/20">
           <h3 className="text-2xl font-bold mb-4">Professionelles Copilot-Training für Ihr Unternehmen</h3>
           <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-            Die Copilotenschule bietet maßgeschneiderte Trainingsprogramme, die Ihre Mitarbeiter befähigen
+            Die ChatGPT-Trainings bietet maßgeschneiderte Trainingsprogramme, die Ihre Mitarbeiter befähigen
             und Ihre Copilot-Investition zum Erfolg machen.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

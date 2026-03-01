@@ -14,12 +14,12 @@ const UeberUns = () => {
     "@graph": [
       {
         "@type": "Organization",
-        "@id": "https://copilotenschule.de/#organization",
-        "name": "copilotenschule.de",
-        "alternateName": "Copilotenschule",
-        "url": "https://copilotenschule.de",
-        "logo": "https://copilotenschule.de/og-image.jpg",
-        "description": "Die Copilotenschule ist spezialisiert auf die Einführung und Weiterqualifizierungen im Umfeld der Microsoft Copiloten. Im Gegensatz zu anderen Anbietern bieten wir den Teilnehmern keinen Bauchladen an Tools an, die in ihrem Umfeld nicht compliant oder wertschöpfend sind.",
+        "@id": "https://chatgpt-trainings.de/#organization",
+        "name": "chatgpt-trainings.de",
+        "alternateName": "ChatGPT-Trainings",
+        "url": "https://chatgpt-trainings.de",
+        "logo": "https://chatgpt-trainings.de/og-image.jpg",
+        "description": "Die ChatGPT-Trainings ist spezialisiert auf die Einführung und Weiterqualifizierungen im Umfeld der Microsoft Copiloten. Im Gegensatz zu anderen Anbietern bieten wir den Teilnehmern keinen Bauchladen an Tools an, die in ihrem Umfeld nicht compliant oder wertschöpfend sind.",
         "foundingDate": "2025",
         "founder": {
           "@type": "Person",
@@ -62,7 +62,7 @@ const UeberUns = () => {
         "contactPoint": {
           "@type": "ContactPoint",
           "contactType": "customer service",
-          "email": "info@copilotenschule.de",
+          "email": "info@chatgpt-trainings.de",
           "telephone": "+49 221 950 187 74",
           "availableLanguage": ["de", "en"]
         },
@@ -80,9 +80,9 @@ const UeberUns = () => {
       },
       {
         "@type": "EducationalOrganization",
-        "@id": "https://copilotenschule.de/#educationalOrganization",
-        "name": "copilotenschule.de",
-        "url": "https://copilotenschule.de",
+        "@id": "https://chatgpt-trainings.de/#educationalOrganization",
+        "name": "chatgpt-trainings.de",
+        "url": "https://chatgpt-trainings.de",
         "description": "Spezialisierte Akademie für Microsoft Copilot Trainings und Enablement",
         "foundingDate": "2025",
         "parentOrganization": {
@@ -100,19 +100,19 @@ const UeberUns = () => {
       },
       {
         "@type": "WebPage",
-        "@id": "https://copilotenschule.de/ueber-uns",
-        "name": "Über uns - copilotenschule.de",
-        "description": "Erfahren Sie mehr über copilotenschule.de, die spezialisierte Weiterbildungsplattform für Microsoft Copilot. Eine Marke der Yellow-Boat Consulting.",
-        "url": "https://copilotenschule.de/ueber-uns",
+        "@id": "https://chatgpt-trainings.de/ueber-uns",
+        "name": "Über uns - chatgpt-trainings.de",
+        "description": "Erfahren Sie mehr über chatgpt-trainings.de, die spezialisierte Weiterbildungsplattform für Microsoft Copilot. Eine Marke der Yellow-Boat Consulting.",
+        "url": "https://chatgpt-trainings.de/ueber-uns",
         "inLanguage": "de-DE",
         "isPartOf": {
-          "@id": "https://copilotenschule.de/#website"
+          "@id": "https://chatgpt-trainings.de/#website"
         },
         "about": {
-          "@id": "https://copilotenschule.de/#organization"
+          "@id": "https://chatgpt-trainings.de/#organization"
         },
         "mainEntity": {
-          "@id": "https://copilotenschule.de/#organization"
+          "@id": "https://chatgpt-trainings.de/#organization"
         }
       }
     ]
@@ -121,17 +121,17 @@ const UeberUns = () => {
   return (
     <div className="min-h-screen">
       <SEOHead
-        title="Über uns - copilotenschule.de | Microsoft Copilot Trainings"
-        description="Die Copilotenschule ist spezialisiert auf die Einführung und Weiterqualifizierungen im Umfeld der Microsoft Copiloten. Im Gegensatz zu anderen Anbietern bieten wir den Teilnehmern keinen Bauchladen an Tools an, die in ihrem Umfeld nicht compliant oder wertschöpfend sind."
+        title="Über uns - chatgpt-trainings.de | Microsoft Copilot Trainings"
+        description="Die ChatGPT-Trainings ist spezialisiert auf die Einführung und Weiterqualifizierungen im Umfeld der Microsoft Copiloten. Im Gegensatz zu anderen Anbietern bieten wir den Teilnehmern keinen Bauchladen an Tools an, die in ihrem Umfeld nicht compliant oder wertschöpfend sind."
         keywords={[
-          "copilotenschule",
+          "chatgpt-trainings",
           "Microsoft Copilot Training Anbieter",
           "Yellow-Boat Consulting",
           "Copilot Schulung Deutschland",
           "Microsoft Copilot Experte",
           "Copilot Enablement Partner"
         ]}
-        canonicalUrl="https://copilotenschule.de/ueber-uns"
+        canonicalUrl="https://chatgpt-trainings.de/ueber-uns"
         schema={organizationSchema}
       />
       <Header />
@@ -143,7 +143,7 @@ const UeberUns = () => {
               <span className="text-primary">Microsoft Copilot</span> Spezialisten aus der Anwendungspraxis
             </h1>
             <p className="mt-6 text-xl text-muted-foreground leading-relaxed mb-4 animate-slide-up-delayed">
-              <strong>Die Copilotenschule</strong> ist spezialisiert auf die Einführung und Weiterqualifizierungen
+              <strong>Die ChatGPT-Trainings</strong> ist spezialisiert auf die Einführung und Weiterqualifizierungen
               im Umfeld der Microsoft Copiloten. Im Gegensatz zu anderen Anbietern bieten wir den Teilnehmern
               keinen Bauchladen an Tools an, die in ihrem Umfeld nicht compliant oder wertschöpfend sind.
             </p>
@@ -188,7 +188,7 @@ const UeberUns = () => {
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <img
                 src={ueberUns}
-                alt="Das Team der Copilotenschule"
+                alt="Das Team der ChatGPT-Trainings"
                 className="w-full h-auto"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent" />
@@ -328,7 +328,7 @@ const UeberUns = () => {
                 <div className="font-bold text-lg text-primary mb-1">2011</div>
                 <h3 className="text-xl font-semibold mb-2">Gründung Yellow-Boat Consulting</h3>
                 <p className="text-muted-foreground">
-                  Die copilotenschule.de ist eine Marke der im Jahr 2011 gegründeten{" "}
+                  Die chatgpt-trainings.de ist eine Marke der im Jahr 2011 gegründeten{" "}
                   <a
                     href="https://yellow-boat.com"
                     target="_blank"
@@ -381,9 +381,9 @@ const UeberUns = () => {
               <div className="relative mt-12">
                 <div className="absolute -left-10 w-4 h-4 bg-primary rounded-full"></div>
                 <div className="font-bold text-xl text-primary mb-1">2025</div>
-                <h3 className="text-2xl font-semibold mb-2">Gründung der Copilotenschule</h3>
+                <h3 className="text-2xl font-semibold mb-2">Gründung der ChatGPT-Trainings</h3>
                 <p className="text-muted-foreground text-lg">
-                  Launch von copilotenschule.de sowie Aufbau eines starken Experten-Teams für eine spezialisierte
+                  Launch von chatgpt-trainings.de sowie Aufbau eines starken Experten-Teams für eine spezialisierte
                   Akademie mit klarem Fokus auf die Nutzung von Microsoft Copilot im beruflichen Kontext.
                   Gleichzeitig erfolgt der gezielte Ausbau des Trainings-Portfolios sowie die Erweiterung um
                   zusätzliche Angebote wie Launch Days und Lernreisen. Das Netzwerk umfasst jetzt auch klassische
@@ -438,7 +438,7 @@ const UeberUns = () => {
               </div>
               <div className="text-center p-6 bg-card rounded-xl border border-border/50">
                 <div className="text-3xl font-bold text-primary mb-2">2025</div>
-                <div className="text-sm text-muted-foreground">Gründung copilotenschule.de</div>
+                <div className="text-sm text-muted-foreground">Gründung chatgpt-trainings.de</div>
               </div>
               <div className="text-center p-6 bg-card rounded-xl border border-border/50">
                 <div className="text-3xl font-bold text-primary mb-2">DACH</div>

@@ -12,7 +12,7 @@ const CopilotAdoption2026 = () => {
   const author = getAuthor("martin-lang");
 
   const ids = generateSchemaIds(SLUG, 'wissen');
-  const pageUrl = `https://copilotenschule.de/wissen/${SLUG}`;
+  const pageUrl = `https://chatgpt-trainings.de/wissen/${SLUG}`;
   const breadcrumbItems = generateWissenBreadcrumbItems(PAGE_TITLE, pageUrl);
 
   const tableOfContents = [
@@ -31,19 +31,19 @@ const CopilotAdoption2026 = () => {
   const faqs = [
     {
       name: "Wie viele Unternehmen nutzen Microsoft Copilot Anfang 2026?",
-      answer: "Stand Januar 2026 gibt es 15 Millionen bezahlte Microsoft 365 Copilot Seats weltweit. Das entspricht etwa 3,3% aller Microsoft 365 Commercial-Nutzer. GitHub Copilot hat zusätzlich 4,7 Millionen zahlende Abonnenten. Die Copilotenschule unterstützt Unternehmen dabei, von diesen Erfahrungen zu lernen und typische Einführungsfehler zu vermeiden."
+      answer: "Stand Januar 2026 gibt es 15 Millionen bezahlte Microsoft 365 Copilot Seats weltweit. Das entspricht etwa 3,3% aller Microsoft 365 Commercial-Nutzer. GitHub Copilot hat zusätzlich 4,7 Millionen zahlende Abonnenten. Die ChatGPT-Trainings unterstützt Unternehmen dabei, von diesen Erfahrungen zu lernen und typische Einführungsfehler zu vermeiden."
     },
     {
       name: "Lohnt sich Microsoft Copilot finanziell für unser Unternehmen?",
-      answer: "Die Forrester TEI-Studie von 2025 prognostiziert einen ROI zwischen 122% (konservativ) und 408% (High Impact) über drei Jahre. Selbst im konservativen Szenario ist der ROI positiv. Entscheidend ist jedoch die richtige Einführung: 72% der Nutzer kämpfen mit der Adoption. Die Copilotenschule bietet strukturierte Einführungsprogramme, die den ROI messbar steigern."
+      answer: "Die Forrester TEI-Studie von 2025 prognostiziert einen ROI zwischen 122% (konservativ) und 408% (High Impact) über drei Jahre. Selbst im konservativen Szenario ist der ROI positiv. Entscheidend ist jedoch die richtige Einführung: 72% der Nutzer kämpfen mit der Adoption. Die ChatGPT-Trainings bietet strukturierte Einführungsprogramme, die den ROI messbar steigern."
     },
     {
       name: "Warum scheitern viele Unternehmen bei der Copilot-Einführung?",
-      answer: "Laut Gartner schaffen nur 6% der Unternehmen den Sprung vom Pilot zum unternehmensweiten Rollout. Hauptgründe: fehlende Schulung, keine klaren Use Cases, mangelnde Führungsunterstützung. Die Copilotenschule begleitet Sie durch alle Phasen – von der Pilotplanung bis zur Skalierung mit nachhaltigem Enablement."
+      answer: "Laut Gartner schaffen nur 6% der Unternehmen den Sprung vom Pilot zum unternehmensweiten Rollout. Hauptgründe: fehlende Schulung, keine klaren Use Cases, mangelnde Führungsunterstützung. Die ChatGPT-Trainings begleitet Sie durch alle Phasen – von der Pilotplanung bis zur Skalierung mit nachhaltigem Enablement."
     },
     {
       name: "Wie lange dauert es, bis sich Copilot amortisiert?",
-      answer: "Bei durchschnittlich 14 Minuten Zeitersparnis pro Tag und Lizenzkosten von 30 EUR/Monat liegt der Break-even bei einem Stundensatz von ca. 45 EUR bereits im ersten Monat. Voraussetzung ist jedoch aktive Nutzung – und genau hier setzt das Training der Copilotenschule an."
+      answer: "Bei durchschnittlich 14 Minuten Zeitersparnis pro Tag und Lizenzkosten von 30 EUR/Monat liegt der Break-even bei einem Stundensatz von ca. 45 EUR bereits im ersten Monat. Voraussetzung ist jedoch aktive Nutzung – und genau hier setzt das Training der ChatGPT-Trainings an."
     }
   ];
 
@@ -57,7 +57,7 @@ const CopilotAdoption2026 = () => {
         "description": "Aktuelle Zahlen Januar 2026: 15 Mio. Copilot-Seats, 160% Wachstum, bis zu 408% ROI. Eine nüchterne Einordnung jenseits des Microsoft-Marketings.",
         "author": getAuthorSchemaMarkup(author),
         "publisher": {
-          "@id": "https://copilotenschule.de/#organization"
+          "@id": "https://chatgpt-trainings.de/#organization"
         },
         "datePublished": "2026-02-03",
         "dateModified": "2026-02-03",
@@ -96,7 +96,7 @@ const CopilotAdoption2026 = () => {
   return (
     <>
       <SEOHead
-        title={`${PAGE_TITLE} | Copilotenschule`}
+        title={`${PAGE_TITLE} | ChatGPT-Trainings`}
         description="Aktuelle Zahlen Januar 2026: 15 Mio. Copilot-Seats, 160% Wachstum, bis zu 408% ROI. Eine nüchterne Einordnung jenseits des Microsoft-Marketings."
         keywords={["Microsoft Copilot 2026", "Copilot Adoption", "Satya Nadella Copilot", "Microsoft 365 Copilot ROI", "Copilot Statistiken"]}
         canonicalUrl={pageUrl}

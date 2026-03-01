@@ -89,10 +89,10 @@ const KnowledgePageTemplate = ({
     "headline": title,
     "description": description,
     "author": {
-      "@id": "https://copilotenschule.de/#martin-lang"
+      "@id": "https://chatgpt-trainings.de/#martin-lang"
     },
     "publisher": {
-      "@id": "https://copilotenschule.de/#organization"
+      "@id": "https://chatgpt-trainings.de/#organization"
     },
     "datePublished": publishedDate,
     "dateModified": modifiedDate,
@@ -120,7 +120,7 @@ const KnowledgePageTemplate = ({
   const breadcrumbSchema = generateBreadcrumbSchema(
     breadcrumbs.map(bc => ({
       name: bc.label,
-      url: bc.href.startsWith('http') ? bc.href : `https://copilotenschule.de${bc.href}`
+      url: bc.href.startsWith('http') ? bc.href : `https://chatgpt-trainings.de${bc.href}`
     }))
   );
 

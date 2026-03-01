@@ -1,4 +1,4 @@
-# robots.txt für copilotenschule.de
+# robots.txt für chatgpt-trainings.de
 # Letzte Aktualisierung: 2026-02-04
 
 # Alle Crawler erlaubt
@@ -9,10 +9,10 @@ Allow: /
 Disallow: /admin
 
 # Sitemap
-Sitemap: https://copilotenschule.de/sitemap.xml
+Sitemap: https://chatgpt-trainings.de/sitemap.xml
 
 # IndexNow - Sofortige Indexierung für Bing, Yandex, Seznam, Naver
-# Key-Datei: https://copilotenschule.de/695afc50b8ee44729593fd861c4e96e9.txt
+# Key-Datei: https://chatgpt-trainings.de/695afc50b8ee44729593fd861c4e96e9.txt
 
 # LLMs.txt für KI-Crawler
-# https://copilotenschule.de/llms.txt
+# https://chatgpt-trainings.de/llms.txt

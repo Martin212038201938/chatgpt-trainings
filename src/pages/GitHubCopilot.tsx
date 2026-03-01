@@ -13,7 +13,7 @@ const GitHubCopilot = () => {
 
   // Schema IDs automatisch generieren
   const ids = generateSchemaIds(SLUG, 'wissen');
-  const pageUrl = `https://copilotenschule.de/wissen/${SLUG}`;
+  const pageUrl = `https://chatgpt-trainings.de/wissen/${SLUG}`;
   const breadcrumbItems = generateWissenBreadcrumbItems(PAGE_TITLE, pageUrl);
 
   const tableOfContents = [
@@ -33,19 +33,19 @@ const GitHubCopilot = () => {
   const faqs = [
     {
       name: "Unsere Entwickler sind mit GitHub Copilot unzufrieden – wie können wir das verbessern?",
-      answer: "Die Unzufriedenheit liegt meist an fehlendem Training für effektive Nutzung. Entwickler müssen lernen, Copilot als Pair-Programming-Partner zu verstehen und Prompts gezielt zu formulieren. Die Copilotenschule bietet spezialisierte GitHub Copilot Trainings für Entwicklerteams, die Produktivitätssteigerungen von bis zu 55% ermöglichen."
+      answer: "Die Unzufriedenheit liegt meist an fehlendem Training für effektive Nutzung. Entwickler müssen lernen, Copilot als Pair-Programming-Partner zu verstehen und Prompts gezielt zu formulieren. Die ChatGPT-Trainings bietet spezialisierte GitHub Copilot Trainings für Entwicklerteams, die Produktivitätssteigerungen von bis zu 55% ermöglichen."
     },
     {
       name: "Wie rechtfertigen wir die Kosten für GitHub Copilot gegenüber dem Management?",
-      answer: "Der ROI von GitHub Copilot ist messbar: Studien zeigen 55% schnellere Task-Completion und bis zu 40% mehr akzeptierten Code. Bei einem Entwickler-Tagessatz von 800€ amortisiert sich die Lizenz (19-39 USD/Monat) bereits bei wenigen Stunden Zeitersparnis. Die Copilotenschule unterstützt Sie bei der Erstellung überzeugender Business Cases mit konkreten Zahlen."
+      answer: "Der ROI von GitHub Copilot ist messbar: Studien zeigen 55% schnellere Task-Completion und bis zu 40% mehr akzeptierten Code. Bei einem Entwickler-Tagessatz von 800€ amortisiert sich die Lizenz (19-39 USD/Monat) bereits bei wenigen Stunden Zeitersparnis. Die ChatGPT-Trainings unterstützt Sie bei der Erstellung überzeugender Business Cases mit konkreten Zahlen."
     },
     {
       name: "Ist GitHub Copilot sicher für unseren proprietären Unternehmens-Code?",
-      answer: "Mit GitHub Copilot Business und Enterprise ist Ihr Code sicher: Er wird nicht für das Training öffentlicher Modelle verwendet, bleibt privat und wird verschlüsselt übertragen. GitHub bietet zudem IP-Indemnity-Schutz. Im GitHub Copilot Training der Copilotenschule behandeln wir Security Best Practices und Compliance-Anforderungen für den Enterprise-Einsatz."
+      answer: "Mit GitHub Copilot Business und Enterprise ist Ihr Code sicher: Er wird nicht für das Training öffentlicher Modelle verwendet, bleibt privat und wird verschlüsselt übertragen. GitHub bietet zudem IP-Indemnity-Schutz. Im GitHub Copilot Training der ChatGPT-Trainings behandeln wir Security Best Practices und Compliance-Anforderungen für den Enterprise-Einsatz."
     },
     {
       name: "Wie messen wir den Erfolg von GitHub Copilot in unserem Entwicklerteam?",
-      answer: "Messen Sie Acceptance Rate (akzeptierte Vorschläge), Lines of Code Suggested, Time-to-Completion bei Standard-Tasks und Entwickler-Zufriedenheit. GitHub Copilot Business bietet ein Admin-Dashboard für Team-Metriken. Die Copilotenschule hilft bei der Definition von KPIs und dem Aufbau eines effektiven Adoption-Trackings."
+      answer: "Messen Sie Acceptance Rate (akzeptierte Vorschläge), Lines of Code Suggested, Time-to-Completion bei Standard-Tasks und Entwickler-Zufriedenheit. GitHub Copilot Business bietet ein Admin-Dashboard für Team-Metriken. Die ChatGPT-Trainings hilft bei der Definition von KPIs und dem Aufbau eines effektiven Adoption-Trackings."
     }
   ];
 
@@ -60,7 +60,7 @@ const GitHubCopilot = () => {
         "description": "GitHub Copilot für Entwickler: Funktionen, Best Practices und Produktivitäts-Tipps. Vollständiger Leitfaden von Setup bis Advanced Features.",
         "author": getAuthorSchemaMarkup(martinLang),
         "publisher": {
-          "@id": "https://copilotenschule.de/#organization"
+          "@id": "https://chatgpt-trainings.de/#organization"
         },
         "datePublished": "2025-11-07",
         "dateModified": "2026-02-03",

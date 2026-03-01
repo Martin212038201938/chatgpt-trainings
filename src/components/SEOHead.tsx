@@ -14,8 +14,8 @@ interface SEOHeadProps {
   modifiedTime?: string;
 }
 
-const SITE_URL = "https://copilotenschule.de";
-const DEFAULT_OG_IMAGE = "/images/copilotenschule_flugzeug.png";
+const SITE_URL = "https://chatgpt-trainings.de";
+const DEFAULT_OG_IMAGE = "/images/chatgpt-trainings-logo.png";
 
 const SEOHead = ({
   title,
@@ -24,7 +24,7 @@ const SEOHead = ({
   canonicalUrl,
   ogImage = DEFAULT_OG_IMAGE,
   schema,
-  author = "copilotenschule.de",
+  author = "chatgpt-trainings.de",
   publishedTime,
   modifiedTime
 }: SEOHeadProps) => {
@@ -40,7 +40,7 @@ const SEOHead = ({
 
   return (
     <Helmet>
-      <title>{`${title} | copilotenschule.de`}</title>
+      <title>{`${title} | chatgpt-trainings.de`}</title>
 
       {/* Basic meta tags */}
       <meta name="description" content={description} />
@@ -48,16 +48,16 @@ const SEOHead = ({
       {authorName && <meta name="author" content={authorName} />}
 
       {/* Open Graph tags */}
-      <meta property="og:title" content={`${title} | copilotenschule.de`} />
+      <meta property="og:title" content={`${title} | chatgpt-trainings.de`} />
       <meta property="og:description" content={description} />
       <meta property="og:type" content="website" />
       {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
       <meta property="og:image" content={absoluteOgImage} />
-      <meta property="og:site_name" content="copilotenschule.de" />
+      <meta property="og:site_name" content="chatgpt-trainings.de" />
 
       {/* Twitter Card tags */}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={`${title} | copilotenschule.de`} />
+      <meta name="twitter:title" content={`${title} | chatgpt-trainings.de`} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={absoluteOgImage} />
 

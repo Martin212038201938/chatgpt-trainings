@@ -24,11 +24,11 @@ const Hero = () => {
           <div className="max-w-4xl mx-auto">
             <h1 className="text-3xl sm:text-5xl lg:text-7xl font-semibold tracking-tight leading-[1.1]">
               <span className="text-foreground">
-                Fokussiert auf
+                Professionelle
               </span>
               <br />
               <span className="text-primary">
-                Microsoft Copilot
+                ChatGPT
               </span>
               <br />
               <span className="text-foreground">
@@ -36,7 +36,7 @@ const Hero = () => {
               </span>
             </h1>
             <p className="mt-4 sm:mt-6 text-base sm:text-xl lg:text-2xl text-muted-foreground font-normal animate-slide-up-delayed">
-              Für messbar produktivere Büroarbeit
+              Für produktivere Teams und bessere Ergebnisse mit KI
             </p>
           </div>
         </div>
@@ -44,10 +44,10 @@ const Hero = () => {
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div className="space-y-6 sm:space-y-8">
             <p className="text-base sm:text-xl text-muted-foreground leading-relaxed mb-4 animate-fade-in-delayed">
-              Die copilotenschule.de ist die spezialisierte Weiterbildung für Organisationen, die Microsoft Copilot
-              wirksam und kontrolliert in der täglichen Büroarbeit einsetzen wollen. Wir befähigen Führungskräfte,
-              Teams und Wissensarbeiter, Copilot produktiv, sicher und wertschöpfend im Arbeitsalltag zu nutzen –
-              mit klarem Fokus auf Adoption, Wirkung und reale Geschäftsprozesse.
+              ChatGPT-Trainings.de ist die spezialisierte Weiterbildung für Organisationen, die ChatGPT und KI-Tools
+              wirksam und kontrolliert im Arbeitsalltag einsetzen wollen. Wir befähigen Führungskräfte,
+              Teams und Wissensarbeiter, ChatGPT produktiv, sicher und wertschöpfend zu nutzen –
+              mit klarem Fokus auf Prompt Engineering, Adoption und reale Geschäftsprozesse.
             </p>
             <p className="text-base sm:text-xl text-muted-foreground leading-relaxed animate-fade-in-delayed-2">
               Unsere Trainings basieren auf konkreten Arbeitsabläufen und direkt anwendbaren Copilot-Workflows.

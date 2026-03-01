@@ -17,7 +17,7 @@ const CopilotUnternehmensweitEinfuehren = () => {
   const martinLang = getAuthor('martin-lang')!;
 
   const ids = generateSchemaIds(SLUG, 'wissen');
-  const pageUrl = `https://copilotenschule.de/wissen/${SLUG}`;
+  const pageUrl = `https://chatgpt-trainings.de/wissen/${SLUG}`;
   const breadcrumbItems = generateWissenBreadcrumbItems(PAGE_TITLE, pageUrl);
 
   const tableOfContents = [
@@ -68,7 +68,7 @@ const CopilotUnternehmensweitEinfuehren = () => {
         "description": "Warum Shadow-IT bei KI gefährlich ist und wie eine zentrale Microsoft Copilot Einführung Sicherheit, DSGVO-Konformität und unternehmensweite Synergien gewährleistet.",
         "author": getAuthorSchemaMarkup(martinLang),
         "publisher": {
-          "@id": "https://copilotenschule.de/#organization"
+          "@id": "https://chatgpt-trainings.de/#organization"
         },
         "datePublished": "2026-02-02",
         "dateModified": "2026-02-02",
@@ -113,7 +113,7 @@ const CopilotUnternehmensweitEinfuehren = () => {
   return (
     <>
       <SEOHead
-        title="Warum Microsoft Copilot unternehmensweit einführen? | copilotenschule.de"
+        title="Warum Microsoft Copilot unternehmensweit einführen? | chatgpt-trainings.de"
         description="Warum Shadow-IT bei KI gefährlich ist: Zentrale Copilot-Einführung sichert DSGVO-Konformität, Grounding mit Unternehmensdaten und unternehmensweite Synergien."
         keywords={[
           "Microsoft Copilot Einführung",

@@ -12,7 +12,7 @@ const PAGE_TITLE = "Microsoft Copilot für Excel: Was die KI in Tabellen wirklic
 const CopilotFuerExcel = () => {
   const author = getAuthor("martin-lang");
   const ids = generateSchemaIds(SLUG, 'wissen');
-  const pageUrl = `https://copilotenschule.de/wissen/${SLUG}`;
+  const pageUrl = `https://chatgpt-trainings.de/wissen/${SLUG}`;
   const breadcrumbItems = generateWissenBreadcrumbItems(PAGE_TITLE, pageUrl);
 
   const tableOfContents = [
@@ -36,19 +36,19 @@ const CopilotFuerExcel = () => {
   const faqs = [
     {
       name: "Unsere Controller klagen, dass Copilot in Excel falsche Zahlen liefert – was machen wir falsch?",
-      answer: "Das liegt fast immer an der Datenstruktur, nicht an Copilot. Wenn Ihre Daten nicht als formatierte Excel-Tabelle vorliegen, Spaltenüberschriften fehlen oder Zellen zusammengeführt sind, kann Copilot die Daten nicht richtig interpretieren. In unseren Copilot-Trainings bei der Copilotenschule zeigen wir, wie Sie Ihre Daten Copilot-tauglich aufbereiten – das ist die wichtigste Grundlage für verlässliche Ergebnisse."
+      answer: "Das liegt fast immer an der Datenstruktur, nicht an Copilot. Wenn Ihre Daten nicht als formatierte Excel-Tabelle vorliegen, Spaltenüberschriften fehlen oder Zellen zusammengeführt sind, kann Copilot die Daten nicht richtig interpretieren. In unseren Copilot-Trainings bei der ChatGPT-Trainings zeigen wir, wie Sie Ihre Daten Copilot-tauglich aufbereiten – das ist die wichtigste Grundlage für verlässliche Ergebnisse."
     },
     {
       name: "Wie überzeugen wir das Management, dass Copilot in Excel einen echten Mehrwert bringt?",
-      answer: "Zeigen Sie konkrete Beispiele: Eine Pivot-Tabelle, die normalerweise 20 Minuten dauert, erstellt Copilot in Sekunden. Eine Trendanalyse über 12 Monate, für die sonst ein Analyst gebraucht wird, kann jeder Fachbereich selbst erstellen. Der Schlüssel liegt in der Demokratisierung von Datenanalyse – nicht nur IT und Controlling, sondern jede Abteilung kann ihre eigenen Daten auswerten. Die Copilotenschule erstellt Ihnen gerne eine ROI-Berechnung auf Basis Ihrer realen Workflows."
+      answer: "Zeigen Sie konkrete Beispiele: Eine Pivot-Tabelle, die normalerweise 20 Minuten dauert, erstellt Copilot in Sekunden. Eine Trendanalyse über 12 Monate, für die sonst ein Analyst gebraucht wird, kann jeder Fachbereich selbst erstellen. Der Schlüssel liegt in der Demokratisierung von Datenanalyse – nicht nur IT und Controlling, sondern jede Abteilung kann ihre eigenen Daten auswerten. Die ChatGPT-Trainings erstellt Ihnen gerne eine ROI-Berechnung auf Basis Ihrer realen Workflows."
     },
     {
       name: "Wir haben riesige Datensätze mit 100.000+ Zeilen – funktioniert Copilot da überhaupt?",
-      answer: "Copilot in Excel hat Grenzen bei sehr großen Datensätzen. Bei mehr als ca. 30.000 Zeilen werden die Ergebnisse unzuverlässiger. Für wirklich große Datenmengen empfehlen wir Power BI mit Copilot. Für die typischen Business-Tabellen bis 10.000 Zeilen funktioniert Copilot in Excel aber hervorragend. In den Trainings der Copilotenschule zeigen wir, wann welches Tool das richtige ist – und wie Sie Ihre Daten sinnvoll aufteilen."
+      answer: "Copilot in Excel hat Grenzen bei sehr großen Datensätzen. Bei mehr als ca. 30.000 Zeilen werden die Ergebnisse unzuverlässiger. Für wirklich große Datenmengen empfehlen wir Power BI mit Copilot. Für die typischen Business-Tabellen bis 10.000 Zeilen funktioniert Copilot in Excel aber hervorragend. In den Trainings der ChatGPT-Trainings zeigen wir, wann welches Tool das richtige ist – und wie Sie Ihre Daten sinnvoll aufteilen."
     },
     {
       name: "Unsere Mitarbeitenden nutzen Excel, können aber kein Englisch – funktioniert Copilot trotzdem?",
-      answer: "Ja, Copilot versteht deutsche Prompts sehr gut. In unserer Erfahrung bei der Copilotenschule funktionieren deutsche Prompts für die meisten Excel-Aufgaben zuverlässig. Bei sehr komplexen Berechnungen liefert ein englischer Prompt manchmal präzisere Ergebnisse, aber das ist die Ausnahme. Wir trainieren Ihre Teams mit deutschen Prompt-Vorlagen, die direkt einsetzbar sind."
+      answer: "Ja, Copilot versteht deutsche Prompts sehr gut. In unserer Erfahrung bei der ChatGPT-Trainings funktionieren deutsche Prompts für die meisten Excel-Aufgaben zuverlässig. Bei sehr komplexen Berechnungen liefert ein englischer Prompt manchmal präzisere Ergebnisse, aber das ist die Ausnahme. Wir trainieren Ihre Teams mit deutschen Prompt-Vorlagen, die direkt einsetzbar sind."
     }
   ];
 
@@ -62,7 +62,7 @@ const CopilotFuerExcel = () => {
         "description": "Was kann Microsoft Copilot in Excel wirklich? Praxisbeispiele, Prompts und ehrliche Einschätzung der Grenzen – von jemandem, der Werbung studiert hat und Pivot-Tabellen früher gefürchtet hat.",
         "author": getAuthorSchemaMarkup(author),
         "publisher": {
-          "@id": "https://copilotenschule.de/#organization"
+          "@id": "https://chatgpt-trainings.de/#organization"
         },
         "datePublished": "2026-02-28",
         "dateModified": "2026-02-28",
@@ -101,7 +101,7 @@ const CopilotFuerExcel = () => {
   return (
     <>
       <SEOHead
-        title="Microsoft Copilot für Excel: Was die KI in Tabellen wirklich kann | Copilotenschule"
+        title="Microsoft Copilot für Excel: Was die KI in Tabellen wirklich kann | ChatGPT-Trainings"
         description="Was kann Microsoft Copilot in Excel wirklich? Praxisbeispiele, Prompts und ehrliche Einschätzung der Grenzen – von jemandem, der Werbung studiert hat und Pivot-Tabellen früher gefürchtet hat."
         keywords={["Copilot Excel", "Microsoft Copilot Excel", "Excel KI", "Copilot Tabellen", "Excel Prompts", "Copilot Datenanalyse", "Excel Pivot Copilot", "KI Excel Formeln"]}
         canonicalUrl={pageUrl}
@@ -465,7 +465,7 @@ const CopilotFuerExcel = () => {
 
           <Card className="border-blue-200 bg-blue-50/50 mb-4">
             <CardContent className="pt-6">
-              <p className="text-sm text-gray-700"><strong>Aus der Praxis:</strong> Ich nutze genau diesen Workflow für die Copilotenschule. Anfang jeden Monats aktualisiere ich die Daten und lasse Copilot die Prognose neu rechnen. Das dauert 5 Minuten statt einer Stunde – und ich vertraue den Zahlen mehr als meinen eigenen Formeln.</p>
+              <p className="text-sm text-gray-700"><strong>Aus der Praxis:</strong> Ich nutze genau diesen Workflow für die ChatGPT-Trainings. Anfang jeden Monats aktualisiere ich die Daten und lasse Copilot die Prognose neu rechnen. Das dauert 5 Minuten statt einer Stunde – und ich vertraue den Zahlen mehr als meinen eigenen Formeln.</p>
             </CardContent>
           </Card>
         </section>

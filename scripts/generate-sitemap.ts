@@ -1,5 +1,5 @@
 /**
- * Sitemap Generator für copilotenschule.de
+ * Sitemap Generator für chatgpt-trainings.de
  *
  * Generiert sitemap.xml automatisch mit allen öffentlichen Seiten:
  * - Statische Seiten (Homepage, Impressum, etc.)
@@ -13,7 +13,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 
-const BASE_URL = 'https://copilotenschule.de';
+const BASE_URL = 'https://chatgpt-trainings.de';
 const TODAY = new Date().toISOString().split('T')[0];
 
 interface SitemapEntry {

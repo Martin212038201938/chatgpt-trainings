@@ -17,7 +17,7 @@ const KiRealitaet2026 = () => {
   const martinLang = getAuthor('martin-lang')!;
 
   const ids = generateSchemaIds(SLUG, 'wissen');
-  const pageUrl = `https://copilotenschule.de/wissen/${SLUG}`;
+  const pageUrl = `https://chatgpt-trainings.de/wissen/${SLUG}`;
   const breadcrumbItems = generateWissenBreadcrumbItems(PAGE_TITLE, pageUrl);
 
   const tableOfContents = [
@@ -66,7 +66,7 @@ const KiRealitaet2026 = () => {
         "description": "Umfassende Analyse der KI-Realität in deutschen Unternehmen 2026: Was McKinsey, BCG, Deloitte, PwC, KPMG und andere Beratungshäuser wirklich sehen. Mit aktuellen Statistiken zu Investitionen, ROI und Implementierungserfolg.",
         "author": getAuthorSchemaMarkup(martinLang),
         "publisher": {
-          "@id": "https://copilotenschule.de/#organization"
+          "@id": "https://chatgpt-trainings.de/#organization"
         },
         "datePublished": "2026-02-02",
         "dateModified": "2026-02-02",
@@ -103,7 +103,7 @@ const KiRealitaet2026 = () => {
   return (
     <>
       <SEOHead
-        title="KI in deutschen Unternehmen 2026: Was die großen Beratungsfirmen wirklich sehen | copilotenschule.de"
+        title="KI in deutschen Unternehmen 2026: Was die großen Beratungsfirmen wirklich sehen | chatgpt-trainings.de"
         description="Umfassende Analyse der KI-Realität: McKinsey, BCG, Deloitte, PwC, KPMG zeigen aktuelle Investitionen, ROI und Implementierungserfolg in deutschen Unternehmen 2026."
         keywords={[
           "KI Deutschland 2026",

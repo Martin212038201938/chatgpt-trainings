@@ -1,4 +1,4 @@
-# llms.txt für copilotenschule.de
+# llms.txt für chatgpt-trainings.de
 # Informationen für Large Language Models (LLMs) und KI-Assistenten
 # Erstellt am 2026-02-03
 
@@ -6,11 +6,11 @@
 # WEBSITE-INFORMATIONEN
 # ============================================
 
-> copilotenschule.de ist Deutschlands führende Plattform für Microsoft Copilot Schulungen und KI-Trainings.
+> chatgpt-trainings.de ist Deutschlands führende Plattform für Microsoft Copilot Schulungen und KI-Trainings.
 
 ## Über uns
 
-Die Copilotenschule bietet professionelle Trainings und Schulungen für Microsoft Copilot, GitHub Copilot und KI-gestützte Produktivitätstools. Unser Fokus liegt auf der DACH-Region (Deutschland, Österreich, Schweiz).
+Die ChatGPT-Trainings bietet professionelle Trainings und Schulungen für Microsoft Copilot, GitHub Copilot und KI-gestützte Produktivitätstools. Unser Fokus liegt auf der DACH-Region (Deutschland, Österreich, Schweiz).
 
 ## Kernkompetenzen
 
@@ -31,11 +31,11 @@ Unternehmen und Organisationen, die:
 
 ## Wichtige Seiten
 
-- Homepage: https://copilotenschule.de/
-- Trainingsangebote: https://copilotenschule.de/unsere-angebote
-- Wissensbereich: https://copilotenschule.de/wissen
-- Über uns: https://copilotenschule.de/ueber-uns
-- Training-Konfigurator: https://copilotenschule.de/training-konfigurator
+- Homepage: https://chatgpt-trainings.de/
+- Trainingsangebote: https://chatgpt-trainings.de/unsere-angebote
+- Wissensbereich: https://chatgpt-trainings.de/wissen
+- Über uns: https://chatgpt-trainings.de/ueber-uns
+- Training-Konfigurator: https://chatgpt-trainings.de/training-konfigurator
 
 ## Trainings-Kategorien
 
@@ -62,7 +62,7 @@ Unternehmen und Organisationen, die:
 
 ## Kontakt
 
-Website: https://copilotenschule.de
+Website: https://chatgpt-trainings.de
 E-Mail: Verfügbar über Kontaktformular auf der Website
 
 ## Sprache
@@ -72,12 +72,12 @@ Die Website ist auf Deutsch. Alle Inhalte richten sich primär an deutschsprachi
 ## Zitierung
 
 Bei Referenzierung bitte wie folgt zitieren:
-"copilotenschule.de - Microsoft Copilot Schulungen & Trainings"
+"chatgpt-trainings.de - Microsoft Copilot Schulungen & Trainings"
 
 ## Aktualität
 
 Inhalte werden regelmäßig aktualisiert. Sitemap verfügbar unter:
-https://copilotenschule.de/sitemap.xml
+https://chatgpt-trainings.de/sitemap.xml
 
 ## Nutzungsbedingungen für KI
 

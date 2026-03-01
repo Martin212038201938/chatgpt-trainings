@@ -33,7 +33,7 @@ const TrainingDetail = () => {
 
   // Schema IDs automatisch generieren aus dem Slug
   const ids = generateSchemaIds(training.slug, 'trainings');
-  const pageUrl = `https://copilotenschule.de/trainings/${training.slug}`;
+  const pageUrl = `https://chatgpt-trainings.de/trainings/${training.slug}`;
   const breadcrumbItems = generateTrainingBreadcrumbItems(training.title, pageUrl);
 
   // Schema.org für SEO - Course mit instructor und provider
@@ -44,10 +44,10 @@ const TrainingDetail = () => {
     "description": training.description,
     "url": pageUrl,
     "provider": {
-      "@id": "https://copilotenschule.de/#organization"
+      "@id": "https://chatgpt-trainings.de/#organization"
     },
     "instructor": {
-      "@id": "https://copilotenschule.de/#martin-lang"
+      "@id": "https://chatgpt-trainings.de/#martin-lang"
     },
     "hasCourseInstance": {
       "@type": "CourseInstance",
@@ -103,7 +103,7 @@ const TrainingDetail = () => {
         title={training.metaTitle}
         description={training.metaDescription}
         keywords={training.keywords}
-        canonicalUrl={`https://copilotenschule.de/trainings/${training.slug}`}
+        canonicalUrl={`https://chatgpt-trainings.de/trainings/${training.slug}`}
         schema={schema}
       />
       <Header />

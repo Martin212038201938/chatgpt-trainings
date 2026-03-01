@@ -7,14 +7,14 @@
 // Inhaber / Gründer
 export const founderSchema = {
   "@type": "Person",
-  "@id": "https://copilotenschule.de/#martin-lang",
+  "@id": "https://chatgpt-trainings.de/#martin-lang",
   "name": "Martin Lang",
   "jobTitle": "Gründer & Microsoft Copilot Experte",
-  "description": "Martin Lang ist Gründer der Yellow-Boat Consulting (2011) und der copilotenschule.de (2025). Seit über einem Jahrzehnt realisiert er Agile Trainings und Digitalisierungsprojekte. Als Microsoft Copilot Experte befähigt er Wissensarbeiter, Teams und Organisationen, Microsoft Copilot produktiv und sicher einzusetzen.",
-  "url": "https://copilotenschule.de/trainer/martin-lang",
+  "description": "Martin Lang ist Gründer der Yellow-Boat Consulting (2011) und der chatgpt-trainings.de (2025). Seit über einem Jahrzehnt realisiert er Agile Trainings und Digitalisierungsprojekte. Als Microsoft Copilot Experte befähigt er Wissensarbeiter, Teams und Organisationen, Microsoft Copilot produktiv und sicher einzusetzen.",
+  "url": "https://chatgpt-trainings.de/trainer/martin-lang",
   "image": {
     "@type": "ImageObject",
-    "url": "https://copilotenschule.de/images/authors/martin-lang.png",
+    "url": "https://chatgpt-trainings.de/images/authors/martin-lang.png",
     "width": 400,
     "height": 400
   },
@@ -51,7 +51,7 @@ export const founderSchema = {
     "https://www.yellow-boat.com"
   ],
   "worksFor": {
-    "@id": "https://copilotenschule.de/#organization"
+    "@id": "https://chatgpt-trainings.de/#organization"
   },
   "email": "mailto:martin@yellow-boat.com"
 };
@@ -64,7 +64,7 @@ export const parentOrganizationSchema = {
   "url": "https://www.yellow-boat.com",
   "foundingDate": "2011",
   "founder": {
-    "@id": "https://copilotenschule.de/#martin-lang"
+    "@id": "https://chatgpt-trainings.de/#martin-lang"
   },
   "sameAs": [
     "https://www.yellow-boat.com",
@@ -72,21 +72,21 @@ export const parentOrganizationSchema = {
   ]
 };
 
-// Hauptorganisation: copilotenschule.de
+// Hauptorganisation: chatgpt-trainings.de
 export const organizationSchema = {
   "@type": "Organization",
-  "@id": "https://copilotenschule.de/#organization",
-  "name": "copilotenschule.de",
-  "alternateName": "Copilotenschule",
-  "url": "https://copilotenschule.de",
+  "@id": "https://chatgpt-trainings.de/#organization",
+  "name": "chatgpt-trainings.de",
+  "alternateName": "ChatGPT-Trainings",
+  "url": "https://chatgpt-trainings.de",
   "logo": {
     "@type": "ImageObject",
-    "url": "https://copilotenschule.de/logo.png"
+    "url": "https://chatgpt-trainings.de/logo.png"
   },
-  "description": "copilotenschule.de bietet spezialisierte Microsoft Copilot Schulungen und Trainings für Unternehmen im DACH-Raum. Eine Marke der Yellow-Boat Consulting (gegründet 2011).",
+  "description": "chatgpt-trainings.de bietet spezialisierte Microsoft Copilot Schulungen und Trainings für Unternehmen im DACH-Raum. Eine Marke der Yellow-Boat Consulting (gegründet 2011).",
   "foundingDate": "2025",
   "founder": {
-    "@id": "https://copilotenschule.de/#martin-lang"
+    "@id": "https://chatgpt-trainings.de/#martin-lang"
   },
   "parentOrganization": {
     "@id": "https://www.yellow-boat.com/#organization"

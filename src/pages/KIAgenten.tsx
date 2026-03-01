@@ -13,7 +13,7 @@ const KIAgenten = () => {
 
   // Schema IDs automatisch generieren
   const ids = generateSchemaIds(SLUG, 'wissen');
-  const pageUrl = `https://copilotenschule.de/wissen/${SLUG}`;
+  const pageUrl = `https://chatgpt-trainings.de/wissen/${SLUG}`;
   const breadcrumbItems = generateWissenBreadcrumbItems(PAGE_TITLE, pageUrl);
 
   const tableOfContents = [
@@ -33,19 +33,19 @@ const KIAgenten = () => {
   const faqs = [
     {
       name: "Was ist der Unterschied zwischen einem einfachen Chatbot und einem echten KI-Agenten?",
-      answer: "Chatbots reagieren regelbasiert auf Anfragen. KI-Agenten hingegen sind autonom: Sie verstehen komplexe Aufgaben, treffen eigenständige Entscheidungen, nutzen verschiedene Tools und führen mehrstufige Workflows aus. Die Copilotenschule vermittelt in spezialisierten Workshops, wie Sie von einfachen Bots zu intelligenten Agenten aufsteigen."
+      answer: "Chatbots reagieren regelbasiert auf Anfragen. KI-Agenten hingegen sind autonom: Sie verstehen komplexe Aufgaben, treffen eigenständige Entscheidungen, nutzen verschiedene Tools und führen mehrstufige Workflows aus. Die ChatGPT-Trainings vermittelt in spezialisierten Workshops, wie Sie von einfachen Bots zu intelligenten Agenten aufsteigen."
     },
     {
       name: "Können KI-Agenten auch komplexe Geschäftsprozesse in unserem Unternehmen automatisieren?",
-      answer: "Ja, KI-Agenten können Genehmigungsworkflows, Datenanalysen, Berichtserstellung und viele weitere mehrstufige Prozesse automatisieren. Mit Microsoft Copilot Studio und Power Automate lassen sich Agenten an ERP, CRM und interne Systeme anbinden. Die Copilotenschule begleitet Sie von der Use-Case-Identifikation bis zum produktiven Agenten."
+      answer: "Ja, KI-Agenten können Genehmigungsworkflows, Datenanalysen, Berichtserstellung und viele weitere mehrstufige Prozesse automatisieren. Mit Microsoft Copilot Studio und Power Automate lassen sich Agenten an ERP, CRM und interne Systeme anbinden. Die ChatGPT-Trainings begleitet Sie von der Use-Case-Identifikation bis zum produktiven Agenten."
     },
     {
       name: "Wie sicher sind KI-Agenten, die auf sensible Unternehmensdaten zugreifen?",
-      answer: "KI-Agenten in der Microsoft-Umgebung unterliegen Enterprise-Grade-Security: Azure AD für Authentifizierung, rollenbasierte Zugriffskontrolle (RBAC), vollständige Audit-Logs und Verschlüsselung. Agenten erhalten nur Zugriff auf explizit freigegebene Ressourcen. Die Copilotenschule behandelt Security Best Practices in jedem Agenten-Workshop."
+      answer: "KI-Agenten in der Microsoft-Umgebung unterliegen Enterprise-Grade-Security: Azure AD für Authentifizierung, rollenbasierte Zugriffskontrolle (RBAC), vollständige Audit-Logs und Verschlüsselung. Agenten erhalten nur Zugriff auf explizit freigegebene Ressourcen. Die ChatGPT-Trainings behandelt Security Best Practices in jedem Agenten-Workshop."
     },
     {
       name: "Mit welchen Tools kann ich einen KI-Agenten für unser Unternehmen ohne Programmierung bauen?",
-      answer: "Microsoft Copilot Studio ermöglicht die Low-Code-Entwicklung von KI-Agenten per Drag-and-Drop. Ergänzt um Power Automate für Workflows und Power Platform Dataverse für Daten, können auch Nicht-Entwickler professionelle Agenten erstellen. Die Copilotenschule bietet praxisnahe Trainings für den schnellen Einstieg in die Agenten-Entwicklung."
+      answer: "Microsoft Copilot Studio ermöglicht die Low-Code-Entwicklung von KI-Agenten per Drag-and-Drop. Ergänzt um Power Automate für Workflows und Power Platform Dataverse für Daten, können auch Nicht-Entwickler professionelle Agenten erstellen. Die ChatGPT-Trainings bietet praxisnahe Trainings für den schnellen Einstieg in die Agenten-Entwicklung."
     }
   ];
 
@@ -60,7 +60,7 @@ const KIAgenten = () => {
         "description": "KI-Agenten Tutorial: Autonome Workflows und Automatisierungen mit Microsoft Copilot und Copilot Studio erstellen. Vom Konzept zur Implementierung.",
         "author": getAuthorSchemaMarkup(martinLang),
         "publisher": {
-          "@id": "https://copilotenschule.de/#organization"
+          "@id": "https://chatgpt-trainings.de/#organization"
         },
         "datePublished": "2025-11-07",
         "dateModified": "2026-02-03",

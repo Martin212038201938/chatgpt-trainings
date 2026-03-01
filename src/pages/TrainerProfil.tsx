@@ -30,10 +30,10 @@ const TrainerProfil = () => {
   return (
     <div className="min-h-screen">
       <SEOHead
-        title={`${trainer.name} – ${trainer.role} | copilotenschule.de`}
+        title={`${trainer.name} – ${trainer.role} | chatgpt-trainings.de`}
         description={trainer.bio}
         keywords={trainer.expertise}
-        canonicalUrl={`https://copilotenschule.de/trainer/${trainer.id}`}
+        canonicalUrl={`https://chatgpt-trainings.de/trainer/${trainer.id}`}
         schema={personSchema}
       />
       <Header />

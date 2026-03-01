@@ -29,7 +29,7 @@ const CopilotLaunchKampagne = () => {
   ];
 
   const ids = generateSchemaIds(SLUG, 'wissen');
-  const pageUrl = `https://copilotenschule.de/wissen/${SLUG}`;
+  const pageUrl = `https://chatgpt-trainings.de/wissen/${SLUG}`;
   const breadcrumbItems = generateWissenBreadcrumbItems(PAGE_TITLE, pageUrl);
 
   const faqs = [
@@ -61,7 +61,7 @@ const CopilotLaunchKampagne = () => {
         "description": "Warum eine Copilot-Einführung kein IT-Projekt ist und wie Sie mit der richtigen Launch-Kampagne echte Verhaltensänderung erreichen. Mit konkreten Ideen und Erfolgsfaktoren.",
         "author": getAuthorSchemaMarkup(author),
         "publisher": {
-          "@id": "https://copilotenschule.de/#organization"
+          "@id": "https://chatgpt-trainings.de/#organization"
         },
         "datePublished": "2026-02-03",
         "dateModified": "2026-02-03",
@@ -552,7 +552,7 @@ const CopilotLaunchKampagne = () => {
           </h2>
 
           <p className="my-6">
-            Bei der Copilotenschule haben wir alle Bausteine, die Sie für einen erfolgreichen Launch brauchen.
+            Bei der ChatGPT-Trainings haben wir alle Bausteine, die Sie für einen erfolgreichen Launch brauchen.
             Hier ein Überblick – natürlich modular kombinierbar nach Ihren Bedürfnissen:
           </p>
 

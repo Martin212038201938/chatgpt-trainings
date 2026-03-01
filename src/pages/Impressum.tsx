@@ -7,8 +7,8 @@ const Impressum = () => {
     <div className="min-h-screen">
       <SEOHead
         title="Impressum & Datenschutz"
-        description="Impressum und Datenschutzerklärung von copilotenschule.de - Eine Marke der Yellow-Boat Consulting. Rechtliche Informationen und Kontaktdaten."
-        canonicalUrl="https://copilotenschule.de/impressum"
+        description="Impressum und Datenschutzerklärung von chatgpt-trainings.de - Eine Marke der Yellow-Boat Consulting. Rechtliche Informationen und Kontaktdaten."
+        canonicalUrl="https://chatgpt-trainings.de/impressum"
       />
       <Header />
       <main className="pt-24 pb-16">
@@ -18,7 +18,7 @@ const Impressum = () => {
           <div className="prose prose-slate max-w-none space-y-8">
             <section>
               <p className="text-lg text-muted-foreground mb-6">
-                <strong>copilotenschule.de</strong> ist eine Marke der{" "}
+                <strong>chatgpt-trainings.de</strong> ist eine Marke der{" "}
                 <a href="https://yellow-boat.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
                   Yellow-Boat Consulting
                 </a>{" "}
@@ -26,9 +26,9 @@ const Impressum = () => {
               </p>
 
               <div className="bg-primary/10 border-l-4 border-primary p-6 rounded-r-lg mb-8">
-                <h3 className="text-xl font-bold mb-3">Über copilotenschule.de</h3>
+                <h3 className="text-xl font-bold mb-3">Über chatgpt-trainings.de</h3>
                 <p className="text-base mb-3">
-                  Die Copilotenschule ist spezialisiert auf die Einführung und Weiterqualifizierungen
+                  Die ChatGPT-Trainings ist spezialisiert auf die Einführung und Weiterqualifizierungen
                   im Umfeld der Microsoft Copiloten. Im Gegensatz zu anderen Anbietern bieten wir den
                   Teilnehmern keinen Bauchladen an Tools an, die in ihrem Umfeld nicht compliant oder
                   wertschöpfend sind.
@@ -73,7 +73,7 @@ const Impressum = () => {
               <h3 className="text-xl font-semibold mt-6 mb-3">Kontakt</h3>
               <p>
                 Telefon: +49 221 950 187 74<br />
-                E-Mail: <a href="mailto:info@copilotenschule.de" className="text-primary hover:underline">info@copilotenschule.de</a>
+                E-Mail: <a href="mailto:info@chatgpt-trainings.de" className="text-primary hover:underline">info@chatgpt-trainings.de</a>
               </p>
 
               <h3 className="text-xl font-semibold mt-6 mb-3">Umsatzsteuer-ID</h3>

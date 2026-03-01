@@ -13,7 +13,7 @@ const CopilotStudio = () => {
 
   // Schema IDs automatisch generieren
   const ids = generateSchemaIds(SLUG, 'wissen');
-  const pageUrl = `https://copilotenschule.de/wissen/${SLUG}`;
+  const pageUrl = `https://chatgpt-trainings.de/wissen/${SLUG}`;
   const breadcrumbItems = generateWissenBreadcrumbItems(PAGE_TITLE, pageUrl);
 
   const tableOfContents = [
@@ -33,19 +33,19 @@ const CopilotStudio = () => {
   const faqs = [
     {
       name: "Wir brauchen einen speziellen Chatbot für unser Intranet – ist Copilot Studio dafür geeignet?",
-      answer: "Ja, Copilot Studio ist ideal für unternehmensspezifische Chatbots und KI-Assistenten. Sie können SharePoint, interne Datenbanken und APIs anbinden, sodass der Bot auf Ihr Unternehmenswissen zugreift. Die Copilotenschule bietet praxisorientierte Copilot Studio Workshops, in denen Sie lernen, maßgeschneiderte Lösungen für Ihr Intranet zu entwickeln."
+      answer: "Ja, Copilot Studio ist ideal für unternehmensspezifische Chatbots und KI-Assistenten. Sie können SharePoint, interne Datenbanken und APIs anbinden, sodass der Bot auf Ihr Unternehmenswissen zugreift. Die ChatGPT-Trainings bietet praxisorientierte Copilot Studio Workshops, in denen Sie lernen, maßgeschneiderte Lösungen für Ihr Intranet zu entwickeln."
     },
     {
       name: "Können wir ohne Programmierkenntnisse eigene KI-Assistenten mit Copilot Studio bauen?",
-      answer: "Absolut. Copilot Studio ist eine Low-Code-Plattform mit visuellem Designer – Sie können Chatbots und KI-Agenten per Drag-and-Drop erstellen. Für komplexere Anforderungen lässt sich optional Code hinzufügen. Im Copilot Studio Training der Copilotenschule lernen auch Nicht-Entwickler, professionelle KI-Assistenten zu erstellen."
+      answer: "Absolut. Copilot Studio ist eine Low-Code-Plattform mit visuellem Designer – Sie können Chatbots und KI-Agenten per Drag-and-Drop erstellen. Für komplexere Anforderungen lässt sich optional Code hinzufügen. Im Copilot Studio Training der ChatGPT-Trainings lernen auch Nicht-Entwickler, professionelle KI-Assistenten zu erstellen."
     },
     {
       name: "Wie verbinde ich Copilot Studio mit unseren internen Systemen und Datenbanken?",
-      answer: "Copilot Studio bietet über 1.000 vorgefertigte Konnektoren für SharePoint, SAP, Salesforce, SQL-Datenbanken und mehr. Über Custom Connectors und APIs lassen sich auch proprietäre Systeme anbinden. Die Copilotenschule zeigt in praxisnahen Workshops, wie Sie Ihre Unternehmensdaten sicher und effizient integrieren."
+      answer: "Copilot Studio bietet über 1.000 vorgefertigte Konnektoren für SharePoint, SAP, Salesforce, SQL-Datenbanken und mehr. Über Custom Connectors und APIs lassen sich auch proprietäre Systeme anbinden. Die ChatGPT-Trainings zeigt in praxisnahen Workshops, wie Sie Ihre Unternehmensdaten sicher und effizient integrieren."
     },
     {
       name: "Was kostet die Entwicklung eines eigenen Copilot-Agenten mit Copilot Studio?",
-      answer: "Copilot Studio ist in Microsoft 365 Copilot enthalten oder als Standalone ab 200 USD/Monat verfügbar, plus nutzungsbasierte Message Credits. Die Entwicklung eines einfachen Agenten dauert oft nur wenige Tage. Die Copilotenschule unterstützt Sie bei der Kosten-Nutzen-Analyse und dem schnellen Aufbau Ihres ersten KI-Agenten."
+      answer: "Copilot Studio ist in Microsoft 365 Copilot enthalten oder als Standalone ab 200 USD/Monat verfügbar, plus nutzungsbasierte Message Credits. Die Entwicklung eines einfachen Agenten dauert oft nur wenige Tage. Die ChatGPT-Trainings unterstützt Sie bei der Kosten-Nutzen-Analyse und dem schnellen Aufbau Ihres ersten KI-Agenten."
     }
   ];
 
@@ -60,7 +60,7 @@ const CopilotStudio = () => {
         "description": "Copilot Studio Tutorial: Eigene KI-Agenten, Chatbots und Custom Copilots ohne Code erstellen. Low-Code Plattform für Unternehmen.",
         "author": getAuthorSchemaMarkup(martinLang),
         "publisher": {
-          "@id": "https://copilotenschule.de/#organization"
+          "@id": "https://chatgpt-trainings.de/#organization"
         },
         "datePublished": "2025-11-07",
         "dateModified": "2026-02-03",

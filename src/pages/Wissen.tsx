@@ -48,7 +48,7 @@ const Wissen = () => {
           "Copilot Lizenzen",
           "Copilot ROI"
         ]}
-        canonicalUrl="https://copilotenschule.de/wissen"
+        canonicalUrl="https://chatgpt-trainings.de/wissen"
       />
       <Header />
       <main className="pt-16">

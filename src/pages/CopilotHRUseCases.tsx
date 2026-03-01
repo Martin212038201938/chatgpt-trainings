@@ -12,7 +12,7 @@ const CopilotHRUseCases = () => {
   const martinLang = getAuthor('martin-lang')!;
 
   const ids = generateSchemaIds(SLUG, 'wissen');
-  const pageUrl = `https://copilotenschule.de/wissen/${SLUG}`;
+  const pageUrl = `https://chatgpt-trainings.de/wissen/${SLUG}`;
   const breadcrumbItems = generateWissenBreadcrumbItems(PAGE_TITLE, pageUrl);
 
   const tableOfContents = [
@@ -32,19 +32,19 @@ const CopilotHRUseCases = () => {
   const faqs = [
     {
       name: "Unsere HR-Abteilung ist skeptisch gegenüber KI – wie überzeugen wir das Team?",
-      answer: "Die Skepsis ist berechtigt, denn HR arbeitet mit sensiblen Daten. Der beste Einstieg sind Use Cases, die offensichtlich zeitraubend und wenig wertschöpfend sind: Zeugniserstellung, Stellenausschreibungen, Meeting-Zusammenfassungen. Wenn HR-Mitarbeitende erleben, dass Copilot ihnen bei genau diesen Aufgaben eine Stunde pro Woche schenkt, entsteht Akzeptanz von selbst. Die Copilotenschule bietet HR-spezifische Workshops, die genau an diesen Alltagsaufgaben ansetzen."
+      answer: "Die Skepsis ist berechtigt, denn HR arbeitet mit sensiblen Daten. Der beste Einstieg sind Use Cases, die offensichtlich zeitraubend und wenig wertschöpfend sind: Zeugniserstellung, Stellenausschreibungen, Meeting-Zusammenfassungen. Wenn HR-Mitarbeitende erleben, dass Copilot ihnen bei genau diesen Aufgaben eine Stunde pro Woche schenkt, entsteht Akzeptanz von selbst. Die ChatGPT-Trainings bietet HR-spezifische Workshops, die genau an diesen Alltagsaufgaben ansetzen."
     },
     {
       name: "Darf ich Bewerbungsunterlagen überhaupt mit Copilot verarbeiten – was ist mit der DSGVO?",
-      answer: "Microsoft 365 Copilot verarbeitet Daten innerhalb des M365-Tenants und unterliegt den gleichen Compliance-Richtlinien wie Ihre bestehende M365-Umgebung. Entscheidend ist, dass Bewerberdaten ohnehin in Outlook, SharePoint oder Teams liegen – Copilot greift nur auf das zu, worauf der Nutzer bereits Zugriff hat. Trotzdem sollten Sie Ihren Datenschutzbeauftragten einbinden und die Verarbeitungstätigkeiten dokumentieren. Die Copilotenschule adressiert in ihren Compliance-Trainings genau diese Fragestellungen."
+      answer: "Microsoft 365 Copilot verarbeitet Daten innerhalb des M365-Tenants und unterliegt den gleichen Compliance-Richtlinien wie Ihre bestehende M365-Umgebung. Entscheidend ist, dass Bewerberdaten ohnehin in Outlook, SharePoint oder Teams liegen – Copilot greift nur auf das zu, worauf der Nutzer bereits Zugriff hat. Trotzdem sollten Sie Ihren Datenschutzbeauftragten einbinden und die Verarbeitungstätigkeiten dokumentieren. Die ChatGPT-Trainings adressiert in ihren Compliance-Trainings genau diese Fragestellungen."
     },
     {
       name: "Wie verhindern wir, dass Copilot-generierte Zeugnisse oder Texte zu gleichförmig klingen?",
-      answer: "Indem Sie Copilot nicht als Ersatz für Ihr Urteil nutzen, sondern als Entwurfsassistent. Der Trick liegt im Prompt: Je spezifischer Sie die Stärken, Projekte und Besonderheiten der Person beschreiben, desto individueller wird der Entwurf. Nachbearbeitung bleibt Pflicht – aber sie dauert zehn Minuten statt einer Stunde. Die Copilotenschule trainiert Ihre HR-Teams in genau diesen Prompting-Techniken."
+      answer: "Indem Sie Copilot nicht als Ersatz für Ihr Urteil nutzen, sondern als Entwurfsassistent. Der Trick liegt im Prompt: Je spezifischer Sie die Stärken, Projekte und Besonderheiten der Person beschreiben, desto individueller wird der Entwurf. Nachbearbeitung bleibt Pflicht – aber sie dauert zehn Minuten statt einer Stunde. Die ChatGPT-Trainings trainiert Ihre HR-Teams in genau diesen Prompting-Techniken."
     },
     {
       name: "Lohnt sich Copilot auch für kleine HR-Teams mit zwei bis drei Personen?",
-      answer: "Gerade dort. Kleine HR-Teams tragen die gesamte Bandbreite von Recruiting bis Zeugnisse auf wenigen Schultern. Wenn jede Person durch Copilot zwei bis vier Stunden pro Woche gewinnt, ist das bei einem dreiköpfigen Team fast ein kompletter Arbeitstag. Bei 28 Euro pro Lizenz und Monat amortisiert sich das sofort. Die Copilotenschule berät Sie zur richtigen Lizenzstrategie für Ihre Teamgröße."
+      answer: "Gerade dort. Kleine HR-Teams tragen die gesamte Bandbreite von Recruiting bis Zeugnisse auf wenigen Schultern. Wenn jede Person durch Copilot zwei bis vier Stunden pro Woche gewinnt, ist das bei einem dreiköpfigen Team fast ein kompletter Arbeitstag. Bei 28 Euro pro Lizenz und Monat amortisiert sich das sofort. Die ChatGPT-Trainings berät Sie zur richtigen Lizenzstrategie für Ihre Teamgröße."
     }
   ];
 
@@ -58,7 +58,7 @@ const CopilotHRUseCases = () => {
         "description": "Die wirkungsvollsten Copilot Use Cases für HR-Abteilungen: Von Stellenausschreibungen über Zeugnisse bis People Analytics – konkrete Zeitersparnis pro Mitarbeiter.",
         "author": getAuthorSchemaMarkup(martinLang),
         "publisher": {
-          "@id": "https://copilotenschule.de/#organization"
+          "@id": "https://chatgpt-trainings.de/#organization"
         },
         "datePublished": "2026-02-14",
         "dateModified": "2026-02-14",
@@ -95,7 +95,7 @@ const CopilotHRUseCases = () => {
   return (
     <>
       <SEOHead
-        title="Copilot im HR: Use Cases mit echter Zeitersparnis für Personalabteilungen | copilotenschule.de"
+        title="Copilot im HR: Use Cases mit echter Zeitersparnis für Personalabteilungen | chatgpt-trainings.de"
         description="Die wirkungsvollsten Copilot Use Cases für HR: Von Stellenausschreibungen über Zeugnisse bis People Analytics – konkrete Zeitersparnis pro Mitarbeiter."
         keywords={[
           "Microsoft Copilot HR",

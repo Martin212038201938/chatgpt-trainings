@@ -12,7 +12,7 @@ const CopilotAgentDigitalesGedaechtnis = () => {
   const martinLang = getAuthor('martin-lang')!;
 
   const ids = generateSchemaIds(SLUG, 'wissen');
-  const pageUrl = `https://copilotenschule.de/wissen/${SLUG}`;
+  const pageUrl = `https://chatgpt-trainings.de/wissen/${SLUG}`;
   const breadcrumbItems = generateWissenBreadcrumbItems(PAGE_TITLE, pageUrl);
 
   const tableOfContents = [
@@ -31,19 +31,19 @@ const CopilotAgentDigitalesGedaechtnis = () => {
   const faqs = [
     {
       name: "Wir haben 200 Meetings pro Woche im Unternehmen – wie skaliert das?",
-      answer: "Der Agent funktioniert pro Nutzer, nicht zentral. Jeder Mitarbeitende kann sich seinen eigenen Protokoll-Agenten bauen – mit dem Format, das für die eigene Abteilung sinnvoll ist. Das Vertriebsteam braucht andere Felder als die Rechtsabteilung. In unseren Copilot-Trainings bei der Copilotenschule zeigen wir, wie Teams ihre eigenen Vorlagen entwickeln und Agenten-Erstellung als Standardkompetenz aufbauen."
+      answer: "Der Agent funktioniert pro Nutzer, nicht zentral. Jeder Mitarbeitende kann sich seinen eigenen Protokoll-Agenten bauen – mit dem Format, das für die eigene Abteilung sinnvoll ist. Das Vertriebsteam braucht andere Felder als die Rechtsabteilung. In unseren Copilot-Trainings bei der ChatGPT-Trainings zeigen wir, wie Teams ihre eigenen Vorlagen entwickeln und Agenten-Erstellung als Standardkompetenz aufbauen."
     },
     {
       name: "Unsere Mitarbeitenden nutzen die Meeting-Transkription nicht – wie ändern wir das?",
-      answer: "Das ist eines der häufigsten Probleme, das wir in Trainings sehen. Meist liegt es daran, dass Mitarbeitende den Mehrwert nicht kennen oder unsicher sind, ob sie aufzeichnen dürfen. Die Lösung: Klare Kommunikation durch die Führungskraft, dass Transkription erwünscht ist, kombiniert mit einem praktischen Workshop, in dem jeder seinen eigenen Protokoll-Agenten baut. Wenn Menschen den Nutzen am eigenen Beispiel erleben, fällt die Hemmschwelle. Die Copilotenschule bietet genau solche Enablement-Formate an."
+      answer: "Das ist eines der häufigsten Probleme, das wir in Trainings sehen. Meist liegt es daran, dass Mitarbeitende den Mehrwert nicht kennen oder unsicher sind, ob sie aufzeichnen dürfen. Die Lösung: Klare Kommunikation durch die Führungskraft, dass Transkription erwünscht ist, kombiniert mit einem praktischen Workshop, in dem jeder seinen eigenen Protokoll-Agenten baut. Wenn Menschen den Nutzen am eigenen Beispiel erleben, fällt die Hemmschwelle. Die ChatGPT-Trainings bietet genau solche Enablement-Formate an."
     },
     {
       name: "Wie stelle ich sicher, dass vertrauliche Meeting-Inhalte nicht an unbefugte Personen gelangen?",
-      answer: "Microsoft Copilot respektiert die bestehenden Berechtigungen in Microsoft 365. Ein Copilot-Agent kann nur auf Daten zugreifen, auf die der jeweilige Nutzer selbst Zugriff hat. Wenn Sie Protokolle in SharePoint ablegen, greifen die SharePoint-Berechtigungen. Sensible Meetings können in separaten Ordnern mit eingeschränktem Zugriff gespeichert werden. In unseren Compliance-Workshops bei der Copilotenschule klären wir diese Fragen im Detail und entwickeln gemeinsam ein Berechtigungskonzept."
+      answer: "Microsoft Copilot respektiert die bestehenden Berechtigungen in Microsoft 365. Ein Copilot-Agent kann nur auf Daten zugreifen, auf die der jeweilige Nutzer selbst Zugriff hat. Wenn Sie Protokolle in SharePoint ablegen, greifen die SharePoint-Berechtigungen. Sensible Meetings können in separaten Ordnern mit eingeschränktem Zugriff gespeichert werden. In unseren Compliance-Workshops bei der ChatGPT-Trainings klären wir diese Fragen im Detail und entwickeln gemeinsam ein Berechtigungskonzept."
     },
     {
       name: "Lohnt sich der Aufwand, wenn wir bereits ein Projektmanagement-Tool wie Jira oder Asana nutzen?",
-      answer: "Absolut – denn die Werkzeuge lösen unterschiedliche Probleme. Jira und Asana verwalten Tasks, aber sie erfassen nicht den Kontext, in dem Entscheidungen getroffen wurden. Der Copilot-Agent erstellt ein durchsuchbares Gedächtnis: Wer hat was gesagt, warum wurde so entschieden, welche Alternativen wurden verworfen. Das ist die Ebene, die in Projektmanagement-Tools fehlt. In den Copilot-Trainings der Copilotenschule zeigen wir, wie beide Welten zusammenspielen."
+      answer: "Absolut – denn die Werkzeuge lösen unterschiedliche Probleme. Jira und Asana verwalten Tasks, aber sie erfassen nicht den Kontext, in dem Entscheidungen getroffen wurden. Der Copilot-Agent erstellt ein durchsuchbares Gedächtnis: Wer hat was gesagt, warum wurde so entschieden, welche Alternativen wurden verworfen. Das ist die Ebene, die in Projektmanagement-Tools fehlt. In den Copilot-Trainings der ChatGPT-Trainings zeigen wir, wie beide Welten zusammenspielen."
     }
   ];
 
@@ -57,7 +57,7 @@ const CopilotAgentDigitalesGedaechtnis = () => {
         "description": "Schritt-für-Schritt-Anleitung: Eigenen Copilot-Agenten bauen, der Meeting-Transkripte automatisch in Ihr Wunschformat bringt und als durchsuchbares digitales Gedächtnis ablegt.",
         "author": getAuthorSchemaMarkup(martinLang),
         "publisher": {
-          "@id": "https://copilotenschule.de/#organization"
+          "@id": "https://chatgpt-trainings.de/#organization"
         },
         "datePublished": "2026-02-28",
         "dateModified": "2026-02-28",
@@ -94,7 +94,7 @@ const CopilotAgentDigitalesGedaechtnis = () => {
   return (
     <>
       <SEOHead
-        title="Copilot Agent für Meeting-Protokolle: Digitales Gedächtnis bauen | copilotenschule.de"
+        title="Copilot Agent für Meeting-Protokolle: Digitales Gedächtnis bauen | chatgpt-trainings.de"
         description="Schritt-für-Schritt-Anleitung: Eigenen Copilot-Agenten bauen, der Meeting-Transkripte automatisch in Ihr Wunschformat bringt und als durchsuchbares digitales Gedächtnis ablegt."
         keywords={[
           "Copilot Agent erstellen",
@@ -148,7 +148,7 @@ const CopilotAgentDigitalesGedaechtnis = () => {
         {/* Einleitung */}
         <div className="prose prose-lg max-w-none dark:prose-invert mb-8">
           <p className="text-lg leading-relaxed">
-            Als Geschäftsführer der Copilotenschule spreche ich jeden Tag mit Menschen. Kunden, die wissen
+            Als Geschäftsführer der ChatGPT-Trainings spreche ich jeden Tag mit Menschen. Kunden, die wissen
             wollen, wie sie Copilot in ihrem Unternehmen einführen. Trainer, die ihre Workshop-Konzepte
             abstimmen wollen. Partner, mit denen ich über gemeinsame Projekte verhandle. Bewerber, die sich
             vorstellen. Journalisten, die nach einer Einschätzung fragen. An einem normalen Tag habe ich
@@ -818,7 +818,7 @@ Ablage:
               alles erinnert, was Sie vergessen haben.
             </p>
             <p>
-              Für mich als Geschäftsführer der Copilotenschule hat dieses System einen konkreten Unterschied
+              Für mich als Geschäftsführer der ChatGPT-Trainings hat dieses System einen konkreten Unterschied
               gemacht. Ich bin nicht mehr der, der in Meetings fragt „Hatten wir das nicht schon mal
               besprochen?" – ich bin der, der sagt „Moment, ich schaue kurz nach." Und zehn Sekunden
               später habe ich die Antwort. Das verändert nicht nur meine eigene Produktivität, sondern
