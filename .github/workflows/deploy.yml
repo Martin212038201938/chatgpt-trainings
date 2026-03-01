@@ -1,4 +1,4 @@
-name: Deploy to copilotenschule.de
+name: Deploy to chatgpt-trainings.de
 on:
   push:
     branches:
@@ -36,7 +36,7 @@ jobs:
         env:
           VITE_OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           CI: true
-      
+
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
@@ -46,16 +46,15 @@ jobs:
           protocol: ftps
           port: 21
           local-dir: dist/
-          server-dir: /www/copilotenschule.de/
+          server-dir: /www/chatgpt-trainings.de/
           dangerous-clean-slate: false
           timeout: 300000
           log-level: verbose
 
-
       - name: Notify Bing IndexNow about updated pages
         run: |
           echo "Starting IndexNow notification..."
-          SITEMAP_URL="https://copilotenschule.de/sitemap.xml"
+          SITEMAP_URL="https://chatgpt-trainings.de/sitemap.xml"
           INDEXNOW_KEY="695afc50b8ee44729593fd861c4e96e9"
           sleep 10
           echo "Fetching sitemap from $SITEMAP_URL"
