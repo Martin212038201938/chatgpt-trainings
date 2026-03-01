@@ -28,7 +28,20 @@ export interface ArticleData {
 }
 
 // Alle Artikel - sortiert nach Veröffentlichungsdatum (neueste zuerst)
-export const ALL_ARTICLES: ArticleData[] = [];
+export const ALL_ARTICLES: ArticleData[] = [
+  {
+    id: "chatgpt-erinnerungen",
+    title: "ChatGPT und Erinnerungen: Was weiss ChatGPT ueber mich?",
+    description: "ChatGPT merkt sich mehr ueber Sie als die meisten vermuten. Wie das Memory-System funktioniert, was gespeichert wird und wie Sie die Kontrolle behalten.",
+    link: "/wissen/chatgpt-erinnerungen",
+    badge: "ChatGPT Praxis",
+    icon: "\uD83E\uDDE0",
+    lastUpdated: "01. Mrz. 2026",
+    publishDate: "2026-03-01",
+    publishTime: "09:00",
+    isDraft: false
+  }
+];
 
 // Hilfsfunktion: Artikel nach ID finden
 export function getArticleById(id: string): ArticleData | undefined {

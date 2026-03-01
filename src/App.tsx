@@ -15,6 +15,7 @@ import TrainingKonfigurator from "./pages/TrainingKonfigurator";
 import UnsereAngebote from "./pages/UnsereAngebote";
 import TrainingDetail from "./pages/TrainingDetail";
 import TrainerProfil from "./pages/TrainerProfil";
+import ChatgptErinnerungen from "./pages/ChatgptErinnerungen";
 
 const queryClient = new QueryClient();
 
@@ -35,6 +36,7 @@ const App = () => (
           <Route path="/trainings/:slug" element={<TrainingDetail />} />
           <Route path="/trainer/:id" element={<TrainerProfil />} />
           <Route path="/training-konfigurator" element={<TrainingKonfigurator />} />
+          <Route path="/wissen/chatgpt-erinnerungen" element={<ChatgptErinnerungen />} />
           <Route path="/admin" element={<Admin />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

@@ -43,7 +43,8 @@
       "/trainings/chatgpt-keynote",
       "/trainings/chatgpt-launch-event",
       "/trainings/chatgpt-hackathon",
-      "/trainer/martin-lang"
+      "/trainer/martin-lang",
+      "/wissen/chatgpt-erinnerungen"
     ],
     "skipThirdPartyRequests": true,
     "crawl": false
