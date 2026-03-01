@@ -22,11 +22,9 @@ jobs:
 
       - name: Clean build artifacts
         run: |
-          echo "Cleaning all build artifacts..."
           rm -rf dist
           rm -rf node_modules/.vite
           rm -rf node_modules/.cache
-          echo "Build artifacts cleaned successfully"
 
       - name: Install dependencies
         run: npm install
@@ -37,28 +35,27 @@ jobs:
           VITE_OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           CI: true
 
-      - name: Deploy via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          protocol: ftps
-          port: 21
-          security: loose
-          local-dir: dist/
-          server-dir: /www/chatgpt-trainings.de/
-          dangerous-clean-slate: false
-          timeout: 300000
-          log-level: verbose
+      - name: Deploy via lftp
+        run: |
+          sudo apt-get install -y lftp
+          lftp -e "
+            set ftp:ssl-allow yes;
+            set ftp:ssl-force yes;
+            set ftp:ssl-protect-data yes;
+            set ssl:verify-certificate no;
+            set mirror:use-pget-n 5;
+            open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ${{ secrets.FTP_SERVER }};
+            mirror --reverse --delete --verbose dist/ /www/chatgpt-trainings.de/;
+            quit
+          "
 
       - name: Notify Bing IndexNow about updated pages
+        if: success()
         run: |
           echo "Starting IndexNow notification..."
           SITEMAP_URL="https://chatgpt-trainings.de/sitemap.xml"
           INDEXNOW_KEY="695afc50b8ee44729593fd861c4e96e9"
           sleep 10
-          echo "Fetching sitemap from $SITEMAP_URL"
           URLS=$(curl -s "$SITEMAP_URL" | grep -oP '(?<=<loc>)[^<]+' | head -100)
           URL_COUNT=$(echo "$URLS" | wc -l)
           echo "Found $URL_COUNT URLs in sitemap"
