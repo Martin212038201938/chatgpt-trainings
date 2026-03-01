@@ -45,6 +45,7 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftps
           port: 21
+          security: loose
           local-dir: dist/
           server-dir: /www/chatgpt-trainings.de/
           dangerous-clean-slate: false
