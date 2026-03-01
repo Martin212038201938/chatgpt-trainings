@@ -1,0 +1,333 @@
+import { Link } from "react-router-dom";
+import ContentLayout from "@/components/ContentLayout";
+import SEOHead from "@/components/SEOHead";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { getAuthor, getFullArticleSchemaGraph } from "@/data/authors";
+import { Linkedin, Mail, ArrowRight } from "lucide-react";
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw';
+import { useMemo } from "react";
+
+export interface KnowledgePagePreviewProps {
+  title: string;
+  description: string;
+  slug: string;
+  keywords: string[];
+  category: string;
+  readTime: string;
+  publishDate: string;
+  authorId?: string;
+  markdownContent: string;
+}
+
+const KnowledgePagePreview = ({
+  title,
+  description,
+  slug,
+  keywords,
+  category,
+  readTime,
+  publishDate,
+  authorId = 'martin-lang',
+  markdownContent
+}: KnowledgePagePreviewProps) => {
+  const author = getAuthor(authorId);
+
+  if (!author) {
+    return <div>Author not found</div>;
+  }
+
+  // Parse markdown and extract sections
+  const { quickAnswer, tableOfContents, faqItems, mainContent } = useMemo(() => {
+    // Debug: Log the incoming content
+    console.log('KnowledgePagePreview - markdownContent length:', markdownContent?.length);
+    console.log('KnowledgePagePreview - markdownContent preview:', markdownContent?.substring(0, 500));
+
+    // Split content by sections
+    const lines = markdownContent.split('\n');
+    let quickAnswerContent = '';
+    let faqSection = '';
+    let mainContent = '';
+    let inQuickAnswer = false;
+    let inFaq = false;
+
+    for (let i = 0; i < lines.length; i++) {
+      const line = lines[i];
+
+      // Detect Quick Answer section
+      if (line.match(/^##\s*🎯\s*Quick Answer/i)) {
+        inQuickAnswer = true;
+        inFaq = false;
+        continue;
+      }
+
+      // Detect FAQ section
+      if (line.match(/^##\s*❓\s*(Häufig gestellte Fragen|FAQ)/i)) {
+        inFaq = true;
+        inQuickAnswer = false;
+        continue;
+      }
+
+      // Detect new H2 section (end of Quick Answer or FAQ)
+      if (line.match(/^##\s+[^🎯❓]/)) {
+        inQuickAnswer = false;
+        if (!line.match(/^##\s*❓/)) {
+          inFaq = false;
+        }
+      }
+
+      if (inQuickAnswer) {
+        quickAnswerContent += line + '\n';
+      } else if (inFaq) {
+        faqSection += line + '\n';
+      } else {
+        mainContent += line + '\n';
+      }
+    }
+
+    // Extract FAQ items
+    const faqItems: Array<{ question: string; answer: string }> = [];
+    if (faqSection) {
+      const faqMatches = faqSection.match(/###\s*(.+?)\n([\s\S]*?)(?=###|$)/g);
+      if (faqMatches) {
+        faqMatches.forEach(match => {
+          const questionMatch = match.match(/###\s*(.+?)$/m);
+          const answerMatch = match.replace(/###\s*.+?\n/, '').trim();
+          if (questionMatch && answerMatch) {
+            faqItems.push({
+              question: questionMatch[1].trim(),
+              answer: answerMatch
+            });
+          }
+        });
+      }
+    }
+
+    // Extract table of contents from H2 headers
+    const tocItems: Array<{ id: string; title: string; level: number }> = [];
+    const h2Regex = /^##\s+(.+?)$/gm;
+    let match;
+
+    while ((match = h2Regex.exec(mainContent)) !== null) {
+      const headerText = match[1].replace(/[🎯❓💡]/g, '').trim();
+      const id = headerText
+        .toLowerCase()
+        .replace(/ä/g, 'ae')
+        .replace(/ö/g, 'oe')
+        .replace(/ü/g, 'ue')
+        .replace(/ß/g, 'ss')
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/(^-|-$)/g, '');
+
+      tocItems.push({
+        id,
+        title: headerText,
+        level: 2
+      });
+    }
+
+    // Debug: Log parsed sections
+    console.log('KnowledgePagePreview - Parsed sections:');
+    console.log('  quickAnswer length:', quickAnswerContent.length);
+    console.log('  mainContent length:', mainContent.length);
+    console.log('  mainContent preview:', mainContent.substring(0, 300));
+    console.log('  faqItems count:', faqItems.length);
+
+    return {
+      quickAnswer: quickAnswerContent,
+      tableOfContents: tocItems,
+      faqItems,
+      mainContent: mainContent
+    };
+  }, [markdownContent]);
+
+  // Format date
+  const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    return new Intl.DateTimeFormat('de-DE', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    }).format(date);
+  };
+
+  const canonicalUrl = `https://copilotenschule.de/wissen/${slug}`;
+  const breadcrumbs = [
+    { label: 'Home', href: '/' },
+    { label: 'Wissen', href: '/wissen' },
+    { label: title, href: `/wissen/${slug}` }
+  ];
+
+  // Generiere Article-Schema mit author und publisher Verknüpfung
+  const articleSchema = getFullArticleSchemaGraph({
+    title,
+    description,
+    slug,
+    authorId,
+    publishDate,
+    modifiedDate: new Date().toISOString(),
+    keywords,
+    category
+  });
+
+  return (
+    <>
+      <SEOHead
+        title={title}
+        description={description}
+        keywords={keywords}
+        canonicalUrl={canonicalUrl}
+        author={author}
+        publishedTime={publishDate}
+        modifiedTime={new Date().toISOString()}
+        schema={articleSchema || undefined}
+      />
+
+      <ContentLayout
+        breadcrumbs={breadcrumbs}
+        title={title}
+        description={description}
+        lastUpdated={formatDate(publishDate)}
+        readTime={readTime}
+        tableOfContents={tableOfContents}
+      >
+        {/* Quick Answer Section */}
+        {quickAnswer && (
+          <section id="quick-answer" className="mb-8">
+            <Card className="border-2 border-primary/30 bg-white shadow-lg">
+              <CardHeader className="bg-gradient-to-r from-primary/5 to-transparent border-b">
+                <CardTitle className="flex items-center gap-2 text-xl text-gray-900">
+                  <span className="text-2xl">⚡</span>
+                  Schnellantwort
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="pt-6">
+                <ReactMarkdown
+                  className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-headings:font-bold prose-h2:text-2xl prose-h2:mt-6 prose-h2:mb-4 prose-h3:text-xl prose-h3:mt-4 prose-h3:mb-3 prose-p:text-gray-800 prose-p:leading-relaxed prose-p:my-4 prose-li:text-gray-800 prose-li:my-1 prose-strong:text-gray-900 prose-strong:font-semibold prose-a:text-blue-600 prose-a:underline prose-ul:list-disc prose-ul:pl-6 prose-ul:my-4 prose-ol:list-decimal prose-ol:pl-6 prose-ol:my-4"
+                  remarkPlugins={[remarkGfm]}
+                  rehypePlugins={[rehypeRaw]}
+                >
+                  {quickAnswer}
+                </ReactMarkdown>
+              </CardContent>
+            </Card>
+          </section>
+        )}
+
+        {/* Main Content */}
+        <article className="bg-white rounded-xl shadow-sm border border-gray-100 p-8 md:p-12 mb-8">
+          <ReactMarkdown
+            className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-headings:font-bold prose-h2:text-2xl prose-h2:mt-8 prose-h2:mb-4 prose-h3:text-xl prose-h3:mt-6 prose-h3:mb-3 prose-p:text-gray-800 prose-p:leading-relaxed prose-p:my-4 prose-li:text-gray-800 prose-li:my-1 prose-strong:text-gray-900 prose-strong:font-semibold prose-a:text-blue-600 prose-a:underline prose-ul:list-disc prose-ul:pl-6 prose-ul:my-4 prose-ol:list-decimal prose-ol:pl-6 prose-ol:my-4"
+            remarkPlugins={[remarkGfm]}
+            rehypePlugins={[rehypeRaw]}
+          >
+            {mainContent.trim() || markdownContent}
+          </ReactMarkdown>
+        </article>
+
+        {/* FAQ Section */}
+        {faqItems.length > 0 && (
+          <section id="faq" className="mt-12 mb-12">
+            <h2 className="text-3xl font-bold mb-6 text-gray-900">Häufig gestellte Fragen (FAQ)</h2>
+            <div className="space-y-4">
+              {faqItems.map((faq, idx) => (
+                <Card key={idx} className="bg-white hover:shadow-lg transition-shadow border border-gray-100">
+                  <CardHeader className="border-b bg-gray-50/50">
+                    <CardTitle className="text-lg font-semibold text-gray-900">{faq.question}</CardTitle>
+                  </CardHeader>
+                  <CardContent className="pt-6">
+                    <ReactMarkdown
+                      className="prose prose-base max-w-none prose-p:text-gray-800 prose-p:leading-relaxed prose-p:my-3 prose-li:text-gray-800 prose-li:my-1 prose-strong:text-gray-900 prose-strong:font-semibold prose-a:text-blue-600 prose-a:underline prose-ul:list-disc prose-ul:pl-5 prose-ul:my-3 prose-ol:list-decimal prose-ol:pl-5 prose-ol:my-3 prose-code:bg-gray-100 prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-code:text-sm"
+                      remarkPlugins={[remarkGfm]}
+                      rehypePlugins={[rehypeRaw]}
+                    >
+                      {faq.answer}
+                    </ReactMarkdown>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* Author Bio */}
+        <section className="my-12">
+          <Card className="border-l-4 border-l-primary bg-white shadow-sm">
+            <CardContent className="pt-6">
+              <div className="flex flex-col md:flex-row gap-6">
+                <div className="flex-shrink-0">
+                  {author.image && (
+                    <Link to={`/trainer/${author.id}`} className="block hover:opacity-90 transition-opacity">
+                      <img
+                        src={author.image}
+                        alt={author.name}
+                        className="w-32 h-32 rounded-full object-cover border-4 border-primary/20 hover:border-primary/40 transition-colors"
+                      />
+                    </Link>
+                  )}
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-xl font-bold mb-2 text-gray-900">Über den Autor</h3>
+                  <Link to={`/trainer/${author.id}`} className="text-lg font-semibold text-primary mb-1 hover:underline block">{author.name}</Link>
+                  <div className="text-sm text-gray-600 mb-3">{author.role}</div>
+                  <p className="text-sm leading-relaxed mb-4 text-gray-800">{author.bio}</p>
+                  <div className="mb-3">
+                    <div className="text-sm font-semibold mb-2 text-gray-900">Qualifikationen:</div>
+                    <ul className="list-disc list-inside text-sm text-gray-700 mb-3 space-y-1">
+                      {author.qualifications.slice(0, 4).map((qual, idx) => (
+                        <li key={idx}>{qual}</li>
+                      ))}
+                    </ul>
+                    <div className="text-sm font-semibold mb-2 text-gray-900">Expertise:</div>
+                    <div className="flex flex-wrap gap-2">
+                      {author.expertise.slice(0, 6).map((exp, idx) => (
+                        <span
+                          key={idx}
+                          className="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium"
+                        >
+                          {exp}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="flex flex-wrap gap-3">
+                    <Link
+                      to={`/trainer/${author.id}`}
+                      className="inline-flex items-center gap-2 text-sm text-primary hover:underline font-medium"
+                    >
+                      <ArrowRight className="w-4 h-4" />
+                      Vollständiges Profil
+                    </Link>
+                    {author.linkedin && (
+                      <a
+                        href={author.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-sm text-primary hover:underline"
+                      >
+                        <Linkedin className="w-4 h-4" />
+                        LinkedIn
+                      </a>
+                    )}
+                    {author.email && (
+                      <a
+                        href={`mailto:${author.email}`}
+                        className="inline-flex items-center gap-2 text-sm text-primary hover:underline"
+                      >
+                        <Mail className="w-4 h-4" />
+                        Kontakt
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </section>
+      </ContentLayout>
+    </>
+  );
+};
+
+export default KnowledgePagePreview;

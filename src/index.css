@@ -1,0 +1,324 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+
+    --primary: 209 56% 54%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 204 16% 92%;
+    --secondary-foreground: 0 0% 10%;
+
+    --muted: 204 16% 92%;
+    --muted-foreground: 200 1% 58%;
+
+    --accent: 47 97% 65%;
+    --accent-foreground: 0 0% 10%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 204 16% 88%;
+    --input: 204 16% 88%;
+    --ring: 209 56% 54%;
+
+    --radius: 0.75rem;
+
+    --hero-gradient: linear-gradient(135deg, hsl(209 56% 54%) 0%, hsl(209 56% 64%) 100%);
+    --section-gradient: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(204 16% 96%) 100%);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 204 20% 12%;
+    --foreground: 204 16% 92%;
+
+    --card: 204 20% 16%;
+    --card-foreground: 204 16% 92%;
+
+    --popover: 204 20% 16%;
+    --popover-foreground: 204 16% 92%;
+
+    --primary: 209 56% 54%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 204 20% 22%;
+    --secondary-foreground: 204 16% 92%;
+
+    --muted: 204 20% 22%;
+    --muted-foreground: 204 16% 69%;
+
+    --accent: 47 97% 65%;
+    --accent-foreground: 204 20% 12%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 204 16% 92%;
+
+    --border: 204 20% 22%;
+    --input: 204 20% 22%;
+    --ring: 209 56% 54%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* Mobile Text-Overflow Prevention
+     Verhindert, dass lange deutsche Wörter über den Bildschirmrand hinausragen */
+  h1, h2, h3, h4, h5, h6 {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+  }
+
+  /* Auf sehr kleinen Screens aggressive Wortumbrüche */
+  @media (max-width: 475px) {
+    h1, h2, h3, h4, h5, h6 {
+      word-break: break-word;
+    }
+  }
+}
+
+@layer utilities {
+  /* Smooth scroll behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom animations */
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes gradient-shift {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  @keyframes pulse-slow {
+    0%, 100% {
+      opacity: 0.3;
+    }
+    50% {
+      opacity: 0.6;
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.6s ease-out;
+  }
+
+  .animate-fade-in-delayed {
+    animation: fade-in 0.6s ease-out 0.2s backwards;
+  }
+
+  .animate-fade-in-delayed-2 {
+    animation: fade-in 0.6s ease-out 0.4s backwards;
+  }
+
+  .animate-fade-in-delayed-3 {
+    animation: fade-in 0.6s ease-out 0.6s backwards;
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.8s ease-out;
+  }
+
+  .animate-slide-up-delayed {
+    animation: slide-up 0.8s ease-out 0.2s backwards;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-float-delayed {
+    animation: float 6s ease-in-out 3s infinite;
+  }
+
+  .animate-gradient-shift {
+    background-size: 200% 200%;
+    animation: gradient-shift 15s ease infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse-slow 4s ease-in-out infinite;
+  }
+
+  .animate-shimmer {
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+  }
+
+  /* Glassmorphism effect */
+  .glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  /* Hover lift effect */
+  .hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary;
+  }
+
+  /* ================================================
+     ARTICLE CONTENT SPACING
+     Mehr Weißraum zwischen Abschnitten und Kapiteln
+     ================================================ */
+
+  /* Hauptabschnitte (sections) - H2s kontrollieren die Abstände */
+  article section {
+    @apply mb-8;
+  }
+
+  /* H2 Überschriften - Dreifacher Abstand vorher (9rem), doppelter Abstand danach (4rem)
+     !important überschreibt Inline-Tailwind-Klassen wie mb-6 oder mt-12 */
+  article h2 {
+    margin-top: 9rem !important;
+    margin-bottom: 4rem !important;
+  }
+
+  /* Allererste H2 im Artikel braucht keinen großen Abstand oben
+     (direkt nach Header/Intro-Bereich) */
+  article > section:first-child > h2:first-child,
+  article > h2:first-child,
+  article > div > h2:first-child,
+  article > div:first-child > section:first-child > h2:first-child {
+    margin-top: 0 !important;
+  }
+
+  /* H3 Überschriften */
+  article h3 {
+    @apply mt-10 mb-5;
+  }
+
+  /* Absätze mit mehr Abstand */
+  article p {
+    @apply mb-5 leading-relaxed;
+  }
+
+  /* Listen mit Abstand */
+  article ul,
+  article ol {
+    @apply mb-6 mt-4;
+  }
+
+  /* Cards und visuelle Komponenten */
+  article .card,
+  article [class*="Card"] {
+    @apply my-8;
+  }
+
+  /* Blockquotes */
+  article blockquote {
+    @apply my-10;
+  }
+
+  /* Tabellen */
+  article table {
+    @apply my-8;
+  }
+
+  /* Grids innerhalb von Artikeln */
+  article .grid {
+    @apply my-6;
+  }
+}

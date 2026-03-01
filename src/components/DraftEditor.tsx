@@ -1,0 +1,3165 @@
+import { useState, useRef, useEffect } from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { Badge } from "@/components/ui/badge";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { ArrowLeft, Save, Eye, Upload, Code, Sparkles, CheckCircle, Play, Edit2, Calendar, Clock, Plus, X } from "lucide-react";
+import { Draft, ExtractedTopic, GeneratorState } from "@/types/draft";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw';
+import KnowledgePagePreview from "@/components/KnowledgePagePreview";
+import ErrorBoundary from "@/components/ErrorBoundary";
+import { fetchYouTubeTranscript, isValidYouTubeUrl } from "@/utils/youtubeTranscript";
+import {
+  isAPIUsageAllowed,
+  trackAPICall,
+  sendWarningEmail,
+  getUsageStats,
+} from "@/utils/costTracker";
+
+interface DraftEditorProps {
+  draft: Draft;
+  onSave: (draft: Draft) => void;
+  onCancel: () => void;
+  initialTab?: string;
+}
+
+type GeneratorStep = 'transcript' | 'topics' | 'focus' | 'metadata' | 'content-generation' | 'content-review' | 'page-design' | 'completed';
+
+interface GeneratedMetadata {
+  title: string;
+  description: string;
+  category: string;
+  keywords: string[];
+  slug: string;
+  icon: string;
+  readTime: string;
+}
+
+interface ContentAnalysisResult {
+  mainTheses: string[];
+  keyConcepts: Array<{concept: string; explanation: string}>;
+  insights: string[];
+  practicalTips: string[];
+  seoKeywords: string[];
+  potentialFAQs: Array<{question: string; answerHints: string}>;
+  targetAudience: string;
+  contentStructure: string[];
+  expertiseLevel?: 'beginner' | 'intermediate' | 'advanced';
+  requiredKnowledge?: string[];
+}
+
+const DraftEditor = ({ draft, onSave, onCancel, initialTab }: DraftEditorProps) => {
+  const [editedDraft, setEditedDraft] = useState<Draft>(draft);
+  const [activeTab, setActiveTab] = useState(initialTab || "content");
+
+  // Load generator state from draft if exists
+  const [transcript, setTranscript] = useState<string>(draft.generatorState?.transcript || "");
+  const transcriptTextareaRef = useRef<HTMLTextAreaElement>(null);
+  const [youtubeUrl, setYoutubeUrl] = useState<string>("");
+  const [isLoadingYouTube, setIsLoadingYouTube] = useState(false);
+
+  // Content Generator State (load from draft or start fresh)
+  const [generatorStep, setGeneratorStep] = useState<GeneratorStep>(
+    draft.generatorState?.step || 'transcript'
+  );
+  const [extractedTopics, setExtractedTopics] = useState<ExtractedTopic[]>(
+    draft.generatorState?.extractedTopics || []
+  );
+  const [selectedTopic, setSelectedTopic] = useState<ExtractedTopic | null>(
+    draft.generatorState?.selectedTopic || null
+  );
+  const [generatedMetadata, setGeneratedMetadata] = useState<GeneratedMetadata | null>(null);
+  const [generatedContent, setGeneratedContent] = useState<string>(
+    draft.generatorState?.generatedContent || ""
+  );
+  const [reviewedContent, setReviewedContent] = useState<string>(
+    draft.generatorState?.reviewedContent || ""
+  );
+  const [isGenerating, setIsGenerating] = useState(false);
+  const [openAIKey, setOpenAIKey] = useState<string>(() => {
+    // Try to get key from: 1) env variable, 2) localStorage, 3) empty string
+    return import.meta.env.VITE_OPENAI_API_KEY ||
+           localStorage.getItem('openai_api_key') ||
+           "";
+  });
+  const [showResumePrompt, setShowResumePrompt] = useState(false);
+  const [contentAnalysis, setContentAnalysis] = useState<ContentAnalysisResult | null>(null);
+  const [analysisStep, setAnalysisStep] = useState<'pending' | 'analyzing' | 'analyzed' | 'generating'>('pending');
+  const [isEditingAnalysis, setIsEditingAnalysis] = useState(false);
+
+  // Custom topic state
+  const [showCustomTopicForm, setShowCustomTopicForm] = useState(false);
+  const [customTopicTitle, setCustomTopicTitle] = useState('');
+  const [customTopicDescription, setCustomTopicDescription] = useState('');
+  const [customTopicKeywords, setCustomTopicKeywords] = useState('');
+
+  // Save API key to localStorage when it changes
+  useEffect(() => {
+    if (openAIKey) {
+      localStorage.setItem('openai_api_key', openAIKey);
+    } else {
+      localStorage.removeItem('openai_api_key');
+    }
+  }, [openAIKey]);
+
+  // Check if there's a saved generator state to resume
+  useEffect(() => {
+    if (draft.generatorState && draft.generatorState.step !== 'transcript' && !showResumePrompt) {
+      setShowResumePrompt(true);
+    }
+  }, [draft.generatorState, showResumePrompt]);
+
+  // Auto-focus transcript textarea when on content-generator tab
+  useEffect(() => {
+    if (activeTab === "content-generator" && transcriptTextareaRef.current) {
+      setTimeout(() => {
+        transcriptTextareaRef.current?.focus();
+      }, 100);
+    }
+  }, [activeTab]);
+
+  // Save generator state to draft
+  const saveGeneratorState = (updatedState: Partial<GeneratorState>) => {
+    const newState: GeneratorState = {
+      step: generatorStep,
+      transcript,
+      extractedTopics,
+      selectedTopic,
+      generatedContent,
+      reviewedContent,
+      finalCode: editedDraft.generatorState?.finalCode || '',
+      ...updatedState
+    };
+
+    setEditedDraft({
+      ...editedDraft,
+      generatorState: newState,
+      updatedAt: new Date().toISOString(),
+    });
+  };
+
+  const handleChange = (field: keyof Draft, value: any) => {
+    setEditedDraft({
+      ...editedDraft,
+      [field]: value,
+      updatedAt: new Date().toISOString(),
+    });
+  };
+
+  const validateDraft = (draft: Draft): { valid: boolean; errors: string[] } => {
+    const errors: string[] = [];
+
+    if (!draft.title?.trim()) errors.push('Titel fehlt');
+    if (!draft.description?.trim()) errors.push('Beschreibung fehlt');
+    if (!draft.slug?.trim()) errors.push('Slug fehlt');
+    if (!draft.content?.trim()) errors.push('Inhalt fehlt');
+    if (!draft.category?.trim()) errors.push('Kategorie fehlt');
+    if (!draft.readTime?.trim()) errors.push('Lesezeit fehlt');
+    if (!draft.keywords || draft.keywords.length === 0) errors.push('Keywords fehlen');
+
+    return { valid: errors.length === 0, errors };
+  };
+
+  const handleSave = () => {
+    onSave(editedDraft);
+  };
+
+  const handlePublish = () => {
+    const validation = validateDraft(editedDraft);
+
+    if (!validation.valid) {
+      alert(`❌ Veröffentlichung nicht möglich!\n\nFolgende Pflichtfelder fehlen:\n\n${validation.errors.map(e => `• ${e}`).join('\n')}\n\nBitte fülle alle Felder aus und versuche es erneut.`);
+      return false;
+    }
+
+    const publishedDraft = {
+      ...editedDraft,
+      status: 'published' as const,
+      publishDate: new Date().toISOString(),
+      updatedAt: new Date().toISOString()
+    };
+
+    setEditedDraft(publishedDraft);
+    onSave(publishedDraft);
+    alert('✅ Artikel wurde erfolgreich veröffentlicht!\n\nDer Artikel ist jetzt unter /wissen/' + editedDraft.slug + ' verfügbar.');
+    return true;
+  };
+
+  const handleSchedule = () => {
+    const validation = validateDraft(editedDraft);
+
+    if (!validation.valid) {
+      alert(`❌ Planung nicht möglich!\n\nFolgende Pflichtfelder fehlen:\n\n${validation.errors.map(e => `• ${e}`).join('\n')}\n\nBitte fülle alle Felder aus und versuche es erneut.`);
+      return false;
+    }
+
+    const selectedDate = new Date(editedDraft.publishDate);
+    const now = new Date();
+
+    if (selectedDate <= now) {
+      alert('Bitte wähle ein zukünftiges Datum für die geplante Veröffentlichung.');
+      return false;
+    }
+
+    const scheduledDraft = {
+      ...editedDraft,
+      status: 'scheduled' as const,
+      updatedAt: new Date().toISOString()
+    };
+
+    setEditedDraft(scheduledDraft);
+    onSave(scheduledDraft);
+    alert('✅ Veröffentlichung geplant!\n\nDer Artikel wird am ' + selectedDate.toLocaleString('de-DE') + ' automatisch veröffentlicht.');
+    return true;
+  };
+
+  const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+
+    // Check if file is TSX, JSX, or JS
+    const validExtensions = ['.tsx', '.jsx', '.js', '.ts'];
+    const fileExtension = file.name.substring(file.name.lastIndexOf('.'));
+
+    if (!validExtensions.includes(fileExtension)) {
+      alert('Bitte nur TSX, JSX, TS oder JS Dateien hochladen');
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const content = e.target?.result as string;
+      setEditedDraft({
+        ...editedDraft,
+        content,
+        contentType: 'code',
+        codeFileName: file.name,
+        updatedAt: new Date().toISOString(),
+      });
+      setActiveTab('code-upload');
+    };
+    reader.readAsText(file);
+  };
+
+  const handleSwitchToMarkdown = () => {
+    if (editedDraft.contentType === 'code') {
+      if (confirm('Möchtest du wirklich zu Markdown wechseln? Der hochgeladene Code bleibt erhalten, aber du kannst ihn im Markdown-Editor bearbeiten.')) {
+        setEditedDraft({
+          ...editedDraft,
+          contentType: 'markdown',
+          updatedAt: new Date().toISOString(),
+        });
+      }
+    }
+  };
+
+  const handleSwitchToCode = () => {
+    if (editedDraft.contentType === 'markdown') {
+      if (confirm('Möchtest du wirklich zu Code-Upload wechseln? Dein Markdown-Inhalt bleibt erhalten.')) {
+        setEditedDraft({
+          ...editedDraft,
+          contentType: 'code',
+          updatedAt: new Date().toISOString(),
+        });
+      }
+    }
+  };
+
+  const handleTranscriptUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+
+    // Check if file is text-based
+    const validExtensions = ['.txt', '.srt', '.vtt', '.md'];
+    const fileExtension = file.name.substring(file.name.lastIndexOf('.'));
+
+    if (!validExtensions.includes(fileExtension)) {
+      alert('Bitte nur Text-Dateien hochladen (.txt, .srt, .vtt, .md)');
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const content = e.target?.result as string;
+      setTranscript(content);
+      setActiveTab('content-generator');
+    };
+    reader.readAsText(file);
+  };
+
+  // Smart Topic Extraction from transcript
+  const extractTopicsFromTranscript = (text: string): ExtractedTopic[] => {
+    // Simple but effective topic extraction
+    // In production, this could use a real AI API
+    const topics: ExtractedTopic[] = [];
+
+    // Common copilot-related topics with keywords
+    const topicPatterns = [
+      {
+        keywords: ['sicherheit', 'security', 'datenschutz', 'dsgvo', 'verschlüsselung'],
+        title: 'Microsoft Copilot Sicherheit',
+        description: 'Datenschutz, Sicherheitsaspekte und Compliance bei Microsoft Copilot',
+        category: 'Sicherheit',
+        icon: '🔒'
+      },
+      {
+        keywords: ['produktivität', 'effizienz', 'zeitersparnis', 'workflow', 'arbeit'],
+        title: 'Produktivität mit Microsoft Copilot',
+        description: 'Wie Microsoft Copilot die Produktivität steigert und Arbeitsabläufe optimiert',
+        category: 'Produktivität',
+        icon: '⚡'
+      },
+      {
+        keywords: ['roi', 'kosten', 'nutzen', 'investition', 'wirtschaftlich'],
+        title: 'ROI von Microsoft Copilot',
+        description: 'Return on Investment und Kostenanalyse für Microsoft Copilot',
+        category: 'Business',
+        icon: '💰'
+      },
+      {
+        keywords: ['tipps', 'tricks', 'best practices', 'anwendung', 'tutorial'],
+        title: 'Microsoft Copilot Tipps & Tricks',
+        description: 'Praktische Tipps und Best Practices für die Nutzung von Microsoft Copilot',
+        category: 'Anleitungen',
+        icon: '💡'
+      },
+      {
+        keywords: ['teams', 'kollaboration', 'zusammenarbeit', 'meeting'],
+        title: 'Copilot für Teams',
+        description: 'Microsoft Copilot in Teams für bessere Kollaboration',
+        category: 'Kollaboration',
+        icon: '👥'
+      },
+      {
+        keywords: ['excel', 'daten', 'analyse', 'tabellen'],
+        title: 'Copilot für Excel',
+        description: 'Datenanalyse und Excel-Automatisierung mit Microsoft Copilot',
+        category: 'Tools',
+        icon: '📊'
+      },
+      {
+        keywords: ['word', 'dokument', 'text', 'schreiben'],
+        title: 'Copilot für Word',
+        description: 'Dokumentenerstellung und Textbearbeitung mit Microsoft Copilot',
+        category: 'Tools',
+        icon: '📝'
+      }
+    ];
+
+    const lowerText = text.toLowerCase();
+
+    topicPatterns.forEach(pattern => {
+      let matchCount = 0;
+      pattern.keywords.forEach(keyword => {
+        const regex = new RegExp(keyword, 'gi');
+        const matches = lowerText.match(regex);
+        if (matches) {
+          matchCount += matches.length;
+        }
+      });
+
+      if (matchCount > 0) {
+        topics.push({
+          title: pattern.title,
+          description: pattern.description,
+          keywords: pattern.keywords,
+          relevance: matchCount
+        });
+      }
+    });
+
+    // Sort by relevance
+    topics.sort((a, b) => b.relevance - a.relevance);
+
+    // If no topics found, create a generic one
+    if (topics.length === 0) {
+      topics.push({
+        title: 'Microsoft Copilot Wissensartikel',
+        description: 'Umfassender Artikel über Microsoft Copilot',
+        keywords: ['microsoft', 'copilot', 'ki', 'künstliche intelligenz'],
+        relevance: 1
+      });
+    }
+
+    return topics;
+  };
+
+  // Generate metadata from selected topic and transcript
+  const generateMetadataFromTopic = (topic: ExtractedTopic, text: string): GeneratedMetadata => {
+    // Calculate read time (average 200 words per minute)
+    const wordCount = text.split(/\s+/).length;
+    const readMinutes = Math.ceil(wordCount / 200);
+    const readTime = `${readMinutes} Min. Lesezeit`;
+
+    // Generate slug from title
+    const slug = topic.title
+      .toLowerCase()
+      .replace(/ä/g, 'ae')
+      .replace(/ö/g, 'oe')
+      .replace(/ü/g, 'ue')
+      .replace(/ß/g, 'ss')
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/(^-|-$)/g, '');
+
+    // Determine icon based on title
+    let icon = '📝';
+    if (topic.title.includes('Sicherheit')) icon = '🔒';
+    else if (topic.title.includes('Produktivität')) icon = '⚡';
+    else if (topic.title.includes('ROI')) icon = '💰';
+    else if (topic.title.includes('Tipps')) icon = '💡';
+    else if (topic.title.includes('Teams')) icon = '👥';
+    else if (topic.title.includes('Excel')) icon = '📊';
+    else if (topic.title.includes('Word')) icon = '📝';
+
+    // Determine category
+    let category = 'Wissen';
+    if (topic.title.includes('Sicherheit')) category = 'Sicherheit';
+    else if (topic.title.includes('Produktivität')) category = 'Produktivität';
+    else if (topic.title.includes('ROI')) category = 'Business';
+    else if (topic.title.includes('Tipps')) category = 'Anleitungen';
+    else if (topic.title.includes('Teams') || topic.title.includes('Excel') || topic.title.includes('Word')) {
+      category = 'Tools';
+    }
+
+    // Enhanced SEO keywords
+    const seoKeywords = [
+      ...topic.keywords,
+      'microsoft copilot',
+      'copilot für microsoft 365',
+      'ki-unterstützte büroarbeit',
+      category.toLowerCase()
+    ];
+
+    return {
+      title: topic.title,
+      description: topic.description,
+      category,
+      keywords: [...new Set(seoKeywords)], // Remove duplicates
+      slug,
+      icon,
+      readTime
+    };
+  };
+
+  // Load YouTube transcript
+  const handleLoadYouTubeTranscript = async () => {
+    if (!youtubeUrl.trim()) {
+      alert('Bitte eine YouTube URL eingeben');
+      return;
+    }
+
+    if (!isValidYouTubeUrl(youtubeUrl)) {
+      alert('Bitte eine gültige YouTube URL eingeben');
+      return;
+    }
+
+    setIsLoadingYouTube(true);
+
+    try {
+      const result = await fetchYouTubeTranscript(youtubeUrl);
+
+      if (result.success && result.transcript) {
+        setTranscript(result.transcript);
+        setYoutubeUrl(""); // Clear URL input
+
+        // Automatically proceed to next step
+        setTimeout(() => {
+          handleExtractTopics();
+        }, 500);
+      } else {
+        // Show detailed error message if available
+        let errorMsg = result.error || 'Fehler beim Laden des Transkripts';
+        if (result.debug) {
+          errorMsg += '\n\nDebug: ' + result.debug;
+        }
+        if (result.xmlErrors && result.xmlErrors.length > 0) {
+          errorMsg += '\n\nXML Fehler: ' + result.xmlErrors.join(', ');
+        }
+        alert(errorMsg);
+      }
+    } catch (error) {
+      console.error('Error loading YouTube transcript:', error);
+      alert('Fehler beim Laden des Transkripts: ' + (error instanceof Error ? error.message : 'Unbekannter Fehler'));
+    } finally {
+      setIsLoadingYouTube(false);
+    }
+  };
+
+  // Step 1: Extract topics from transcript
+  const handleExtractTopics = () => {
+    if (!transcript.trim()) {
+      alert('Bitte zuerst ein Transkript hochladen oder eingeben');
+      return;
+    }
+
+    setIsGenerating(true);
+
+    // Simulate processing delay for better UX
+    setTimeout(() => {
+      const topics = extractTopicsFromTranscript(transcript);
+      setExtractedTopics(topics);
+      setGeneratorStep('topics');
+
+      // Save state
+      saveGeneratorState({
+        step: 'topics',
+        transcript,
+        extractedTopics: topics
+      });
+
+      setIsGenerating(false);
+    }, 800);
+  };
+
+  // Step 2: Select focus topic
+  const handleSelectTopic = (topic: ExtractedTopic) => {
+    setSelectedTopic(topic);
+    setGeneratorStep('focus');
+
+    // Save state
+    saveGeneratorState({
+      step: 'focus',
+      selectedTopic: topic
+    });
+  };
+
+  // Step 2b: Add custom topic
+  const handleAddCustomTopic = () => {
+    if (!customTopicTitle.trim()) return;
+
+    const customTopic: ExtractedTopic = {
+      title: customTopicTitle.trim(),
+      description: customTopicDescription.trim() || `Benutzerdefiniertes Thema: ${customTopicTitle.trim()}`,
+      keywords: customTopicKeywords
+        .split(',')
+        .map(k => k.trim())
+        .filter(k => k.length > 0),
+      relevance: 100 // Custom topics get highest relevance
+    };
+
+    // Add to extracted topics list
+    const updatedTopics = [customTopic, ...extractedTopics];
+    setExtractedTopics(updatedTopics);
+
+    // Save state
+    saveGeneratorState({
+      extractedTopics: updatedTopics
+    });
+
+    // Reset form
+    setCustomTopicTitle('');
+    setCustomTopicDescription('');
+    setCustomTopicKeywords('');
+    setShowCustomTopicForm(false);
+  };
+
+  // Step 3: Generate metadata from selected topic
+  const handleGenerateMetadata = () => {
+    if (!selectedTopic) return;
+
+    setIsGenerating(true);
+
+    // Simulate processing for better UX
+    setTimeout(() => {
+      const metadata = generateMetadataFromTopic(selectedTopic, transcript);
+      setGeneratedMetadata(metadata);
+      setGeneratorStep('metadata');
+
+      saveGeneratorState({
+        step: 'metadata',
+        selectedTopic: selectedTopic
+      });
+
+      setIsGenerating(false);
+    }, 1200);
+  };
+
+  // Step 3: Apply generated metadata and move to content generation
+  const handleApplyMetadata = () => {
+    if (!generatedMetadata) return;
+
+    // Update state in ONE go: metadata AND generatorState together
+    const newGeneratorState: GeneratorState = {
+      step: 'content-generation',
+      transcript,
+      extractedTopics,
+      selectedTopic,
+      generatedContent,
+      reviewedContent,
+      finalCode: ''
+    };
+
+    setEditedDraft({
+      ...editedDraft,
+      title: generatedMetadata.title,
+      description: generatedMetadata.description,
+      category: generatedMetadata.category,
+      keywords: generatedMetadata.keywords,
+      slug: generatedMetadata.slug,
+      icon: generatedMetadata.icon,
+      readTime: generatedMetadata.readTime,
+      generatorState: newGeneratorState,
+      updatedAt: new Date().toISOString(),
+    });
+
+    setGeneratorStep('content-generation');
+  };
+
+  // Step 4: Generate content with OpenAI
+  const handleGenerateContent = async () => {
+    if (!openAIKey) {
+      alert('Kein OpenAI API Key gefunden. Bitte in der .env.local Datei hinzufügen.');
+      return;
+    }
+
+    // KILLSWITCH: Check daily cost limit
+    const usageCheck = isAPIUsageAllowed();
+    if (!usageCheck.allowed) {
+      alert(`🚨 KOSTENLIMIT ERREICHT\n\n${usageCheck.reason}\n\nDie API-Nutzung wurde automatisch gesperrt.`);
+      return;
+    }
+
+    if (!selectedTopic || !transcript) {
+      alert('Transkript und Thema erforderlich');
+      return;
+    }
+
+    setIsGenerating(true);
+
+    try {
+      // Use secure backend proxy instead of direct OpenAI access
+      const response = await fetch('/api/openai-proxy.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          model: 'gpt-4.1-2025-04-14',
+          messages: [
+            {
+              role: 'system',
+              content: `Du bist Martin Lang, ein Experte für Microsoft Copilot, KI-unterstützte Büroarbeit und Agile Methoden. Du schreibst SEO-optimierte Wissensartikel für copilotenschule.de.
+
+Schreibe einen ausführlichen, praxisorientierten Artikel im Markdown-Format mit folgender Struktur:
+
+## STRUKTUR:
+
+### 1. Einleitung (2-3 Absätze)
+- Hook: Stelle eine relevante Frage oder ein Problem vor
+- Kontext: Warum ist dieses Thema wichtig?
+- Überblick: Was lernt der Leser in diesem Artikel?
+
+### 2. Quick Answer (Kasten am Anfang)
+Beginne mit: "## 🎯 Quick Answer"
+- Eine prägnante, direkte Antwort auf die Hauptfrage (2-3 Sätze)
+- 3 Key Facts als Bullet Points
+
+### 3. Hauptinhalt (strukturiert in H2/H3)
+- 4-6 Hauptabschnitte mit klaren H2 Überschriften
+- Jeder Abschnitt mit konkreten Beispielen und Handlungsempfehlungen
+- Verwende Bullet Points und nummerierte Listen wo sinnvoll
+- Füge praktische Tipps und Best Practices ein
+- Verwende **Fettdruck** für wichtige Begriffe
+
+### 4. Praxisbeispiel (eigener Abschnitt)
+"## 💡 Praxisbeispiel aus dem Trainingsalltag"
+- Ein konkretes, realitätsnahes Beispiel
+- Mit Vorher-Nachher-Vergleich wenn möglich
+
+### 5. FAQ Sektion am Ende
+"## ❓ Häufig gestellte Fragen (FAQ)"
+- 6-8 relevante Fragen mit prägnanten Antworten
+- Format: ### Frage? gefolgt von der Antwort
+
+### 6. Fazit (2-3 Absätze)
+- Zusammenfassung der wichtigsten Punkte
+- Call-to-Action: Was sollte der Leser jetzt tun?
+
+## STIL:
+- Direkte Ansprache (Du-Form)
+- Praxisnah und verständlich
+- Keine Marketing-Sprache, sondern ehrliche Expertise
+- Konkrete Zahlen, Beispiele und Empfehlungen
+- 1800-2500 Wörter
+
+## E-E-A-T OPTIMIERUNG:
+- Zeige praktische Erfahrung (Experience)
+- Demonstriere Fachwissen (Expertise)
+- Baue Autorität auf (Authority)
+- Schaffe Vertrauen (Trust)
+
+Erstelle JETZT den kompletten Artikel.`
+            },
+            {
+              role: 'user',
+              content: `Thema: ${selectedTopic.title}
+
+Beschreibung: ${selectedTopic.description}
+
+Kontext aus dem Transkript:
+${transcript}
+
+Schreibe einen vollständigen, praxisorientierten Artikel für copilotenschule.de.`
+            }
+          ],
+          temperature: 0.7,
+          max_tokens: 4500
+        })
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => null);
+        throw new Error(`OpenAI API Fehler: ${response.status} - ${errorData?.error?.message || 'Unbekannter Fehler'}`);
+      }
+
+      const data = await response.json();
+
+      // Track API usage and costs
+      if (data.usage) {
+        const usage = trackAPICall('gpt-4.1-2025-04-14', data.usage.prompt_tokens, data.usage.completion_tokens);
+
+        // Send warning email if limit exceeded (only once per day)
+        if (usage.limitExceeded && !usage.warningEmailSent) {
+          sendWarningEmail(usage).catch(err =>
+            console.error('Failed to send warning email:', err)
+          );
+        }
+      }
+
+      const content = data.choices[0].message.content;
+
+      setGeneratedContent(content);
+      setReviewedContent(content);
+      setGeneratorStep('content-review');
+
+      // Update state in ONE go to avoid race conditions
+      const newGeneratorState: GeneratorState = {
+        step: 'content-review',
+        transcript,
+        extractedTopics,
+        selectedTopic,
+        generatedContent: content,
+        reviewedContent: content,
+        finalCode: ''
+      };
+
+      setEditedDraft({
+        ...editedDraft,
+        generatorState: newGeneratorState,
+        updatedAt: new Date().toISOString(),
+      });
+
+      setIsGenerating(false);
+    } catch (error) {
+      console.error('Content generation error:', error);
+      alert(`Fehler bei der Content-Generierung:\n${error instanceof Error ? error.message : 'Unbekannter Fehler'}\n\nBitte überprüfe deinen API Key in der .env.local Datei.`);
+      setIsGenerating(false);
+    }
+  };
+
+  // PHASE 1: Analyze Transcript - Extract structured data
+  const handleAnalyzeTranscript = async () => {
+    if (!openAIKey) {
+      alert('Kein OpenAI API Key gefunden. Bitte in der .env.local Datei hinzufügen.');
+      return;
+    }
+
+    // KILLSWITCH: Check daily cost limit
+    const usageCheck = isAPIUsageAllowed();
+    if (!usageCheck.allowed) {
+      alert(`🚨 KOSTENLIMIT ERREICHT\n\n${usageCheck.reason}\n\nDie API-Nutzung wurde automatisch gesperrt.`);
+      return;
+    }
+
+    if (!selectedTopic || !transcript) {
+      alert('Transkript und Thema erforderlich');
+      return;
+    }
+
+    setIsGenerating(true);
+    setAnalysisStep('analyzing');
+
+    try {
+      // Use secure backend proxy instead of direct OpenAI access
+      const response = await fetch('/api/openai-proxy.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          model: 'gpt-4.1-2025-04-14',
+          messages: [
+            {
+              role: 'system',
+              content: `Du bist ein Experte für Microsoft Copilot und Content-Analyse. Deine Aufgabe ist es, aus einem Transkript strukturierte Daten zu extrahieren, die als Grundlage für einen hochwertigen Wissensartikel dienen.
+
+**WICHTIG**: Deine Antwort MUSS valides JSON sein, OHNE zusätzliche Erklärungen oder Markdown-Formatierung.
+
+Extrahiere folgende Informationen aus dem Transkript:
+
+1. **mainTheses** (Array von 3-5 Strings): Die Hauptaussagen und Kernbotschaften des Transkripts
+2. **keyConcepts** (Array von 5-8 Objekten mit {concept, explanation}): Wichtige Begriffe mit prägnanter Erklärung
+3. **insights** (Array von 4-6 Strings): Konkrete Erkenntnisse und Aha-Momente aus dem Transkript
+4. **practicalTips** (Array von 5-10 Strings): Umsetzbare, praktische Tipps und Handlungsempfehlungen
+5. **seoKeywords** (Array von 15-25 Strings): Relevante Keywords auf Deutsch und Englisch
+6. **potentialFAQs** (Array von 8-12 Objekten mit {question, answerHints}): Häufig gestellte Fragen mit Hinweisen zur Antwort
+7. **targetAudience** (String): Beschreibung der Zielgruppe für diesen Artikel
+8. **contentStructure** (Array von 4-6 Strings): Vorgeschlagene H2-Überschriften für den Artikel
+9. **expertiseLevel** (String): Das Niveau des Transkripts - "beginner" (Grundlagen, Einführung), "intermediate" (Fortgeschritten, Praxiserfahrung), oder "advanced" (Expert, tiefes Fachwissen)
+10. **requiredKnowledge** (Array von 3-5 Strings): Welches Vorwissen wird beim Zuschauer/Leser vorausgesetzt?
+
+**QUALITÄTSKRITERIEN**:
+- Extrahiere NUR echte Inhalte aus dem Transkript - KEINE Erfindungen
+- Fokus auf praktischen Mehrwert und konkrete Umsetzbarkeit
+- Keywords sollten eine Mischung aus Deutsch und Englisch sein
+- FAQs sollten realistische Fragen sein, die Leser haben könnten
+- Content-Struktur sollte logisch aufgebaut sein (vom Problem zur Lösung)
+- **KRITISCH**: Analysiere genau das Niveau des Transkripts. Wenn es advanced/professional ist, markiere es entsprechend!
+
+Gib NUR das JSON-Objekt zurück, keine zusätzlichen Texte.`
+            },
+            {
+              role: 'user',
+              content: `Thema: ${selectedTopic.title}
+
+Beschreibung: ${selectedTopic.description}
+
+Transkript:
+${transcript}
+
+Analysiere dieses Transkript und extrahiere alle strukturierten Daten im JSON-Format.`
+            }
+          ],
+          temperature: 0.3,
+          max_tokens: 3000
+        })
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => null);
+        throw new Error(`OpenAI API Fehler: ${response.status} - ${errorData?.error?.message || 'Unbekannter Fehler'}`);
+      }
+
+      const data = await response.json();
+
+      // Track API usage and costs
+      if (data.usage) {
+        const usage = trackAPICall('gpt-4.1-2025-04-14', data.usage.prompt_tokens, data.usage.completion_tokens);
+
+        // Send warning email if limit exceeded (only once per day)
+        if (usage.limitExceeded && !usage.warningEmailSent) {
+          sendWarningEmail(usage).catch(err =>
+            console.error('Failed to send warning email:', err)
+          );
+        }
+      }
+
+      let content = data.choices[0].message.content;
+
+      // Remove markdown code blocks if present
+      content = content.replace(/^```json\s*/gm, '').replace(/^```\s*/gm, '').replace(/```$/g, '').trim();
+
+      // Parse JSON
+      let analysisData: ContentAnalysisResult;
+      try {
+        analysisData = JSON.parse(content);
+      } catch (parseError) {
+        console.error('JSON Parse Error:', parseError);
+        console.error('Content:', content);
+        throw new Error('Die API-Antwort konnte nicht als JSON geparst werden. Bitte versuche es erneut.');
+      }
+
+      // Validate that we have the required structure
+      if (!analysisData.mainTheses || !Array.isArray(analysisData.mainTheses)) {
+        throw new Error('Ungültige Analyse-Daten: mainTheses fehlt oder ist kein Array');
+      }
+
+      setContentAnalysis(analysisData);
+      setAnalysisStep('analyzed');
+      setIsGenerating(false);
+
+    } catch (error) {
+      console.error('Analysis error:', error);
+      alert(`Fehler bei der Transkript-Analyse:\n${error instanceof Error ? error.message : 'Unbekannter Fehler'}\n\nBitte überprüfe deinen API Key und versuche es erneut.`);
+      setIsGenerating(false);
+      setAnalysisStep('pending');
+    }
+  };
+
+  // PHASE 2: Generate Content from Analysis - Create high-quality article
+  const handleGenerateFromAnalysis = async () => {
+    if (!contentAnalysis) {
+      alert('Bitte zuerst das Transkript analysieren');
+      return;
+    }
+
+    if (!openAIKey) {
+      alert('Kein OpenAI API Key gefunden. Bitte in der .env.local Datei hinzufügen.');
+      return;
+    }
+
+    // KILLSWITCH: Check daily cost limit
+    const usageCheck = isAPIUsageAllowed();
+    if (!usageCheck.allowed) {
+      alert(`🚨 KOSTENLIMIT ERREICHT\n\n${usageCheck.reason}\n\nDie API-Nutzung wurde automatisch gesperrt.`);
+      return;
+    }
+
+    setIsGenerating(true);
+    setAnalysisStep('generating');
+
+    try {
+      // Use secure backend proxy instead of direct OpenAI access
+      const response = await fetch('/api/openai-proxy.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          model: 'gpt-4.1-2025-04-14',
+          messages: [
+            {
+              role: 'system',
+              content: `Du bist Martin Lang, ein Experte für Microsoft Copilot, KI-unterstützte Büroarbeit und Agile Methoden. Du schreibst hochwertige, praxisorientierte Wissensartikel für copilotenschule.de.
+
+**ARTIKEL-STRUKTUR**:
+
+### 1. Einleitung (2-3 Absätze)
+- Hook: Stelle eine relevante Frage oder ein Problem vor
+- Kontext: Warum ist dieses Thema wichtig?
+- Überblick: Was lernt der Leser in diesem Artikel?
+
+### 2. Quick Answer (Kasten am Anfang)
+Beginne mit: "## 🎯 Quick Answer"
+- Eine prägnante, direkte Antwort auf die Hauptfrage (2-3 Sätze)
+- 3 Key Facts als Bullet Points
+
+### 3. Hauptinhalt (strukturiert in H2/H3)
+Nutze die vorgeschlagene Content-Struktur aus der Analyse:
+- Jeder Abschnitt mit klaren H2 Überschriften
+- Integriere die Hauptthesen und Konzepte natürlich in den Text
+- Verwende die Insights als konkrete Beispiele
+- Baue die praktischen Tipps in die jeweiligen Abschnitte ein
+- Verwende **Fettdruck** für wichtige Begriffe
+- Nutze Bullet Points und nummerierte Listen wo sinnvoll
+
+### 4. Praxisbeispiel (eigener Abschnitt)
+"## 💡 Praxisbeispiel aus dem Trainingsalltag"
+- Ein konkretes, realitätsnahes Beispiel basierend auf den Insights
+- Mit Vorher-Nachher-Vergleich wenn möglich
+
+### 5. FAQ Sektion am Ende
+"## ❓ Häufig gestellte Fragen (FAQ)"
+- Nutze die vorgeschlagenen FAQs aus der Analyse
+- Format: ### Frage? gefolgt von der prägnanten Antwort
+
+### 6. Fazit (2-3 Absätze)
+- Zusammenfassung der wichtigsten Punkte
+- Call-to-Action: Was sollte der Leser jetzt tun?
+
+**STIL**:
+- Direkte Ansprache (Du-Form)
+- Praxisnah und verständlich
+- KEINE Marketing-Floskeln oder Füllwörter
+- Jeder Satz muss echten Mehrwert liefern
+- Konkrete Zahlen, Beispiele und Empfehlungen
+- 1800-2500 Wörter
+
+**E-E-A-T OPTIMIERUNG**:
+- Zeige praktische Erfahrung (Experience)
+- Demonstriere Fachwissen (Expertise)
+- Baue Autorität auf (Authority)
+- Schaffe Vertrauen (Trust)
+
+**KRITISCH - NIVEAU BEIBEHALTEN**:
+- **WICHTIG**: Passe das Niveau des Artikels EXAKT an das Original-Transkript an
+- Wenn das Transkript "advanced" ist: KEINE Basic-Einführungen oder Anfänger-Erklärungen hinzufügen
+- Wenn das Transkript "intermediate" ist: Setze entsprechendes Vorwissen voraus
+- Wenn das Transkript "beginner" ist: Dann darfst du Grundlagen erklären
+- **NIEMALS** professionelle Inhalte mit grundlegenden Erklärungen verwässern
+- Das vorausgesetzte Wissen aus der Analyse muss beim Leser vorausgesetzt werden
+- Jeder Satz muss echten Mehrwert bieten. Keine generischen Aussagen, keine Wiederholungen, keine Füllwörter.
+
+Erstelle JETZT den kompletten Artikel im Markdown-Format.`
+            },
+            {
+              role: 'user',
+              content: `Erstelle einen hochwertigen Artikel basierend auf folgender Analyse:
+
+**EXPERTISE-NIVEAU**: ${contentAnalysis.expertiseLevel || 'intermediate'}
+**VORAUSGESETZTES WISSEN**:
+${(contentAnalysis.requiredKnowledge || []).map((knowledge, i) => `${i + 1}. ${knowledge}`).join('\n')}
+
+⚠️ **WICHTIG**: Der Artikel muss auf dem Niveau "${contentAnalysis.expertiseLevel || 'intermediate'}" geschrieben werden.
+${contentAnalysis.expertiseLevel === 'advanced' ? '→ KEINE Basic-Erklärungen! Setze Fachwissen voraus.' : ''}
+${contentAnalysis.expertiseLevel === 'intermediate' ? '→ Setze Grundkenntnisse voraus, keine Anfänger-Einführungen.' : ''}
+${contentAnalysis.expertiseLevel === 'beginner' ? '→ Erkläre Grundlagen, aber bleibe präzise.' : ''}
+
+**HAUPTTHESEN**:
+${contentAnalysis.mainTheses.map((thesis, i) => `${i + 1}. ${thesis}`).join('\n')}
+
+**KERNKONZEPTE**:
+${contentAnalysis.keyConcepts.map(kc => `- **${kc.concept}**: ${kc.explanation}`).join('\n')}
+
+**ERKENNTNISSE**:
+${contentAnalysis.insights.map((insight, i) => `${i + 1}. ${insight}`).join('\n')}
+
+**PRAKTISCHE TIPPS**:
+${contentAnalysis.practicalTips.map((tip, i) => `${i + 1}. ${tip}`).join('\n')}
+
+**VORGESCHLAGENE STRUKTUR**:
+${contentAnalysis.contentStructure.map((heading, i) => `${i + 1}. ${heading}`).join('\n')}
+
+**FAQ-VORSCHLÄGE**:
+${contentAnalysis.potentialFAQs.map(faq => `- **${faq.question}** (Hinweise: ${faq.answerHints})`).join('\n')}
+
+**ZIELGRUPPE**: ${contentAnalysis.targetAudience}
+
+**SEO-KEYWORDS**: ${contentAnalysis.seoKeywords.join(', ')}
+
+Schreibe jetzt den vollständigen, praxisorientierten Artikel für copilotenschule.de. Nutze ALLE oben genannten Informationen und integriere sie natürlich in einen wertvollen, lesenswerten Artikel. BEHALTE DAS NIVEAU DES ORIGINALS BEI!`
+            }
+          ],
+          temperature: 0.7,
+          max_tokens: 4500
+        })
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => null);
+        throw new Error(`OpenAI API Fehler: ${response.status} - ${errorData?.error?.message || 'Unbekannter Fehler'}`);
+      }
+
+      const data = await response.json();
+
+      // Track API usage and costs
+      if (data.usage) {
+        const usage = trackAPICall('gpt-4.1-2025-04-14', data.usage.prompt_tokens, data.usage.completion_tokens);
+
+        // Send warning email if limit exceeded (only once per day)
+        if (usage.limitExceeded && !usage.warningEmailSent) {
+          sendWarningEmail(usage).catch(err =>
+            console.error('Failed to send warning email:', err)
+          );
+        }
+      }
+
+      const content = data.choices[0].message.content;
+
+      setGeneratedContent(content);
+      setReviewedContent(content);
+      setGeneratorStep('content-review');
+
+      // Update state in ONE go to avoid race conditions
+      const newGeneratorState: GeneratorState = {
+        step: 'content-review',
+        transcript,
+        extractedTopics,
+        selectedTopic,
+        generatedContent: content,
+        reviewedContent: content,
+        finalCode: ''
+      };
+
+      setEditedDraft({
+        ...editedDraft,
+        generatorState: newGeneratorState,
+        updatedAt: new Date().toISOString(),
+      });
+
+      setIsGenerating(false);
+      setAnalysisStep('pending'); // Reset for next time
+
+    } catch (error) {
+      console.error('Content generation error:', error);
+      alert(`Fehler bei der Content-Generierung:\n${error instanceof Error ? error.message : 'Unbekannter Fehler'}\n\nBitte überprüfe deinen API Key in der .env.local Datei.`);
+      setIsGenerating(false);
+      setAnalysisStep('analyzed'); // Stay on analyzed state so user can retry
+    }
+  };
+
+  // Step 5: Save reviewed content
+  const handleSaveReviewedContent = () => {
+    if (!reviewedContent.trim()) {
+      alert('Bitte überarbeite den Content');
+      return;
+    }
+
+    // Update state in ONE go to avoid race conditions
+    const newGeneratorState: GeneratorState = {
+      step: 'page-design',
+      transcript,
+      extractedTopics,
+      selectedTopic,
+      generatedContent,
+      reviewedContent,
+      finalCode: editedDraft.generatorState?.finalCode || ''
+    };
+
+    setEditedDraft({
+      ...editedDraft,
+      generatorState: newGeneratorState,
+      updatedAt: new Date().toISOString(),
+    });
+
+    setGeneratorStep('page-design');
+  };
+
+  // Step 6: Generate final page code
+  const handleGenerateFinalPage = async () => {
+    if (!openAIKey) {
+      alert('Kein OpenAI API Key gefunden. Bitte in der .env.local Datei hinzufügen.');
+      return;
+    }
+
+    // KILLSWITCH: Check daily cost limit
+    const usageCheck = isAPIUsageAllowed();
+    if (!usageCheck.allowed) {
+      alert(`🚨 KOSTENLIMIT ERREICHT\n\n${usageCheck.reason}\n\nDie API-Nutzung wurde automatisch gesperrt.`);
+      return;
+    }
+
+    setIsGenerating(true);
+
+    try {
+      // Use secure backend proxy instead of direct OpenAI access
+      const response = await fetch('/api/openai-proxy.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          model: 'gpt-4.1-2025-04-14',
+          messages: [
+            {
+              role: 'system',
+              content: 'Du bist ein Experte für React/TypeScript und erstellst perfekte TSX-Komponenten für Wissensseiten.\n\n' +
+                'Erstelle eine VOLLSTÄNDIGE, lauffähige TSX-Datei mit folgender Struktur:\n\n' +
+                '- Import: KnowledgePageTemplate und FAQItem von @/components/KnowledgePageTemplate\n' +
+                '- Extrahiere FAQs aus der "## ❓ FAQ" Sektion im Markdown\n' +
+                '- Extrahiere Quick Answer aus "## 🎯 Quick Answer"\n' +
+                '- Erstelle Table of Contents mit allen H2 Überschriften\n' +
+                '- Verwende semantische HTML-Elemente (section, h2, h3, p, ul, etc.)\n' +
+                '- IDs für sections sollten kebab-case sein\n' +
+                '- Verwende Tailwind CSS Klassen für Styling\n\n' +
+                'WICHTIG:\n' +
+                '- Der Code muss KOMPLETT und lauffähig sein\n' +
+                '- KEINE Platzhalter oder Kommentare wie "// Rest des Contents"\n' +
+                '- Gib NUR den TSX-Code aus, keine zusätzlichen Erklärungen\n' +
+                '- Alle Metadaten verwenden: title, description, canonicalUrl, keywords, authorId="martin-lang"\n' +
+                '- publishedDate und modifiedDate als ISO strings\n' +
+                '- quickAnswer mit title und content\n' +
+                '- faqItems als Array mit question/answer\n' +
+                '- tableOfContents mit id/title/level\n' +
+                '- breadcrumbs als Array\n' +
+                '- readTime aus Metadaten'
+            },
+            {
+              role: 'user',
+              content: `Erstelle eine vollständige TSX-Datei für folgende Wissensseite:
+
+**Metadaten:**
+Titel: ${editedDraft.title}
+Beschreibung: ${editedDraft.description}
+Slug: ${editedDraft.slug}
+Kategorie: ${editedDraft.category}
+Keywords: ${editedDraft.keywords.join(', ')}
+Autor: ${editedDraft.author}
+Lesezeit: ${editedDraft.readTime}
+
+**Vollständiger Content (Markdown):**
+${reviewedContent}
+
+Erstelle jetzt die komplette TSX-Komponente. Der komplette Markdown-Content muss in strukturiertes JSX umgewandelt werden.`
+            }
+          ],
+          temperature: 0.2,
+          max_tokens: 8000
+        })
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => null);
+        throw new Error(`OpenAI API Fehler: ${response.status} - ${errorData?.error?.message || 'Unbekannter Fehler'}`);
+      }
+
+      const data = await response.json();
+
+      // Track API usage and costs
+      if (data.usage) {
+        const usage = trackAPICall('gpt-4.1-2025-04-14', data.usage.prompt_tokens, data.usage.completion_tokens);
+
+        // Send warning email if limit exceeded (only once per day)
+        if (usage.limitExceeded && !usage.warningEmailSent) {
+          sendWarningEmail(usage).catch(err =>
+            console.error('Failed to send warning email:', err)
+          );
+        }
+      }
+
+      let finalCode = data.choices[0].message.content;
+
+      // Remove code fence markers if present
+      finalCode = finalCode.replace(/^```tsx?\n?/gm, '').replace(/^```\n?/gm, '').replace(/```$/g, '').trim();
+
+      // CRITICAL: Update everything in ONE state update to avoid race conditions
+      const newGeneratorState: GeneratorState = {
+        step: 'completed',
+        transcript,
+        extractedTopics,
+        selectedTopic,
+        generatedContent,
+        reviewedContent, // KEEP the reviewed content!
+        finalCode
+      };
+
+      setEditedDraft({
+        ...editedDraft,
+        content: finalCode,
+        contentType: 'code',
+        codeFileName: `${editedDraft.slug}.tsx`,
+        generatorState: newGeneratorState,
+        updatedAt: new Date().toISOString(),
+      });
+
+      setGeneratorStep('completed');
+      setIsGenerating(false);
+
+      alert('✅ Wissensseite erfolgreich erstellt!\n\nDu kannst sie jetzt im Tab "Code Upload" oder "Vorschau" sehen und bei Bedarf anpassen.');
+    } catch (error) {
+      console.error('Page generation error:', error);
+      alert(`Fehler bei der Seiten-Generierung:\n${error instanceof Error ? error.message : 'Unbekannter Fehler'}\n\nBitte überprüfe deinen API Key in der .env.local Datei.`);
+      setIsGenerating(false);
+    }
+  };
+
+  // Reset generator
+  const handleResetGenerator = () => {
+    if (confirm('Möchtest du den Generator wirklich zurücksetzen? Alle Fortschritte gehen verloren.')) {
+      setGeneratorStep('transcript');
+      setExtractedTopics([]);
+      setSelectedTopic(null);
+      setGeneratedMetadata(null);
+      setGeneratedContent('');
+      setReviewedContent('');
+
+      setEditedDraft({
+        ...editedDraft,
+        generatorState: undefined,
+        updatedAt: new Date().toISOString(),
+      });
+    }
+  };
+
+  // Resume from saved state
+  const handleResumeGenerator = () => {
+    setShowResumePrompt(false);
+    setActiveTab('content-generator');
+  };
+
+  // Start fresh (discard saved state)
+  const handleStartFresh = () => {
+    setShowResumePrompt(false);
+    handleResetGenerator();
+    setActiveTab('content-generator');
+  };
+
+  const renderMarkdownPreview = (markdownContent: string) => {
+    try {
+      // Safety check for invalid content
+      if (!markdownContent || typeof markdownContent !== 'string') {
+        return (
+          <div className="text-muted-foreground">
+            <p>Kein Inhalt vorhanden</p>
+          </div>
+        );
+      }
+
+      return (
+        <ReactMarkdown
+          className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-headings:font-bold prose-h2:text-2xl prose-h2:mt-8 prose-h2:mb-4 prose-h3:text-xl prose-h3:mt-6 prose-h3:mb-3 prose-p:text-gray-800 prose-p:leading-relaxed prose-p:my-4 prose-li:text-gray-800 prose-li:my-1 prose-strong:text-gray-900 prose-strong:font-semibold prose-a:text-blue-600 prose-a:underline prose-blockquote:border-l-4 prose-blockquote:border-blue-500 prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:text-gray-700 prose-code:bg-gray-100 prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-ul:list-disc prose-ul:pl-6 prose-ol:list-decimal prose-ol:pl-6"
+          remarkPlugins={[remarkGfm]}
+          rehypePlugins={[rehypeRaw]}
+        >
+          {markdownContent}
+        </ReactMarkdown>
+      );
+    } catch (error) {
+      console.error('Error in renderMarkdownPreview:', error);
+      return (
+        <div className="text-red-600">
+          <p className="font-semibold mb-2">Fehler beim Rendern der Vorschau</p>
+          <pre className="text-xs bg-gray-100 p-2 rounded overflow-auto">
+            {error instanceof Error ? error.message : 'Unbekannter Fehler'}
+          </pre>
+        </div>
+      );
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 py-8 px-4">
+      <div className="max-w-6xl mx-auto">
+        {/* Resume Prompt */}
+        {showResumePrompt && draft.generatorState && (
+          <Card className="mb-6 border-2 border-blue-400 bg-blue-50">
+            <CardContent className="pt-6">
+              <div className="flex items-start gap-4">
+                <Play className="w-8 h-8 text-blue-600 mt-1" />
+                <div className="flex-1">
+                  <h3 className="font-bold text-blue-900 mb-2 text-lg">
+                    Generator-Prozess fortsetzen?
+                  </h3>
+                  <p className="text-sm text-blue-800 mb-4">
+                    Es wurde ein unvollständiger Generator-Prozess gefunden (Schritt: {draft.generatorState.step}).
+                    Möchtest du dort weitermachen oder neu starten?
+                  </p>
+                  <div className="flex gap-3">
+                    <Button onClick={handleResumeGenerator} variant="default">
+                      <Play className="w-4 h-4 mr-2" />
+                      Fortsetzen
+                    </Button>
+                    <Button onClick={handleStartFresh} variant="outline">
+                      Neu starten
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        )}
+
+        {/* Header */}
+        <div className="mb-6 flex items-center justify-between">
+          <div className="flex items-center gap-4">
+            <Button onClick={onCancel} variant="outline" size="sm">
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Zurück
+            </Button>
+            <div>
+              <h1 className="text-3xl font-semibold tracking-tight text-gray-900">
+                Artikel bearbeiten
+              </h1>
+              <p className="text-gray-600">
+                {editedDraft.status === "scheduled" ? "Geplant für: " : ""}
+                {new Date(editedDraft.publishDate).toLocaleDateString('de-DE', {
+                  day: '2-digit',
+                  month: 'long',
+                  year: 'numeric',
+                  hour: '2-digit',
+                  minute: '2-digit'
+                })}
+              </p>
+            </div>
+          </div>
+          <div className="flex gap-2">
+            <Button onClick={handleSave} size="lg">
+              <Save className="w-4 h-4 mr-2" />
+              Speichern
+            </Button>
+          </div>
+        </div>
+
+        <Tabs value={activeTab} onValueChange={setActiveTab}>
+          <TabsList className="mb-6">
+            <TabsTrigger value="content">
+              {editedDraft.contentType === 'code' ? '📝 Markdown' : 'Inhalt'}
+            </TabsTrigger>
+            <TabsTrigger value="content-generator">
+              <Sparkles className="w-4 h-4 mr-2" />
+              Content Generator
+            </TabsTrigger>
+            <TabsTrigger value="code-upload">
+              <Code className="w-4 h-4 mr-2" />
+              Code Upload
+            </TabsTrigger>
+            <TabsTrigger value="metadata">Metadaten</TabsTrigger>
+            <TabsTrigger value="preview">
+              <Eye className="w-4 h-4 mr-2" />
+              Vorschau
+            </TabsTrigger>
+          </TabsList>
+
+          {/* Content Tab */}
+          <TabsContent value="content" className="space-y-6">
+            <Card>
+              <CardHeader>
+                <div className="flex items-center justify-between">
+                  <CardTitle>Artikel-Inhalt</CardTitle>
+                  {editedDraft.contentType === 'code' && (
+                    <Badge variant="outline" className="bg-blue-50">
+                      📄 Code-Modus aktiv
+                    </Badge>
+                  )}
+                </div>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                {editedDraft.contentType === 'code' && (
+                  <div className="bg-amber-50 border border-amber-200 p-4 rounded-lg mb-4">
+                    <p className="text-sm text-amber-800">
+                      <strong>Hinweis:</strong> Du befindest dich im Code-Modus. Der Inhalt wurde als fertige TSX/JSX-Datei hochgeladen.
+                      Du kannst ihn hier direkt bearbeiten oder zum Tab "Code Upload" wechseln.
+                    </p>
+                    <Button
+                      onClick={handleSwitchToMarkdown}
+                      variant="outline"
+                      size="sm"
+                      className="mt-2"
+                    >
+                      Zu Markdown wechseln
+                    </Button>
+                  </div>
+                )}
+
+                <div>
+                  <Label htmlFor="title">Titel</Label>
+                  <Input
+                    id="title"
+                    value={editedDraft.title}
+                    onChange={(e) => handleChange("title", e.target.value)}
+                    className="text-xl font-semibold"
+                  />
+                </div>
+
+                <div>
+                  <Label htmlFor="description">Kurzbeschreibung</Label>
+                  <Textarea
+                    id="description"
+                    value={editedDraft.description}
+                    onChange={(e) => handleChange("description", e.target.value)}
+                    rows={3}
+                  />
+                  <p className="text-xs text-gray-500 mt-1">
+                    Diese Beschreibung erscheint auf der Übersichtsseite
+                  </p>
+                </div>
+
+                <div>
+                  <Label htmlFor="content">
+                    {editedDraft.contentType === 'code' ? 'Inhalt (TSX/JSX Code)' : 'Inhalt (Markdown)'}
+                  </Label>
+                  <Textarea
+                    id="content"
+                    value={editedDraft.content}
+                    onChange={(e) => handleChange("content", e.target.value)}
+                    rows={25}
+                    className="font-mono text-sm"
+                  />
+                  <p className="text-xs text-gray-500 mt-1">
+                    {editedDraft.contentType === 'code'
+                      ? 'TSX/JSX Code wird direkt beim Veröffentlichen verwendet'
+                      : 'Markdown-Formatierung wird unterstützt (# Überschriften, **fett**, *kursiv*, - Listen, etc.)'
+                    }
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+          </TabsContent>
+
+          {/* Content Generator Tab */}
+          <TabsContent value="content-generator" className="space-y-6">
+            <Card>
+              <CardHeader>
+                <div className="flex items-center justify-between">
+                  <CardTitle>Content Generator - KI-optimierte Wissensseiten</CardTitle>
+                  {generatorStep !== 'transcript' && (
+                    <Button onClick={handleResetGenerator} variant="outline" size="sm">
+                      ← Zurück zum Anfang
+                    </Button>
+                  )}
+                </div>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                {/* Progress Indicator */}
+                <div className="bg-gray-50 border rounded-lg p-4 mb-6">
+                  <div className="flex items-center justify-between text-xs mb-2">
+                    <span className="font-semibold text-gray-600">Fortschritt:</span>
+                    <span className="text-gray-500">
+                      {generatorStep === 'transcript' && '1/7 - Transkript eingeben'}
+                      {generatorStep === 'topics' && '2/7 - Kernthemen extrahieren'}
+                      {generatorStep === 'focus' && '3/7 - Fokus wählen'}
+                      {generatorStep === 'metadata' && '4/7 - Metadaten'}
+                      {generatorStep === 'content-generation' && '5/7 - Content generieren'}
+                      {generatorStep === 'content-review' && '6/7 - Content überarbeiten'}
+                      {generatorStep === 'page-design' && '7/7 - Seite erstellen'}
+                      {generatorStep === 'completed' && '✅ Abgeschlossen'}
+                    </span>
+                  </div>
+                  <div className="w-full bg-gray-200 rounded-full h-2">
+                    <div
+                      className="bg-gradient-to-r from-blue-600 to-purple-600 h-2 rounded-full transition-all duration-500"
+                      style={{
+                        width:
+                          generatorStep === 'transcript' ? '14%' :
+                          generatorStep === 'topics' ? '28%' :
+                          generatorStep === 'focus' ? '42%' :
+                          generatorStep === 'metadata' ? '57%' :
+                          generatorStep === 'content-generation' ? '71%' :
+                          generatorStep === 'content-review' ? '85%' :
+                          generatorStep === 'page-design' ? '95%' :
+                          '100%'
+                      }}
+                    />
+                  </div>
+                </div>
+
+                {/* Step 1: Transcript Input */}
+                {generatorStep === 'transcript' && (
+                  <>
+                    <div className="bg-gradient-to-r from-purple-50 to-blue-50 border border-purple-200 p-6 rounded-lg">
+                      <div className="flex items-start gap-3">
+                        <Sparkles className="w-6 h-6 text-purple-600 mt-1" />
+                        <div>
+                          <h4 className="font-semibold text-purple-900 mb-2 text-lg">
+                            🎯 Aus Transkripten werden KI-optimierte Wissensseiten
+                          </h4>
+                          <p className="text-sm text-purple-800 mb-3">
+                            Gib eine YouTube-URL ein oder lade Transkripte/Texte hoch. Das System analysiert automatisch Kernthemen,
+                            generiert SEO-Keywords und befüllt alle Metadaten intelligent vor.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div>
+                        <Label htmlFor="youtube-url">YouTube URL</Label>
+                        <div className="mt-2 flex items-center gap-2">
+                          <Input
+                            id="youtube-url"
+                            type="url"
+                            value={youtubeUrl}
+                            onChange={(e) => setYoutubeUrl(e.target.value)}
+                            placeholder="https://www.youtube.com/watch?v=..."
+                            className="flex-1"
+                            onKeyDown={(e) => {
+                              if (e.key === 'Enter') {
+                                handleLoadYouTubeTranscript();
+                              }
+                            }}
+                          />
+                          <Button
+                            type="button"
+                            variant="outline"
+                            size="sm"
+                            onClick={handleLoadYouTubeTranscript}
+                            disabled={isLoadingYouTube || !youtubeUrl.trim()}
+                          >
+                            {isLoadingYouTube ? (
+                              <span className="animate-spin">⏳</span>
+                            ) : (
+                              <Play className="w-4 h-4" />
+                            )}
+                          </Button>
+                        </div>
+                        <p className="text-xs text-gray-500 mt-1">
+                          Transkript automatisch von YouTube laden
+                        </p>
+                      </div>
+
+                      <div>
+                        <Label htmlFor="transcript-upload">Transkript hochladen</Label>
+                        <div className="mt-2 flex items-center gap-2">
+                          <Input
+                            id="transcript-upload"
+                            type="file"
+                            accept=".txt,.srt,.vtt,.md"
+                            onChange={handleTranscriptUpload}
+                            className="flex-1"
+                          />
+                          <Button
+                            type="button"
+                            variant="outline"
+                            size="sm"
+                            onClick={() => document.getElementById('transcript-upload')?.click()}
+                          >
+                            <Upload className="w-4 h-4" />
+                          </Button>
+                        </div>
+                        <p className="text-xs text-gray-500 mt-1">
+                          Formate: .txt, .srt, .vtt, .md
+                        </p>
+                      </div>
+                    </div>
+
+                    <div>
+                      <Label htmlFor="transcript-text">Oder Transkript direkt eingeben/bearbeiten</Label>
+                      <Textarea
+                        ref={transcriptTextareaRef}
+                        id="transcript-text"
+                        value={transcript}
+                        onChange={(e) => setTranscript(e.target.value)}
+                        rows={15}
+                        className="font-mono text-sm"
+                        placeholder="Füge hier dein YouTube-Transkript oder Text ein...
+
+Beispiel:
+[00:00] Willkommen zu diesem Video über Microsoft Copilot Sicherheit...
+[00:15] Heute erkläre ich die wichtigsten Datenschutz-Features...
+[01:30] DSGVO-Konformität ist ein zentrales Thema...
+
+Das System analysiert automatisch die Kernthemen und erstellt passende Metadaten."
+                      />
+                      <p className="text-xs text-gray-500 mt-1">
+                        {transcript.length > 0 ? `${transcript.length} Zeichen | ~${Math.ceil(transcript.split(' ').length / 200)} Min. Lesezeit` : 'Warte auf Input...'}
+                      </p>
+                    </div>
+
+                    {transcript.length > 0 && (
+                      <div className="flex justify-end">
+                        <Button
+                          onClick={handleExtractTopics}
+                          size="lg"
+                          disabled={isGenerating}
+                          className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
+                        >
+                          <Sparkles className="w-5 h-5 mr-2" />
+                          {isGenerating ? 'Analysiere...' : 'Kernthemen extrahieren →'}
+                        </Button>
+                      </div>
+                    )}
+                  </>
+                )}
+
+                {/* Step 2: Extracted Topics */}
+                {generatorStep === 'topics' && (
+                  <>
+                    <div className="bg-green-50 border border-green-200 p-4 rounded-lg">
+                      <h5 className="font-semibold text-green-900 mb-2">✅ Kernthemen erfolgreich extrahiert!</h5>
+                      <p className="text-sm text-green-800">
+                        Das System hat {extractedTopics.length} relevante Thema(en) in deinem Transkript gefunden.
+                        Wähle das Hauptthema für deinen Artikel:
+                      </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 gap-4">
+                      {extractedTopics.map((topic, idx) => (
+                        <Card
+                          key={idx}
+                          className="cursor-pointer hover:shadow-lg transition-all border-2 hover:border-blue-400"
+                          onClick={() => handleSelectTopic(topic)}
+                        >
+                          <CardHeader>
+                            <CardTitle className="flex items-center gap-2">
+                              <span className="text-2xl">{topic.title.includes('Sicherheit') ? '🔒' : topic.title.includes('Produktivität') ? '⚡' : topic.title.includes('ROI') ? '💰' : topic.title.includes('Tipps') ? '💡' : '📝'}</span>
+                              {topic.title}
+                              <Badge variant="secondary" className="ml-auto">
+                                Relevanz: {topic.relevance}
+                              </Badge>
+                            </CardTitle>
+                          </CardHeader>
+                          <CardContent>
+                            <p className="text-sm text-gray-600 mb-3">{topic.description}</p>
+                            <div className="flex flex-wrap gap-2">
+                              {topic.keywords.slice(0, 5).map((keyword, kidx) => (
+                                <Badge key={kidx} variant="outline" className="text-xs">
+                                  {keyword}
+                                </Badge>
+                              ))}
+                            </div>
+                          </CardContent>
+                        </Card>
+                      ))}
+                    </div>
+
+                    {/* Custom Topic Form */}
+                    <div className="mt-6">
+                      {!showCustomTopicForm ? (
+                        <Button
+                          onClick={() => setShowCustomTopicForm(true)}
+                          variant="outline"
+                          className="w-full border-dashed border-2 hover:border-blue-400 hover:bg-blue-50"
+                        >
+                          <Plus className="w-5 h-5 mr-2" />
+                          Eigenen Schwerpunkt hinzufügen
+                        </Button>
+                      ) : (
+                        <Card className="border-2 border-blue-300 bg-blue-50/50">
+                          <CardHeader className="pb-3">
+                            <CardTitle className="flex items-center justify-between text-lg">
+                              <span className="flex items-center gap-2">
+                                <Plus className="w-5 h-5" />
+                                Eigenen Schwerpunkt erstellen
+                              </span>
+                              <Button
+                                variant="ghost"
+                                size="sm"
+                                onClick={() => {
+                                  setShowCustomTopicForm(false);
+                                  setCustomTopicTitle('');
+                                  setCustomTopicDescription('');
+                                  setCustomTopicKeywords('');
+                                }}
+                              >
+                                <X className="w-4 h-4" />
+                              </Button>
+                            </CardTitle>
+                          </CardHeader>
+                          <CardContent className="space-y-4">
+                            <div>
+                              <Label htmlFor="custom-topic-title" className="text-sm font-semibold">
+                                Titel des Schwerpunkts *
+                              </Label>
+                              <Input
+                                id="custom-topic-title"
+                                value={customTopicTitle}
+                                onChange={(e) => setCustomTopicTitle(e.target.value)}
+                                placeholder="z.B. Microsoft Copilot für Einsteiger"
+                                className="mt-1"
+                              />
+                            </div>
+                            <div>
+                              <Label htmlFor="custom-topic-description" className="text-sm font-semibold">
+                                Beschreibung (optional)
+                              </Label>
+                              <Textarea
+                                id="custom-topic-description"
+                                value={customTopicDescription}
+                                onChange={(e) => setCustomTopicDescription(e.target.value)}
+                                placeholder="Kurze Beschreibung des Themas..."
+                                className="mt-1"
+                                rows={2}
+                              />
+                            </div>
+                            <div>
+                              <Label htmlFor="custom-topic-keywords" className="text-sm font-semibold">
+                                Keywords (optional, kommagetrennt)
+                              </Label>
+                              <Input
+                                id="custom-topic-keywords"
+                                value={customTopicKeywords}
+                                onChange={(e) => setCustomTopicKeywords(e.target.value)}
+                                placeholder="z.B. Copilot, Einführung, Grundlagen, Microsoft 365"
+                                className="mt-1"
+                              />
+                            </div>
+                            <div className="flex gap-2 pt-2">
+                              <Button
+                                onClick={handleAddCustomTopic}
+                                disabled={!customTopicTitle.trim()}
+                                className="flex-1"
+                              >
+                                <Plus className="w-4 h-4 mr-2" />
+                                Schwerpunkt hinzufügen
+                              </Button>
+                            </div>
+                          </CardContent>
+                        </Card>
+                      )}
+                    </div>
+                  </>
+                )}
+
+                {/* Step 3: Focus Topic Selected - Generate Metadata */}
+                {generatorStep === 'focus' && selectedTopic && (
+                  <>
+                    <div className="bg-gradient-to-r from-green-50 to-blue-50 border border-green-300 p-6 rounded-lg">
+                      <h5 className="font-semibold text-green-900 mb-3 text-lg flex items-center gap-2">
+                        <CheckCircle className="w-6 h-6" />
+                        Fokus-Thema ausgewählt
+                      </h5>
+                      <p className="text-sm text-green-800 mb-4">
+                        Du hast dein Haupt-Thema gewählt. Im nächsten Schritt generieren wir automatisch
+                        alle relevanten Metadaten, SEO-Keywords und strukturieren die Seite.
+                      </p>
+                    </div>
+
+                    <Card className="border-2 border-green-300">
+                      <CardHeader>
+                        <CardTitle className="flex items-center gap-3">
+                          <span className="text-3xl">
+                            {selectedTopic.title.includes('Sicherheit') ? '🔒' :
+                             selectedTopic.title.includes('Produktivität') ? '⚡' :
+                             selectedTopic.title.includes('ROI') ? '💰' :
+                             selectedTopic.title.includes('Tipps') ? '💡' :
+                             selectedTopic.title.includes('Teams') ? '👥' :
+                             selectedTopic.title.includes('Excel') ? '📊' :
+                             selectedTopic.title.includes('Word') ? '📝' : '📘'}
+                          </span>
+                          {selectedTopic.title}
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent className="space-y-4">
+                        <div>
+                          <Label className="text-sm text-gray-600 font-semibold">Beschreibung:</Label>
+                          <p className="text-sm text-gray-700 mt-1">{selectedTopic.description}</p>
+                        </div>
+
+                        <div>
+                          <Label className="text-sm text-gray-600 font-semibold mb-2 block">
+                            Erkannte Keywords ({selectedTopic.keywords.length}):
+                          </Label>
+                          <div className="flex flex-wrap gap-2">
+                            {selectedTopic.keywords.slice(0, 10).map((keyword, idx) => (
+                              <Badge key={idx} variant="outline" className="text-xs">
+                                {keyword}
+                              </Badge>
+                            ))}
+                            {selectedTopic.keywords.length > 10 && (
+                              <Badge variant="secondary" className="text-xs">
+                                +{selectedTopic.keywords.length - 10} weitere
+                              </Badge>
+                            )}
+                          </div>
+                        </div>
+
+                        <div className="bg-blue-50 border border-blue-200 p-4 rounded-lg">
+                          <h6 className="font-semibold text-blue-900 mb-2 text-sm">🎯 Was wird generiert?</h6>
+                          <ul className="text-xs text-blue-800 space-y-1 list-disc list-inside">
+                            <li>SEO-optimierter Titel</li>
+                            <li>Meta-Beschreibung</li>
+                            <li>URL-Slug (sprechende URL)</li>
+                            <li>Kategorie-Zuordnung</li>
+                            <li>Erweiterte Keyword-Liste</li>
+                            <li>Passendes Icon/Emoji</li>
+                            <li>Geschätzte Lesezeit</li>
+                          </ul>
+                        </div>
+
+                        <div className="flex justify-between items-center pt-2">
+                          <Button onClick={() => setGeneratorStep('topics')} variant="outline">
+                            ← Anderes Thema wählen
+                          </Button>
+                          <Button
+                            onClick={handleGenerateMetadata}
+                            size="lg"
+                            disabled={isGenerating}
+                            className="bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700"
+                          >
+                            <Sparkles className="w-5 h-5 mr-2" />
+                            {isGenerating ? 'Generiere Metadaten...' : 'Metadaten generieren →'}
+                          </Button>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </>
+                )}
+
+                {/* Step 4: Generated Metadata Preview */}
+                {generatorStep === 'metadata' && generatedMetadata && (
+                  <>
+                    <div className="bg-gradient-to-r from-green-50 to-blue-50 border border-green-300 p-6 rounded-lg">
+                      <h5 className="font-semibold text-green-900 mb-3 text-lg flex items-center gap-2">
+                        <CheckCircle className="w-6 h-6" />
+                        Automatisch generierte Metadaten
+                      </h5>
+                      <p className="text-sm text-green-800 mb-4">
+                        Überprüfe die automatisch generierten Metadaten. <strong>Du kannst alle Felder jederzeit im Tab "Metadaten" bearbeiten</strong> - auch während und nach dem Generator-Prozess.
+                      </p>
+                    </div>
+
+                    <Card className="border-2 border-green-300">
+                      <CardContent className="pt-6 space-y-4">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          <div>
+                            <Label className="text-xs text-gray-500">Titel</Label>
+                            <div className="font-semibold text-lg">{generatedMetadata.title}</div>
+                          </div>
+                          <div>
+                            <Label className="text-xs text-gray-500">Slug (URL)</Label>
+                            <div className="font-mono text-sm text-blue-600">/wissen/{generatedMetadata.slug}</div>
+                          </div>
+                          <div>
+                            <Label className="text-xs text-gray-500">Kategorie</Label>
+                            <Badge variant="outline">{generatedMetadata.category}</Badge>
+                          </div>
+                          <div>
+                            <Label className="text-xs text-gray-500">Icon</Label>
+                            <div className="text-2xl">{generatedMetadata.icon}</div>
+                          </div>
+                          <div>
+                            <Label className="text-xs text-gray-500">Lesezeit</Label>
+                            <div className="text-sm">{generatedMetadata.readTime}</div>
+                          </div>
+                          <div>
+                            <Label className="text-xs text-gray-500">Autor</Label>
+                            <div className="text-sm">Martin Lang</div>
+                          </div>
+                        </div>
+
+                        <div>
+                          <Label className="text-xs text-gray-500">Beschreibung</Label>
+                          <p className="text-sm mt-1">{generatedMetadata.description}</p>
+                        </div>
+
+                        <div>
+                          <Label className="text-xs text-gray-500 mb-2 block">SEO Keywords ({generatedMetadata.keywords.length})</Label>
+                          <div className="flex flex-wrap gap-2">
+                            {generatedMetadata.keywords.map((keyword, idx) => (
+                              <Badge key={idx} variant="secondary" className="text-xs">
+                                {keyword}
+                              </Badge>
+                            ))}
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+
+                    <div className="flex justify-between items-center">
+                      <Button onClick={handleResetGenerator} variant="outline">
+                        ← Neu starten
+                      </Button>
+                      <Button
+                        onClick={handleApplyMetadata}
+                        size="lg"
+                        className="bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700"
+                      >
+                        <Sparkles className="w-5 h-5 mr-2" />
+                        Weiter zur Content-Generierung →
+                      </Button>
+                    </div>
+                  </>
+                )}
+
+                {/* Step 5: Content Generation with OpenAI - TWO PHASE WORKFLOW */}
+                {generatorStep === 'content-generation' && (
+                  <>
+                    <div className="bg-gradient-to-r from-purple-50 to-blue-50 border border-purple-200 p-6 rounded-lg">
+                      <h5 className="font-semibold text-purple-900 mb-3 text-lg flex items-center gap-2">
+                        <Sparkles className="w-6 h-6" />
+                        Zweistufiger Content-Generator - Maximale Qualität
+                      </h5>
+                      <p className="text-sm text-purple-800 mb-3">
+                        Der neue zweistufige Workflow analysiert zunächst dein Transkript und extrahiert strukturierte Daten.
+                        Daraus wird dann ein hochwertiger, praxisorientierter Artikel generiert.
+                      </p>
+                      <div className="grid grid-cols-2 gap-3 mt-3">
+                        <div className="bg-white bg-opacity-60 p-3 rounded border border-purple-300">
+                          <div className="font-semibold text-purple-900 text-sm mb-1">Phase 1: Analyse</div>
+                          <div className="text-xs text-purple-700">Thesen, Konzepte, Insights, FAQs extrahieren</div>
+                        </div>
+                        <div className="bg-white bg-opacity-60 p-3 rounded border border-purple-300">
+                          <div className="font-semibold text-purple-900 text-sm mb-1">Phase 2: Content</div>
+                          <div className="text-xs text-purple-700">Hochwertigen Artikel aus Analyse-Daten generieren</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* API Key Check & Input */}
+                    {!openAIKey && (
+                      <div className="bg-amber-50 border border-amber-200 p-4 rounded-lg">
+                        <h6 className="font-semibold text-amber-900 mb-2 text-sm">⚠️ API Key erforderlich</h6>
+                        <p className="text-xs text-amber-800 mb-3">
+                          Bitte gib deinen OpenAI API Key ein, um die KI-Features zu nutzen.
+                        </p>
+                        <div className="flex gap-2 items-start">
+                          <div className="flex-1">
+                            <input
+                              type="password"
+                              value={openAIKey}
+                              onChange={(e) => setOpenAIKey(e.target.value)}
+                              placeholder="sk-proj-..."
+                              className="w-full px-3 py-2 text-sm border border-amber-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
+                            />
+                            <p className="text-xs text-amber-700 mt-1">
+                              Der Key wird nur in dieser Sitzung gespeichert und nicht übertragen.
+                            </p>
+                          </div>
+                        </div>
+                        <details className="text-xs text-amber-800 mt-3">
+                          <summary className="cursor-pointer font-semibold mb-2">Wo finde ich meinen API Key?</summary>
+                          <ol className="list-decimal list-inside space-y-1 ml-2">
+                            <li>Gehe zu <a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener noreferrer" className="underline">platform.openai.com/api-keys</a></li>
+                            <li>Erstelle einen neuen Secret Key oder kopiere einen bestehenden</li>
+                            <li>Füge den Key oben ein</li>
+                          </ol>
+                          <p className="mt-2 font-semibold">Für permanente Konfiguration (optional):</p>
+                          <ol className="list-decimal list-inside space-y-1 ml-2">
+                            <li>Erstelle/öffne die Datei <code className="bg-amber-100 px-1 rounded">.env.local</code> im Projekt-Root</li>
+                            <li>Füge hinzu: <code className="bg-amber-100 px-1 rounded">VITE_OPENAI_API_KEY=dein-api-key</code></li>
+                            <li>Speichern und Dev-Server neu starten</li>
+                          </ol>
+                        </details>
+                      </div>
+                    )}
+
+                    {/* API Key Success */}
+                    {openAIKey && (
+                      <div className="bg-green-50 border border-green-200 p-3 rounded-lg">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-2">
+                            <span className="text-green-600 text-sm">✓ API Key konfiguriert</span>
+                          </div>
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            onClick={() => setOpenAIKey("")}
+                            className="text-xs text-green-700 hover:text-green-900"
+                          >
+                            Key ändern
+                          </Button>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* PHASE 1: PENDING - Show button to start analysis */}
+                    {analysisStep === 'pending' && (
+                      <Card className="border-2 border-purple-300">
+                        <CardContent className="pt-6 space-y-4">
+                          <div className="bg-purple-50 border border-purple-200 p-4 rounded-lg">
+                            <h6 className="font-semibold text-purple-900 mb-2 text-sm flex items-center gap-2">
+                              <span className="text-xl">🔍</span>
+                              Phase 1: Transkript analysieren
+                            </h6>
+                            <p className="text-xs text-purple-800 mb-3">
+                              Die KI analysiert dein Transkript und extrahiert strukturierte Daten:
+                            </p>
+                            <ul className="text-xs text-purple-800 space-y-1 list-disc list-inside ml-2">
+                              <li>3-5 Hauptthesen und Kernbotschaften</li>
+                              <li>5-8 wichtige Konzepte mit Erklärungen</li>
+                              <li>4-6 konkrete Erkenntnisse und Insights</li>
+                              <li>5-10 praktische, umsetzbare Tipps</li>
+                              <li>15-25 SEO-Keywords (deutsch + englisch)</li>
+                              <li>8-12 potenzielle FAQ-Fragen mit Antwort-Hints</li>
+                              <li>Zielgruppenbeschreibung</li>
+                              <li>Empfohlene Content-Struktur (H2-Überschriften)</li>
+                            </ul>
+                          </div>
+
+                          <div className="flex justify-between items-center pt-2">
+                            <Button onClick={() => setGeneratorStep('metadata')} variant="outline">
+                              ← Zurück zu Metadaten
+                            </Button>
+                            <Button
+                              onClick={handleAnalyzeTranscript}
+                              size="lg"
+                              disabled={isGenerating || !openAIKey}
+                              className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700"
+                            >
+                              <Sparkles className="w-5 h-5 mr-2" />
+                              Transkript analysieren →
+                            </Button>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    )}
+
+                    {/* PHASE 1: ANALYZING - Show loading state */}
+                    {analysisStep === 'analyzing' && (
+                      <Card className="border-2 border-purple-300">
+                        <CardContent className="pt-6 space-y-4">
+                          <div className="bg-purple-50 border border-purple-200 p-6 rounded-lg text-center">
+                            <div className="animate-spin w-12 h-12 border-4 border-purple-600 border-t-transparent rounded-full mx-auto mb-4"></div>
+                            <h6 className="font-semibold text-purple-900 mb-2 text-lg">
+                              Analysiere Transkript...
+                            </h6>
+                            <p className="text-sm text-purple-800">
+                              Die KI extrahiert gerade strukturierte Daten aus deinem Transkript. Dies kann 20-40 Sekunden dauern.
+                            </p>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    )}
+
+                    {/* PHASE 1: ANALYZED - Show analysis results */}
+                    {analysisStep === 'analyzed' && contentAnalysis && (
+                      <Card className="border-2 border-green-300">
+                        <CardContent className="pt-6 space-y-4">
+                          <div className="bg-green-50 border border-green-200 p-4 rounded-lg">
+                            <h6 className="font-semibold text-green-900 mb-2 text-sm flex items-center gap-2">
+                              <CheckCircle className="w-5 h-5" />
+                              ✅ Analyse abgeschlossen!
+                            </h6>
+                            <p className="text-xs text-green-800">
+                              Die strukturierten Daten wurden erfolgreich extrahiert. Überprüfe die Ergebnisse und starte dann die Content-Generierung.
+                            </p>
+                          </div>
+
+                          {/* Analysis Results Display */}
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            {/* Main Theses */}
+                            <Card className="bg-blue-50 border-blue-200">
+                              <CardHeader className="pb-3">
+                                <CardTitle className="text-sm font-semibold text-blue-900">
+                                  💡 Hauptthesen ({contentAnalysis.mainTheses.length})
+                                </CardTitle>
+                              </CardHeader>
+                              <CardContent>
+                                <ul className="text-xs space-y-1 list-disc list-inside text-blue-800">
+                                  {contentAnalysis.mainTheses.slice(0, 3).map((thesis, i) => (
+                                    <li key={i}>{thesis}</li>
+                                  ))}
+                                  {contentAnalysis.mainTheses.length > 3 && (
+                                    <li className="text-blue-600 italic">+{contentAnalysis.mainTheses.length - 3} weitere</li>
+                                  )}
+                                </ul>
+                              </CardContent>
+                            </Card>
+
+                            {/* Key Concepts */}
+                            <Card className="bg-purple-50 border-purple-200">
+                              <CardHeader className="pb-3">
+                                <CardTitle className="text-sm font-semibold text-purple-900">
+                                  📚 Kernkonzepte ({contentAnalysis.keyConcepts.length})
+                                </CardTitle>
+                              </CardHeader>
+                              <CardContent>
+                                <ul className="text-xs space-y-1.5">
+                                  {contentAnalysis.keyConcepts.slice(0, 3).map((kc, i) => (
+                                    <li key={i} className="text-purple-800">
+                                      <strong>{kc.concept}:</strong> {kc.explanation.slice(0, 50)}...
+                                    </li>
+                                  ))}
+                                  {contentAnalysis.keyConcepts.length > 3 && (
+                                    <li className="text-purple-600 italic">+{contentAnalysis.keyConcepts.length - 3} weitere</li>
+                                  )}
+                                </ul>
+                              </CardContent>
+                            </Card>
+
+                            {/* Insights */}
+                            <Card className="bg-green-50 border-green-200">
+                              <CardHeader className="pb-3">
+                                <CardTitle className="text-sm font-semibold text-green-900">
+                                  ⚡ Erkenntnisse ({contentAnalysis.insights.length})
+                                </CardTitle>
+                              </CardHeader>
+                              <CardContent>
+                                <ul className="text-xs space-y-1 list-disc list-inside text-green-800">
+                                  {contentAnalysis.insights.slice(0, 3).map((insight, i) => (
+                                    <li key={i}>{insight.slice(0, 60)}...</li>
+                                  ))}
+                                  {contentAnalysis.insights.length > 3 && (
+                                    <li className="text-green-600 italic">+{contentAnalysis.insights.length - 3} weitere</li>
+                                  )}
+                                </ul>
+                              </CardContent>
+                            </Card>
+
+                            {/* Practical Tips */}
+                            <Card className="bg-amber-50 border-amber-200">
+                              <CardHeader className="pb-3">
+                                <CardTitle className="text-sm font-semibold text-amber-900">
+                                  🎯 Praktische Tipps ({contentAnalysis.practicalTips.length})
+                                </CardTitle>
+                              </CardHeader>
+                              <CardContent>
+                                <ul className="text-xs space-y-1 list-disc list-inside text-amber-800">
+                                  {contentAnalysis.practicalTips.slice(0, 3).map((tip, i) => (
+                                    <li key={i}>{tip.slice(0, 60)}...</li>
+                                  ))}
+                                  {contentAnalysis.practicalTips.length > 3 && (
+                                    <li className="text-amber-600 italic">+{contentAnalysis.practicalTips.length - 3} weitere</li>
+                                  )}
+                                </ul>
+                              </CardContent>
+                            </Card>
+                          </div>
+
+                          {/* SEO Keywords */}
+                          <Card className="bg-indigo-50 border-indigo-200">
+                            <CardHeader className="pb-3">
+                              <CardTitle className="text-sm font-semibold text-indigo-900">
+                                🔍 SEO-Keywords ({contentAnalysis.seoKeywords.length})
+                              </CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                              <div className="flex flex-wrap gap-1.5">
+                                {contentAnalysis.seoKeywords.slice(0, 12).map((keyword, i) => (
+                                  <Badge key={i} variant="outline" className="text-xs bg-white">
+                                    {keyword}
+                                  </Badge>
+                                ))}
+                                {contentAnalysis.seoKeywords.length > 12 && (
+                                  <Badge variant="secondary" className="text-xs">
+                                    +{contentAnalysis.seoKeywords.length - 12} weitere
+                                  </Badge>
+                                )}
+                              </div>
+                            </CardContent>
+                          </Card>
+
+                          {/* Content Structure */}
+                          <Card className="bg-cyan-50 border-cyan-200">
+                            <CardHeader className="pb-3">
+                              <CardTitle className="text-sm font-semibold text-cyan-900">
+                                📋 Empfohlene Artikel-Struktur
+                              </CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                              <ol className="text-xs space-y-1 list-decimal list-inside text-cyan-800">
+                                {contentAnalysis.contentStructure.map((heading, i) => (
+                                  <li key={i} className="font-medium">{heading}</li>
+                                ))}
+                              </ol>
+                            </CardContent>
+                          </Card>
+
+                          {/* FAQ Preview */}
+                          <Card className="bg-pink-50 border-pink-200">
+                            <CardHeader className="pb-3">
+                              <CardTitle className="text-sm font-semibold text-pink-900">
+                                ❓ FAQ-Vorschläge ({contentAnalysis.potentialFAQs.length})
+                              </CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                              <ul className="text-xs space-y-1.5">
+                                {contentAnalysis.potentialFAQs.slice(0, 4).map((faq, i) => (
+                                  <li key={i} className="text-pink-800">
+                                    <strong>Q:</strong> {faq.question}
+                                  </li>
+                                ))}
+                                {contentAnalysis.potentialFAQs.length > 4 && (
+                                  <li className="text-pink-600 italic">+{contentAnalysis.potentialFAQs.length - 4} weitere Fragen</li>
+                                )}
+                              </ul>
+                            </CardContent>
+                          </Card>
+
+                          {/* Target Audience */}
+                          <Card className="bg-teal-50 border-teal-200">
+                            <CardHeader className="pb-3">
+                              <CardTitle className="text-sm font-semibold text-teal-900">
+                                👥 Zielgruppe
+                              </CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                              <p className="text-xs text-teal-800">{contentAnalysis.targetAudience}</p>
+                            </CardContent>
+                          </Card>
+
+                          <div className="bg-blue-50 border border-blue-200 p-4 rounded-lg mt-4">
+                            <h6 className="font-semibold text-blue-900 mb-2 text-sm flex items-center gap-2">
+                              <span className="text-xl">✍️</span>
+                              Phase 2: Hochwertigen Artikel generieren
+                            </h6>
+                            <p className="text-xs text-blue-800">
+                              Basierend auf dieser Analyse wird jetzt ein hochwertiger, praxisorientierter Artikel erstellt.
+                              Alle oben genannten Daten werden intelligent in den Artikel integriert.
+                            </p>
+                          </div>
+
+                          <div className="flex justify-between items-center pt-2">
+                            <Button
+                              onClick={() => {
+                                setAnalysisStep('pending');
+                                setContentAnalysis(null);
+                              }}
+                              variant="outline"
+                            >
+                              ← Analyse wiederholen
+                            </Button>
+                            <div className="flex gap-2">
+                              <Button
+                                onClick={() => setIsEditingAnalysis(true)}
+                                variant="secondary"
+                                size="lg"
+                              >
+                                <Edit2 className="w-4 h-4 mr-2" />
+                                Analyse bearbeiten
+                              </Button>
+                              <Button
+                                onClick={handleGenerateFromAnalysis}
+                                size="lg"
+                                disabled={isGenerating || !openAIKey}
+                                className="bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700"
+                              >
+                                <Sparkles className="w-5 h-5 mr-2" />
+                                Hochwertigen Artikel generieren →
+                              </Button>
+                            </div>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    )}
+
+                    {/* Analysis Edit Modal/Form */}
+                    {isEditingAnalysis && contentAnalysis && (
+                      <Card className="border-2 border-blue-400">
+                        <CardHeader className="bg-gradient-to-r from-blue-50 to-purple-50">
+                          <CardTitle className="flex items-center justify-between">
+                            <span className="flex items-center gap-2">
+                              <Edit2 className="w-5 h-5" />
+                              Analyse bearbeiten
+                            </span>
+                            <Button
+                              onClick={() => setIsEditingAnalysis(false)}
+                              variant="ghost"
+                              size="sm"
+                            >
+                              Abbrechen
+                            </Button>
+                          </CardTitle>
+                          <p className="text-sm text-muted-foreground">
+                            Passe die automatisch extrahierten Daten an deine Bedürfnisse an
+                          </p>
+                        </CardHeader>
+                        <CardContent className="pt-6 space-y-4">
+                          {/* Expertise Level */}
+                          <div>
+                            <Label htmlFor="edit-expertise">Expertise-Niveau</Label>
+                            <Select
+                              value={contentAnalysis.expertiseLevel || 'intermediate'}
+                              onValueChange={(value: 'beginner' | 'intermediate' | 'advanced') =>
+                                setContentAnalysis({ ...contentAnalysis, expertiseLevel: value })
+                              }
+                            >
+                              <SelectTrigger id="edit-expertise">
+                                <SelectValue />
+                              </SelectTrigger>
+                              <SelectContent>
+                                <SelectItem value="beginner">Beginner - Grundlagen</SelectItem>
+                                <SelectItem value="intermediate">Intermediate - Fortgeschritten</SelectItem>
+                                <SelectItem value="advanced">Advanced - Expert</SelectItem>
+                              </SelectContent>
+                            </Select>
+                          </div>
+
+                          {/* Target Audience */}
+                          <div>
+                            <Label htmlFor="edit-audience">Zielgruppe</Label>
+                            <Textarea
+                              id="edit-audience"
+                              value={contentAnalysis.targetAudience}
+                              onChange={(e) =>
+                                setContentAnalysis({ ...contentAnalysis, targetAudience: e.target.value })
+                              }
+                              rows={2}
+                            />
+                          </div>
+
+                          {/* Main Theses */}
+                          <div>
+                            <Label>Hauptthesen (eine pro Zeile)</Label>
+                            <Textarea
+                              value={contentAnalysis.mainTheses.join('\n')}
+                              onChange={(e) =>
+                                setContentAnalysis({
+                                  ...contentAnalysis,
+                                  mainTheses: e.target.value.split('\n').filter(t => t.trim())
+                                })
+                              }
+                              rows={5}
+                              placeholder="These 1&#10;These 2&#10;These 3"
+                            />
+                          </div>
+
+                          {/* Practical Tips */}
+                          <div>
+                            <Label>Praktische Tipps (einer pro Zeile)</Label>
+                            <Textarea
+                              value={contentAnalysis.practicalTips.join('\n')}
+                              onChange={(e) =>
+                                setContentAnalysis({
+                                  ...contentAnalysis,
+                                  practicalTips: e.target.value.split('\n').filter(t => t.trim())
+                                })
+                              }
+                              rows={8}
+                              placeholder="Tipp 1&#10;Tipp 2&#10;Tipp 3"
+                            />
+                          </div>
+
+                          {/* SEO Keywords */}
+                          <div>
+                            <Label>SEO-Keywords (kommagetrennt)</Label>
+                            <Textarea
+                              value={contentAnalysis.seoKeywords.join(', ')}
+                              onChange={(e) =>
+                                setContentAnalysis({
+                                  ...contentAnalysis,
+                                  seoKeywords: e.target.value.split(',').map(k => k.trim()).filter(k => k)
+                                })
+                              }
+                              rows={3}
+                              placeholder="keyword1, keyword2, keyword3"
+                            />
+                          </div>
+
+                          {/* Content Structure */}
+                          <div>
+                            <Label>Artikel-Struktur (H2-Überschriften, eine pro Zeile)</Label>
+                            <Textarea
+                              value={contentAnalysis.contentStructure.join('\n')}
+                              onChange={(e) =>
+                                setContentAnalysis({
+                                  ...contentAnalysis,
+                                  contentStructure: e.target.value.split('\n').filter(h => h.trim())
+                                })
+                              }
+                              rows={6}
+                              placeholder="Überschrift 1&#10;Überschrift 2&#10;Überschrift 3"
+                            />
+                          </div>
+
+                          <div className="flex justify-end gap-2 pt-4">
+                            <Button
+                              onClick={() => setIsEditingAnalysis(false)}
+                              variant="outline"
+                            >
+                              Abbrechen
+                            </Button>
+                            <Button
+                              onClick={() => {
+                                setIsEditingAnalysis(false);
+                                // Analysis is already updated via setContentAnalysis
+                              }}
+                              className="bg-gradient-to-r from-green-600 to-blue-600"
+                            >
+                              <CheckCircle className="w-4 h-4 mr-2" />
+                              Änderungen übernehmen
+                            </Button>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    )}
+
+                    {/* PHASE 2: GENERATING - Show loading state */}
+                    {analysisStep === 'generating' && (
+                      <Card className="border-2 border-blue-300">
+                        <CardContent className="pt-6 space-y-4">
+                          <div className="bg-blue-50 border border-blue-200 p-6 rounded-lg text-center">
+                            <div className="animate-spin w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full mx-auto mb-4"></div>
+                            <h6 className="font-semibold text-blue-900 mb-2 text-lg">
+                              Generiere hochwertigen Artikel...
+                            </h6>
+                            <p className="text-sm text-blue-800 mb-3">
+                              Die KI erstellt jetzt einen praxisorientierten Artikel basierend auf den Analyse-Daten.
+                            </p>
+                            <p className="text-xs text-blue-700">
+                              Dies kann 40-60 Sekunden dauern. Der Artikel wird alle Thesen, Konzepte, Insights und Tipps enthalten.
+                            </p>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    )}
+
+                    {/* Legacy: Old single-phase button (hidden when using two-phase) */}
+                    {import.meta.env.VITE_OPENAI_API_KEY && analysisStep === 'pending' && (
+                      <details className="mt-4">
+                        <summary className="text-xs text-gray-500 cursor-pointer hover:text-gray-700">
+                          Alte Methode (Einstufiger Generator) anzeigen
+                        </summary>
+                        <Card className="border-2 border-gray-300 mt-2">
+                          <CardContent className="pt-6 space-y-4">
+                            <div className="bg-gray-50 border border-gray-200 p-4 rounded-lg">
+                              <h6 className="font-semibold text-gray-900 mb-2 text-sm">⚠️ Alte Methode (nicht empfohlen)</h6>
+                              <p className="text-xs text-gray-700 mb-2">
+                                Die alte einstufige Methode generiert Content direkt aus dem Transkript ohne vorherige Analyse.
+                                Dies führt oft zu weniger strukturierten Artikeln.
+                              </p>
+                              <p className="text-xs text-gray-600">
+                                Nutze stattdessen den neuen zweistufigen Workflow für bessere Ergebnisse!
+                              </p>
+                            </div>
+
+                            <Button
+                              onClick={handleGenerateContent}
+                              size="lg"
+                              disabled={isGenerating}
+                              variant="outline"
+                              className="w-full"
+                            >
+                              <Sparkles className="w-5 h-5 mr-2" />
+                              {isGenerating ? 'Generiere Content... (30-60s)' : 'Content generieren (alte Methode)'}
+                            </Button>
+                          </CardContent>
+                        </Card>
+                      </details>
+                    )}
+                  </>
+                )}
+
+                {/* Step 6: Content Review */}
+                {generatorStep === 'content-review' && (
+                  <>
+                    <div className="bg-gradient-to-r from-green-50 to-blue-50 border border-green-300 p-6 rounded-lg">
+                      <h5 className="font-semibold text-green-900 mb-3 text-lg flex items-center gap-2">
+                        <Edit2 className="w-6 h-6" />
+                        Content überarbeiten
+                      </h5>
+                      <p className="text-sm text-green-800 mb-4">
+                        Der KI-generierte Content wurde erfolgreich erstellt! Überarbeite ihn jetzt nach deinen Wünschen.
+                        Die Live-Vorschau rechts zeigt dir, wie der formatierte Artikel aussieht.
+                      </p>
+                    </div>
+
+                    {/* Side-by-Side Editor and Preview */}
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                      {/* Editor Panel */}
+                      <Card className="border-2 border-green-300">
+                        <CardHeader className="pb-3 bg-gradient-to-r from-green-50 to-transparent">
+                          <CardTitle className="text-base flex items-center gap-2">
+                            <Edit2 className="w-4 h-4" />
+                            Markdown-Editor
+                          </CardTitle>
+                        </CardHeader>
+                        <CardContent className="space-y-3">
+                          <Textarea
+                            id="reviewed-content"
+                            value={reviewedContent}
+                            onChange={(e) => {
+                              const newReviewedContent = e.target.value;
+                              setReviewedContent(newReviewedContent);
+
+                              // Update generatorState directly to avoid race conditions
+                              setEditedDraft({
+                                ...editedDraft,
+                                generatorState: {
+                                  ...editedDraft.generatorState!,
+                                  reviewedContent: newReviewedContent
+                                },
+                                updatedAt: new Date().toISOString(),
+                              });
+                            }}
+                            rows={30}
+                            className="font-mono text-sm"
+                          />
+                          <p className="text-xs text-gray-500">
+                            {reviewedContent.length} Zeichen | ~{Math.ceil(reviewedContent.split(/\s+/).length / 200)} Min. Lesezeit
+                          </p>
+                        </CardContent>
+                      </Card>
+
+                      {/* Preview Panel */}
+                      <Card className="border-2 border-blue-300">
+                        <CardHeader className="pb-3 bg-gradient-to-r from-blue-50 to-transparent">
+                          <CardTitle className="text-base flex items-center gap-2">
+                            <Eye className="w-4 h-4" />
+                            Live-Vorschau (formatiert)
+                          </CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                          <div className="max-h-[600px] overflow-y-auto border border-gray-200 rounded-lg p-4 bg-white">
+                            {renderMarkdownPreview(reviewedContent)}
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </div>
+
+                    {/* Tips and Actions */}
+                    <Card className="border border-gray-200">
+                      <CardContent className="pt-6 space-y-4">
+                        <div className="bg-amber-50 border border-amber-200 p-4 rounded-lg">
+                          <h6 className="font-semibold text-amber-900 mb-2 text-sm">💡 Tipps für die Überarbeitung</h6>
+                          <ul className="text-xs text-amber-800 space-y-1 list-disc list-inside">
+                            <li>Prüfe Fakten und Zahlen auf Korrektheit</li>
+                            <li>Füge persönliche Erfahrungen und Beispiele hinzu</li>
+                            <li>Stelle sicher, dass die FAQs relevant sind</li>
+                            <li>Optimiere die Sprache für deine Zielgruppe</li>
+                          </ul>
+                        </div>
+
+                        <div className="flex justify-between items-center pt-2">
+                          <Button onClick={() => setGeneratorStep('content-generation')} variant="outline">
+                            ← Content neu generieren
+                          </Button>
+                          <Button
+                            onClick={handleSaveReviewedContent}
+                            size="lg"
+                            className="bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700"
+                          >
+                            <CheckCircle className="w-5 h-5 mr-2" />
+                            Content freigeben →
+                          </Button>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </>
+                )}
+
+                {/* Step 7: Page Design / Code Generation */}
+                {generatorStep === 'page-design' && (
+                  <>
+                    <div className="bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-300 p-6 rounded-lg">
+                      <h5 className="font-semibold text-blue-900 mb-3 text-lg flex items-center gap-2">
+                        <Code className="w-6 h-6" />
+                        Finale Wissensseite erstellen
+                      </h5>
+                      <p className="text-sm text-blue-800 mb-4">
+                        Im letzten Schritt wird aus deinem überarbeiteten Content eine vollständige TSX-Komponente
+                        mit dem KnowledgePageTemplate generiert.
+                      </p>
+                    </div>
+
+                    <Card className="border-2 border-blue-300">
+                      <CardContent className="pt-6 space-y-4">
+                        <div className="bg-green-50 border border-green-200 p-4 rounded-lg">
+                          <h6 className="font-semibold text-green-900 mb-2 text-sm">✅ Bereit zur Finalisierung</h6>
+                          <div className="grid grid-cols-2 gap-2 text-xs text-green-800 mt-2">
+                            <div><strong>Titel:</strong> {editedDraft.title}</div>
+                            <div><strong>Slug:</strong> {editedDraft.slug}</div>
+                            <div><strong>Kategorie:</strong> {editedDraft.category}</div>
+                            <div><strong>Keywords:</strong> {editedDraft.keywords.length}</div>
+                            <div><strong>Content:</strong> {Math.ceil(reviewedContent.split(/\s+/).length)} Wörter</div>
+                            <div><strong>Autor:</strong> Martin Lang</div>
+                          </div>
+                        </div>
+
+                        <div className="bg-blue-50 border border-blue-200 p-4 rounded-lg">
+                          <h6 className="font-semibold text-blue-900 mb-2 text-sm">Was wird erstellt?</h6>
+                          <ul className="text-xs text-blue-800 space-y-1 list-disc list-inside">
+                            <li>Vollständige TSX-Komponente mit KnowledgePageTemplate</li>
+                            <li>Strukturierter JSX-Content aus deinem Markdown</li>
+                            <li>FAQ-Sektion mit Schema.org Markup</li>
+                            <li>Automatisches Table of Contents</li>
+                            <li>SEO-Metadaten und Author Bio</li>
+                            <li>Sofort einsatzbereit</li>
+                          </ul>
+                        </div>
+
+                        <div className="flex justify-between items-center pt-2">
+                          <Button onClick={() => setGeneratorStep('content-review')} variant="outline">
+                            ← Content überarbeiten
+                          </Button>
+                          <Button
+                            onClick={handleGenerateFinalPage}
+                            size="lg"
+                            disabled={isGenerating || !openAIKey}
+                            className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
+                          >
+                            <Code className="w-5 h-5 mr-2" />
+                            {isGenerating ? 'Erstelle Seite...' : 'Finale Seite erstellen →'}
+                          </Button>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </>
+                )}
+
+                {/* Step 8: Completed */}
+                {generatorStep === 'completed' && (
+                  <>
+                    <div className="bg-gradient-to-r from-green-50 to-blue-50 border border-green-300 p-8 rounded-lg text-center mb-6">
+                      <CheckCircle className="w-20 h-20 text-green-600 mx-auto mb-4" />
+                      <h5 className="font-semibold text-green-900 mb-3 text-3xl">
+                        🎉 Wissensseite erfolgreich erstellt!
+                      </h5>
+                      <p className="text-gray-700 mb-6 text-lg">
+                        Deine KI-optimierte Wissensseite ist fertig. Du kannst sie jetzt überprüfen,
+                        bei Bedarf anpassen und veröffentlichen.
+                      </p>
+                      <div className="flex gap-3 justify-center flex-wrap">
+                        <Button onClick={() => setActiveTab('preview')} variant="default" size="lg">
+                          <Eye className="w-5 h-5 mr-2" />
+                          Vorschau ansehen
+                        </Button>
+                        <Button onClick={() => setActiveTab('code-upload')} variant="outline" size="lg">
+                          <Code className="w-5 h-5 mr-2" />
+                          Code bearbeiten
+                        </Button>
+                        <Button onClick={() => setActiveTab('metadata')} variant="outline" size="lg">
+                          Metadaten anpassen
+                        </Button>
+                        <Button onClick={() => setGeneratorStep('content-review')} variant="outline">
+                          <Edit2 className="w-4 h-4 mr-2" />
+                          Content überarbeiten
+                        </Button>
+                      </div>
+                    </div>
+
+                    {/* Publishing Options */}
+                    <Card className="border-2 border-blue-300">
+                      <CardHeader className="bg-gradient-to-r from-blue-50 to-purple-50">
+                        <CardTitle className="text-2xl flex items-center gap-2">
+                          <Calendar className="w-6 h-6" />
+                          Veröffentlichung planen
+                        </CardTitle>
+                        <p className="text-sm text-muted-foreground mt-2">
+                          Wähle, wie du mit diesem Artikel fortfahren möchtest
+                        </p>
+                      </CardHeader>
+                      <CardContent className="pt-6 space-y-6">
+                        {/* Editable Title */}
+                        <div className="space-y-2">
+                          <Label htmlFor="article-title" className="text-base font-semibold flex items-center gap-2">
+                            <Edit2 className="w-4 h-4" />
+                            Artikel-Überschrift
+                          </Label>
+                          <Input
+                            id="article-title"
+                            value={editedDraft.title}
+                            onChange={(e) => setEditedDraft({ ...editedDraft, title: e.target.value })}
+                            className="text-lg font-semibold"
+                            placeholder="Titel des Artikels"
+                          />
+                          <p className="text-xs text-muted-foreground">
+                            Du kannst die Überschrift hier direkt bearbeiten.
+                          </p>
+                        </div>
+
+                        {/* Current Status */}
+                        <div className="bg-gray-50 border border-gray-200 p-4 rounded-lg">
+                          <div className="flex items-center justify-between mb-3">
+                            <span className="font-semibold text-gray-700">Aktueller Status:</span>
+                            <Badge variant={
+                              editedDraft.status === 'published' ? 'default' :
+                              editedDraft.status === 'scheduled' ? 'secondary' :
+                              'outline'
+                            }>
+                              {editedDraft.status === 'draft' && '📝 Entwurf'}
+                              {editedDraft.status === 'scheduled' && '⏰ Geplant'}
+                              {editedDraft.status === 'published' && '✅ Veröffentlicht'}
+                            </Badge>
+                          </div>
+                          <div className="text-sm text-gray-600">
+                            <strong>Veröffentlichungsdatum:</strong>{' '}
+                            {new Date(editedDraft.publishDate).toLocaleDateString('de-DE', {
+                              day: '2-digit',
+                              month: 'long',
+                              year: 'numeric',
+                              hour: '2-digit',
+                              minute: '2-digit'
+                            })}
+                          </div>
+                        </div>
+
+                        {/* Publishing Date Picker */}
+                        <div>
+                          <Label htmlFor="publish-date" className="text-base font-semibold">
+                            Veröffentlichungsdatum festlegen
+                          </Label>
+                          <p className="text-sm text-muted-foreground mb-3">
+                            Wähle wann dieser Artikel veröffentlicht werden soll
+                          </p>
+                          <Input
+                            id="publish-date"
+                            type="datetime-local"
+                            value={editedDraft.publishDate.slice(0, 16)}
+                            onChange={(e) => {
+                              const newDate = new Date(e.target.value).toISOString();
+                              setEditedDraft({
+                                ...editedDraft,
+                                publishDate: newDate,
+                                updatedAt: new Date().toISOString()
+                              });
+                            }}
+                            className="max-w-md"
+                          />
+                        </div>
+
+                        {/* Action Buttons */}
+                        <div className="space-y-3 pt-4">
+                          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            {/* Save as Draft */}
+                            <Card className="border-2 border-gray-300 hover:border-gray-400 transition-colors cursor-pointer"
+                              onClick={() => {
+                                setEditedDraft({
+                                  ...editedDraft,
+                                  status: 'draft',
+                                  updatedAt: new Date().toISOString()
+                                });
+                                handleSave();
+                              }}
+                            >
+                              <CardContent className="pt-6 text-center">
+                                <Save className="w-10 h-10 text-gray-600 mx-auto mb-3" />
+                                <h4 className="font-semibold text-gray-900 mb-2">Als Entwurf speichern</h4>
+                                <p className="text-xs text-gray-600">
+                                  Speichert die Seite ohne zu veröffentlichen. Nur für dich sichtbar.
+                                </p>
+                              </CardContent>
+                            </Card>
+
+                            {/* Schedule Publication */}
+                            <Card className="border-2 border-blue-300 hover:border-blue-400 transition-colors cursor-pointer"
+                              onClick={handleSchedule}
+                            >
+                              <CardContent className="pt-6 text-center">
+                                <Clock className="w-10 h-10 text-blue-600 mx-auto mb-3" />
+                                <h4 className="font-semibold text-blue-900 mb-2">Veröffentlichung planen</h4>
+                                <p className="text-xs text-blue-700">
+                                  Wird am gewählten Datum automatisch veröffentlicht.
+                                </p>
+                              </CardContent>
+                            </Card>
+
+                            {/* Publish Now */}
+                            <Card className="border-2 border-green-300 hover:border-green-400 transition-colors cursor-pointer"
+                              onClick={handlePublish}
+                            >
+                              <CardContent className="pt-6 text-center">
+                                <CheckCircle className="w-10 h-10 text-green-600 mx-auto mb-3" />
+                                <h4 className="font-semibold text-green-900 mb-2">Jetzt veröffentlichen</h4>
+                                <p className="text-xs text-green-700">
+                                  Veröffentlicht die Seite sofort. Für alle sichtbar.
+                                </p>
+                              </CardContent>
+                            </Card>
+                          </div>
+
+                          <div className="flex justify-center pt-4">
+                            <Button onClick={handleResetGenerator} variant="ghost" size="sm">
+                              Komplett neu starten
+                            </Button>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </>
+                )}
+              </CardContent>
+            </Card>
+          </TabsContent>
+
+          {/* Code Upload Tab */}
+          <TabsContent value="code-upload" className="space-y-6">
+            <Card>
+              <CardHeader>
+                <CardTitle>Code hochladen</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="bg-blue-50 border border-blue-200 p-4 rounded-lg">
+                  <h4 className="font-semibold text-blue-900 mb-2">
+                    📤 Fertige Wissensseiten hochladen
+                  </h4>
+                  <p className="text-sm text-blue-800 mb-3">
+                    Wenn du deine Wissensseite mit einem anderen Tool (z.B. AI, Code-Generator) erstellt hast,
+                    kannst du hier die fertige TSX/JSX-Datei hochladen. Der Code wird direkt beim Veröffentlichen verwendet.
+                  </p>
+                  <ul className="text-xs text-blue-700 space-y-1 list-disc list-inside">
+                    <li>Unterstützte Formate: .tsx, .jsx, .ts, .js</li>
+                    <li>Der Code sollte eine vollständige React-Komponente sein</li>
+                    <li>ContentLayout und andere Komponenten werden automatisch eingebunden</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <Label htmlFor="file-upload">Code-Datei auswählen</Label>
+                  <div className="mt-2 flex items-center gap-4">
+                    <Input
+                      id="file-upload"
+                      type="file"
+                      accept=".tsx,.jsx,.ts,.js"
+                      onChange={handleFileUpload}
+                      className="flex-1"
+                    />
+                    <Button
+                      type="button"
+                      variant="outline"
+                      onClick={() => document.getElementById('file-upload')?.click()}
+                    >
+                      <Upload className="w-4 h-4 mr-2" />
+                      Datei wählen
+                    </Button>
+                  </div>
+                </div>
+
+                {editedDraft.contentType === 'code' && editedDraft.codeFileName && (
+                  <div className="bg-green-50 border border-green-200 p-4 rounded-lg">
+                    <p className="text-sm text-green-800">
+                      ✅ <strong>Hochgeladen:</strong> {editedDraft.codeFileName}
+                    </p>
+                    <p className="text-xs text-green-700 mt-1">
+                      {editedDraft.content.split('\n').length} Zeilen Code
+                    </p>
+                  </div>
+                )}
+
+                {editedDraft.contentType === 'code' && (
+                  <div>
+                    <Label>Code-Vorschau</Label>
+                    <div className="mt-2 border rounded-lg bg-gray-50 p-4 max-h-96 overflow-auto">
+                      <pre className="text-xs font-mono">
+                        <code>{editedDraft.content}</code>
+                      </pre>
+                    </div>
+                  </div>
+                )}
+
+                {editedDraft.contentType === 'markdown' && (
+                  <div className="bg-gray-50 border border-gray-200 p-4 rounded-lg text-center">
+                    <p className="text-sm text-gray-600 mb-3">
+                      Du befindest dich im Markdown-Modus.
+                    </p>
+                    <Button
+                      onClick={handleSwitchToCode}
+                      variant="default"
+                    >
+                      <Code className="w-4 h-4 mr-2" />
+                      Zu Code-Upload wechseln
+                    </Button>
+                  </div>
+                )}
+              </CardContent>
+            </Card>
+          </TabsContent>
+
+          {/* Metadata Tab */}
+          <TabsContent value="metadata" className="space-y-6">
+            <Card>
+              <CardHeader>
+                <CardTitle>Artikel-Metadaten</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <Label htmlFor="publishDate">Veröffentlichungsdatum</Label>
+                    <Input
+                      id="publishDate"
+                      type="datetime-local"
+                      value={editedDraft.publishDate.slice(0, 16)}
+                      onChange={(e) =>
+                        handleChange("publishDate", new Date(e.target.value).toISOString())
+                      }
+                    />
+                  </div>
+
+                  <div>
+                    <Label htmlFor="status">Status</Label>
+                    <Select
+                      value={editedDraft.status}
+                      onValueChange={(value) => handleChange("status", value)}
+                    >
+                      <SelectTrigger id="status">
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="draft">Entwurf</SelectItem>
+                        <SelectItem value="scheduled">Geplant</SelectItem>
+                        <SelectItem value="published">Veröffentlicht</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  <div>
+                    <Label htmlFor="category">Kategorie</Label>
+                    <Input
+                      id="category"
+                      value={editedDraft.category}
+                      onChange={(e) => handleChange("category", e.target.value)}
+                    />
+                  </div>
+
+                  <div>
+                    <Label htmlFor="readTime">Lesezeit</Label>
+                    <Input
+                      id="readTime"
+                      value={editedDraft.readTime}
+                      onChange={(e) => handleChange("readTime", e.target.value)}
+                      placeholder="z.B. 5 Minuten"
+                    />
+                  </div>
+
+                  <div>
+                    <Label htmlFor="slug">URL-Slug</Label>
+                    <Input
+                      id="slug"
+                      value={editedDraft.slug}
+                      onChange={(e) => handleChange("slug", e.target.value)}
+                    />
+                    <p className="text-xs text-gray-500 mt-1">
+                      URL: /wissen/{editedDraft.slug}
+                    </p>
+                  </div>
+
+                  <div>
+                    <Label htmlFor="icon">Icon (Emoji)</Label>
+                    <Input
+                      id="icon"
+                      value={editedDraft.icon}
+                      onChange={(e) => handleChange("icon", e.target.value)}
+                      maxLength={2}
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <Label htmlFor="keywords">SEO Keywords (kommagetrennt)</Label>
+                  <Textarea
+                    id="keywords"
+                    value={editedDraft.keywords.join(", ")}
+                    onChange={(e) =>
+                      handleChange(
+                        "keywords",
+                        e.target.value.split(",").map((k) => k.trim())
+                      )
+                    }
+                    rows={2}
+                  />
+                </div>
+
+                <div>
+                  <Label>Autor</Label>
+                  <div className="mt-2">
+                    <Badge variant="outline">{editedDraft.author}</Badge>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </TabsContent>
+
+          {/* Preview Tab */}
+          <TabsContent value="preview">
+            {/* Show full page preview if we have content */}
+            {(editedDraft.generatorState?.reviewedContent || editedDraft.content) && editedDraft.title ? (
+              <div className="space-y-4">
+                <Card className="bg-blue-50 border-blue-200">
+                  <CardContent className="pt-4">
+                    <div className="flex items-start gap-3">
+                      <Eye className="w-5 h-5 text-blue-600 mt-0.5" />
+                      <div>
+                        <p className="text-sm text-blue-900 font-semibold mb-1">Live-Vorschau der finalen Seite</p>
+                        <p className="text-xs text-blue-800">
+                          So wird die Seite später für Besucher aussehen - mit Header, Navigation, Table of Contents und allen Styles.
+                        </p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card>
+                  <CardContent className="p-0">
+                    <div className="border rounded-lg overflow-hidden">
+                      {/* Debug: Log what's being passed to KnowledgePagePreview */}
+                      {console.log('Preview Tab - Using:', editedDraft.generatorState?.reviewedContent ? 'reviewedContent' : 'content')}
+                      {console.log('Preview Tab - reviewedContent exists:', !!editedDraft.generatorState?.reviewedContent)}
+                      {console.log('Preview Tab - reviewedContent length:', editedDraft.generatorState?.reviewedContent?.length)}
+                      {console.log('Preview Tab - content length:', editedDraft.content?.length)}
+                      {console.log('Preview Tab - contentType:', editedDraft.contentType)}
+                      <KnowledgePagePreview
+                        title={editedDraft.title}
+                        description={editedDraft.description}
+                        slug={editedDraft.slug}
+                        keywords={editedDraft.keywords}
+                        category={editedDraft.category}
+                        readTime={editedDraft.readTime}
+                        publishDate={editedDraft.publishDate}
+                        authorId={editedDraft.author}
+                        markdownContent={editedDraft.generatorState?.reviewedContent || editedDraft.content}
+                      />
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            ) : (
+              <div className="space-y-4">
+              <Card className="bg-blue-50 border-blue-200">
+                <CardContent className="pt-4">
+                  <div className="flex items-start gap-3">
+                    <Eye className="w-5 h-5 text-blue-600 mt-0.5" />
+                    <div>
+                      <p className="text-sm text-blue-900 font-semibold mb-1">Vorschau-Modus</p>
+                      <p className="text-xs text-blue-800">
+                        {editedDraft.generatorState?.reviewedContent
+                          ? 'Dies ist eine Vorschau deines bearbeiteten Markdown-Inhalts. Die finale Seite verwendet das KnowledgePageTemplate mit zusätzlichen Funktionen.'
+                          : editedDraft.contentType === 'code'
+                          ? 'Dies ist eine Code-Vorschau. Die tatsächliche Darstellung kann je nach verwendeten Komponenten variieren.'
+                          : 'Dies ist eine Vorschau deines Markdown-Inhalts. Die tatsächliche Darstellung verwendet das KnowledgePageTemplate.'
+                        }
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Metadata Preview */}
+              <Card className="border-l-4 border-l-blue-500">
+                <CardHeader>
+                  <div className="flex items-start justify-between">
+                    <div className="flex-1">
+                      <div className="flex items-center gap-3 mb-2">
+                        <span className="text-3xl">{editedDraft.icon || '📝'}</span>
+                        <CardTitle className="text-3xl">{editedDraft.title || 'Titel fehlt'}</CardTitle>
+                      </div>
+                      <p className="text-lg text-gray-600">{editedDraft.description || 'Beschreibung fehlt'}</p>
+                      <div className="flex flex-wrap gap-3 mt-3 text-sm text-gray-500">
+                        <span>📅 {new Date(editedDraft.publishDate).toLocaleDateString('de-DE')}</span>
+                        <span>⏱️ {editedDraft.readTime || 'Keine Angabe'}</span>
+                        {editedDraft.category && <Badge variant="outline">{editedDraft.category}</Badge>}
+                        <Badge variant="secondary">{editedDraft.status}</Badge>
+                      </div>
+                      {editedDraft.keywords.length > 0 && (
+                        <div className="mt-3">
+                          <div className="text-xs text-gray-500 mb-2">SEO Keywords:</div>
+                          <div className="flex flex-wrap gap-2">
+                            {editedDraft.keywords.slice(0, 8).map((keyword, idx) => (
+                              <Badge key={idx} variant="outline" className="text-xs">
+                                {keyword}
+                              </Badge>
+                            ))}
+                            {editedDraft.keywords.length > 8 && (
+                              <Badge variant="outline" className="text-xs">
+                                +{editedDraft.keywords.length - 8} weitere
+                              </Badge>
+                            )}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </CardHeader>
+              </Card>
+
+              {/* Content Preview */}
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    {editedDraft.generatorState?.reviewedContent ? (
+                      <>
+                        <Eye className="w-5 h-5" />
+                        Artikel-Vorschau (Markdown)
+                      </>
+                    ) : editedDraft.contentType === 'code' ? (
+                      <>
+                        <Code className="w-5 h-5" />
+                        Code-Vorschau
+                      </>
+                    ) : (
+                      <>
+                        📄 Inhalt-Vorschau
+                      </>
+                    )}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  {editedDraft.generatorState?.reviewedContent ? (
+                    // Show the reviewed markdown content from generator
+                    <div className="space-y-4">
+                      <div className="bg-green-50 border border-green-200 p-3 rounded-lg">
+                        <p className="text-xs text-green-800">
+                          <strong>✨ Content Generator:</strong> Dies ist dein bearbeiteter Artikel-Content. Die finale TSX-Komponente wurde bereits generiert und ist einsatzbereit.
+                        </p>
+                      </div>
+                      {renderMarkdownPreview(editedDraft.generatorState.reviewedContent)}
+                    </div>
+                  ) : editedDraft.content ? (
+                    <>
+                      {editedDraft.contentType === 'code' ? (
+                        <div className="space-y-4">
+                          <div className="bg-amber-50 border border-amber-200 p-3 rounded-lg">
+                            <p className="text-xs text-amber-800">
+                              <strong>Hinweis:</strong> Der hochgeladene Code wird beim Veröffentlichen direkt als React-Komponente verwendet.
+                              {editedDraft.codeFileName && <span className="ml-2">Datei: <code className="font-mono">{editedDraft.codeFileName}</code></span>}
+                            </p>
+                          </div>
+                          <div className="border rounded-lg bg-gray-50 p-4 max-h-96 overflow-auto">
+                            <pre className="text-xs font-mono whitespace-pre-wrap">
+                              <code>{editedDraft.content}</code>
+                            </pre>
+                          </div>
+                        </div>
+                      ) : (
+                        renderMarkdownPreview(editedDraft.content)
+                      )}
+                    </>
+                  ) : (
+                    <div className="text-center py-12 text-gray-500">
+                      <p>Noch kein Inhalt vorhanden.</p>
+                      <p className="text-sm mt-2">Wechsle zum Tab "Inhalt" oder "Content Generator" um Inhalt zu erstellen.</p>
+                    </div>
+                  )}
+                </CardContent>
+              </Card>
+            </div>
+            )}
+          </TabsContent>
+        </Tabs>
+      </div>
+    </div>
+  );
+};
+
+export default DraftEditor;
