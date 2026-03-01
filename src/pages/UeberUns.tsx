@@ -19,7 +19,7 @@ const UeberUns = () => {
         "alternateName": "ChatGPT-Trainings",
         "url": "https://chatgpt-trainings.de",
         "logo": "https://chatgpt-trainings.de/og-image.jpg",
-        "description": "Die ChatGPT-Trainings ist spezialisiert auf die Einführung und Weiterqualifizierungen im Umfeld der Microsoft Copiloten. Im Gegensatz zu anderen Anbietern bieten wir den Teilnehmern keinen Bauchladen an Tools an, die in ihrem Umfeld nicht compliant oder wertschöpfend sind.",
+        "description": "ChatGPT-Trainings.de ist der spezialisierte Weiterbildungsanbieter für den professionellen Einsatz von ChatGPT und KI-Tools in Unternehmen. Wir setzen auf tiefgreifende Praxisnähe statt oberflächliche Tool-Übersichten.",
         "foundingDate": "2025",
         "founder": {
           "@type": "Person",
@@ -47,18 +47,18 @@ const UeberUns = () => {
           "name": "DACH-Region (Deutschland, Österreich, Schweiz)"
         },
         "knowsAbout": [
-          "Microsoft Copilot",
-          "Microsoft 365 Copilot",
-          "GitHub Copilot",
-          "Copilot Studio",
+          "ChatGPT",
+          "OpenAI",
+          "ChatGPT Enterprise",
+          "ChatGPT Team",
           "KI-Enablement",
-          "Copilot Rollout",
-          "Copilot Adoption",
+          "KI-Einführung",
+          "KI-Adoption",
           "KI-gestützte Büroarbeit",
           "Prompt Engineering",
-          "KI-Agenten"
+          "Custom GPTs"
         ],
-        "slogan": "Büroarbeit durch Microsoft Copilot messbar produktiver, wirksamer und menschlicher machen",
+        "slogan": "Büroarbeit durch ChatGPT und KI messbar produktiver, wirksamer und menschlicher machen",
         "contactPoint": {
           "@type": "ContactPoint",
           "contactType": "customer service",
@@ -83,26 +83,26 @@ const UeberUns = () => {
         "@id": "https://chatgpt-trainings.de/#educationalOrganization",
         "name": "chatgpt-trainings.de",
         "url": "https://chatgpt-trainings.de",
-        "description": "Spezialisierte Akademie für Microsoft Copilot Trainings und Enablement",
+        "description": "Spezialisierte Akademie für professionelle ChatGPT und KI-Weiterbildung",
         "foundingDate": "2025",
         "parentOrganization": {
           "@id": "https://yellow-boat.com/#organization"
         },
         "areaServed": "DACH",
-        "educationalCredentialAwarded": "Microsoft Copilot Zertifikat",
+        "educationalCredentialAwarded": "ChatGPT Zertifikat",
         "teaches": [
-          "Microsoft 365 Copilot für Büroarbeit",
-          "GitHub Copilot für Entwickler",
-          "Copilot Studio für KI-Agenten",
+          "ChatGPT für Büroarbeit",
+          "ChatGPT für Entwickler",
+          "Custom GPTs und KI-Agenten",
           "Prompt Engineering",
-          "Copilot Governance und Compliance"
+          "KI Governance und Compliance"
         ]
       },
       {
         "@type": "WebPage",
         "@id": "https://chatgpt-trainings.de/ueber-uns",
         "name": "Über uns - chatgpt-trainings.de",
-        "description": "Erfahren Sie mehr über chatgpt-trainings.de, die spezialisierte Weiterbildungsplattform für Microsoft Copilot. Eine Marke der Yellow-Boat Consulting.",
+        "description": "Erfahren Sie mehr über chatgpt-trainings.de, die spezialisierte Weiterbildungsplattform für ChatGPT. Eine Marke der Yellow-Boat Consulting.",
         "url": "https://chatgpt-trainings.de/ueber-uns",
         "inLanguage": "de-DE",
         "isPartOf": {
@@ -121,15 +121,15 @@ const UeberUns = () => {
   return (
     <div className="min-h-screen">
       <SEOHead
-        title="Über uns - chatgpt-trainings.de | Microsoft Copilot Trainings"
-        description="Die ChatGPT-Trainings ist spezialisiert auf die Einführung und Weiterqualifizierungen im Umfeld der Microsoft Copiloten. Im Gegensatz zu anderen Anbietern bieten wir den Teilnehmern keinen Bauchladen an Tools an, die in ihrem Umfeld nicht compliant oder wertschöpfend sind."
+        title="Über uns - chatgpt-trainings.de | Professionelle ChatGPT Trainings"
+        description="ChatGPT-Trainings.de ist der spezialisierte Weiterbildungsanbieter für den professionellen Einsatz von ChatGPT und KI-Tools in Unternehmen. Tiefe Praxisnähe statt oberflächliche Tool-Übersichten."
         keywords={[
           "chatgpt-trainings",
-          "Microsoft Copilot Training Anbieter",
+          "ChatGPT Training Anbieter",
           "Yellow-Boat Consulting",
-          "Copilot Schulung Deutschland",
-          "Microsoft Copilot Experte",
-          "Copilot Enablement Partner"
+          "ChatGPT Schulung Deutschland",
+          "ChatGPT Experte",
+          "KI Training Partner"
         ]}
         canonicalUrl="https://chatgpt-trainings.de/ueber-uns"
         schema={organizationSchema}
@@ -140,17 +140,13 @@ const UeberUns = () => {
           {/* Hero Section - Apple-inspired clean design */}
           <div className="max-w-4xl mx-auto text-center mb-16">
             <h1 className="text-5xl lg:text-7xl font-semibold tracking-tight leading-[1.1]">
-              <span className="text-primary">Microsoft Copilot</span> Spezialisten aus der Anwendungspraxis
+              Ihr Partner für <span className="text-primary">professionelle ChatGPT</span> Weiterbildung
             </h1>
             <p className="mt-6 text-xl text-muted-foreground leading-relaxed mb-4 animate-slide-up-delayed">
-              <strong>Die ChatGPT-Trainings</strong> ist spezialisiert auf die Einführung und Weiterqualifizierungen
-              im Umfeld der Microsoft Copiloten. Im Gegensatz zu anderen Anbietern bieten wir den Teilnehmern
-              keinen Bauchladen an Tools an, die in ihrem Umfeld nicht compliant oder wertschöpfend sind.
+              <strong>ChatGPT-Trainings.de</strong> hat sich darauf spezialisiert, Unternehmen bei der professionellen Einführung und Nutzung von ChatGPT zu begleiten. Statt eines beliebigen Rundumschlags über verschiedenste KI-Tools konzentrieren wir uns gezielt auf die Werkzeuge, die in Ihrem Arbeitsalltag tatsächlich Wirkung zeigen.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Wir befähigen Wissensarbeiter, Teams und Organisationen, Microsoft Copilot produktiv,
-              sicher und wertschöpfend im Arbeitsalltag einzusetzen. Unser praxisorientierter
-              Trainingsansatz verbindet reale Arbeitsprozesse mit direkt anwendbaren Workflows.
+              Unser Ziel: Ihre Mitarbeiter, Teams und Führungskräfte befähigen, ChatGPT sicher, effizient und wertschöpfend einzusetzen. Dabei verbinden wir echte Arbeitssituationen mit sofort umsetzbaren Methoden.
             </p>
           </div>
 
@@ -159,26 +155,22 @@ const UeberUns = () => {
             <Card className="p-6 hover:shadow-xl transition-all duration-300 border-2 hover:border-primary/50">
               <h2 className="text-2xl font-bold mb-4">Unsere Mission</h2>
               <p className="text-muted-foreground leading-relaxed">
-                Unsere Mission ist es, Büroarbeit durch den gezielten Einsatz von Microsoft Copilot
-                <strong> messbar produktiver, wirksamer und menschlicher</strong> zu machen.
+                Wir machen Wissensarbeit durch den gezielten Einsatz von ChatGPT und KI spürbar
+                <strong> produktiver und wirkungsvoller</strong>.
               </p>
             </Card>
 
             <Card className="p-6 hover:shadow-xl transition-all duration-300 border-2 hover:border-primary/50">
               <h2 className="text-2xl font-bold mb-4">Unsere Vision</h2>
               <p className="text-muted-foreground leading-relaxed">
-                Unsere Vision ist eine Arbeitswelt, in der Microsoft Copilot als <strong>selbstverständliches
-                Teammitglied</strong> genutzt wird und Menschen sich auf wertschöpfende, kreative und
-                strategische Arbeit konzentrieren können.
+                Wir sehen eine Zukunft, in der KI als <strong>alltäglicher Sparringspartner</strong> am Arbeitsplatz dient und Menschen sich auf das konzentrieren können, was wirklich zählt: kreative, strategische und zwischenmenschliche Aufgaben.
               </p>
             </Card>
 
             <Card className="p-6 hover:shadow-xl transition-all duration-300 border-2 hover:border-primary/50">
               <h2 className="text-2xl font-bold mb-4">Unsere Werte</h2>
               <p className="text-muted-foreground leading-relaxed">
-                <strong>Praxisnähe, Wirksamkeit, Transparenz.</strong> Diese Werte leiten alle unsere
-                Entscheidungen. Wir setzen auf konkrete Anwendungsfälle statt Buzzwords und messbare
-                Ergebnisse statt Marketing-Versprechen.
+                <strong>Praxisnähe, Wirksamkeit, Ehrlichkeit.</strong> Was wir vermitteln, funktioniert am nächsten Arbeitstag. Was nicht funktioniert, kommunizieren wir offen.
               </p>
             </Card>
           </div>
@@ -201,17 +193,15 @@ const UeberUns = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 rounded-2xl blur-xl" />
               <div className="relative bg-gradient-to-br from-card/80 to-card/60 backdrop-blur-xl rounded-2xl p-8 md:p-12 text-center border border-border/50 shadow-xl">
                 <h3 className="text-2xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/70">
-                  Unsere Vision: Copilot als selbstverständliches Teammitglied
+                  Unsere Vision: KI als selbstverständlicher Sparringspartner
                 </h3>
                 <p className="text-muted-foreground max-w-2xl mx-auto mb-6 leading-relaxed">
-                  Unsere Vision ist eine Arbeitswelt, in der Microsoft Copilot als selbstverständliches Teammitglied
-                  genutzt wird und Menschen sich auf wertschöpfende, kreative und strategische Arbeit konzentrieren können.
-                  Jedes Training wird präzise auf Ihre Unternehmenssituation, Branche und spezifischen Ziele zugeschnitten.
+                  Wir stellen uns eine Arbeitswelt vor, in der KI als natürlicher Bestandteil des beruflichen Handelns angesehen wird und Mitarbeiter ihre volle Aufmerksamkeit auf Aufgaben richten können, die Innovationskraft, Kreativität und menschliche Interaktion erfordern. Jedes Trainingskonzept wird präzise nach den Anforderungen Ihrer Organisation, Ihrer Branche und Ihren strategischen Zielen ausgerichtet.
                 </p>
                 <p className="text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed">
-                  Wir begleiten Copilot-Rollouts inklusive Governance, Use-Case-Definition und Adoption.
-                  Nach dem Training bieten wir Coaching und kontinuierlichen Support für Führungskräfte,
-                  Produkt- und Transformationsteams zur Etablierung nachhaltiger, Copilot-gestützter Arbeitsweisen.
+                  Wir unterstützen KI-Einführungsprojekte umfassend – von der initialen Bedarfsanalyse über Governance-Konzepte bis zur nachhaltigen Verankerung im Arbeitsalltag.
+                  Nach der Trainingsphase bieten wir Coaching und laufende Unterstützung für Leitungskräfte,
+                  Projektverantwortliche und Transformationsteams, um KI-gestützte Arbeitsweisen dauerhaft zu etablieren.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
                   <div className="group flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-primary/10 transition-all duration-300 hover:scale-105 cursor-default">
@@ -239,33 +229,30 @@ const UeberUns = () => {
               <Card className="p-6 hover:shadow-lg transition-all duration-300">
                 <h3 className="text-xl font-bold mb-3 flex items-center gap-2">
                   <span className="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center text-primary font-bold">1</span>
-                  Praxis-Trainings & Workshops
+                  Praxistrainings & Workshops
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Interaktive Trainingsformate zu Microsoft 365 Copilot mit starkem Fokus auf reale
-                  Büro-Use-Cases und Anwender-Adoption. Primäre Zielgruppe sind <strong>Büroangestellte,
-                  Wissensarbeiter, Teams und Führungskräfte</strong>.
+                  Praxistrainings und interaktive Workshops zu ChatGPT mit starkem Fokus auf echte Anwendungsfälle aus dem Arbeitsalltag. Hauptzielgruppe: <strong>Fachkräfte, Wissensarbeiter, Teams und Entscheider</strong>.
                 </p>
               </Card>
 
               <Card className="p-6 hover:shadow-lg transition-all duration-300">
                 <h3 className="text-xl font-bold mb-3 flex items-center gap-2">
                   <span className="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center text-primary font-bold">2</span>
-                  Inhouse-Enablement & Rollout-Begleitung
+                  Projektbegleitung & KI-Einführung
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Wir begleiten Copilot-Rollouts inklusive Governance, Use-Case-Definition und Adoption.
-                  Zielgruppe sind <strong>mittelständische und größere Organisationen</strong> im DACH-Raum.
+                  Begleitung von KI-Einführungsprojekten – von der Bedarfsanalyse über Governance-Konzepte bis zur nachhaltigen Verankerung im Arbeitsalltag. Für <strong>mittelständische und große Organisationen</strong> im DACH-Raum.
                 </p>
               </Card>
 
               <Card className="p-6 hover:shadow-lg transition-all duration-300">
                 <h3 className="text-xl font-bold mb-3 flex items-center gap-2">
                   <span className="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center text-primary font-bold">3</span>
-                  Coaching & Beratung
+                  Führungs-Coaching & Strategieberatung
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Individuelle Begleitung von <strong>Führungskräften, Produkt- und Transformationsteams</strong> zur Etablierung nachhaltiger, Copilot-gestützter Arbeitsweisen.
+                  Persönliches Coaching für Führungskräfte und Transformationsteams, die <strong>ChatGPT-gestützte Arbeitsweisen dauerhaft etablieren</strong> wollen.
                 </p>
               </Card>
             </div>
@@ -328,7 +315,7 @@ const UeberUns = () => {
                 <div className="font-bold text-lg text-primary mb-1">2011</div>
                 <h3 className="text-xl font-semibold mb-2">Gründung Yellow-Boat Consulting</h3>
                 <p className="text-muted-foreground">
-                  Die chatgpt-trainings.de ist eine Marke der im Jahr 2011 gegründeten{" "}
+                  ChatGPT-Trainings.de ist eine Marke der im Jahr 2011 ins Leben gerufenen{" "}
                   <a
                     href="https://yellow-boat.com"
                     target="_blank"
@@ -344,51 +331,40 @@ const UeberUns = () => {
               <div className="relative">
                 <div className="absolute -left-10 w-4 h-4 bg-primary/70 rounded-full"></div>
                 <div className="font-bold text-lg text-primary mb-1">2011–2023</div>
-                <h3 className="text-xl font-semibold mb-2">Agile Trainings & Digitalisierung</h3>
+                <h3 className="text-xl font-semibold mb-2">Spezialisierung auf Agile & Transformation</h3>
                 <p className="text-muted-foreground">
-                  Seit über einem Jahrzehnt realisiert Yellow-Boat Consulting Einführungsprojekte sowie
-                  Agile Trainings und Ausbildungen für hunderte Scrum Master, Product Owner und Agile Coaches.
-                  Darüber hinaus begleitet das Unternehmen Projekte zur Gestaltung agiler, digitaler, hybrider
-                  und remoter Teamarbeit in Konzernen und im Mittelstand. Das etablierte Freelancer-Netzwerk
-                  „Yellow-Fleet" besteht aus erfahrenen und zertifizierten Praktikern.
+                  Über mehr als ein Jahrzehnt hat Yellow-Boat Consulting umfangreiche Veränderungsprojekte umgesetzt und Hunderte von Scrum Mastern, Product Ownern und agilen Fachleuten ausgebildet.
+                  Daneben berät das Unternehmen Organisationen aller Größen bei der Umsetzung agiler, flexibler, dezentraler und hybridarbeit-orientierter Teamstrukturen. Das Netzwerk „Yellow-Fleet" vereint hochqualifizierte, zertifizierte Berater und Trainern.
                 </p>
               </div>
 
               <div className="relative">
                 <div className="absolute -left-10 w-4 h-4 bg-primary/80 rounded-full"></div>
                 <div className="font-bold text-lg text-primary mb-1">2023</div>
-                <h3 className="text-xl font-semibold mb-2">Fokus auf KI-unterstützte Wissensarbeit</h3>
+                <h3 className="text-xl font-semibold mb-2">Orientierung zur KI-gestützten Arbeit</h3>
                 <p className="text-muted-foreground">
-                  Konsequente Ausrichtung auf praxisnahe Trainings zur Transformation der Arbeitswelt durch
-                  Künstliche Intelligenz. 2023 werden die ersten KI-Anwender Trainings durchgeführt. Zuerst Verprobung im Rahmen der "BFF" Workshop Serie in Köln, dann Umsetzung verschiedener KI-Anwendertrainings mit Kunden wie Med360Grad, REWE und mittelständischen Unternehmen. Kontinuierlicher Austausch mit dem DFKI (Deutsche Forschungszentrum Für Künstliche Intelligenz).
-                  Parallel erfolgt ein intensiver Wissensaufbau durch zahlreiche Weiterbildungen und
-                  Veranstaltungen zur KI-Nutzung in der realen Arbeitswelt.
+                  Schrittweise Neuausrichtung auf praxisnahe Schulungsangebote für die Transformation von Arbeitsabläufen durch Künstliche Intelligenz. 2023 starten erste KI-Anwendertrainings. Pilotprojekte erfolgen im Rahmen der Workshop-Serie in Köln, gefolgt von KI-Trainings mit unterschiedlichen Kundenorganisationen. Aktiver Austausch mit dem DFKI (Deutsche Forschungszentrum für Künstliche Intelligenz).
+                  Gleichzeitig werden intensive Lernprogramme, Konferenzen und Fachdiskussionen genutzt, um fundierte Expertise in der Anwendung von KI im beruflichen Umfeld aufzubauen.
                 </p>
               </div>
 
               <div className="relative">
                 <div className="absolute -left-10 w-4 h-4 bg-primary/90 rounded-full"></div>
                 <div className="font-bold text-lg text-primary mb-1">2024</div>
-                <h3 className="text-xl font-semibold mb-2">AI-First & Copilot-Trainings</h3>
+                <h3 className="text-xl font-semibold mb-2">AI-First Ansatz & ChatGPT Trainings</h3>
                 <p className="text-muted-foreground">
-                  Im Sommer 2024 werden Prozesse und Workflows bei Yellow-Boat Consulting konsequent auf einen
-                  AI-First-Ansatz umgestellt. In diesem Zuge werden zahlreiche IT Development Projekte per No-Code oder
-                  Vibe-Code umgesetzt und von erfahrenen Software Entwicklern begleitet und überwacht. Im Dezember 2024
-                  wird das erste reine Copilot-Training entwickelt und erfolgreich durchgeführt.
+                  Im Sommer 2024 stellt Yellow-Boat Consulting ihre Prozesse und Abläufe konsequent auf einen KI-zentrierten Arbeitsansatz um. In der Folge werden zahlreiche Softwareprojekte mit No-Code- und Low-Code-Technologien realisiert und von erfahrenen Entwicklern betreut und überwacht. Im Dezember 2024 wird das erste ChatGPT-Trainingsprogramm konzipiert und erfolgreich durchgeführt.
                 </p>
               </div>
 
               <div className="relative mt-12">
                 <div className="absolute -left-10 w-4 h-4 bg-primary rounded-full"></div>
                 <div className="font-bold text-xl text-primary mb-1">2025</div>
-                <h3 className="text-2xl font-semibold mb-2">Gründung der ChatGPT-Trainings</h3>
+                <h3 className="text-2xl font-semibold mb-2">Marktstart ChatGPT-Trainings</h3>
                 <p className="text-muted-foreground text-lg">
-                  Launch von chatgpt-trainings.de sowie Aufbau eines starken Experten-Teams für eine spezialisierte
-                  Akademie mit klarem Fokus auf die Nutzung von Microsoft Copilot im beruflichen Kontext.
-                  Gleichzeitig erfolgt der gezielte Ausbau des Trainings-Portfolios sowie die Erweiterung um
-                  zusätzliche Angebote wie Launch Days und Lernreisen. Das Netzwerk umfasst jetzt auch klassische
-                  Entwickler-Boutiken zur Umsetzung und Begleitung von Coding Projekten. Software Entwickler
-                  werden nun von erfahrenen KI-Developern in die neuen Workflows und KI-Coding Toolsets eingeführt.
+                  Start von chatgpt-trainings.de und Aufbau eines kompetenten Trainer- und Beratungsteams für eine eigenständige,
+                  spezialisierte Lernakademie mit deutlichem Schwerpunkt auf der beruflichen Anwendung von ChatGPT und KI-Systemen.
+                  Gleichzeitig wird das Angebot strategisch erweitert um zusätzliche Formate wie praxisorientierte Launch-Veranstaltungen und spezialisierte Schulungsreisen. Das Partnernetzwerk wird um technische Dienstleistungsunternehmen ergänzt, um Softwareprojekte umzusetzen und zu unterstützen. Entwickler werden von spezialisierten KI-Experten in moderne, KI-gestützte Entwicklungsmethoden und Toollandschaften eingeführt.
                 </p>
               </div>
             </div>
@@ -406,23 +382,20 @@ const UeberUns = () => {
               </div>
             </div>
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-              Wir positionieren uns als <strong>praxisfokussierter Qualitätsanbieter</strong> mit
-              tiefem Verständnis für reale Büroarbeit und Organisationskontexte.
+              Wir positionieren uns als <strong>Spezialist für echte Praxisanwendung</strong> mit
+              tiefem Verständnis für die Realität moderner Wissensarbeit und Unternehmensstrukturen.
             </p>
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <h4 className="font-semibold mb-2">Gegenüber generischen Kursanbietern:</h4>
+                <h4 className="font-semibold mb-2">Im Vergleich zu Standard-Kursanbietern:</h4>
                 <p className="text-muted-foreground text-sm">
-                  Konsequente Praxisorientierung und konkrete Workflow-Integration statt
-                  theoretischer Übersichten.
+                  Wir verzichten auf oberflächliche Übersichtskurse. Stattdessen fokussieren wir auf konkrete, unmittelbar umsetzbare Lösungen für Ihren Arbeitsalltag.
                 </p>
               </div>
               <div>
-                <h4 className="font-semibold mb-2">Gegenüber klassischen IT-Trainings:</h4>
+                <h4 className="font-semibold mb-2">Im Vergleich zu technischen IT-Schulungen:</h4>
                 <p className="text-muted-foreground text-sm">
-                  Konsequente Ausrichtung auf die konkreten Bedürfnisse der jeweiligen
-                  Teilnehmergruppen sowie individuell entwickelte Use Cases aus deren
-                  realem Arbeitsumfeld.
+                  Unser Angebot ist zugeschnitten auf die spezifischen Anforderungen jeder Gruppe von Teilnehmern und nutzt Szenarien aus ihrem eigentlichen beruflichen Umfeld.
                 </p>
               </div>
             </div>
@@ -456,10 +429,9 @@ const UeberUns = () => {
 
           {/* CTA */}
           <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-2xl font-bold mb-4">Interesse an unseren Trainings?</h2>
+            <h2 className="text-2xl font-bold mb-4">Bereit für ChatGPT und KI im Unternehmen?</h2>
             <p className="text-muted-foreground mb-6">
-              Kontaktieren Sie uns für ein unverbindliches Gespräch über Ihre Copilot-Einführung
-              oder Ihr individuelles Trainingskonzept.
+              Lassen Sie uns über Ihre KI-Strategie und ein passendes Trainingskonzept sprechen.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="group">

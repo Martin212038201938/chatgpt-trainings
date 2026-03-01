@@ -305,54 +305,54 @@ const DraftEditor = ({ draft, onSave, onCancel, initialTab }: DraftEditorProps) 
     // In production, this could use a real AI API
     const topics: ExtractedTopic[] = [];
 
-    // Common copilot-related topics with keywords
+    // Common chatgpt-related topics with keywords
     const topicPatterns = [
       {
         keywords: ['sicherheit', 'security', 'datenschutz', 'dsgvo', 'verschlüsselung'],
-        title: 'Microsoft Copilot Sicherheit',
-        description: 'Datenschutz, Sicherheitsaspekte und Compliance bei Microsoft Copilot',
+        title: 'ChatGPT Sicherheit',
+        description: 'Datenschutz, Sicherheitsaspekte und Compliance bei ChatGPT',
         category: 'Sicherheit',
         icon: '🔒'
       },
       {
         keywords: ['produktivität', 'effizienz', 'zeitersparnis', 'workflow', 'arbeit'],
-        title: 'Produktivität mit Microsoft Copilot',
-        description: 'Wie Microsoft Copilot die Produktivität steigert und Arbeitsabläufe optimiert',
+        title: 'Produktivität mit ChatGPT',
+        description: 'Wie ChatGPT die Produktivität steigert und Arbeitsabläufe optimiert',
         category: 'Produktivität',
         icon: '⚡'
       },
       {
         keywords: ['roi', 'kosten', 'nutzen', 'investition', 'wirtschaftlich'],
-        title: 'ROI von Microsoft Copilot',
-        description: 'Return on Investment und Kostenanalyse für Microsoft Copilot',
+        title: 'ROI von ChatGPT',
+        description: 'Return on Investment und Kostenanalyse für ChatGPT',
         category: 'Business',
         icon: '💰'
       },
       {
         keywords: ['tipps', 'tricks', 'best practices', 'anwendung', 'tutorial'],
-        title: 'Microsoft Copilot Tipps & Tricks',
-        description: 'Praktische Tipps und Best Practices für die Nutzung von Microsoft Copilot',
+        title: 'ChatGPT Tipps & Tricks',
+        description: 'Praktische Tipps und Best Practices für die Nutzung von ChatGPT',
         category: 'Anleitungen',
         icon: '💡'
       },
       {
         keywords: ['teams', 'kollaboration', 'zusammenarbeit', 'meeting'],
-        title: 'Copilot für Teams',
-        description: 'Microsoft Copilot in Teams für bessere Kollaboration',
+        title: 'ChatGPT für Zusammenarbeit',
+        description: 'ChatGPT für bessere Kollaboration und Teamarbeit',
         category: 'Kollaboration',
         icon: '👥'
       },
       {
         keywords: ['excel', 'daten', 'analyse', 'tabellen'],
-        title: 'Copilot für Excel',
-        description: 'Datenanalyse und Excel-Automatisierung mit Microsoft Copilot',
+        title: 'ChatGPT für Datenanalyse',
+        description: 'Datenanalyse und Tabellen-Automatisierung mit ChatGPT',
         category: 'Tools',
         icon: '📊'
       },
       {
         keywords: ['word', 'dokument', 'text', 'schreiben'],
-        title: 'Copilot für Word',
-        description: 'Dokumentenerstellung und Textbearbeitung mit Microsoft Copilot',
+        title: 'ChatGPT für Textbearbeitung',
+        description: 'Dokumentenerstellung und Textbearbeitung mit ChatGPT',
         category: 'Tools',
         icon: '📝'
       }
@@ -386,9 +386,9 @@ const DraftEditor = ({ draft, onSave, onCancel, initialTab }: DraftEditorProps) 
     // If no topics found, create a generic one
     if (topics.length === 0) {
       topics.push({
-        title: 'Microsoft Copilot Wissensartikel',
-        description: 'Umfassender Artikel über Microsoft Copilot',
-        keywords: ['microsoft', 'copilot', 'ki', 'künstliche intelligenz'],
+        title: 'ChatGPT Wissensartikel',
+        description: 'Umfassender Artikel über ChatGPT',
+        keywords: ['chatgpt', 'ki', 'künstliche intelligenz'],
         relevance: 1
       });
     }
@@ -436,8 +436,8 @@ const DraftEditor = ({ draft, onSave, onCancel, initialTab }: DraftEditorProps) 
     // Enhanced SEO keywords
     const seoKeywords = [
       ...topic.keywords,
-      'microsoft copilot',
-      'copilot für microsoft 365',
+      'chatgpt',
+      'chatgpt für unternehmen',
       'ki-unterstützte büroarbeit',
       category.toLowerCase()
     ];
@@ -650,7 +650,7 @@ const DraftEditor = ({ draft, onSave, onCancel, initialTab }: DraftEditorProps) 
           messages: [
             {
               role: 'system',
-              content: `Du bist Martin Lang, ein Experte für Microsoft Copilot, KI-unterstützte Büroarbeit und Agile Methoden. Du schreibst SEO-optimierte Wissensartikel für chatgpt-trainings.de.
+              content: `Du bist Martin Lang, ein Experte für ChatGPT, KI-unterstützte Büroarbeit und Agile Methoden. Du schreibst SEO-optimierte Wissensartikel für chatgpt-trainings.de.
 
 Schreibe einen ausführlichen, praxisorientierten Artikel im Markdown-Format mit folgender Struktur:
 
@@ -803,7 +803,7 @@ Schreibe einen vollständigen, praxisorientierten Artikel für chatgpt-trainings
           messages: [
             {
               role: 'system',
-              content: `Du bist ein Experte für Microsoft Copilot und Content-Analyse. Deine Aufgabe ist es, aus einem Transkript strukturierte Daten zu extrahieren, die als Grundlage für einen hochwertigen Wissensartikel dienen.
+              content: `Du bist ein Experte für ChatGPT und Content-Analyse. Deine Aufgabe ist es, aus einem Transkript strukturierte Daten zu extrahieren, die als Grundlage für einen hochwertigen Wissensartikel dienen.
 
 **WICHTIG**: Deine Antwort MUSS valides JSON sein, OHNE zusätzliche Erklärungen oder Markdown-Formatierung.
 
@@ -932,7 +932,7 @@ Analysiere dieses Transkript und extrahiere alle strukturierten Daten im JSON-Fo
           messages: [
             {
               role: 'system',
-              content: `Du bist Martin Lang, ein Experte für Microsoft Copilot, KI-unterstützte Büroarbeit und Agile Methoden. Du schreibst hochwertige, praxisorientierte Wissensartikel für chatgpt-trainings.de.
+              content: `Du bist Martin Lang, ein Experte für ChatGPT, KI-unterstützte Büroarbeit und Agile Methoden. Du schreibst hochwertige, praxisorientierte Wissensartikel für chatgpt-trainings.de.
 
 **ARTIKEL-STRUKTUR**:
 
@@ -1606,7 +1606,7 @@ Erstelle jetzt die komplette TSX-Komponente. Der komplette Markdown-Content muss
                         placeholder="Füge hier dein YouTube-Transkript oder Text ein...
 
 Beispiel:
-[00:00] Willkommen zu diesem Video über Microsoft Copilot Sicherheit...
+[00:00] Willkommen zu diesem Video über ChatGPT Sicherheit...
 [00:15] Heute erkläre ich die wichtigsten Datenschutz-Features...
 [01:30] DSGVO-Konformität ist ein zentrales Thema...
 
@@ -1716,7 +1716,7 @@ Das System analysiert automatisch die Kernthemen und erstellt passende Metadaten
                                 id="custom-topic-title"
                                 value={customTopicTitle}
                                 onChange={(e) => setCustomTopicTitle(e.target.value)}
-                                placeholder="z.B. Microsoft Copilot für Einsteiger"
+                                placeholder="z.B. ChatGPT für Einsteiger"
                                 className="mt-1"
                               />
                             </div>

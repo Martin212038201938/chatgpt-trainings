@@ -24,7 +24,7 @@ interface FAQProps {
 const FAQ = ({
   faqs,
   title = "Häufig gestellte Fragen",
-  subtitle = "Antworten auf die wichtigsten Fragen zu unseren Microsoft Copilot Trainings",
+  subtitle = "Antworten auf die wichtigsten Fragen zu unseren ChatGPT Trainings",
   showHeader = true
 }: FAQProps) => {
   return (

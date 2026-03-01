@@ -1,4 +1,4 @@
-# E-Mail-API für copilotenschule.de auf AlwaysData
+# E-Mail-API für chatgpt-trainings.de auf AlwaysData
 
 Diese PHP-Endpoints verarbeiten die Kontaktformulare und versenden E-Mails über den AlwaysData SMTP-Server.
 
@@ -23,7 +23,7 @@ Alle Dateien aus dem `api/` Verzeichnis müssen auf den AlwaysData-Server hochge
 ssh y-b@ssh-y-b.alwaysdata.net
 
 # Navigiere zum Website-Verzeichnis (normalerweise ~/www oder ~/public_html)
-cd www/copilotenschule.de
+cd www/chatgpt-trainings.de
 
 # Erstelle api-Verzeichnis falls nicht vorhanden
 mkdir -p api
@@ -35,7 +35,7 @@ mkdir -p api
 - Host: `ssh-y-b.alwaysdata.net`
 - Port: 22 (SFTP) oder 21 (FTP)
 - Username: `y-b`
-- Hochladen nach: `/www/copilotenschule.de/api/`
+- Hochladen nach: `/www/chatgpt-trainings.de/api/`
 
 **Via AlwaysData File Manager:**
 1. Login: https://admin.alwaysdata.com
@@ -48,25 +48,25 @@ mkdir -p api
 
 PHP's `mail()` Funktion nutzt automatisch den AlwaysData SMTP-Server. Normalerweise ist keine zusätzliche Konfiguration nötig.
 
-**Wichtig:** Die E-Mail-Adresse `noreply@copilotenschule.de` muss in AlwaysData als E-Mail-Konto existieren, oder du musst die Domain als autorisierte Absender-Domain konfiguriert haben.
+**Wichtig:** Die E-Mail-Adresse `noreply@chatgpt-trainings.de` muss in AlwaysData als E-Mail-Konto existieren, oder du musst die Domain als autorisierte Absender-Domain konfiguriert haben.
 
 **Setup-Schritte:**
 
 1. Login AlwaysData: https://admin.alwaysdata.com
 2. Gehe zu **E-Mails** → **Postfächer**
 3. Stelle sicher, dass eine dieser Optionen existiert:
-   - **Option A:** E-Mail-Konto `noreply@copilotenschule.de` existiert
-   - **Option B:** Domain `copilotenschule.de` ist als Absender-Domain konfiguriert
+   - **Option A:** E-Mail-Konto `noreply@chatgpt-trainings.de` existiert
+   - **Option B:** Domain `chatgpt-trainings.de` ist als Absender-Domain konfiguriert
 
 4. Überprüfe die Weiterleitung:
    - Gehe zu **E-Mails** → **Weiterleitungen**
-   - Stelle sicher, dass `info@copilotenschule.de` → `martin@yellow-boat.com` eingerichtet ist
+   - Stelle sicher, dass `info@chatgpt-trainings.de` → `martin@yellow-boat.com` eingerichtet ist
 
 ### 3. Verzeichnisstruktur
 
 Die finale Struktur auf AlwaysData sollte sein:
 ```
-/home/y-b/www/copilotenschule.de/
+/home/y-b/www/chatgpt-trainings.de/
 ├── index.html
 ├── assets/
 ├── api/
@@ -86,7 +86,7 @@ chmod 644 api/send-trainer-email.php
 ## Endpunkte
 
 ### send-contact-email.php
-**URL:** `https://copilotenschule.de/api/send-contact-email.php`
+**URL:** `https://chatgpt-trainings.de/api/send-contact-email.php`
 
 **Request:**
 ```json
@@ -118,7 +118,7 @@ Content-Type: application/json
 ```
 
 ### send-trainer-email.php
-**URL:** `https://copilotenschule.de/api/send-trainer-email.php`
+**URL:** `https://chatgpt-trainings.de/api/send-trainer-email.php`
 
 **Request:**
 ```json
@@ -157,7 +157,7 @@ curl -X POST http://localhost:8000/send-contact-email.php \
 ```
 
 ### Auf AlwaysData testen
-1. Öffne https://copilotenschule.de
+1. Öffne https://chatgpt-trainings.de
 2. Fülle das Kontaktformular aus
 3. Klicke auf "Anfrage absenden"
 4. Prüfe das Postfach `martin@yellow-boat.com`
@@ -184,10 +184,10 @@ tail -f ~/admin/logs/error.log
 Falls E-Mails nicht versendet werden, ändere in beiden PHP-Dateien:
 ```php
 // Von:
-$headers[] = 'From: Copilotenschule Kontaktformular <noreply@copilotenschule.de>';
+$headers[] = 'From: ChatGPT-Trainings Kontaktformular <noreply@chatgpt-trainings.de>';
 
 // Zu einer verifizierten Adresse, z.B.:
-$headers[] = 'From: Copilotenschule Kontaktformular <martin@yellow-boat.com>';
+$headers[] = 'From: ChatGPT-Trainings Kontaktformular <martin@yellow-boat.com>';
 ```
 
 **4. PHP-Version prüfen:**
@@ -210,7 +210,7 @@ Die PHP-Scripts haben bereits CORS-Header. Falls Probleme auftreten:
 
 **SPF-Record konfigurieren:**
 1. Login AlwaysData: https://admin.alwaysdata.com
-2. Gehe zu **Domains** → **copilotenschule.de** → **DNS**
+2. Gehe zu **Domains** → **chatgpt-trainings.de** → **DNS**
 3. Füge SPF-Record hinzu (falls nicht vorhanden):
    ```
    Type: TXT
@@ -220,7 +220,7 @@ Die PHP-Scripts haben bereits CORS-Header. Falls Probleme auftreten:
 
 **DKIM aktivieren:**
 1. Gehe zu **E-Mails** → **DKIM**
-2. Aktiviere DKIM für `copilotenschule.de`
+2. Aktiviere DKIM für `chatgpt-trainings.de`
 3. Kopiere die DNS-Einträge und füge sie in den DNS-Settings hinzu
 
 ## Sicherheit
@@ -258,7 +258,7 @@ PHP nutzt mail() Funktion
        ↓
 AlwaysData SMTP-Server versendet E-Mail
        ↓
-E-Mail geht an info@copilotenschule.de
+E-Mail geht an info@chatgpt-trainings.de
        ↓
 AlwaysData leitet weiter an martin@yellow-boat.com
        ↓

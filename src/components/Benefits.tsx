@@ -13,17 +13,17 @@ const benefits = [
   {
     icon: PlaneTakeoff,
     title: "Fokus auf reale Büro-Workflows",
-    description: "Der sichere und leistungsstarke Copilot, mit dem Sie Dinge tun können, die bisher nicht möglich waren – und der Ihnen Arbeit abnimmt, auf die Sie keine Lust haben. Keine Tool-Demos von Anwendungen, die in Ihrem Unternehmen gar nicht freigegeben sind, sondern konsequenter Fokus auf Ihre realen Arbeitsprozesse."
+    description: "ChatGPT als sicheres und leistungsstarkes KI-Tool, mit dem Sie Dinge tun können, die bisher nicht möglich waren – und das Ihnen Arbeit abnimmt, auf die Sie keine Lust haben. Keine Tool-Demos von Anwendungen, die in Ihrem Unternehmen gar nicht freigegeben sind, sondern konsequenter Fokus auf Ihre realen Arbeitsprozesse."
   },
   {
     icon: Radar,
-    title: "Tiefe Microsoft Copilot Expertise",
-    description: "Herstellernahe Expertise zu Microsoft Copilot mit klarem Fokus auf Adoption und Nutzungsreife. Wir befähigen Ihre Mitarbeiter, Microsoft Copilot compliant, sicher und hoch effizient in der täglichen Arbeit zu nutzen. Alle Lösungen sind DSGVO-konform und entsprechen höchsten Sicherheitsstandards."
+    title: "Tiefe ChatGPT-Expertise",
+    description: "Herstellernahe Expertise zu ChatGPT und OpenAI-Produkten mit klarem Fokus auf Adoption und Nutzungsreife. Wir befähigen Ihre Mitarbeiter, ChatGPT compliant, sicher und hoch effizient in der täglichen Arbeit zu nutzen. Alle Lösungen sind DSGVO-konform und entsprechen höchsten Sicherheitsstandards."
   },
   {
     icon: Headset,
     title: "Training, Coaching & Organisationsperspektive",
-    description: "Kombination aus Training, Coaching und ganzheitlicher Organisationsperspektive. Wir begleiten Copilot-Rollouts inklusive Governance, Use-Case-Definition und Adoption. Individuelle Begleitung von Führungskräften, Produkt- und Transformationsteams zur Etablierung nachhaltiger, Copilot-gestützter Arbeitsweisen."
+    description: "Kombination aus Training, Coaching und ganzheitlicher Organisationsperspektive. Wir begleiten ChatGPT-Einführungen inklusive Governance, Use-Case-Definition und Adoption. Individuelle Begleitung von Führungskräften, Produkt- und Transformationsteams zur Etablierung nachhaltiger, ChatGPT-gestützter Arbeitsweisen."
   },
   {
     icon: Gauge,
@@ -33,12 +33,12 @@ const benefits = [
   {
     icon: Award,
     title: "Zertifizierung",
-    description: "Auf Wunsch können Teilnehmende ihr Wissen in einer praxisnahen Prüfung zeigen. Dabei geht es um reale Anwendung: sinnvolles Prompting, kritische Bewertung von Ergebnissen und ein sicheres Arbeiten mit Copilot. Wer die Prüfung ablegt, erhält ein aussagekräftiges Zertifikat als Nachweis der erworbenen Fähigkeiten. Optional aufeinander aufbauende Stufen von Beginner bis Expert unterstützen einen strukturierten Lernweg."
+    description: "Auf Wunsch können Teilnehmende ihr Wissen in einer praxisnahen Prüfung zeigen. Dabei geht es um reale Anwendung: sinnvolles Prompting, kritische Bewertung von Ergebnissen und ein sicheres Arbeiten mit ChatGPT. Wer die Prüfung ablegt, erhält ein aussagekräftiges Zertifikat als Nachweis der erworbenen Fähigkeiten. Optional aufeinander aufbauende Stufen von Beginner bis Expert unterstützen einen strukturierten Lernweg."
   },
   {
     icon: Medal,
     title: "Über ein Jahrzehnt Erfahrung",
-    description: "Die chatgpt-trainings.de ist eine Marke der 2011 gegründeten Yellow-Boat Consulting. Seit über einem Jahrzehnt realisieren wir Agile Trainings und Digitalisierungsprojekte in Konzernen und im Mittelstand. Seit 2023 liegt ein starker Fokus auf praxisnahen Copilot-Anwendertrainings für Microsoft 365 Copilot und GitHub Copilot."
+    description: "Die chatgpt-trainings.de ist eine Marke der 2011 gegründeten Yellow-Boat Consulting. Seit über einem Jahrzehnt realisieren wir Agile Trainings und Digitalisierungsprojekte in Konzernen und im Mittelstand. Seit 2023 liegt ein starker Fokus auf praxisnahen KI-Anwendertrainings mit ChatGPT und anderen KI-Tools."
   }
 ];
 
@@ -123,7 +123,7 @@ const Benefits = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-8 sm:mb-16 animate-fade-in">
           <h2 className="text-2xl sm:text-4xl font-bold mb-4 animate-slide-up">
-            Warum die ChatGPT-Trainings die beste Partnerin zur Einführung des Microsoft Copiloten ist
+            Warum ChatGPT-Trainings.de der beste Partner für professionelle ChatGPT-Schulungen ist
           </h2>
         </div>
 

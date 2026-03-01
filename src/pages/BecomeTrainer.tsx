@@ -11,52 +11,52 @@ const trainerPaths = [
   {
     id: "praktiker",
     icon: GraduationCap,
-    title: "KI-Praktiker ohne Trainer-Erfahrung",
-    subtitle: "Wir bilden Sie zum Trainer aus",
-    description: "Sie sind erfahren in der praktischen Anwendung von KI im Microsoft-Umfeld, haben aber noch keine Trainer-Erfahrung?",
+    title: "Von der Praxis zur Trainingsbühne",
+    subtitle: "Ihre ChatGPT-Erfahrung ist unser Rohstoff",
+    description: "Sie arbeiten täglich mit ChatGPT und KI-Tools, haben diese aber noch nicht formell in Schulungen vermittelt?",
     benefits: [
-      "Kostenfreie Ausbildung zum KI-Trainer",
-      "Bereitstellung aller Kursmaterialien",
-      "Enge Begleitung und Mentoring",
-      "Praktische Train-the-Trainer Sessions",
-      "Keine Exklusivitätsvereinbarung",
-      "Flexible Zusammenarbeit ohne Bindung"
+      "Umfassendes Trainer-Onboarding – kostenlos",
+      "Professionelle Schulungsmaterialien inklusive",
+      "Persönliches Coaching durch erfahrene Trainer",
+      "Realistische Trainings-Szenarien zum Üben",
+      "Volle Flexibilität ohne Bindungsklauseln",
+      "Sie entscheiden über Umfang und Rhythmus"
     ],
-    highlight: "100% kostenfrei - ohne Exklusivität",
+    highlight: "Null Gebühren – volle Autonomie",
     color: "from-blue-500/10 to-blue-600/10"
   },
   {
     id: "trainer",
     icon: Briefcase,
-    title: "Erfahrener KI-Trainer",
-    subtitle: "Attraktives Freelancer-Modell",
-    description: "Sie sind bereits ein erfahrener KI-Trainer und möchten sich auf das Training konzentrieren?",
+    title: "Freiberufliche Partnerschaft",
+    subtitle: "Wir kümmern uns um den Rest",
+    description: "Sie haben bereits Trainings-Erfahrung und möchten sich voll auf hochwertige Schulungen konzentrieren?",
     benefits: [
-      "Wir übernehmen die Kundenakquise",
-      "Organisation und Eventmanagement",
-      "Location- und Verpflegungsorganisation",
-      "Kommunikation mit Teilnehmern",
-      "Komplette Abrechnung und Administration",
-      "Sie fokussieren sich auf exzellente Trainings"
+      "Wir akquirieren die Kundinnen und Kunden",
+      "Komplettes Eventmanagement und Logistik",
+      "Raumausstattung, Catering und Technik",
+      "Direkte Kommunikation mit Teilnehmenden",
+      "Vollständige Verwaltung und Bezahlung",
+      "Sie unterrichten – wir managen alles andere"
     ],
-    highlight: "Attraktive Konditionen - volle Unterstützung",
+    highlight: "Lukrative Konditionen – vollständige Unterstützung",
     color: "from-green-500/10 to-green-600/10"
   },
   {
     id: "festanstellung",
     icon: Building2,
-    title: "Festanstellung als KI-Trainer",
-    subtitle: "Vollzeit / Teilzeit",
-    description: "Sie suchen eine langfristige Perspektive als festangestellter KI-Trainer?",
+    title: "Festangestellter Trainer",
+    subtitle: "Vollzeit oder Teilzeit – wie Sie es brauchen",
+    description: "Sie streben nach einer stabilen, dauerhaften Position mit Gestaltungsspielraum?",
     benefits: [
-      "Unbefristeter Arbeitsvertrag",
-      "Attraktives Gehaltspaket",
-      "Flexible Arbeitszeiten und Home-Office",
-      "Weiterbildungsbudget und Zertifizierungen",
-      "Moderne Arbeitsausstattung",
-      "Gestaltungsspielraum und Entwicklungschancen"
+      "Dauerhafter Arbeitsvertrag ohne Befristung",
+      "Marktgerechtes Gehalt mit Erfolgsbeteiligung",
+      "Flexible Zeiten mit Remote-Work-Option",
+      "Großzügiges Entwicklungs- und Lernbudget",
+      "State-of-the-art Ausrüstung und Infrastruktur",
+      "Raum zur Mitgestaltung und beruflichen Wachstum"
     ],
-    highlight: "Langfristige Perspektive - starkes Team",
+    highlight: "Sicherheit und Potenzial – in unserem Team",
     color: "from-purple-500/10 to-purple-600/10"
   }
 ];
@@ -73,7 +73,7 @@ const BecomeTrainer = () => {
     <div className="min-h-screen">
       <SEOHead
         title="Trainer werden bei chatgpt-trainings.de"
-        description="Werden Sie Teil unseres Trainer-Netzwerks für Microsoft Copilot Schulungen. Drei Wege zum Trainer: KI-Praktiker, erfahrene Trainer oder Unternehmen."
+        description="Werden Sie Teil unseres Trainer-Netzwerks für ChatGPT Schulungen. Drei Wege zum Trainer: KI-Praktiker, erfahrene Trainer oder Unternehmen."
         canonicalUrl="https://chatgpt-trainings.de/trainer-werden"
       />
       <Header />
@@ -86,12 +86,12 @@ const BecomeTrainer = () => {
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-5xl lg:text-7xl font-semibold tracking-tight leading-[1.1]">
-                Trainer der <span className="text-primary">ChatGPT-Trainings</span> werden
+                Gestalten Sie die Zukunft – als <span className="text-primary">ChatGPT-Trainer</span>
               </h1>
               <p className="mt-6 text-xl text-muted-foreground max-w-3xl mx-auto animate-slide-up-delayed">
-                Werden Sie Teil unseres Teams und bringen Sie Ihre KI-Expertise in die
-                Unternehmen. Wir suchen praxiserfahrene KI-Umsetzer, die ihr Wissen
-                weitergeben möchten – mit und ohne Trainer-Erfahrung.
+                Ihr praktisches Wissen über ChatGPT und generative KI ist wertvoll – machen Sie es
+                zu Ihrer Expertise als Trainer. Wir bieten drei Wege, wie Sie Unternehmen in ihrer
+                KI-Transformation begleiten können, unabhängig von Ihrer bisherigen Erfahrung.
               </p>
             </div>
           </div>
@@ -104,10 +104,10 @@ const BecomeTrainer = () => {
           <div className="container mx-auto px-4 relative z-10">
             <div className="text-center mb-16 animate-fade-in">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Drei Wege zu uns
+                So passen wir zusammen
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Wählen Sie den Weg, der zu Ihrer aktuellen Situation und Ihren Zielen passt
+                Finden Sie das Modell, das perfekt zu Ihrem Profil und Ihren beruflichen Zielen passt
               </p>
             </div>
 
@@ -199,10 +199,7 @@ const BecomeTrainer = () => {
                     <div>
                       <h3 className="text-xl font-bold mb-3">Über uns</h3>
                       <p className="text-muted-foreground">
-                        Die ChatGPT-Trainings ist spezialisiert auf die Einführung und Weiterqualifizierungen
-                        im Umfeld der Microsoft Copiloten. Im Gegensatz zu anderen Anbietern bieten wir den
-                        Teilnehmern keinen Bauchladen an Tools an, die in ihrem Umfeld nicht compliant oder
-                        wertschöpfend sind.
+                        Yellow-Boat Consulting – seit 2011 Partnerin für digitale Transformation. Wir befähigen Organisations­entwicklung und Trainings speziell für ChatGPT und generative KI im Unternehmenskontext.
                       </p>
                     </div>
 
@@ -210,12 +207,12 @@ const BecomeTrainer = () => {
                       <h3 className="text-xl font-bold mb-3">Ihre Aufgaben</h3>
                       <ul className="space-y-2">
                         {[
-                          "Durchführung von praxisorientierten KI-Trainings für Microsoft 365 Copilot, GitHub Copilot und Copilot Studio",
-                          "Entwicklung und Weiterentwicklung von Trainingsmaterialien und Use Cases",
-                          "Individuelle Anpassung der Trainings an verschiedene Zielgruppen und Branchen",
-                          "Beratung von Unternehmen zur KI-Integration und Change-Management",
-                          "Aktive Mitarbeit an der Weiterentwicklung unserer Trainingsformate",
-                          "Teilnahme an Netzwerkveranstaltungen und Konferenzen"
+                          "Führen Sie anwendungsgerichtete Trainings zu ChatGPT, Custom GPTs und modernen KI-Tools durch",
+                          "Gestalten Sie Schulungsinhalte weiter, entwickeln Sie neue Anwendungsszenarien",
+                          "Begleiten Sie verschiedenste Unternehmen und Branchen mit maßgeschneiderten Trainingskonzepten",
+                          "Unterstützen Sie Firmen bei der strukturierten KI-Einführung und Organisationsentwicklung",
+                          "Bringen Sie kontinuierlich Verbesserungen in unsere Trainingsmethoden ein",
+                          "Vernetzen Sie sich auf Branchenevents und Fachkonferenzen"
                         ].map((task, idx) => (
                           <li key={idx} className="flex items-start gap-2">
                             <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
@@ -229,12 +226,12 @@ const BecomeTrainer = () => {
                       <h3 className="text-xl font-bold mb-3">Ihr Profil</h3>
                       <ul className="space-y-2">
                         {[
-                          "Fundierte Praxiserfahrung mit KI-Tools, insbesondere im Microsoft-Ökosystem",
-                          "Erfahrung in der Durchführung von Trainings oder Workshops von Vorteil",
-                          "Exzellente Kommunikationsfähigkeiten und didaktisches Geschick",
-                          "Begeisterung für neue Technologien und kontinuierliches Lernen",
-                          "Selbstständige, strukturierte Arbeitsweise und Reisebereitschaft",
-                          "Sehr gute Deutschkenntnisse, Englischkenntnisse von Vorteil"
+                          "Breite praktische Kenntnisse im Umgang mit ChatGPT und verwandten KI-Systemen",
+                          "Bisherige Schulungs- oder Workshop-Erfahrung – wünschenswert, nicht zwingend",
+                          "Großes Geschick in der Vermittlung komplexer Inhalte mit Klarheit und Engagement",
+                          "Offenheit für technologische Innovation und konstantes Weiterlernen",
+                          "Eigenverantwortliche, gut organisierte Arbeitsweise mit Reisetätigkeit",
+                          "Verhandlungssichere Deutschkenntnisse, international von Vorteil"
                         ].map((requirement, idx) => (
                           <li key={idx} className="flex items-start gap-2">
                             <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
@@ -248,13 +245,13 @@ const BecomeTrainer = () => {
                       <h3 className="text-xl font-bold mb-3">Wir bieten</h3>
                       <ul className="space-y-2">
                         {[
-                          "Attraktives Gehaltspaket mit Erfolgsbeteiligung",
-                          "Flexible Arbeitszeitgestaltung und Home-Office-Möglichkeiten",
-                          "Moderne technische Ausstattung",
-                          "Großzügiges Weiterbildungsbudget und Microsoft-Zertifizierungen",
-                          "Spannende Projekte bei führenden Unternehmen",
-                          "Gestaltungsspielraum und kurze Entscheidungswege",
-                          "Ein motiviertes Team mit Startup-Mentalität"
+                          "Konkurrenzfähiges Einkommenspakete mit Leistungsprämie",
+                          "Individuelle Zeiteinteilung und Option auf Homeoffice",
+                          "Top-aktuelles Equipment und digitale Infrastruktur",
+                          "Umfangreiches Budget für fachliche Entwicklung und Zertifizierungen",
+                          "Zugang zu anspruchsvollen Projekten und innovativen Unternehmen",
+                          "Breiter Spielraum zur Einbringung eigener Ideen und flache Hierarchien",
+                          "Kollegiales Team mit hohem Engagement und schneller Entscheidungskultur"
                         ].map((offer, idx) => (
                           <li key={idx} className="flex items-start gap-2">
                             <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
@@ -281,11 +278,11 @@ const BecomeTrainer = () => {
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Jetzt Kontakt aufnehmen
+                Lassen Sie uns miteinander sprechen
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Egal für welchen Weg Sie sich entscheiden – wir freuen uns auf Ihre Bewerbung
-                und den Austausch mit Ihnen!
+                Ob eines der drei Modelle oder eine ganz individuelle Lösung – wir interessieren uns
+                für Ihre Bewerbung und freuen uns auf einen persönlichen Austausch mit Ihnen!
               </p>
             </div>
             <TrainerContactForm />

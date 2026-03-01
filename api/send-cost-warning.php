@@ -35,7 +35,7 @@ $entriesCount = isset($data['entriesCount']) ? intval($data['entriesCount']) : 0
 
 // Email configuration
 $to = 'martin@yellow-boat.com';
-$subject = '⚠️ OpenAI API Kostenlimit erreicht - Copilotenschule';
+$subject = '⚠️ OpenAI API Kostenlimit erreicht - ChatGPT-Trainings';
 
 // Calculate next reset time
 $nextResetDate = date('d.m.Y', strtotime($date . ' +1 day'));
@@ -112,13 +112,13 @@ $htmlBody = "
             </div>
 
             <p style='text-align: center;'>
-                <a href='https://copilotenschule.de/admin' class='button' style='color: white;'>Zum Admin-Dashboard</a>
+                <a href='https://chatgpt-trainings.de/admin' class='button' style='color: white;'>Zum Admin-Dashboard</a>
             </p>
         </div>
         <div class='footer'>
-            <p>Diese E-Mail wurde automatisch vom Cost-Tracking-System der Copilotenschule generiert.</p>
+            <p>Diese E-Mail wurde automatisch vom Cost-Tracking-System der ChatGPT-Trainings generiert.</p>
             <p>Zeitstempel: " . date('d.m.Y H:i:s') . " Uhr</p>
-            <p><a href='https://copilotenschule.de'>copilotenschule.de</a></p>
+            <p><a href='https://chatgpt-trainings.de'>chatgpt-trainings.de</a></p>
         </div>
     </div>
 </body>
@@ -148,7 +148,7 @@ EMPFOHLENE AKTIONEN:
 2. Prüfe ob ungewöhnlich viele Anfragen gestellt wurden
 3. Falls nötig: Erhöhe das Tageslimit in src/utils/costTracker.ts (aktuell: €3.00)
 
-Admin-Dashboard: https://copilotenschule.de/admin
+Admin-Dashboard: https://chatgpt-trainings.de/admin
 
 ---
 Diese E-Mail wurde automatisch vom Cost-Tracking-System generiert.
@@ -160,8 +160,8 @@ $boundary = md5(time());
 $headers = array();
 $headers[] = 'MIME-Version: 1.0';
 $headers[] = 'Content-Type: multipart/alternative; boundary="' . $boundary . '"';
-$headers[] = 'From: Copilotenschule Cost Alert <noreply@copilotenschule.de>';
-$headers[] = 'Reply-To: noreply@copilotenschule.de';
+$headers[] = 'From: ChatGPT-Trainings Cost Alert <noreply@chatgpt-trainings.de>';
+$headers[] = 'Reply-To: noreply@chatgpt-trainings.de';
 $headers[] = 'X-Mailer: PHP/' . phpversion();
 $headers[] = 'X-Priority: 1'; // High priority
 $headers[] = 'Importance: High';

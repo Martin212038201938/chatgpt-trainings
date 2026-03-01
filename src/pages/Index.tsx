@@ -26,112 +26,86 @@ import { homepageFAQs } from "@/data/faqs";
  */
 
 // Training modules data for schema generation - essential for LLM referencing
-// This data is referenced by search engines and LLMs even though
-// the full display is on /unsere-angebote
+// Matches the 7 trainings defined in src/data/trainings.ts
 const trainingModulesForSchema = [
   {
-    title: "Microsoft 365 Copilot Grundlagen-Training",
-    duration: "1 Tag (7 Stunden)",
-    description: "Praxisorientiertes Einführungstraining für den professionellen Einsatz von Microsoft 365 Copilot in der täglichen Büroarbeit. Wir befähigen Wissensarbeiter, Microsoft Copilot produktiv, sicher und wertschöpfend einzusetzen – mit realen Arbeitsprozessen und direkt anwendbaren Workflows.",
-    features: [
-      "Copilot in Word, Excel, PowerPoint produktiv nutzen",
-      "E-Mail-Produktivität mit Outlook Copilot steigern",
-      "Teams-Meetings mit Copilot optimieren",
-      "Reale Use Cases aus Ihrem Arbeitsalltag",
-      "Prompt Engineering Grundlagen",
-      "DSGVO-konforme Nutzung"
-    ]
-  },
-  {
-    title: "Microsoft 365 Copilot Advanced - Power User Schulung",
-    duration: "2 Tage (14 Stunden)",
-    description: "Intensiv-Training für fortgeschrittene Anwender. Wir verbinden reale Arbeitsprozesse mit direkt anwendbaren Workflows für komplexe Datenanalysen und Automatisierungen.",
-    features: [
-      "Komplexe Excel-Analysen mit Copilot",
-      "Cross-Application Workflows entwickeln",
-      "Advanced Prompt Engineering",
-      "Wiederkehrende Aufgaben automatisieren",
-      "Power BI Integration"
-    ]
-  },
-  {
-    title: "GitHub Copilot für Softwareentwickler",
-    duration: "1 Tag (7 Stunden)",
-    description: "Hands-on Entwickler-Training: Maximieren Sie Ihre Coding-Produktivität mit GitHub Copilot. Sie lernen, KI-gestützt Code zu generieren, zu testen, zu debuggen und zu dokumentieren.",
-    features: [
-      "Effiziente Code-Generierung in VS Code",
-      "Intelligentes Debugging und Refactoring",
-      "Automatisierte Code-Dokumentation",
-      "Unit Tests schreiben mit Copilot",
-      "Best Practices für Prompt Engineering"
-    ]
-  },
-  {
-    title: "Microsoft Copilot & Compliance - Rechtssichere KI-Nutzung",
+    title: "ChatGPT Kick-Off",
     duration: "4 Stunden (Halbtag)",
-    description: "Kompakt-Schulung zur rechtssicheren und datenschutzkonformen Nutzung von Microsoft Copilot im Unternehmen.",
+    description: "Kompakter Einstieg in ChatGPT für Teams und Abteilungen. Dieser Halbtages-Workshop vermittelt die Grundlagen der produktiven ChatGPT-Nutzung: von den ersten Prompts über Textarbeit und Recherche bis hin zu DSGVO-konformen Arbeitspraktiken.",
     features: [
-      "DSGVO-konforme Copilot-Nutzung",
-      "EU AI Act Anforderungen",
-      "Datenschutz-Impact-Assessment",
-      "Microsoft 365 Sicherheitsarchitektur"
+      "Prompt Engineering Grundlagen erlernen",
+      "ChatGPT für Textarbeit und Recherche einsetzen",
+      "Halluzinationen erkennen und KI-Output bewerten",
+      "DSGVO-konforme Nutzung sicherstellen"
     ]
   },
   {
-    title: "Copilot Strategie & Rollout-Begleitung",
+    title: "ChatGPT Starter Training",
+    duration: "1 Tag (7 Stunden) oder 2 × 3,5 Stunden",
+    description: "Umfassendes Grundlagentraining für den professionellen Einsatz von ChatGPT in der täglichen Büroarbeit. Teilnehmer erarbeiten produktive Workflows für Textarbeit, Datenanalyse, Recherche und kreative Aufgaben – mit echten Praxisszenarien.",
+    features: [
+      "Fortgeschrittenes Prompt Engineering mit Kontext und Beispielen",
+      "Datenanalyse und Reporting mit ChatGPT",
+      "Custom GPTs für wiederkehrende Aufgaben",
+      "Eigene Prompt-Bibliothek aufbauen",
+      "ChatGPT Free vs. Plus/Team/Enterprise verstehen"
+    ]
+  },
+  {
+    title: "ChatGPT Intensiv Bootcamp",
+    duration: "2 Tage (14 Stunden)",
+    description: "Zweitägiges Intensiv-Programm für Teams, die ChatGPT als strategisches Arbeitswerkzeug etablieren wollen. Von Advanced Prompt Engineering über Automatisierung bis zur Entwicklung eigener KI-Agenten – das volle Spektrum der professionellen ChatGPT-Nutzung.",
+    features: [
+      "Advanced Prompt Engineering und Chain-of-Thought",
+      "Custom GPTs und KI-Agenten entwickeln",
+      "API-Anbindung und Workflow-Automatisierung",
+      "Abteilungsspezifische Use Cases erarbeiten",
+      "Strategische KI-Integration und Change Management"
+    ]
+  },
+  {
+    title: "ChatGPT Lernreise",
+    duration: "4 × 2 Stunden oder 6 × 2 Stunden",
+    description: "Begleitete Lernreise über mehrere Wochen für nachhaltigen Kompetenzaufbau. Zwischen den Sessions setzen Teilnehmer das Gelernte in ihrem Arbeitsalltag um und bringen Erfahrungen in die nächste Session ein.",
+    features: [
+      "Schrittweiser Aufbau über mehrere Wochen",
+      "Praxistransfer zwischen den Sessions",
+      "Persönliche Prompt-Bibliothek entwickeln",
+      "Peer-Learning und Erfahrungsaustausch",
+      "Nachhaltige Verhaltensänderung im Arbeitsalltag"
+    ]
+  },
+  {
+    title: "ChatGPT Keynote",
+    duration: "60–90 Minuten",
+    description: "Inspirierende Keynote zu den Möglichkeiten von ChatGPT und KI im Arbeitsalltag. Live-Demonstrationen zeigen beeindruckende Anwendungsfälle und motivieren zum Einstieg in die KI-gestützte Arbeitswelt.",
+    features: [
+      "Live-Demonstrationen mit ChatGPT",
+      "Einordnung: Was kann KI heute leisten?",
+      "Inspiration für konkrete Einsatzmöglichkeiten",
+      "Interaktive Q&A-Runde"
+    ]
+  },
+  {
+    title: "ChatGPT Launch Event",
+    duration: "Halber oder ganzer Tag",
+    description: "Professionell organisierter Eventtag zur Einführung von ChatGPT in Ihrem Unternehmen. Kombination aus Keynote, Hands-on-Stationen und interaktiven KI-Challenges für maximale Aufmerksamkeit und Begeisterung.",
+    features: [
+      "Professioneller Infostand mit Experten",
+      "Interaktive KI-Challenges mit Gamification",
+      "Hands-on-Stationen zum Ausprobieren",
+      "Hochwertige Infomaterialien und Quick Guides"
+    ]
+  },
+  {
+    title: "ChatGPT Hackathon",
     duration: "1 Tag (7 Stunden)",
-    description: "Strategischer Workshop für Inhouse-Enablement und Rollout-Begleitung. Wir begleiten Copilot-Rollouts inklusive Governance, Use-Case-Definition und Adoption.",
+    description: "Intensiver Team-Hackathon, bei dem Abteilungen echte Geschäftsprobleme mit ChatGPT lösen. Teambildung, Challenge-Briefing, Arbeitsphase und Pitch – inklusive professioneller Moderation und Jury-Bewertung.",
     features: [
-      "Prozessanalyse und Use-Case-Definition",
-      "ROI-Berechnung und Business Case",
-      "Phasenweiser Rollout-Plan",
-      "Change Management und Adoption",
-      "Governance-Framework entwickeln"
-    ]
-  },
-  {
-    title: "KI-Agenten und Automatisierung mit Microsoft Copilot Studio",
-    duration: "1 Tag (7 Stunden)",
-    description: "Fortgeschrittenes Training zur Entwicklung intelligenter KI-Agenten und Automatisierungs-Workflows mit Microsoft Copilot Studio.",
-    features: [
-      "Custom Agents für Microsoft Teams erstellen",
-      "Integration mit Unternehmensdaten",
-      "Workflow-Automatisierung mit Power Automate",
-      "Testing und Deployment"
-    ]
-  },
-  {
-    title: "Interner Mitarbeiter-Chatbot mit Microsoft Copilot entwickeln",
-    duration: "Halber Tag Online (4 Stunden)",
-    description: "Kompakt-Training zur schnellen Entwicklung eines unternehmensinternen KI-Chatbots mit Microsoft Copilot Studio.",
-    features: [
-      "Schnelleinstieg Copilot Studio",
-      "Chatbot-Design für Mitarbeiteranfragen",
-      "Anbindung interner Wissensquellen",
-      "Teams-Integration in der Praxis"
-    ]
-  },
-  {
-    title: "Low-Code Entwicklung mit Microsoft Copilot - Flow Coding im Unternehmen",
-    duration: "1 Tag (7 Stunden)",
-    description: "Praxistraining für Citizen Developer und Business User: Lernen Sie, wie Sie mit Microsoft Power Platform und Copilot-Unterstützung geschäftliche Anwendungen entwickeln.",
-    features: [
-      "Low-Code Entwicklung mit Power Apps und Copilot",
-      "Geschäftsprozess-Automatisierung mit Power Automate",
-      "Datenmodellierung mit Dataverse",
-      "Integration mit Microsoft 365"
-    ]
-  },
-  {
-    title: "Individuelle Copilot-Schulungen & Coaching",
-    duration: "Flexibel (nach Bedarf)",
-    description: "Coaching & Beratung: Individuelle Begleitung von Führungskräften, Produkt- und Transformationsteams zur Etablierung nachhaltiger, Copilot-gestützter Arbeitsweisen.",
-    features: [
-      "Abteilungsspezifische Schulungskonzepte",
-      "Coaching für Führungskräfte und Teams",
-      "Branchenspezifische Use Cases entwickeln",
-      "Individuelle Prompt-Bibliothek erstellen",
-      "Nachhaltige Adoption sicherstellen"
+      "Use Case Ideation und Teambildung",
+      "Challenge-basiertes Arbeiten mit ChatGPT",
+      "Prompt Engineering Battle und Wettbewerb",
+      "Pitch-Präsentationen mit Jury-Bewertung"
     ]
   }
 ];

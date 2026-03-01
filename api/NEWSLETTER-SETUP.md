@@ -8,7 +8,7 @@ Dieses System implementiert Double-Opt-In für Newsletter-Abonnements über die 
 - ✅ Automatische Speicherung in MySQL-Datenbank
 - ✅ Double-Opt-In Bestätigung (DSGVO-konform)
 - ✅ Benachrichtigung an martin@yellow-boat.com
-- ✅ Bestätigungsmail an Kunden von info@copilotenschule.de
+- ✅ Bestätigungsmail an Kunden von info@chatgpt-trainings.de
 - ✅ Schöne Bestätigungsseite
 - ✅ Tracking von IP und User-Agent
 
@@ -25,7 +25,7 @@ Dieses System implementiert Double-Opt-In für Newsletter-Abonnements über die 
 **b) Datenbank erstellen (falls noch keine existiert):**
 1. Gehe zu **"Databases"** → **"MySQL"**
 2. Klicke auf **"Add a database"**
-3. Name: `y-b_copilotenschule` (oder einen anderen Namen)
+3. Name: `y-b_copilotenschule` (bereits vorhanden, wird beibehalten)
 4. User: `y-b` (dein Standard-User)
 5. Password: Setze ein sicheres Passwort
 6. **Speichere diese Zugangsdaten!**
@@ -70,11 +70,11 @@ define('DB_PASS', 'dein-passwort-hier');
 
 ### 3. E-Mail-Absender konfigurieren
 
-Stelle sicher, dass `info@copilotenschule.de` als Absender-Adresse existiert:
+Stelle sicher, dass `info@chatgpt-trainings.de` als Absender-Adresse existiert:
 
 1. Gehe zu **"E-Mails"** → **"Postfächer"**
-2. Erstelle `info@copilotenschule.de` (falls nicht vorhanden)
-3. Oder: Konfiguriere die Domain `copilotenschule.de` als autorisierte Absender-Domain
+2. Erstelle `info@chatgpt-trainings.de` (falls nicht vorhanden)
+3. Oder: Konfiguriere die Domain `chatgpt-trainings.de` als autorisierte Absender-Domain
 
 ### 4. Dateien hochladen
 
@@ -91,17 +91,19 @@ api/
 
 **Ziel auf AlwaysData:**
 ```
-/www/copilotenschule.de/api/
+/www/chatgpt-trainings.de/api/
 ```
+
+### 5. E-Mail-Adressen in AlwaysData aktualisieren
 
 ### 5. Testen
 
 **a) Teste Kontaktformular:**
-1. Gehe zu https://copilotenschule.de
+1. Gehe zu https://chatgpt-trainings.de
 2. Fülle das Kontaktformular aus
 3. Du solltest 2 E-Mails erhalten:
    - martin@yellow-boat.com: Benachrichtigung
-   - Deine Test-E-Mail: Bestätigungsmail von info@copilotenschule.de
+   - Deine Test-E-Mail: Bestätigungsmail von info@chatgpt-trainings.de
 4. Klicke auf den Bestätigungslink
 5. Du solltest die Erfolgsseite sehen
 
@@ -147,7 +149,7 @@ Sollte zeigen:
        ↓
 3. Sendet 2 E-Mails:
    - An martin@yellow-boat.com (Benachrichtigung)
-   - An User (Bestätigungsmail von info@copilotenschule.de)
+   - An User (Bestätigungsmail von info@chatgpt-trainings.de)
        ↓
 4. User klickt auf Bestätigungslink
        ↓
@@ -238,12 +240,12 @@ function unsubscribe($token) {
 
 1. **Prüfe SITE_URL in db-config.php:**
    ```php
-   define('SITE_URL', 'https://copilotenschule.de');
+   define('SITE_URL', 'https://chatgpt-trainings.de');
    ```
 
 2. **Prüfe, ob confirm-subscription.php erreichbar ist:**
    ```
-   https://copilotenschule.de/api/confirm-subscription.php
+   https://chatgpt-trainings.de/api/confirm-subscription.php
    ```
 
 ---

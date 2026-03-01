@@ -8,9 +8,9 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import { generateTrainingSchemas } from "@/lib/schema";
-import { trainings, type Training, type CopilotTier } from "@/data/trainings";
+import { trainings, type Training, type ChatGPTTier } from "@/data/trainings";
 
-export type { CopilotTier };
+export type { ChatGPTTier };
 
 // Trainings werden aus der zentralen Datei importiert
 const modules = trainings;
@@ -19,8 +19,8 @@ type TierFilter = "all" | "free" | "paid";
 
 const tierFilterOptions: { value: TierFilter; label: string }[] = [
   { value: "all", label: "Alle Trainings" },
-  { value: "free", label: "Copilot Free" },
-  { value: "paid", label: "Copilot Paid" },
+  { value: "free", label: "ChatGPT Free" },
+  { value: "paid", label: "ChatGPT Plus/Team/Enterprise" },
 ];
 
 // Training modules data for schema generation - simplified for SEO
@@ -44,17 +44,17 @@ const UnsereAngebote = () => {
   return (
     <div className="min-h-screen">
       <SEOHead
-        title="Unsere Angebote – Microsoft Copilot Schulungen & Trainings | chatgpt-trainings.de"
-        description="Alle Microsoft Copilot Trainings im Überblick: Grundlagen, M365 Apps, GitHub Copilot, Compliance, Strategie, KI-Agenten und mehr. Trainings für Copilot Free und Copilot Paid Lizenzen."
+        title="Unsere Angebote – ChatGPT Schulungen & Trainings | chatgpt-trainings.de"
+        description="Alle ChatGPT Trainings im Überblick: Grundlagen, ChatGPT für verschiedene Berufsgruppen, Prompt Engineering, KI-Strategie und mehr. Trainings für ChatGPT Free und ChatGPT Plus/Team/Enterprise Versionen."
         keywords={[
-          "Microsoft Copilot Schulung",
-          "Microsoft 365 Copilot Training",
-          "Copilot Trainings Übersicht",
-          "GitHub Copilot Training",
-          "Copilot Studio Schulung",
+          "ChatGPT Schulung",
+          "ChatGPT Training",
+          "ChatGPT Trainings Übersicht",
           "KI Training Unternehmen",
-          "Copilot Free Training",
-          "Copilot Paid Training"
+          "ChatGPT Free Training",
+          "ChatGPT Plus Training",
+          "Prompt Engineering Training",
+          "ChatGPT Anwendungen"
         ]}
         canonicalUrl="https://chatgpt-trainings.de/unsere-angebote"
         schema={schema}
@@ -73,7 +73,7 @@ const UnsereAngebote = () => {
                 Unsere Angebote
               </h1>
               <p className="mt-6 text-xl text-muted-foreground max-w-3xl mx-auto animate-slide-up-delayed">
-                Microsoft Copilot Schulungen & Trainings für Unternehmen –
+                ChatGPT Schulungen & Trainings für Unternehmen –
                 konsequent auf die konkreten Bedarfe Ihrer Organisation zugeschnitten.
               </p>
             </div>
@@ -82,24 +82,24 @@ const UnsereAngebote = () => {
             <div className="max-w-4xl mx-auto mb-12">
               <div className="bg-card border rounded-xl p-6 shadow-sm">
                 <h2 className="text-lg font-semibold mb-4 text-center">
-                  Wir trainieren gezielt auf das Copilot-Tier, das Ihre Teilnehmer tatsächlich haben
+                  Wir trainieren gezielt auf die ChatGPT-Version, die Ihre Teilnehmer tatsächlich haben
                 </h2>
                 <p className="text-muted-foreground text-center mb-6">
-                  Microsoft Copilot gibt es in zwei Varianten. Wählen Sie unten Ihr Tier aus, um nur die relevanten Trainings zu sehen.
+                  ChatGPT gibt es in verschiedenen Versionen. Wählen Sie unten Ihre Version aus, um nur die relevanten Trainings zu sehen.
                 </p>
 
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
                   <div className="flex items-center gap-2 px-4 py-3 rounded-lg bg-emerald-50 border border-emerald-200">
                     <Badge className="bg-emerald-100 text-emerald-700 border-emerald-200 hover:bg-emerald-100 text-[11px] px-2 py-0.5">
-                      Copilot Free
+                      ChatGPT Free
                     </Badge>
-                    <span className="text-sm text-muted-foreground">Microsoft 365 Copilot Chat (Websuche, kostenlos)</span>
+                    <span className="text-sm text-muted-foreground">Kostenlose ChatGPT Version (Websuche, kostenlos)</span>
                   </div>
                   <div className="flex items-center gap-2 px-4 py-3 rounded-lg bg-blue-50 border border-blue-200">
                     <Badge className="bg-blue-100 text-blue-700 border-blue-200 hover:bg-blue-100 text-[11px] px-2 py-0.5">
-                      Copilot Paid
+                      ChatGPT Plus/Team/Enterprise
                     </Badge>
-                    <span className="text-sm text-muted-foreground">Microsoft 365 Copilot mit Lizenz (Grounding, M365-Integration)</span>
+                    <span className="text-sm text-muted-foreground">Bezahlte ChatGPT Versionen mit erweiterten Features</span>
                   </div>
                 </div>
 
@@ -110,14 +110,14 @@ const UnsereAngebote = () => {
                       className="flex items-center gap-2 px-4 py-2 rounded-lg border border-primary/30 bg-primary/5 hover:bg-primary/10 text-sm font-medium text-primary transition-all duration-200 hover:scale-105"
                     >
                       <HelpCircle className="w-4 h-4" />
-                      Welchen Copilot habe ich?
+                      Welche ChatGPT-Version habe ich?
                     </button>
                   ) : (
                     <div className="w-full max-w-md p-4 rounded-lg border border-primary/30 bg-card shadow-lg text-left animate-fade-in">
                       <div className="flex items-center justify-between mb-3">
                         <h4 className="font-semibold text-sm flex items-center gap-2">
                           <HelpCircle className="w-4 h-4 text-primary" />
-                          So finden Sie Ihr Copilot-Tier heraus
+                          So finden Sie Ihre ChatGPT-Version heraus
                         </h4>
                         <button
                           onClick={() => setShowTierHelp(false)}
@@ -127,11 +127,11 @@ const UnsereAngebote = () => {
                         </button>
                       </div>
                       <ol className="space-y-2 text-sm text-muted-foreground list-decimal list-inside">
-                        <li>Öffnen Sie <strong>Microsoft Copilot</strong> in Teams, Word oder im Browser (copilot.microsoft.com)</li>
-                        <li>Achten Sie auf den <strong>Toggle „Work / Web"</strong> oben im Chat. Sehen Sie diesen Schalter, haben Sie <strong>Copilot Paid</strong></li>
-                        <li>Stellen Sie die Frage: <em>„Welche Termine habe ich heute?"</em></li>
-                        <li>Erhalten Sie Ihre <strong>echten Kalender-Termine</strong> als Antwort → <Badge className="bg-blue-100 text-blue-700 border-blue-200 hover:bg-blue-100 text-[11px] px-2 py-0.5">Copilot Paid</Badge></li>
-                        <li>Kommt <strong>keine Kalender-Antwort</strong> oder nur eine Web-Suche → <Badge className="bg-emerald-100 text-emerald-700 border-emerald-200 hover:bg-emerald-100 text-[11px] px-2 py-0.5">Copilot Free</Badge></li>
+                        <li>Öffnen Sie <strong>ChatGPT</strong> im Browser unter chatgpt.com oder in der App</li>
+                        <li>Prüfen Sie Ihren <strong>Account-Status</strong> in den Einstellungen. Sehen Sie dort "Plus", "Team" oder "Enterprise", haben Sie eine bezahlte Version</li>
+                        <li>Achten Sie auf <strong>erweiterte Features</strong> wie "Web Browsing", "Code Interpreter" oder "File Uploads" – diese sind nur in Plus/Team/Enterprise verfügbar</li>
+                        <li>Sehen Sie <strong>alle Premium-Features</strong> → <Badge className="bg-blue-100 text-blue-700 border-blue-200 hover:bg-blue-100 text-[11px] px-2 py-0.5">ChatGPT Plus/Team/Enterprise</Badge></li>
+                        <li>Sehen Sie <strong>nur Standard-Features</strong> (nur Chat) → <Badge className="bg-emerald-100 text-emerald-700 border-emerald-200 hover:bg-emerald-100 text-[11px] px-2 py-0.5">ChatGPT Free</Badge></li>
                       </ol>
                       <button
                         onClick={() => setShowTierHelp(false)}
@@ -177,12 +177,12 @@ const UnsereAngebote = () => {
                       <div className="flex flex-wrap gap-1.5 mb-2">
                         {module.tiers.includes("free") && (
                           <Badge className="bg-emerald-100 text-emerald-700 border-emerald-200 hover:bg-emerald-100 text-[11px] px-2 py-0.5">
-                            Copilot Free
+                            ChatGPT Free
                           </Badge>
                         )}
                         {module.tiers.includes("paid") && (
                           <Badge className="bg-blue-100 text-blue-700 border-blue-200 hover:bg-blue-100 text-[11px] px-2 py-0.5">
-                            Copilot Paid
+                            ChatGPT Plus/Team/Enterprise
                           </Badge>
                         )}
                       </div>
@@ -217,7 +217,7 @@ const UnsereAngebote = () => {
                   Ihr Training, Ihre Module – individuell zusammengestellt
                 </h3>
                 <p className="text-muted-foreground max-w-2xl mx-auto mb-6">
-                  Kein passendes Training gefunden? Bei der ChatGPT-Trainings können Sie Ihr Training aus einzelnen Modulen
+                  Kein passendes Training gefunden? Bei chatgpt-trainings.de können Sie Ihr Training aus einzelnen Modulen
                   selbst zusammenstellen – exakt auf die Bedürfnisse Ihres Teams zugeschnitten.
                 </p>
                 <Link to="/training-konfigurator" className="inline-block max-w-xs sm:max-w-none">

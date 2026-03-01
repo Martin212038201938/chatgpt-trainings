@@ -32,27 +32,18 @@ const AdminContent = () => {
   // Persist drafts to localStorage whenever they change
   useEffect(() => {
     if (drafts.length > 0) {
-      localStorage.setItem('copilot-drafts', JSON.stringify(drafts));
+      localStorage.setItem('chatgpt-drafts', JSON.stringify(drafts));
     }
   }, [drafts]);
 
   const loadDrafts = async () => {
     try {
       // Load from localStorage first
-      const savedDrafts = localStorage.getItem('copilot-drafts');
+      const savedDrafts = localStorage.getItem('chatgpt-drafts');
       const localDrafts: Draft[] = savedDrafts ? JSON.parse(savedDrafts) : [];
       
       // Also load from JSON files to catch new drafts
-      const draftFiles = [
-        'copilot-sicherheit',
-        'copilot-tipps-tricks', 
-        'copilot-roi-berechnen',
-        'copilot-fuer-word',
-        'microsoft-copilot-agents-guide',
-        'microsoft-copilot-einsteiger-guide',
-        'microsoft-copilot-memory-guide',
-        'copilot-adoption-2026-zahlen'
-      ];
+      const draftFiles: string[] = [];
       
       const jsonDrafts: Draft[] = [];
       for (const file of draftFiles) {
@@ -75,7 +66,7 @@ const AdminContent = () => {
       
       if (mergedDrafts.length > 0) {
         setDrafts(mergedDrafts);
-        localStorage.setItem('copilot-drafts', JSON.stringify(mergedDrafts));
+        localStorage.setItem('chatgpt-drafts', JSON.stringify(mergedDrafts));
         console.log(`Loaded ${localDrafts.length} from localStorage, ${newFromJson.length} new from JSON`);
       }
     } catch (error) {

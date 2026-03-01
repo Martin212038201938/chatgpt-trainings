@@ -24,7 +24,7 @@ const Hero = () => {
           <div className="max-w-4xl mx-auto">
             <h1 className="text-3xl sm:text-5xl lg:text-7xl font-semibold tracking-tight leading-[1.1]">
               <span className="text-foreground">
-                Professionelle
+                Unternehmens-
               </span>
               <br />
               <span className="text-primary">
@@ -32,11 +32,11 @@ const Hero = () => {
               </span>
               <br />
               <span className="text-foreground">
-                Trainings
+                Schulungen
               </span>
             </h1>
             <p className="mt-4 sm:mt-6 text-base sm:text-xl lg:text-2xl text-muted-foreground font-normal animate-slide-up-delayed">
-              Für produktivere Teams und bessere Ergebnisse mit KI
+              Kompetenzaufbau für die KI-Transformation in großen Organisationen
             </p>
           </div>
         </div>
@@ -44,22 +44,22 @@ const Hero = () => {
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div className="space-y-6 sm:space-y-8">
             <p className="text-base sm:text-xl text-muted-foreground leading-relaxed mb-4 animate-fade-in-delayed">
-              ChatGPT-Trainings.de ist die spezialisierte Weiterbildung für Organisationen, die ChatGPT und KI-Tools
-              wirksam und kontrolliert im Arbeitsalltag einsetzen wollen. Wir befähigen Führungskräfte,
-              Teams und Wissensarbeiter, ChatGPT produktiv, sicher und wertschöpfend zu nutzen –
-              mit klarem Fokus auf Prompt Engineering, Adoption und reale Geschäftsprozesse.
+              Yellow-Boat Consulting hat sich auf maßgeschneiderte KI-Schulungen für große Unternehmensorganisationen spezialisiert.
+              Wir unterstützen Ihre Teams dabei, ChatGPT und verwandte KI-Tools strategisch zu nutzen und messbare
+              Effizienzgewinne zu realisieren. Von der C-Suite bis zum Sachbearbeiter – wir vermitteln das Wissen für
+              sichere, verantwortungsvolle und gewinnbringende KI-Anwendungen.
             </p>
             <p className="text-base sm:text-xl text-muted-foreground leading-relaxed animate-fade-in-delayed-2">
-              Unsere Trainings basieren auf konkreten Arbeitsabläufen und direkt anwendbaren Copilot-Workflows.
-              Sie finden als Inhouse-Training bei Ihnen vor Ort, live online via Teams oder Zoom oder in unserer
-              Akademie in Köln statt.
+              Flexibel und praxisnah: Ob Vor-Ort-Workshop in Ihrer Organisation, virtuelle Live-Sessions oder
+              Blended-Learning-Formate – wir richten unsere Schulungen an Ihre Anforderungen aus. Alle Trainings
+              sind modular aufgebaut und adressieren die spezifischen Herausforderungen Ihrer Branche und Unternehmensgröße.
             </p>
 
             <div className="grid grid-cols-3 gap-4 sm:gap-8 pt-6 sm:pt-8 border-t border-border/50">
               {[
-                { value: "Seit 2011", label: "Yellow-Boat Consulting", delay: "delay-100" },
-                { value: "DACH", label: "Region", delay: "delay-200" },
-                { value: "100%", label: "Praxisorientiert", delay: "delay-300" }
+                { value: "Seit 2011", label: "Digitale Transformation", delay: "delay-100" },
+                { value: "500+", label: "Teilnehmer pro Jahr", delay: "delay-200" },
+                { value: "50+", label: "Unternehmen vertrauen uns", delay: "delay-300" }
               ].map((stat, idx) => (
                 <div
                   key={idx}
@@ -80,7 +80,7 @@ const Hero = () => {
             <div className="relative rounded-2xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 group hover:scale-[1.02]">
               <img
                 src={heroImage}
-                alt="Microsoft Copilot Training Team"
+                alt="ChatGPT Training Team"
                 className="w-full h-auto transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/30 via-transparent to-transparent group-hover:from-primary/40 transition-all duration-500" />

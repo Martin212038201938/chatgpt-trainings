@@ -15,7 +15,7 @@ if (file_exists($localConfig)) {
 }
 
 // Website URL for confirmation links
-define('SITE_URL', 'https://copilotenschule.de');
+define('SITE_URL', 'https://chatgpt-trainings.de');
 
 /**
  * Get database connection

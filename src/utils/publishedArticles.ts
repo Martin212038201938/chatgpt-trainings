@@ -103,7 +103,7 @@ export function updateArticlePublishStatus(articleId: string, isPublished: boole
  */
 export function getPublishedArticles(): Draft[] {
   try {
-    const savedDrafts = localStorage.getItem('copilot-drafts');
+    const savedDrafts = localStorage.getItem('chatgpt-drafts');
     if (!savedDrafts) return [];
 
     const drafts: Draft[] = JSON.parse(savedDrafts);

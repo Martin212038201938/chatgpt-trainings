@@ -10,7 +10,7 @@ export const TrustBadge = ({ variant = 'full' }: TrustBadgeProps) => {
     { icon: Building2, text: "Marke der Yellow-Boat Consulting (gegr. 2011)" },
     { icon: Users, text: "Über 500 geschulte Unternehmen" },
     { icon: Award, text: "14+ Jahre Erfahrung in digitaler Transformation" },
-    { icon: Shield, text: "Spezialisiert auf Microsoft Copilot & KI-Trainings" },
+    { icon: Shield, text: "Spezialisiert auf ChatGPT & KI-Trainings" },
   ];
 
   if (variant === 'compact') {
@@ -44,10 +44,10 @@ export const TrustBadge = ({ variant = 'full' }: TrustBadgeProps) => {
             </div>
             <div className="flex-1">
               <h3 className="text-xl font-bold mb-2">Über die ChatGPT-Trainings</h3>
-              <div className="text-lg font-semibold text-primary mb-1">Ihr Partner für Microsoft Copilot Trainings</div>
+              <div className="text-lg font-semibold text-primary mb-1">Ihr Partner für ChatGPT Trainings</div>
               <div className="text-sm text-muted-foreground mb-3">Eine Marke der Yellow-Boat Consulting</div>
               <p className="text-sm leading-relaxed mb-4">
-                Die chatgpt-trainings.de ist Deutschlands spezialisierter Anbieter für Microsoft Copilot Schulungen und KI-Trainings.
+                Die chatgpt-trainings.de ist Deutschlands spezialisierter Anbieter für ChatGPT Schulungen und KI-Trainings.
                 Als Marke der 2011 gegründeten Yellow-Boat Consulting verbinden wir über ein Jahrzehnt Erfahrung in digitaler
                 Transformation mit tiefgreifender Expertise im Microsoft-Ökosystem. Unsere Trainings fokussieren konsequent
                 auf reale Arbeitsprozesse – praxisnah, compliance-konform und wertschöpfend.
@@ -65,7 +65,7 @@ export const TrustBadge = ({ variant = 'full' }: TrustBadgeProps) => {
               </div>
               <div className="flex flex-wrap gap-2 mt-4">
                 <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium">
-                  Microsoft Copilot
+                  ChatGPT
                 </span>
                 <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium">
                   GitHub Copilot

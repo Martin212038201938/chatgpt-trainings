@@ -26,26 +26,26 @@ export interface SchemaIds {
 /**
  * Generates unique @id strings for a page based on its slug and type
  *
- * @param slug - The page slug (e.g., "github-copilot", "copilot-studio")
+ * @param slug - The page slug (e.g., "chatgpt", "chatgpt")
  * @param type - The page type: 'wissen' for knowledge pages, 'trainings' for training pages
  * @returns Object with article, faq, and breadcrumb @id strings
  *
  * @example
  * // Knowledge page
- * generateSchemaIds("github-copilot", "wissen")
+ * generateSchemaIds("chatgpt", "wissen")
  * // Returns: {
- * //   article: "https://chatgpt-trainings.de/wissen/github-copilot#article",
- * //   faq: "https://chatgpt-trainings.de/wissen/github-copilot#faq",
- * //   breadcrumb: "https://chatgpt-trainings.de/wissen/github-copilot#breadcrumb"
+ * //   article: "https://chatgpt-trainings.de/wissen/chatgpt#article",
+ * //   faq: "https://chatgpt-trainings.de/wissen/chatgpt#faq",
+ * //   breadcrumb: "https://chatgpt-trainings.de/wissen/chatgpt#breadcrumb"
  * // }
  *
  * @example
  * // Training page
- * generateSchemaIds("microsoft-365-copilot-grundlagen", "trainings")
+ * generateSchemaIds("chatgpt-enterprise", "trainings")
  * // Returns: {
- * //   article: "https://chatgpt-trainings.de/trainings/microsoft-365-copilot-grundlagen#course",
- * //   faq: "https://chatgpt-trainings.de/trainings/microsoft-365-copilot-grundlagen#faq",
- * //   breadcrumb: "https://chatgpt-trainings.de/trainings/microsoft-365-copilot-grundlagen#breadcrumb"
+ * //   article: "https://chatgpt-trainings.de/trainings/chatgpt-enterprise#course",
+ * //   faq: "https://chatgpt-trainings.de/trainings/chatgpt-enterprise#faq",
+ * //   breadcrumb: "https://chatgpt-trainings.de/trainings/chatgpt-enterprise#breadcrumb"
  * // }
  */
 export const generateSchemaIds = (slug: string, type: 'wissen' | 'trainings'): SchemaIds => {
@@ -85,7 +85,7 @@ export interface BreadcrumbItem {
  * generateBreadcrumbSchema([
  *   { name: "Startseite", url: "https://chatgpt-trainings.de/" },
  *   { name: "Unsere Angebote", url: "https://chatgpt-trainings.de/unsere-angebote" },
- *   { name: "GitHub Copilot Training", url: "https://chatgpt-trainings.de/trainings/github-copilot-entwickler" }
+ *   { name: "GitHub Copilot Training", url: "https://chatgpt-trainings.de/trainings/chatgpt-entwickler" }
  * ])
  */
 export const generateBreadcrumbSchema = (items: BreadcrumbItem[]) => {
@@ -137,7 +137,7 @@ export const generateFAQPageSchema = (faqs: FAQ[], pageUrl?: string) => {
  * Used by knowledge pages that define FAQs inline
  *
  * @param faqs - Array of FAQ objects with name and answer
- * @param faqId - The @id for the FAQPage (e.g., "https://chatgpt-trainings.de/github-copilot#faq")
+ * @param faqId - The @id for the FAQPage (e.g., "https://chatgpt-trainings.de/chatgpt#faq")
  */
 export const generateSimpleFAQSchema = (
   faqs: Array<{ name: string; answer: string }>,
@@ -284,7 +284,7 @@ export const generateTrainingBreadcrumbItems = (
  * Generates complete @graph schema for a knowledge page
  * Includes Article, FAQPage, and BreadcrumbList with unique @ids
  *
- * @param slug - Page slug (e.g., "github-copilot")
+ * @param slug - Page slug (e.g., "chatgpt")
  * @param articleConfig - Article schema configuration
  * @param faqs - Array of FAQs with name and answer
  * @param articleName - Display name for breadcrumb
@@ -322,7 +322,7 @@ export const generateKnowledgePageSchema = (
  * Generates complete @graph schema for a training page
  * Includes Course, FAQPage (if FAQs exist), and BreadcrumbList with unique @ids
  *
- * @param slug - Training slug (e.g., "microsoft-365-copilot-grundlagen")
+ * @param slug - Training slug (e.g., "chatgpt-enterprise")
  * @param courseConfig - Course schema configuration
  * @param faqs - Optional array of FAQs with question and answer
  * @param trainingName - Display name for breadcrumb
@@ -507,23 +507,21 @@ export const generateTrainingSchemas = (modules: TrainingModule[], faqs?: FAQ[])
         "alternateName": ["ChatGPT-Trainings", "Copiloten Schule"],
         "url": "https://chatgpt-trainings.de",
         "logo": "https://chatgpt-trainings.de/og-image.jpg",
-        "description": "chatgpt-trainings.de bietet spezialisierte Weiterbildungen für den professionellen Einsatz von Microsoft Copilot in der täglichen Büroarbeit. Wir befähigen Wissensarbeiter, Teams und Organisationen, Microsoft Copilot produktiv, sicher und wertschöpfend im Arbeitsalltag einzusetzen.",
+        "description": "chatgpt-trainings.de bietet spezialisierte Weiterbildungen für den professionellen Einsatz von ChatGPT in der täglichen Büroarbeit. Wir befähigen Wissensarbeiter, Teams und Organisationen, ChatGPT produktiv, sicher und wertschöpfend im Arbeitsalltag einzusetzen.",
         "foundingDate": "2025",
-        "slogan": "Büroarbeit durch Microsoft Copilot messbar produktiver, wirksamer und menschlicher machen",
+        "slogan": "Büroarbeit durch ChatGPT messbar produktiver, wirksamer und menschlicher machen",
         "knowsAbout": [
-          "Microsoft Copilot",
-          "Microsoft 365 Copilot",
-          "Microsoft Copilot Training",
-          "Microsoft Copilot Schulung",
-          "Copilot Enablement",
-          "Copilot Adoption",
-          "Copilot Rollout",
+          "ChatGPT",
+          "ChatGPT Training",
+          "ChatGPT Schulung",
+          "ChatGPT Enablement",
+          "ChatGPT Adoption",
+          "Custom GPTs",
           "GitHub Copilot",
-          "Copilot Studio",
           "KI-Agenten",
           "Prompt Engineering",
           "KI-gestützte Büroarbeit",
-          "Microsoft 365 Produktivität"
+          "Produktivität mit Künstlicher Intelligenz"
         ],
         "areaServed": {
           "@type": "GeoCircle",
@@ -569,7 +567,7 @@ export const generateTrainingSchemas = (modules: TrainingModule[], faqs?: FAQ[])
         "@id": "https://chatgpt-trainings.de/#website",
         "name": "chatgpt-trainings.de",
         "url": "https://chatgpt-trainings.de",
-        "description": "Spezialisierte Weiterbildungen für Microsoft Copilot. Praxis-Trainings, Workshops, Inhouse-Enablement und Coaching für Wissensarbeiter, Teams und Organisationen.",
+        "description": "Spezialisierte Weiterbildungen für ChatGPT. Praxis-Trainings, Workshops, Inhouse-Enablement und Coaching für Wissensarbeiter, Teams und Organisationen.",
         "inLanguage": "de-DE",
         "publisher": {
           "@id": "https://chatgpt-trainings.de/#organization"
@@ -586,24 +584,24 @@ export const generateTrainingSchemas = (modules: TrainingModule[], faqs?: FAQ[])
         "@id": "https://chatgpt-trainings.de/#educationalOrganization",
         "name": "chatgpt-trainings.de",
         "url": "https://chatgpt-trainings.de",
-        "description": "Spezialisierte Akademie für Microsoft Copilot Trainings mit klarem Fokus auf die Nutzung von Microsoft Copilot im beruflichen Kontext. Praxisorientierter Trainingsansatz mit realen Arbeitsprozessen und direkt anwendbaren Workflows.",
+        "description": "Spezialisierte Akademie für ChatGPT Trainings mit klarem Fokus auf die Nutzung von ChatGPT im beruflichen Kontext. Praxisorientierter Trainingsansatz mit realen Arbeitsprozessen und direkt anwendbaren Workflows.",
         "areaServed": "DACH",
         "parentOrganization": {
           "@id": "https://yellow-boat.com/#organization"
         },
         "teaches": [
-          "Microsoft 365 Copilot für Büroarbeit",
-          "Microsoft Copilot Grundlagen",
-          "Microsoft Copilot Advanced Training",
+          "ChatGPT für Büroarbeit",
+          "ChatGPT Grundlagen",
+          "ChatGPT Advanced Training",
           "GitHub Copilot für Entwickler",
-          "Copilot Studio und KI-Agenten",
-          "Prompt Engineering für Microsoft Copilot",
-          "Copilot Governance und Compliance",
-          "Copilot Rollout und Adoption"
+          "Custom GPTs und KI-Agenten",
+          "Prompt Engineering für ChatGPT",
+          "KI Governance und Compliance",
+          "ChatGPT Adoption und Change Management"
         ],
         "hasCredential": {
           "@type": "EducationalOccupationalCredential",
-          "name": "Microsoft Copilot Training Zertifikat",
+          "name": "ChatGPT Training Zertifikat",
           "credentialCategory": "Professional Development"
         }
       },

@@ -29,7 +29,7 @@ function showSuccessPage() {
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>E-Mail bestätigt - Copilotenschule</title>
+        <title>E-Mail bestätigt - ChatGPT-Trainings</title>
         <style>
             * { margin: 0; padding: 0; box-sizing: border-box; }
             body {
@@ -102,7 +102,7 @@ function showSuccessPage() {
             </div>
             <h1>E-Mail erfolgreich bestätigt!</h1>
             <p>Vielen Dank für die Bestätigung Ihrer E-Mail-Adresse. Sie sind jetzt für unseren Newsletter angemeldet und wir werden uns in Kürze bei Ihnen melden.</p>
-            <a href="https://copilotenschule.de" class="button">Zur Startseite</a>
+            <a href="https://chatgpt-trainings.de" class="button">Zur Startseite</a>
         </div>
     </body>
     </html>
@@ -119,7 +119,7 @@ function showErrorPage($title, $message) {
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title><?php echo htmlspecialchars($title); ?> - Copilotenschule</title>
+        <title><?php echo htmlspecialchars($title); ?> - ChatGPT-Trainings</title>
         <style>
             * { margin: 0; padding: 0; box-sizing: border-box; }
             body {
@@ -193,7 +193,7 @@ function showErrorPage($title, $message) {
             </div>
             <h1><?php echo htmlspecialchars($title); ?></h1>
             <p><?php echo htmlspecialchars($message); ?></p>
-            <a href="https://copilotenschule.de" class="button">Zur Startseite</a>
+            <a href="https://chatgpt-trainings.de" class="button">Zur Startseite</a>
         </div>
     </body>
     </html>

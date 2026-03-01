@@ -29,7 +29,7 @@ const Contact = () => {
         if (url.hostname.includes('chatgpt-trainings.de') ||
             url.hostname === 'localhost' ||
             url.hostname === '127.0.0.1') {
-          // Speichere den Pfad (z.B. /copilot-studio oder /wissen/copilot-fuer-word)
+          // Speichere den Pfad (z.B. /trainings/chatgpt oder /wissen/chatgpt-prompts)
           if (url.pathname && url.pathname !== '/') {
             setTrainingSource(url.pathname);
           }

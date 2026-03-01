@@ -22,14 +22,14 @@ export const authors: Record<string, Author> = {
   'martin-lang': {
     id: 'martin-lang',
     name: 'Martin Lang',
-    role: 'Gründer & Microsoft Copilot Experte',
+    role: 'Gründer & ChatGPT Experte',
     expertise: [
-      'Microsoft Copilot Enablement',
-      'Microsoft 365 Copilot Training',
-      'GitHub Copilot',
-      'Copilot Studio',
+      'ChatGPT Enablement',
+      'ChatGPT Training',
+      'OpenAI API',
+      'ChatGPT Enterprise',
       'Prompt Engineering',
-      'Copilot Rollout & Adoption',
+      'KI-Einführung & Adoption',
       'KI-gestützte Büroarbeit',
       'Agile Transformation',
       'Change Management',
@@ -41,9 +41,9 @@ export const authors: Record<string, Author> = {
       'Gründer chatgpt-trainings.de (2025)',
       'Certified Scrum Master',
       'Agile Coach',
-      'Microsoft Copilot Trainer'
+      'ChatGPT Trainer'
     ],
-    bio: 'Martin Lang ist Gründer der Yellow-Boat Consulting (2011) und der chatgpt-trainings.de (2025). Seit über einem Jahrzehnt realisiert er Agile Trainings und Digitalisierungsprojekte in Konzernen und im Mittelstand. Als Microsoft Copilot Experte befähigt er Wissensarbeiter, Teams und Organisationen, Microsoft Copilot produktiv, sicher und wertschöpfend im Arbeitsalltag einzusetzen. Sein praxisorientierter Trainingsansatz verbindet reale Arbeitsprozesse mit direkt anwendbaren Workflows.',
+    bio: 'Martin Lang ist Gründer der Yellow-Boat Consulting (2011) und der chatgpt-trainings.de (2025). Seit über einem Jahrzehnt realisiert er Agile Trainings und Digitalisierungsprojekte in Konzernen und im Mittelstand. Als ChatGPT-Experte befähigt er Wissensarbeiter, Teams und Organisationen, ChatGPT produktiv, sicher und wertschöpfend im Arbeitsalltag einzusetzen. Sein praxisorientierter Trainingsansatz verbindet reale Arbeitsprozesse mit direkt anwendbaren Workflows.',
     image: '/images/authors/martin-lang.png',
     linkedin: 'https://www.linkedin.com/in/martin-lang-a95b1010',
     email: 'martin@yellow-boat.com',

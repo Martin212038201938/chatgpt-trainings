@@ -28,18 +28,21 @@ const Impressum = () => {
               <div className="bg-primary/10 border-l-4 border-primary p-6 rounded-r-lg mb-8">
                 <h3 className="text-xl font-bold mb-3">Über chatgpt-trainings.de</h3>
                 <p className="text-base mb-3">
-                  Die ChatGPT-Trainings ist spezialisiert auf die Einführung und Weiterqualifizierungen
-                  im Umfeld der Microsoft Copiloten. Im Gegensatz zu anderen Anbietern bieten wir den
-                  Teilnehmern keinen Bauchladen an Tools an, die in ihrem Umfeld nicht compliant oder
-                  wertschöpfend sind.
+                  ChatGPT-Trainings.de ist der spezialisierte Weiterbildungsanbieter für den professionellen Einsatz von ChatGPT und KI-Tools in Unternehmen. Wir konzentrieren uns gezielt auf die Werkzeuge, die in Ihrem Arbeitsalltag tatsächlich Wirkung zeigen.
                 </p>
                 <p className="text-base mb-3">
-                  <strong>Unsere Mission:</strong> Büroarbeit durch den gezielten Einsatz von Microsoft Copilot
+                  <strong>Unsere Mission:</strong> Büroarbeit durch den gezielten Einsatz von ChatGPT und KI
                   messbar produktiver, wirksamer und menschlicher zu machen.
                 </p>
-                <p className="text-base">
+                <p className="text-base mb-3">
                   <strong>Unsere Werte:</strong> Praxisnähe, Wirksamkeit, Transparenz – diese Werte leiten alle
                   unsere Entscheidungen.
+                </p>
+                <p className="text-base">
+                  Unser Schwesterangebot für Microsoft Copilot Schulungen finden Sie auf{" "}
+                  <a href="https://copilotenschule.de" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                    copilotenschule.de
+                  </a>.
                 </p>
               </div>
 

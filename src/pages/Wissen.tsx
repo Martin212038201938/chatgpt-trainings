@@ -37,16 +37,15 @@ const Wissen = () => {
   return (
     <div className="min-h-screen">
       <SEOHead
-        title="Microsoft Copilot Wissen - Expertenwissen & Best Practices"
-        description="Fundiertes Expertenwissen zu Microsoft Copilot, GitHub Copilot und KI-Agenten. Praxisorientierte Leitfäden, detaillierte Vergleiche und Best Practices für den erfolgreichen Einsatz von KI-Tools in Ihrem Unternehmen."
+        title="ChatGPT Wissen - Expertenwissen & Best Practices"
+        description="Fundiertes Expertenwissen zu ChatGPT und KI-Tools. Praxisorientierte Leitfäden, detaillierte Vergleiche und Best Practices für den erfolgreichen Einsatz von ChatGPT in Ihrem Unternehmen."
         keywords={[
-          "Microsoft Copilot Wissen",
-          "GitHub Copilot Guide",
-          "KI-Tools Best Practices",
-          "Microsoft 365 Copilot Leitfaden",
-          "Copilot Expertenwissen",
-          "Copilot Lizenzen",
-          "Copilot ROI"
+          "ChatGPT Wissen",
+          "ChatGPT Best Practices",
+          "KI-Tools Leitfaden",
+          "ChatGPT für Unternehmen",
+          "ChatGPT Expertenwissen",
+          "Prompt Engineering"
         ]}
         canonicalUrl="https://chatgpt-trainings.de/wissen"
       />
@@ -60,12 +59,12 @@ const Wissen = () => {
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-5xl lg:text-7xl font-semibold tracking-tight leading-[1.1]">
-                <span className="text-primary">Microsoft Copilot</span> Wissen
+                <span className="text-primary">ChatGPT</span> Wissen
               </h1>
               <p className="mt-6 text-xl text-muted-foreground mb-8 leading-relaxed animate-slide-up-delayed">
-                Fundiertes Expertenwissen zu Microsoft Copilot, GitHub Copilot und KI-Agenten.
+                Fundiertes Expertenwissen zu ChatGPT und KI-Tools.
                 Praxisorientierte Leitfäden, detaillierte Vergleiche und Best Practices für den
-                erfolgreichen Einsatz von KI-Tools in Ihrem Unternehmen.
+                erfolgreichen Einsatz von KI in Ihrem Unternehmen.
               </p>
             </div>
           </div>
@@ -77,41 +76,54 @@ const Wissen = () => {
             <div className="max-w-6xl mx-auto">
               <h2 className="text-3xl font-bold mb-8">Aktuelle Themen</h2>
 
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {knowledgeTopics.map((topic, idx) => (
-                  <Link key={idx} to={topic.link} className="group">
-                    <Card className="h-full hover:shadow-xl transition-all duration-300 hover:scale-105 border-2 hover:border-primary/50">
-                      <CardHeader>
-                        <div className="flex items-start justify-between mb-3">
-                          <span className="text-4xl">{topic.icon}</span>
-                          <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium">
-                            {topic.badge}
-                          </span>
-                        </div>
-                        <CardTitle className="text-xl group-hover:text-primary transition-colors">
-                          {topic.title}
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent className="space-y-4">
-                        <CardDescription className="text-sm leading-relaxed">
-                          {topic.description}
-                        </CardDescription>
-
-                        <div className="flex items-center gap-4 text-xs text-muted-foreground pt-4 border-t">
-                          <div className="flex items-center gap-1">
-                            <BookOpen className="w-3 h-3" />
-                            <span>{topic.lastUpdated}</span>
+              {knowledgeTopics.length > 0 ? (
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {knowledgeTopics.map((topic, idx) => (
+                    <Link key={idx} to={topic.link} className="group">
+                      <Card className="h-full hover:shadow-xl transition-all duration-300 hover:scale-105 border-2 hover:border-primary/50">
+                        <CardHeader>
+                          <div className="flex items-start justify-between mb-3">
+                            <span className="text-4xl">{topic.icon}</span>
+                            <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium">
+                              {topic.badge}
+                            </span>
                           </div>
-                        </div>
+                          <CardTitle className="text-xl group-hover:text-primary transition-colors">
+                            {topic.title}
+                          </CardTitle>
+                        </CardHeader>
+                        <CardContent className="space-y-4">
+                          <CardDescription className="text-sm leading-relaxed">
+                            {topic.description}
+                          </CardDescription>
 
-                        <Button variant="ghost" className="w-full group-hover:bg-primary/10 group-hover:text-primary transition-colors">
-                          Artikel lesen →
-                        </Button>
-                      </CardContent>
-                    </Card>
-                  </Link>
-                ))}
-              </div>
+                          <div className="flex items-center gap-4 text-xs text-muted-foreground pt-4 border-t">
+                            <div className="flex items-center gap-1">
+                              <BookOpen className="w-3 h-3" />
+                              <span>{topic.lastUpdated}</span>
+                            </div>
+                          </div>
+
+                          <Button variant="ghost" className="w-full group-hover:bg-primary/10 group-hover:text-primary transition-colors">
+                            Artikel lesen →
+                          </Button>
+                        </CardContent>
+                      </Card>
+                    </Link>
+                  ))}
+                </div>
+              ) : (
+                <div className="text-center py-16">
+                  <div className="text-6xl mb-4">📚</div>
+                  <h3 className="text-2xl font-bold mb-3">Neue Artikel kommen bald</h3>
+                  <p className="text-muted-foreground max-w-lg mx-auto mb-6">
+                    Wir arbeiten an fundierten Fachartikeln rund um ChatGPT, Prompt Engineering und den produktiven Einsatz von KI im Unternehmen. Schauen Sie bald wieder vorbei!
+                  </p>
+                  <Button asChild>
+                    <Link to="/#contact">Kontaktieren Sie uns</Link>
+                  </Button>
+                </div>
+              )}
             </div>
           </div>
         </section>

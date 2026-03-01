@@ -20,193 +20,128 @@ interface ModuleCategory {
   modules: TrainingModule[];
 }
 
-type CopilotTier = "free" | "paid";
+type ChatGPTTier = "free" | "paid";
 
 interface TrainingModule {
   id: string;
   title: string;
   category: string;
-  tiers: CopilotTier[];
+  tiers: ChatGPTTier[];
 }
 
 // Alle auswählbaren Trainingsmodule - konsistent mit TrainingModules.tsx
 const moduleCategories: ModuleCategory[] = [
   {
-    id: "m365-basics",
-    title: "Microsoft 365 Copilot Grundlagen",
-    description: "Einstieg in die produktive Nutzung von Copilot – Prompt Engineering und KI-Kompetenz",
+    id: "chatgpt-basics",
+    title: "ChatGPT Grundlagen",
+    description: "Einstieg in die produktive Nutzung von ChatGPT – Prompt Engineering und KI-Kompetenz",
     modules: [
-      { id: "prompt-basics", title: "Prompt Engineering Grundlagen: Struktur, Kontext, Beispiele", tiers: ["free", "paid"], category: "m365-basics" },
-      { id: "iterative-prompting", title: "Iteratives Prompting: Ergebnisse verfeinern, nachfragen, vertiefen", tiers: ["free", "paid"], category: "m365-basics" },
-      { id: "copilot-chat-research", title: "Copilot Chat für Recherche: Web-Suche, Zusammenfassungen, Faktenprüfung", tiers: ["free"], category: "m365-basics" },
-      { id: "text-work", title: "Textarbeit mit KI: Schreiben, Umformulieren, Kürzen, Übersetzen", tiers: ["free", "paid"], category: "m365-basics" },
-      { id: "creative-ai", title: "Kreative Anwendungen: Brainstorming, Ideengenerierung, Perspektivwechsel", tiers: ["free", "paid"], category: "m365-basics" },
-      { id: "ai-output-eval", title: "KI-Output kritisch bewerten: Halluzinationen erkennen, Grenzen verstehen", tiers: ["free", "paid"], category: "m365-basics" },
-      { id: "prompt-library", title: "Eigene Prompt-Bibliothek aufbauen: Templates für wiederkehrende Aufgaben", tiers: ["free", "paid"], category: "m365-basics" },
+      { id: "prompt-basics", title: "Prompt Engineering Grundlagen: Struktur, Kontext, Beispiele", tiers: ["free", "paid"], category: "chatgpt-basics" },
+      { id: "iterative-prompting", title: "Iteratives Prompting: Ergebnisse verfeinern, nachfragen, vertiefen", tiers: ["free", "paid"], category: "chatgpt-basics" },
+      { id: "web-search", title: "ChatGPT Web Search für Recherche: Web-Suche, Zusammenfassungen, Faktenprüfung", tiers: ["free"], category: "chatgpt-basics" },
+      { id: "text-work", title: "Textarbeit mit KI: Schreiben, Umformulieren, Kürzen, Übersetzen", tiers: ["free", "paid"], category: "chatgpt-basics" },
+      { id: "creative-ai", title: "Kreative Anwendungen: Brainstorming, Ideengenerierung, Perspektivwechsel", tiers: ["free", "paid"], category: "chatgpt-basics" },
+      { id: "ai-output-eval", title: "KI-Output kritisch bewerten: Halluzinationen erkennen, Grenzen verstehen", tiers: ["free", "paid"], category: "chatgpt-basics" },
+      { id: "prompt-library", title: "Eigene Prompt-Bibliothek aufbauen: Templates für wiederkehrende Aufgaben", tiers: ["free", "paid"], category: "chatgpt-basics" },
     ]
   },
   {
-    id: "m365-apps",
-    title: "Microsoft 365 Copilot in den Apps",
-    description: "Copilot in Word, Excel, PowerPoint, Outlook und Teams produktiv nutzen",
+    id: "chatgpt-advanced",
+    title: "ChatGPT für Fortgeschrittene",
+    description: "Erweiterte Features und Premium-Funktionen meistern – Datenanalyse, Code Interpreter, DALL-E",
     modules: [
-      { id: "word-copilot", title: "Copilot in Word: Dokumente erstellen, überarbeiten, zusammenfassen, formatieren", tiers: ["paid"], category: "m365-apps" },
-      { id: "excel-copilot", title: "Copilot in Excel: Formeln generieren, Daten analysieren, Pivot-Tabellen, Insights", tiers: ["paid"], category: "m365-apps" },
-      { id: "ppt-copilot", title: "Copilot in PowerPoint: Präsentationen aus Briefings erstellen, Design optimieren", tiers: ["paid"], category: "m365-apps" },
-      { id: "outlook-copilot", title: "Copilot in Outlook: E-Mail-Entwürfe, Postfach organisieren, Meeting-Follow-ups", tiers: ["paid"], category: "m365-apps" },
-      { id: "teams-copilot", title: "Copilot in Teams: Meetings zusammenfassen, Aktionspunkte, Chat durchsuchen", tiers: ["paid"], category: "m365-apps" },
-      { id: "cross-app", title: "Cross-App-Workflows: Dokumente aus E-Mails, Präsentationen aus Word-Texten", tiers: ["paid"], category: "m365-apps" },
-      { id: "office-prompts", title: "Prompt Engineering für Office: App-spezifische Prompts, die funktionieren", tiers: ["paid"], category: "m365-apps" },
+      { id: "data-analysis", title: "Datenanalyse mit ChatGPT: Dateien hochladen, Auswertungen, Visualisierungen", tiers: ["paid"], category: "chatgpt-advanced" },
+      { id: "code-interpreter", title: "Code Interpreter: Python-Code ausführen, Ergebnisse analysieren, Automatisierung", tiers: ["paid"], category: "chatgpt-advanced" },
+      { id: "dalle-generation", title: "Bildgenerierung mit DALL-E 3: Prompts for visuals, Variationen, Batch-Generierung", tiers: ["paid"], category: "chatgpt-advanced" },
+      { id: "advanced-prompting", title: "Advanced Prompting Techniken: Chain-of-Thought, Few-Shot Learning, Role-Playing", tiers: ["paid"], category: "chatgpt-advanced" },
+      { id: "multi-turn-convos", title: "Multi-Turn-Konversationen: Komplexe Dialoge, Kontextgeflecht, Zusammenhänge bewahren", tiers: ["paid"], category: "chatgpt-advanced" },
+      { id: "file-handling", title: "File Handling & Batch-Processing: Mehrere Dateien verarbeiten, Export, Formate", tiers: ["paid"], category: "chatgpt-advanced" },
     ]
   },
   {
-    id: "m365-advanced",
-    title: "Ausbildung zum KI-unterstützten Wissensarbeiter",
-    description: "Umfassendes Programm von den Grundlagen bis zum Expertenniveau",
+    id: "chatgpt-office",
+    title: "ChatGPT im Arbeitsalltag",
+    description: "ChatGPT für Ihre tägliche Arbeit – E-Mails, Meetings, Reporting, Projektmanagement",
     modules: [
-      { id: "llm-basics", title: "Grundlagen-Modul: Wie LLMs funktionieren, Möglichkeiten und Grenzen", tiers: ["paid"], category: "m365-advanced" },
-      { id: "copilot-mastery", title: "Copilot Chat Mastery: Komplexe Recherchen, Zusammenfassungen, Faktencheck", tiers: ["paid"], category: "m365-advanced" },
-      { id: "prompt-intensive", title: "Prompt Engineering Intensiv: Few-Shot Learning, Chain-of-Thought", tiers: ["paid"], category: "m365-advanced" },
-      { id: "data-reporting", title: "Datenanalyse & Reporting: Komplexe Excel-Analysen, automatisierte Reports", tiers: ["paid"], category: "m365-advanced" },
-      { id: "usecase-workshop", title: "Use Case Workshop: 10+ reale Szenarien aus Vertrieb, Marketing, HR, Finance", tiers: ["paid"], category: "m365-advanced" },
-      { id: "peer-learning", title: "Peer Learning & Gruppenarbeit: Best Practices teilen, gemeinsam Probleme lösen", tiers: ["paid"], category: "m365-advanced" },
-      { id: "certificate", title: "Zertifikat: Nachweis Ihrer KI-Kompetenz für HR und Personalentwicklung", tiers: ["paid"], category: "m365-advanced" },
+      { id: "email-templates", title: "E-Mail-Vorlagen & -Schreiben: Professional Emails, Follow-ups, Templates", tiers: ["free", "paid"], category: "chatgpt-office" },
+      { id: "meeting-prep", title: "Meeting-Vorbereitung: Agendas, Unterlagen, Talking Points generieren", tiers: ["free", "paid"], category: "chatgpt-office" },
+      { id: "reporting", title: "Reporting & Dashboards: Status-Reports, Monatsberichte, Präsentationen", tiers: ["free", "paid"], category: "chatgpt-office" },
+      { id: "project-mgmt", title: "Projektmanagement-Support: Zeitpläne, Meilensteine, Risiko-Analyse, Dokumentation", tiers: ["free", "paid"], category: "chatgpt-office" },
+      { id: "summaries", title: "Zusammenfassungen & Notizen: Meetings, Dokumente, E-Mails zusammenfassen", tiers: ["free", "paid"], category: "chatgpt-office" },
+      { id: "translations", title: "Professionelle Übersetzungen: Business Documents, E-Mails, multilingual Communication", tiers: ["free", "paid"], category: "chatgpt-office" },
+      { id: "content-calendars", title: "Content-Planung: Editorial Calendars, Social Media Posts, Newsletter", tiers: ["free", "paid"], category: "chatgpt-office" },
     ]
   },
   {
-    id: "lernreise",
-    title: "Copilot Lernreise (8 Wochen)",
-    description: "Begleitete Lernreise für nachhaltigen Kompetenzaufbau",
+    id: "custom-gpts",
+    title: "Custom GPTs & Automatisierung",
+    description: "Erstellen Sie Ihre eigenen ChatGPT-Versionen für spezifische Use Cases",
     modules: [
-      { id: "woche1", title: "Woche 1: Copilot Grundlagen – Interface, erste Prompts + Use Case: E-Mail-Zusammenfassungen", tiers: ["paid"], category: "lernreise" },
-      { id: "woche2", title: "Woche 2: Copilot in Word – Dokumente erstellen + Use Case: Protokoll aus Meeting-Notizen", tiers: ["paid"], category: "lernreise" },
-      { id: "woche3", title: "Woche 3: Copilot in Excel – Datenanalyse, Formeln + Use Case: Monatsbericht automatisieren", tiers: ["paid"], category: "lernreise" },
-      { id: "woche4", title: "Woche 4: Copilot in PowerPoint + Use Case: Pitch-Deck aus Briefing", tiers: ["paid"], category: "lernreise" },
-      { id: "woche5", title: "Woche 5: Copilot in Outlook + Use Case: Wöchentliche Status-Mail automatisieren", tiers: ["paid"], category: "lernreise" },
-      { id: "woche6", title: "Woche 6: Copilot in Teams + Use Case: Meeting-Follow-ups automatisieren", tiers: ["paid"], category: "lernreise" },
-      { id: "woche7", title: "Woche 7: Advanced Prompting + Use Case: Persönliche Prompt-Bibliothek", tiers: ["paid"], category: "lernreise" },
-      { id: "woche8", title: "Woche 8: Integration & Workflow + Use Case: End-to-End-Workflow entwickeln", tiers: ["paid"], category: "lernreise" },
-    ]
-  },
-  {
-    id: "github",
-    title: "GitHub Copilot für Entwickler",
-    description: "KI-gestützte Softwareentwicklung mit GitHub Copilot",
-    modules: [
-      { id: "stack-setup", title: "Stack Setup & Konfiguration: IDE-Einrichtung, Extensions, Team-Policies", tiers: ["free", "paid"], category: "github" },
-      { id: "code-gen", title: "Effiziente Code-Generierung: Funktionen, Klassen, APIs – sprachunabhängig", tiers: ["free", "paid"], category: "github" },
-      { id: "debugging", title: "Intelligentes Debugging und Refactoring: Fehler identifizieren, Legacy-Code modernisieren", tiers: ["free", "paid"], category: "github" },
-      { id: "documentation", title: "Automatisierte Code-Dokumentation: Kommentare, README, API-Docs, Changelogs", tiers: ["free", "paid"], category: "github" },
-      { id: "testing", title: "Unit Tests schreiben mit Copilot: Test-Cases, Code-Coverage, TDD", tiers: ["free", "paid"], category: "github" },
-      { id: "copilot-chat-agent", title: "Copilot Chat & Agent Mode: Multi-File-Refactoring, Workspace-Verständnis", tiers: ["free", "paid"], category: "github" },
-      { id: "dev-workflows", title: "Optimierte Developer Workflows: Git, PR-Beschreibungen, Commit Messages, Code Reviews", tiers: ["free", "paid"], category: "github" },
-      { id: "security", title: "Security und Code Quality: Sicherheitslücken identifizieren, SAST-Integration", tiers: ["free", "paid"], category: "github" },
-      { id: "cicd", title: "CI/CD Integration: Copilot in Pipelines, GitHub Actions mit Copilot-Support", tiers: ["free", "paid"], category: "github" },
-      { id: "team-config", title: "Team-Konfiguration: Business/Enterprise Features, Policies, Content Exclusions", tiers: ["paid"], category: "github" },
+      { id: "custom-gpts-basics", title: "Custom GPTs erstellen: Builder-Interface, Instructions, Knowledge hochladen", tiers: ["paid"], category: "custom-gpts" },
+      { id: "gpt-actions", title: "GPT Actions & API-Integration: External APIs anbinden, Workflows automatisieren", tiers: ["paid"], category: "custom-gpts" },
+      { id: "knowledge-upload", title: "Knowledge Base aufbauen: PDFs, Docs, Interne Wissensquellen integrieren", tiers: ["paid"], category: "custom-gpts" },
+      { id: "workflow-automation", title: "Workflow-Automatisierung: Geschäftsprozesse mit Custom GPTs digitalisieren", tiers: ["paid"], category: "custom-gpts" },
+      { id: "internal-chatbots", title: "Interne Chatbots: Employee Support, FAQ-Automatisierung, Self-Service", tiers: ["paid"], category: "custom-gpts" },
+      { id: "gpt-governance", title: "Governance & Sharing: Team-GPTs, Rollen, Berechtigungen verwalten", tiers: ["paid"], category: "custom-gpts" },
+      { id: "custom-gpt-examples", title: "Use Case Vorlagen: Sales Assistant, Customer Support, HR Bot, Content Generator", tiers: ["paid"], category: "custom-gpts" },
     ]
   },
   {
     id: "compliance",
     title: "Compliance, Recht & EU AI Act",
-    description: "DSGVO-konforme und rechtssichere KI-Nutzung im Unternehmen",
+    description: "DSGVO-konforme und rechtssichere ChatGPT-Nutzung im Unternehmen",
     modules: [
-      { id: "dsgvo", title: "DSGVO-konforme Copilot-Nutzung: Rechtsgrundlagen, Dokumentationspflichten", tiers: ["free", "paid"], category: "compliance" },
+      { id: "dsgvo", title: "DSGVO-konforme ChatGPT-Nutzung: Rechtsgrundlagen, Dokumentationspflichten", tiers: ["free", "paid"], category: "compliance" },
       { id: "eu-ai-act", title: "EU AI Act Grundlagen: Anwendungsbereich, Risikoklassifizierung, Pflichten", tiers: ["free", "paid"], category: "compliance" },
       { id: "ai-kompetenz", title: "Artikel 4 KI-Kompetenz: Was der Gesetzgeber fordert, Anforderungen erfüllen", tiers: ["free", "paid"], category: "compliance" },
-      { id: "dpia", title: "Datenschutz-Impact-Assessment: Risiken identifizieren, Maßnahmen definieren", tiers: ["free", "paid"], category: "compliance" },
-      { id: "security-arch", title: "Microsoft 365 Sicherheitsarchitektur: Datenflüsse, Verschlüsselung, Audit-Logs", tiers: ["paid"], category: "compliance" },
-      { id: "sensitive-data", title: "Umgang mit sensiblen Daten: Klassifizierung, Information Protection, DLP", tiers: ["paid"], category: "compliance" },
-      { id: "legal", title: "Rechtliche Aspekte: Urheberrecht, Haftungsfragen, Vertragsgestaltung", tiers: ["free", "paid"], category: "compliance" },
+      { id: "data-protection", title: "Datenschutz-Impact-Assessment: Risiken identifizieren, Maßnahmen definieren", tiers: ["free", "paid"], category: "compliance" },
+      { id: "openai-security", title: "OpenAI Sicherheitsarchitektur: Datenflüsse, Verschlüsselung, Audit-Logs, Privacy", tiers: ["paid"], category: "compliance" },
+      { id: "sensitive-data", title: "Umgang mit sensiblen Daten: Was darf rein, was nicht – Klassifizierung, Policies", tiers: ["paid"], category: "compliance" },
+      { id: "legal-ip", title: "Rechtliche Aspekte: Urheberrecht, Haftungsfragen, Vertragsgestaltung, IP-Rechte", tiers: ["free", "paid"], category: "compliance" },
       { id: "eu-ai-certificate", title: "Schulungszertifikat gemäß EU AI Act für Audits und Behörden", tiers: ["free", "paid"], category: "compliance" },
     ]
   },
   {
     id: "strategy",
     title: "Strategie & Change Management",
-    description: "Erfolgreiche Einführung und Skalierung von Copilot im Unternehmen",
+    description: "Erfolgreiche Einführung und Skalierung von ChatGPT im Unternehmen",
     modules: [
-      { id: "process-analysis", title: "Prozessanalyse: Wo generiert Copilot den größten Mehrwert?", tiers: ["free", "paid"], category: "strategy" },
-      { id: "roi", title: "ROI-Berechnung und Business Case: Kosteneinsparungen quantifizieren", tiers: ["free", "paid"], category: "strategy" },
+      { id: "process-analysis", title: "Prozessanalyse: Wo generiert ChatGPT den größten Mehrwert?", tiers: ["free", "paid"], category: "strategy" },
+      { id: "roi-calculation", title: "ROI-Berechnung und Business Case: Kosteneinsparungen quantifizieren, Timeframes", tiers: ["free", "paid"], category: "strategy" },
       { id: "rollout-plan", title: "Phasenweiser Rollout-Plan: Pilot-Gruppen, Erfolgskriterien, Skalierung", tiers: ["free", "paid"], category: "strategy" },
       { id: "change-mgmt", title: "Change Management und Adoption: Widerstände überwinden, Champions aufbauen", tiers: ["free", "paid"], category: "strategy" },
-      { id: "governance", title: "Governance Framework: Policies definieren, Verantwortlichkeiten klären", tiers: ["free", "paid"], category: "strategy" },
-      { id: "kpis", title: "Success Metrics und KPIs: Nutzung messen, Produktivität tracken", tiers: ["free", "paid"], category: "strategy" },
-      { id: "best-practices", title: "Best Practices aus erfolgreichen Copilot-Rollouts: Lessons Learned", tiers: ["free", "paid"], category: "strategy" },
-    ]
-  },
-  {
-    id: "copilot-studio",
-    title: "Copilot Studio & KI-Agenten",
-    description: "Entwicklung eigener KI-Agenten und Chatbots",
-    modules: [
-      { id: "studio-basics", title: "Copilot Studio Grundlagen: Plattform-Überblick, Entwicklungsumgebung", tiers: ["paid"], category: "copilot-studio" },
-      { id: "custom-agents", title: "Custom Agents für Teams: Conversational AI, Natural Language Processing", tiers: ["paid"], category: "copilot-studio" },
-      { id: "data-integration", title: "Integration mit Unternehmensdaten: SharePoint, Dataverse, externe APIs", tiers: ["paid"], category: "copilot-studio" },
-      { id: "power-automate", title: "Workflow-Automatisierung mit Power Automate: Geschäftsprozesse digitalisieren", tiers: ["paid"], category: "copilot-studio" },
-      { id: "agent-prompts", title: "Prompt Engineering für Agenten: Systemanweisungen, Guardrails", tiers: ["paid"], category: "copilot-studio" },
-      { id: "chatbot-design", title: "Chatbot-Design: Conversation Flow, Intents, Antworten strukturieren", tiers: ["paid"], category: "copilot-studio" },
-      { id: "knowledge-sources", title: "Anbindung interner Wissensquellen: SharePoint, FAQ-Dokumente, Wiki", tiers: ["paid"], category: "copilot-studio" },
-      { id: "chatbot-deployment", title: "Live-Deployment in Teams: Berechtigungen, Testing, Monitoring", tiers: ["paid"], category: "copilot-studio" },
-    ]
-  },
-  {
-    id: "lowcode",
-    title: "Low-Code & Power Platform",
-    description: "Apps und Workflows ohne traditionelle Programmierung",
-    modules: [
-      { id: "power-apps", title: "Low-Code mit Power Apps: Apps per natürlicher Sprache erstellen", tiers: ["paid"], category: "lowcode" },
-      { id: "process-automation", title: "Geschäftsprozess-Automatisierung: Workflows, Genehmigungsprozesse", tiers: ["paid"], category: "lowcode" },
-      { id: "copilot-assistant", title: "Copilot als Entwicklungs-Assistent: Code-Generierung, Fehlersuche", tiers: ["paid"], category: "lowcode" },
-      { id: "dataverse", title: "Datenmodellierung mit Dataverse: Tabellen, Beziehungen, Business Rules", tiers: ["paid"], category: "lowcode" },
-      { id: "m365-integration", title: "Integration mit Microsoft 365: SharePoint, Teams, Outlook, Excel verbinden", tiers: ["paid"], category: "lowcode" },
-      { id: "citizen-dev", title: "Best Practices für Citizen Development: Governance, Wartbarkeit, Sicherheit", tiers: ["paid"], category: "lowcode" },
+      { id: "governance", title: "Governance Framework: Policies definieren, Verantwortlichkeiten klären, Audit Trails", tiers: ["free", "paid"], category: "strategy" },
+      { id: "kpis", title: "Success Metrics und KPIs: Nutzung messen, Produktivität tracken, Performance Monitoring", tiers: ["free", "paid"], category: "strategy" },
+      { id: "best-practices", title: "Best Practices aus erfolgreichen ChatGPT-Rollouts: Lessons Learned, Fallstudien", tiers: ["free", "paid"], category: "strategy" },
     ]
   },
   {
     id: "events-workshops",
     title: "Events, Workshops & Keynotes",
-    description: "Hackathons, Keynotes, Eventtage – für maximales Engagement",
+    description: "Hackathons, Keynotes, Eventtage – für maximales Engagement und Lerneffekt",
     modules: [
-      { id: "hackathon-format", title: "Copilot Hackathon: Teambildung, Challenge-Briefing, Arbeitsphase, Pitch", tiers: ["free", "paid"], category: "events-workshops" },
-      { id: "hackathon-ideation", title: "Use Case Ideation: Geschäftsprobleme identifizieren und mit Copilot lösen", tiers: ["free", "paid"], category: "events-workshops" },
-      { id: "prompt-battle", title: "Prompt Engineering Battle: Wer entwickelt die effektivsten Prompts?", tiers: ["free", "paid"], category: "events-workshops" },
+      { id: "hackathon-format", title: "ChatGPT Hackathon: Teambildung, Challenge-Briefing, Arbeitsphase, Pitch", tiers: ["free", "paid"], category: "events-workshops" },
+      { id: "hackathon-ideation", title: "Use Case Ideation Workshop: Geschäftsprobleme mit ChatGPT lösen", tiers: ["free", "paid"], category: "events-workshops" },
+      { id: "prompt-battle", title: "Prompt Engineering Battle: Wer entwickelt die effektivsten Prompts? Wettbewerb mit Preisen", tiers: ["free", "paid"], category: "events-workshops" },
       { id: "keynote-vision", title: "Keynote: Die Zukunft der Wissensarbeit mit KI – was kommt auf uns zu?", tiers: ["free", "paid"], category: "events-workshops" },
-      { id: "keynote-demos", title: "Live-Demonstrationen: Beeindruckende Use Cases aus Word, Excel, PowerPoint, Teams", tiers: ["free", "paid"], category: "events-workshops" },
-      { id: "keynote-success", title: "Erfolgsfaktoren: Was unterscheidet erfolgreiche Copilot-Einführungen?", tiers: ["free", "paid"], category: "events-workshops" },
-      { id: "launch-infostand", title: "Eventtag: Professioneller Infostand mit kompetenten Ansprechpartnern", tiers: ["free", "paid"], category: "events-workshops" },
-      { id: "launch-challenges", title: "Eventtag: Interaktive KI-Challenges und Gamification mit Preisen", tiers: ["free", "paid"], category: "events-workshops" },
-      { id: "launch-handson", title: "Eventtag: Hands-on Stationen zum Ausprobieren unter Anleitung", tiers: ["free", "paid"], category: "events-workshops" },
-      { id: "launch-materials", title: "Eventtag: Hochwertige Infomaterialien, Cheat Sheets, Quick Guides", tiers: ["free", "paid"], category: "events-workshops" },
+      { id: "keynote-live-demos", title: "Live-Demonstrationen: Beeindruckende ChatGPT Use Cases in Action", tiers: ["free", "paid"], category: "events-workshops" },
+      { id: "launch-event", title: "Launch Event: Multistation Eventtag mit Keynote, Hands-on, Challenges, Networking", tiers: ["free", "paid"], category: "events-workshops" },
+      { id: "gamification", title: "Gamification & Interaktive Challenges: KI-Rätsel, Quizze, Leaderboards, Preise", tiers: ["free", "paid"], category: "events-workshops" },
     ]
   },
   {
-    id: "individual",
-    title: "Individuelle Schulungen nach Maß",
-    description: "Maßgeschneiderte Trainings für Ihre Branche und Anforderungen",
+    id: "lernreise",
+    title: "ChatGPT Lernreise (8 Wochen)",
+    description: "Begleitete Lernreise für nachhaltigen Kompetenzaufbau – von den Basics zum Experten",
     modules: [
-      { id: "dept-sales", title: "Abteilungsspezifisch: Vertrieb – Angebote, Proposals, CRM-Integration", tiers: ["free", "paid"], category: "individual" },
-      { id: "dept-marketing", title: "Abteilungsspezifisch: Marketing – Content, Kampagnen, Social Media", tiers: ["free", "paid"], category: "individual" },
-      { id: "dept-hr", title: "Abteilungsspezifisch: HR – Recruiting, Onboarding, Personalentwicklung", tiers: ["free", "paid"], category: "individual" },
-      { id: "dept-finance", title: "Abteilungsspezifisch: Finance – Reporting, Analyse, Budgetierung", tiers: ["free", "paid"], category: "individual" },
-      { id: "industry-specific", title: "Branchenspezifische Use Cases: Fertigung, Healthcare, Finance, Handel", tiers: ["free", "paid"], category: "individual" },
-      { id: "real-data", title: "Training mit Ihren echten Unternehmensdaten und -prozessen", tiers: ["free", "paid"], category: "individual" },
-      { id: "train-trainer", title: "Train-the-Trainer: Interne Multiplikatoren ausbilden", tiers: ["free", "paid"], category: "individual" },
-      { id: "follow-up", title: "Follow-up Sessions: Refresher-Trainings, Coaching, kontinuierliche Begleitung", tiers: ["free", "paid"], category: "individual" },
-    ]
-  },
-  {
-    id: "certification",
-    title: "Prüfungen & Zertifizierungen",
-    description: "Customized Quizze, Prüfungen und aufbauende Zertifizierungsprogramme für nachweisbare Kompetenz",
-    modules: [
-      { id: "custom-quiz", title: "Customized Quiz: Individuelle Wissenstests mit praxisnahen Fragen", tiers: ["free", "paid"], category: "certification" },
-      { id: "hands-on-exam", title: "Hands-On-Prüfung: Praktische Aufgaben mit echtem Copilot-Einsatz", tiers: ["free", "paid"], category: "certification" },
-      { id: "cert-foundation", title: "Zertifikat 'Copilot in der Praxis I – Foundation' (Beginner)", tiers: ["free", "paid"], category: "certification" },
-      { id: "cert-advanced", title: "Zertifikat 'Copilot in der Praxis II – Advanced'", tiers: ["paid"], category: "certification" },
-      { id: "cert-professional", title: "Zertifikat 'Copilot in der Praxis III – Professional' (Pro)", tiers: ["paid"], category: "certification" },
-      { id: "cert-expert", title: "Zertifikat 'Copilot in der Praxis IV – Expert'", tiers: ["paid"], category: "certification" },
-      { id: "company-report", title: "Unternehmens-Report: Kompetenz-Übersicht aller zertifizierten Mitarbeiter", tiers: ["free", "paid"], category: "certification" },
-      { id: "eu-ai-act-cert", title: "EU AI Act Compliance-Zertifikat: Nachweis gemäß Artikel 4 KI-Kompetenz", tiers: ["free", "paid"], category: "certification" },
+      { id: "woche1", title: "Woche 1: ChatGPT Grundlagen – Interface, erste Prompts + Use Case: E-Mail-Zusammenfassungen", tiers: ["paid"], category: "lernreise" },
+      { id: "woche2", title: "Woche 2: Prompt Engineering Mastery + Use Case: Textoptimierung und Übersetzungen", tiers: ["paid"], category: "lernreise" },
+      { id: "woche3", title: "Woche 3: Web Search & Recherche + Use Case: Marktanalysen und Competitive Intelligence", tiers: ["paid"], category: "lernreise" },
+      { id: "woche4", title: "Woche 4: Kreative Anwendungen + Use Case: Content-Generierung und Ideenfindung", tiers: ["paid"], category: "lernreise" },
+      { id: "woche5", title: "Woche 5: Code Interpreter & Datenanalyse + Use Case: Automatisierte Reports", tiers: ["paid"], category: "lernreise" },
+      { id: "woche6", title: "Woche 6: DALL-E & Bildgenerierung + Use Case: Visual Content erstellen", tiers: ["paid"], category: "lernreise" },
+      { id: "woche7", title: "Woche 7: Custom GPTs & Automatisierung + Use Case: Eigenen KI-Assistent bauen", tiers: ["paid"], category: "lernreise" },
+      { id: "woche8", title: "Woche 8: Compliance, Strategie & Skalierung + Use Case: Rollout-Plan für Ihr Team", tiers: ["paid"], category: "lernreise" },
     ]
   },
 ];
@@ -218,8 +153,8 @@ type TierFilter = "all" | "free" | "paid";
 
 const tierFilterOptions: { value: TierFilter; label: string }[] = [
   { value: "all", label: "Alle Module" },
-  { value: "free", label: "Copilot Free" },
-  { value: "paid", label: "Copilot Paid" },
+  { value: "free", label: "ChatGPT Free" },
+  { value: "paid", label: "ChatGPT Paid" },
 ];
 
 interface FormData {
@@ -500,8 +435,8 @@ ${formData.additionalInfo ? `---\nINFORMATIONEN UND WEITERE BENÖTIGTE INHALTE:\
   return (
     <div className="min-h-screen">
       <SEOHead
-        title="Training Konfigurator | Copilot Schulungen individuell zusammenstellen"
-        description="Stellen Sie Ihr individuelles Microsoft Copilot Training zusammen. Wählen Sie aus unseren Modulen und erhalten Sie ein maßgeschneidertes Angebot."
+        title="Training Konfigurator | ChatGPT Schulungen individuell zusammenstellen"
+        description="Stellen Sie Ihr individuelles ChatGPT Training zusammen. Wählen Sie aus unseren Modulen und erhalten Sie ein maßgeschneidertes Angebot."
         canonicalUrl="https://chatgpt-trainings.de/training-konfigurator"
       />
       <Header />
@@ -514,7 +449,7 @@ ${formData.additionalInfo ? `---\nINFORMATIONEN UND WEITERE BENÖTIGTE INHALTE:\
               Training Konfigurator
             </h1>
             <p className="mt-6 text-xl text-muted-foreground max-w-3xl mx-auto mb-6 animate-slide-up-delayed">
-              Stellen Sie Ihr individuelles Copilot-Training zusammen.
+              Stellen Sie Ihr individuelles ChatGPT-Training zusammen.
               Wählen Sie die Module, die für Ihr Team relevant sind, und erhalten Sie ein maßgeschneidertes Angebot.
             </p>
 
@@ -524,15 +459,15 @@ ${formData.additionalInfo ? `---\nINFORMATIONEN UND WEITERE BENÖTIGTE INHALTE:\
               <div className="flex flex-col sm:flex-row items-center gap-3">
                 <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-50 border border-emerald-200">
                   <Badge className="bg-emerald-100 text-emerald-700 border-emerald-200 hover:bg-emerald-100 text-[11px] px-2 py-0.5">
-                    Copilot Free
+                    ChatGPT Free
                   </Badge>
-                  <span className="text-sm text-muted-foreground">Microsoft 365 Copilot Chat (Websuche, kostenlos)</span>
+                  <span className="text-sm text-muted-foreground">ChatGPT Free (Websuche, kostenlos)</span>
                 </div>
                 <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-50 border border-blue-200">
                   <Badge className="bg-blue-100 text-blue-700 border-blue-200 hover:bg-blue-100 text-[11px] px-2 py-0.5">
-                    Copilot Paid
+                    ChatGPT Paid
                   </Badge>
-                  <span className="text-sm text-muted-foreground">Microsoft 365 Copilot mit Lizenz (Grounding, M365-Integration)</span>
+                  <span className="text-sm text-muted-foreground">ChatGPT Plus/Team/Enterprise (erweiterte Features)</span>
                 </div>
               </div>
 
@@ -544,14 +479,14 @@ ${formData.additionalInfo ? `---\nINFORMATIONEN UND WEITERE BENÖTIGTE INHALTE:\
                     className="flex items-center gap-2 px-4 py-2 rounded-lg border border-primary/30 bg-primary/5 hover:bg-primary/10 text-sm font-medium text-primary transition-all duration-200 hover:scale-105"
                   >
                     <HelpCircle className="w-4 h-4" />
-                    Welchen Copilot habe ich?
+                    Welche ChatGPT-Version habe ich?
                   </button>
                 ) : (
                   <div className="w-80 p-4 rounded-lg border border-primary/30 bg-card shadow-lg text-left animate-fade-in">
                     <div className="flex items-center justify-between mb-3">
                       <h4 className="font-semibold text-sm flex items-center gap-2">
                         <HelpCircle className="w-4 h-4 text-primary" />
-                        So finden Sie Ihr Copilot-Tier heraus
+                        So finden Sie Ihre ChatGPT-Version heraus
                       </h4>
                       <button
                         onClick={() => setShowTierHelp(false)}
@@ -561,11 +496,11 @@ ${formData.additionalInfo ? `---\nINFORMATIONEN UND WEITERE BENÖTIGTE INHALTE:\
                       </button>
                     </div>
                     <ol className="space-y-2 text-sm text-muted-foreground list-decimal list-inside">
-                      <li>Öffnen Sie <strong>Microsoft Copilot</strong> in Teams, Word oder im Browser (copilot.microsoft.com)</li>
-                      <li>Achten Sie auf den <strong>Toggle „Work / Web"</strong> oben im Chat. Sehen Sie diesen Schalter, haben Sie <strong>Copilot Paid</strong></li>
+                      <li>Öffnen Sie <strong>ChatGPT</strong> im Browser unter chatgpt.com oder in der App</li>
+                      <li>Prüfen Sie Ihren <strong>Account-Status</strong> in den Einstellungen. Sehen Sie dort "Plus", "Team" oder "Enterprise", haben Sie <strong>ChatGPT Paid</strong></li>
                       <li>Stellen Sie die Frage: <em>„Welche Termine habe ich heute?"</em></li>
-                      <li>Erhalten Sie Ihre <strong>echten Kalender-Termine</strong> als Antwort → <Badge className="bg-blue-100 text-blue-700 border-blue-200 hover:bg-blue-100 text-[11px] px-2 py-0.5">Copilot Paid</Badge></li>
-                      <li>Kommt <strong>keine Kalender-Antwort</strong> oder nur eine Web-Suche → <Badge className="bg-emerald-100 text-emerald-700 border-emerald-200 hover:bg-emerald-100 text-[11px] px-2 py-0.5">Copilot Free</Badge></li>
+                      <li>Sehen Sie <strong>alle Premium-Features</strong> wie Web Browsing, Code Interpreter oder File Uploads → <Badge className="bg-blue-100 text-blue-700 border-blue-200 hover:bg-blue-100 text-[11px] px-2 py-0.5">ChatGPT Paid</Badge></li>
+                      <li>Sehen Sie <strong>nur Standard-Features</strong> (nur Chat) → <Badge className="bg-emerald-100 text-emerald-700 border-emerald-200 hover:bg-emerald-100 text-[11px] px-2 py-0.5">ChatGPT Free</Badge></li>
                     </ol>
                     <button
                       onClick={() => setShowTierHelp(false)}
@@ -710,7 +645,7 @@ ${formData.additionalInfo ? `---\nINFORMATIONEN UND WEITERE BENÖTIGTE INHALTE:\
                     <CardContent className="pt-4">
                       <div className="flex gap-2 mb-4">
                         <Input
-                          placeholder="z.B. Copilot für Legal Teams, KI in der Produktion..."
+                          placeholder="z.B. ChatGPT für Legal Teams, KI in der Produktion..."
                           value={customModuleInput}
                           onChange={(e) => setCustomModuleInput(e.target.value)}
                           onKeyDown={(e) => e.key === 'Enter' && (e.preventDefault(), addCustomModule())}
@@ -930,7 +865,7 @@ ${formData.additionalInfo ? `---\nINFORMATIONEN UND WEITERE BENÖTIGTE INHALTE:\
 
                       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
                         <div className="space-y-2">
-                          <Label htmlFor="licenseType">Copilot Lizenztyp</Label>
+                          <Label htmlFor="licenseType">ChatGPT Lizenztyp</Label>
                           <Select
                             value={formData.licenseType}
                             onValueChange={(value) => handleInputChange('licenseType', value)}
@@ -939,8 +874,8 @@ ${formData.additionalInfo ? `---\nINFORMATIONEN UND WEITERE BENÖTIGTE INHALTE:\
                               <SelectValue placeholder="Bitte wählen" />
                             </SelectTrigger>
                             <SelectContent>
-                              <SelectItem value="free">Copilot Free</SelectItem>
-                              <SelectItem value="paid">Copilot mit Lizenz</SelectItem>
+                              <SelectItem value="free">ChatGPT Free</SelectItem>
+                              <SelectItem value="paid">ChatGPT mit Lizenz</SelectItem>
                               <SelectItem value="mixed">Gemischt (beides)</SelectItem>
                               <SelectItem value="unsure">Noch nicht bekannt</SelectItem>
                             </SelectContent>

@@ -1,6 +1,6 @@
-# Copilotenschule.de - Team Copilot Collective
+# ChatGPT-Trainings.de
 
-Website und Knowledge Base für Microsoft 365 Copilot Training und Beratung.
+Website für professionelle ChatGPT Trainings und Schulungen für Unternehmen. Eine Marke der Yellow-Boat Consulting.
 
 ## 🚀 Key Features
 

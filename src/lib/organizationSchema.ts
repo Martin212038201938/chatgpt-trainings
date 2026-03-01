@@ -9,8 +9,8 @@ export const founderSchema = {
   "@type": "Person",
   "@id": "https://chatgpt-trainings.de/#martin-lang",
   "name": "Martin Lang",
-  "jobTitle": "Gründer & Microsoft Copilot Experte",
-  "description": "Martin Lang ist Gründer der Yellow-Boat Consulting (2011) und der chatgpt-trainings.de (2025). Seit über einem Jahrzehnt realisiert er Agile Trainings und Digitalisierungsprojekte. Als Microsoft Copilot Experte befähigt er Wissensarbeiter, Teams und Organisationen, Microsoft Copilot produktiv und sicher einzusetzen.",
+  "jobTitle": "Gründer & ChatGPT Experte",
+  "description": "Martin Lang ist Gründer der Yellow-Boat Consulting (2011) und der chatgpt-trainings.de (2025). Seit über einem Jahrzehnt realisiert er Agile Trainings und Digitalisierungsprojekte. Als ChatGPT Experte befähigt er Wissensarbeiter, Teams und Organisationen, ChatGPT produktiv und sicher einzusetzen.",
   "url": "https://chatgpt-trainings.de/trainer/martin-lang",
   "image": {
     "@type": "ImageObject",
@@ -19,9 +19,9 @@ export const founderSchema = {
     "height": 400
   },
   "knowsAbout": [
-    "Microsoft 365 Copilot",
+    "ChatGPT",
     "GitHub Copilot",
-    "Microsoft Copilot Studio",
+    "ChatGPT & Custom GPTs",
     "Prompt Engineering",
     "Agile Transformation",
     "Change Management",
@@ -83,7 +83,7 @@ export const organizationSchema = {
     "@type": "ImageObject",
     "url": "https://chatgpt-trainings.de/logo.png"
   },
-  "description": "chatgpt-trainings.de bietet spezialisierte Microsoft Copilot Schulungen und Trainings für Unternehmen im DACH-Raum. Eine Marke der Yellow-Boat Consulting (gegründet 2011).",
+  "description": "chatgpt-trainings.de bietet spezialisierte ChatGPT Schulungen und Trainings für Unternehmen im DACH-Raum. Eine Marke der Yellow-Boat Consulting (gegründet 2011).",
   "foundingDate": "2025",
   "founder": {
     "@id": "https://chatgpt-trainings.de/#martin-lang"
@@ -119,9 +119,9 @@ export const organizationSchema = {
     "https://maps.app.goo.gl/JWTPeDLVeuDu9WiJ8"
   ],
   "knowsAbout": [
-    "Microsoft 365 Copilot",
+    "ChatGPT",
     "GitHub Copilot",
-    "Microsoft Copilot Studio",
+    "ChatGPT & Custom GPTs",
     "Prompt Engineering",
     "KI-Training für Unternehmen",
     "EU AI Act Compliance",
@@ -129,13 +129,13 @@ export const organizationSchema = {
   ],
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
-    "name": "Microsoft Copilot Trainings",
+    "name": "ChatGPT Trainings",
     "itemListElement": [
       {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Course",
-          "name": "Microsoft 365 Copilot Grundlagen-Training"
+          "name": "ChatGPT Grundlagen-Training"
         }
       },
       {
@@ -149,7 +149,7 @@ export const organizationSchema = {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Course",
-          "name": "Copilot Studio KI-Agenten Training"
+          "name": "Custom GPTs und KI-Agenten Training"
         }
       }
     ]

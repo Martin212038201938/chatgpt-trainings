@@ -15,8 +15,8 @@ require_once __DIR__ . '/config.php';
 $allowed_origins = [
     'http://localhost:5173',
     'http://localhost:4173',
-    'https://copilotenschule.de',
-    'https://www.copilotenschule.de',
+    'https://chatgpt-trainings.de',
+    'https://www.chatgpt-trainings.de',
     'https://y-b.alwaysdata.net'
 ];
 

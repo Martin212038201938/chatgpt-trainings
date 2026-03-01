@@ -69,7 +69,7 @@ $subject = $customSubject ? $customSubject : 'Neue Kontaktanfrage von ' . $name;
 $trainingSourceHtml = '';
 $trainingSourceText = '';
 if ($trainingSource) {
-    $fullUrl = 'https://copilotenschule.de' . $trainingSource;
+    $fullUrl = 'https://chatgpt-trainings.de' . $trainingSource;
     $trainingSourceHtml = "
     <div style='background-color: #e8f4f8; padding: 12px; border-left: 4px solid #0066cc; margin-bottom: 16px;'>
         <p style='margin: 0;'><strong>📍 Anfrage von Trainings-Seite:</strong></p>
@@ -125,11 +125,11 @@ $boundary = md5(time() . 'notification');
 $headers = array();
 $headers[] = 'MIME-Version: 1.0';
 $headers[] = 'Content-Type: multipart/alternative; boundary="' . $boundary . '"';
-$headers[] = 'From: Copilotenschule Kontaktformular <y-b@alwaysdata.net>';
+$headers[] = 'From: ChatGPT-Trainings Kontaktformular <y-b@alwaysdata.net>';
 $headers[] = 'Reply-To: ' . $name . ' <' . $email . '>';
 $headers[] = 'X-Mailer: PHP/' . phpversion();
 $headers[] = 'X-Originating-IP: ' . $ipAddress;
-$headers[] = 'X-Contact-Form: copilotenschule.de';
+$headers[] = 'X-Contact-Form: chatgpt-trainings.de';
 
 $body = "--{$boundary}\r\n";
 $body .= "Content-Type: text/plain; charset=UTF-8\r\n";
@@ -148,7 +148,7 @@ $notificationSent = mail($to, $subject, $body, implode("\r\n", $headers));
 // ============================================
 $confirmationUrl = SITE_URL . '/api/confirm-subscription.php?token=' . urlencode($confirmationToken);
 
-$customerSubject = 'Bitte bestätigen Sie Ihre E-Mail-Adresse - Copilotenschule';
+$customerSubject = 'Bitte bestätigen Sie Ihre E-Mail-Adresse - ChatGPT-Trainings';
 
 $customerHtmlBody = "
 <html>
@@ -166,7 +166,7 @@ $customerHtmlBody = "
 <body>
     <div class='container'>
         <div class='header'>
-            <h1>Copilotenschule</h1>
+            <h1>ChatGPT-Trainings</h1>
         </div>
         <div class='content'>
             <h2>Vielen Dank für Ihre Anfrage!</h2>
@@ -184,7 +184,7 @@ $customerHtmlBody = "
             <p><strong>Datenschutz:</strong> Ihre Daten werden gemäß DSGVO verarbeitet. Sie können Ihre Einwilligung jederzeit widerrufen.</p>
         </div>
         <div class='footer'>
-            <p>© " . date('Y') . " Copilotenschule | <a href='https://copilotenschule.de/impressum'>Impressum</a> | <a href='https://copilotenschule.de/datenschutz'>Datenschutz</a></p>
+            <p>© " . date('Y') . " ChatGPT-Trainings | <a href='https://chatgpt-trainings.de/impressum'>Impressum</a> | <a href='https://chatgpt-trainings.de/datenschutz'>Datenschutz</a></p>
         </div>
     </div>
 </body>
@@ -192,7 +192,7 @@ $customerHtmlBody = "
 ";
 
 $customerTextBody = "
-Copilotenschule - E-Mail-Bestätigung
+ChatGPT-Trainings - E-Mail-Bestätigung
 
 Hallo {$name},
 
@@ -207,15 +207,15 @@ Bestätigungslink:
 
 Datenschutz: Ihre Daten werden gemäß DSGVO verarbeitet. Sie können Ihre Einwilligung jederzeit widerrufen.
 
-© " . date('Y') . " Copilotenschule
+© " . date('Y') . " ChatGPT-Trainings
 ";
 
 $boundary2 = md5(time() . 'confirmation');
 $customerHeaders = array();
 $customerHeaders[] = 'MIME-Version: 1.0';
 $customerHeaders[] = 'Content-Type: multipart/alternative; boundary="' . $boundary2 . '"';
-$customerHeaders[] = 'From: Copilotenschule <info@copilotenschule.de>';
-$customerHeaders[] = 'Reply-To: Copilotenschule <info@copilotenschule.de>';
+$customerHeaders[] = 'From: ChatGPT-Trainings <info@chatgpt-trainings.de>';
+$customerHeaders[] = 'Reply-To: ChatGPT-Trainings <info@chatgpt-trainings.de>';
 $customerHeaders[] = 'X-Mailer: PHP/' . phpversion();
 
 $customerBody = "--{$boundary2}\r\n";
