@@ -63,8 +63,8 @@ const TIMELINE: TimelineEntry[] = [
   {
     date: "17. Dez. 2025",
     sortDate: "2025-12-17",
-    title: "Connectors werden zu „Apps"",
-    description: "OpenAI benennt die Connector-Integrationen in „Apps" um und führt ein App-Verzeichnis direkt in ChatGPT ein.",
+    title: "Connectors werden zu «Apps»",
+    description: "OpenAI benennt die Connector-Integrationen in «Apps» um und führt ein App-Verzeichnis direkt in ChatGPT ein.",
     category: "feature"
   },
   {
@@ -120,7 +120,7 @@ const TIMELINE: TimelineEntry[] = [
     date: "Apr. 2025",
     sortDate: "2025-04-01",
     title: "Erweitertes Memory-System",
-    description: "ChatGPT baut nun ein kontinuierliches Nutzerprofil aus dem Chatverlauf auf – über die bisherigen „Saved Memories" hinaus.",
+    description: "ChatGPT baut nun ein kontinuierliches Nutzerprofil aus dem Chatverlauf auf – über die bisherigen "Saved Memories" hinaus.",
     category: "feature"
   },
   {
@@ -148,7 +148,7 @@ const TIMELINE: TimelineEntry[] = [
     date: "13. Mai 2024",
     sortDate: "2024-05-13",
     title: "GPT-4o vorgestellt",
-    description: "Das „omni"-Modell kombiniert Text, Bild und Sprache in einem Modell. Schnellere Antworten, kostenloser Zugang für Free-Nutzer und neue Voice-Fähigkeiten.",
+    description: "Das "omni"-Modell kombiniert Text, Bild und Sprache in einem Modell. Schnellere Antworten, kostenloser Zugang für Free-Nutzer und neue Voice-Fähigkeiten.",
     category: "modell"
   },
   {
