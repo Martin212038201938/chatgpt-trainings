@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Building, Award, ArrowRight, ExternalLink } from "lucide-react";
 import ueberUns from "@/assets/ueber-uns.png";
+import heroImage from "@/assets/trainingsraum-nippes.png";
 
 const UeberUns = () => {
   const organizationSchema = {
@@ -136,55 +137,58 @@ const UeberUns = () => {
         schema={organizationSchema}
       />
       <Header />
-      <main className="pt-24 pb-16">
-        <div className="container mx-auto px-4">
-          {/* Hero Section - Apple-inspired clean design */}
-          <div className="max-w-4xl mx-auto text-center mb-16">
-            <h1 className="text-5xl lg:text-7xl font-semibold tracking-tight leading-[1.1]">
+
+      {/* Full-Width Hero mit Hintergrundbild */}
+      <section className="relative min-h-[70vh] flex items-center overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img
+            src={heroImage}
+            alt="Moderner Trainingsraum für ChatGPT-Schulungen"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20" />
+        </div>
+
+        <div className="container mx-auto px-4 relative z-10 py-20 sm:py-28">
+          <div className="max-w-3xl">
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-semibold tracking-tight leading-[1.1] text-white">
               Wer wir sind und <span className="text-primary">warum ChatGPT</span>
             </h1>
-            <p className="mt-6 text-xl text-muted-foreground leading-relaxed mb-4 animate-slide-up-delayed">
-              <strong>ChatGPT-Trainings.de</strong> vermittelt Prompt Engineering, Modellverständnis und strukturierte KI-Workflows an Teams, die ChatGPT nicht nur ausprobieren, sondern systematisch in ihre Arbeit einbauen wollen. Kein Tool-Überblick, kein Feature-Bingo – sondern Tiefe in einem Werkzeug.
+            <p className="mt-6 text-lg sm:text-xl text-white/80 leading-relaxed max-w-2xl">
+              <strong className="text-white">ChatGPT-Trainings.de</strong> vermittelt Prompt Engineering, Modellverständnis und strukturierte KI-Workflows an Teams, die ChatGPT nicht nur ausprobieren, sondern systematisch in ihre Arbeit einbauen wollen.
             </p>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Wir zeigen, wie man Prompts baut, die reproduzierbare Ergebnisse liefern. Wie man Halluzinationen erkennt und vermeidet. Und wie Teams gemeinsame Standards für die Arbeit mit großen Sprachmodellen entwickeln.
+            <p className="mt-4 text-base sm:text-lg text-white/70 leading-relaxed max-w-2xl">
+              Wir zeigen, wie man Prompts baut, die reproduzierbare Ergebnisse liefern. Wie man Halluzinationen erkennt und vermeidet. Und wie Teams gemeinsame Standards entwickeln.
             </p>
           </div>
+        </div>
+      </section>
 
+      <main className="pb-16">
+        <div className="container mx-auto px-4">
           {/* Mission, Vision, Werte */}
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-16">
-            <Card className="p-6 hover:shadow-xl transition-all duration-300 border-2 hover:border-primary/50">
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-16 -mt-12 relative z-20">
+            <Card className="p-6 hover:shadow-xl transition-all duration-300 border-2 hover:border-primary/50 bg-card">
               <h2 className="text-2xl font-bold mb-4">Unsere Mission</h2>
               <p className="text-muted-foreground leading-relaxed">
                 Teams befähigen, ChatGPT als <strong>verlässliches Arbeitswerkzeug</strong> einzusetzen – mit Verständnis für die Mechanik hinter den Ergebnissen.
               </p>
             </Card>
 
-            <Card className="p-6 hover:shadow-xl transition-all duration-300 border-2 hover:border-primary/50">
+            <Card className="p-6 hover:shadow-xl transition-all duration-300 border-2 hover:border-primary/50 bg-card">
               <h2 className="text-2xl font-bold mb-4">Unsere Vision</h2>
               <p className="text-muted-foreground leading-relaxed">
                 Eine Arbeitswelt, in der Prompt-Kompetenz so selbstverständlich ist wie der Umgang mit E-Mail – und in der jeder Wissensarbeiter weiß, <strong>wann und wie er KI sinnvoll einsetzt</strong>.
               </p>
             </Card>
 
-            <Card className="p-6 hover:shadow-xl transition-all duration-300 border-2 hover:border-primary/50">
+            <Card className="p-6 hover:shadow-xl transition-all duration-300 border-2 hover:border-primary/50 bg-card">
               <h2 className="text-2xl font-bold mb-4">Unsere Werte</h2>
               <p className="text-muted-foreground leading-relaxed">
                 <strong>Tiefe statt Breite. Klartext statt Marketing.</strong> Wir zeigen, was funktioniert – und sagen offen, wo die Grenzen von ChatGPT liegen.
               </p>
             </Card>
-          </div>
-
-          {/* Team Bild */}
-          <div className="max-w-4xl mx-auto mb-16">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-              <img
-                src={ueberUns}
-                alt="Das Team der ChatGPT-Trainings"
-                className="w-full h-auto"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent" />
-            </div>
           </div>
 
           {/* Methodik Detail Block */}
