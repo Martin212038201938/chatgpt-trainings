@@ -18,32 +18,62 @@ const sections = [
   {
     icon: PlaneTakeoff,
     title: "Prompt Engineering als Kernkompetenz",
-    description: "Wir behandeln Prompting nicht als Nebensache, sondern als erlernbares Handwerk. Ihre Mitarbeiter verstehen, warum bestimmte Formulierungen funktionieren und andere nicht – von Rollenanweisungen über Chain-of-Thought bis zu strukturierten Multi-Step-Prompts. Das Ergebnis: reproduzierbare, qualitativ hochwertige KI-Outputs statt Zufallstreffer."
+    summary: "Prompting als erlernbares Handwerk – nicht als Nebensache.",
+    details: [
+      "Ihre Mitarbeiter verstehen, warum bestimmte Formulierungen funktionieren und andere nicht.",
+      "Von Rollenanweisungen über Chain-of-Thought bis zu strukturierten Multi-Step-Prompts.",
+      "Das Ergebnis: reproduzierbare, qualitativ hochwertige KI-Outputs statt Zufallstreffer."
+    ]
   },
   {
     icon: Radar,
     title: "Modellverständnis statt Klick-Anleitung",
-    description: "Wer versteht, wie Token, Kontextfenster und Temperatur zusammenspielen, trifft bessere Entscheidungen im Umgang mit ChatGPT. Wir erklären, wann und warum das Modell halluziniert, wie sich Antwortqualität systematisch steuern lässt und welche Grenzen aktuell nicht überwindbar sind. Dieses Wissen altert langsamer als jede Feature-Schulung."
+    summary: "Wer versteht, wie ChatGPT funktioniert, trifft bessere Entscheidungen.",
+    details: [
+      "Token, Kontextfenster und Temperatur – wie sie zusammenspielen und was das für die Praxis bedeutet.",
+      "Wann und warum das Modell halluziniert und wie sich Antwortqualität systematisch steuern lässt.",
+      "Dieses Wissen altert langsamer als jede Feature-Schulung."
+    ]
   },
   {
     icon: Headset,
     title: "Vom Einzelprompt zum Team-Standard",
-    description: "Einzelne gute Prompts bringen wenig, wenn jede Abteilung anders arbeitet. Wir helfen Ihrem Team, verbindliche Prompt-Templates, Rollenarchitekturen und Qualitätskriterien für KI-Outputs zu definieren. So entsteht eine gemeinsame Arbeitsweise, die skaliert – inklusive Custom GPTs für wiederkehrende Aufgaben."
+    summary: "Einzelne gute Prompts bringen wenig, wenn jede Abteilung anders arbeitet.",
+    details: [
+      "Verbindliche Prompt-Templates und Rollenarchitekturen für Ihr Team.",
+      "Qualitätskriterien für KI-Outputs, die teamübergreifend gelten.",
+      "Custom GPTs für wiederkehrende Aufgaben – eine gemeinsame Arbeitsweise, die skaliert."
+    ]
   },
   {
     icon: Gauge,
     title: "Fertige Workflows ab Tag 1",
-    description: "Jeder Teilnehmer verlässt das Training mit getesteten Prompts und Workflows für die eigene Arbeit. Keine theoretischen Slides, sondern Live-Arbeit an echten Aufgaben aus dem eigenen Berufsalltag. Was im Training funktioniert, funktioniert auch am Schreibtisch – weil es dort entwickelt wurde."
+    summary: "Getestete Prompts und Workflows für die eigene Arbeit – sofort einsatzbereit.",
+    details: [
+      "Keine theoretischen Slides, sondern Live-Arbeit an echten Aufgaben aus dem Berufsalltag.",
+      "Was im Training funktioniert, funktioniert auch am Schreibtisch – weil es dort entwickelt wurde.",
+      "Jeder Teilnehmer nimmt konkrete Ergebnisse mit, nicht nur Wissen."
+    ]
   },
   {
     icon: Award,
     title: "Kompetenznachweis auf Wunsch",
-    description: "Wer sein Wissen belegen möchte, kann eine Prüfung ablegen: sinnvolles Prompting, kritische Ergebnisbewertung und sicherer Umgang mit ChatGPT im Unternehmenskontext. Bestandene Prüfungen werden mit einem Zertifikat dokumentiert. Aufeinander aufbauende Stufen (Beginner bis Expert) ermöglichen einen strukturierten Lernweg."
+    summary: "Praxisbasierte Prüfung mit dokumentiertem Zertifikat.",
+    details: [
+      "Sinnvolles Prompting, kritische Ergebnisbewertung und sicherer Umgang mit ChatGPT im Unternehmenskontext.",
+      "Bestandene Prüfungen werden mit einem Zertifikat dokumentiert.",
+      "Aufeinander aufbauende Stufen (Beginner bis Expert) ermöglichen einen strukturierten Lernweg."
+    ]
   },
   {
     icon: Medal,
     title: "Trainerkompetenz aus Konzernerfahrung",
-    description: "ChatGPT-Trainings.de gehört zur Yellow-Boat Consulting, die seit 2011 Transformationsprojekte in Konzernen und Mittelstand umsetzt. Seit 2023 fließt diese Erfahrung in spezialisierte KI-Trainings: Wir kennen die Realität in Organisationen und wissen, welche Hürden zwischen einem guten Prompt und der tatsächlichen Nutzung im Arbeitsalltag liegen."
+    summary: "Yellow-Boat Consulting: Transformationsprojekte seit 2011, KI-Trainings seit 2023.",
+    details: [
+      "Erfahrung aus Konzernen und Mittelstand fließt direkt in die Trainings ein.",
+      "Wir kennen die Realität in Organisationen – nicht nur die Theorie.",
+      "Wir wissen, welche Hürden zwischen einem guten Prompt und der tatsächlichen Nutzung im Arbeitsalltag liegen."
+    ]
   }
 ];
 
@@ -56,7 +86,7 @@ const ExpandableSection = ({
   isExpanded,
   onToggle
 }: {
-  icon: typeof Terminal;
+  icon: typeof PlaneTakeoff;
   title: string;
   summary: string;
   details: string[];
