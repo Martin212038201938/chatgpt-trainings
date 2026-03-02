@@ -210,7 +210,7 @@ export interface CourseSchemaConfig {
   description: string;
   duration: string;
   features: string[];
-  tiers: string[];
+  levels: string[];
 }
 
 /**
@@ -245,7 +245,7 @@ export const generateTrainingCourseSchema = (
     },
     "teaches": config.features.slice(0, 5).join(", "),
     "coursePrerequisites": "Keine Vorkenntnisse erforderlich",
-    "educationalLevel": config.tiers.includes("free") ? "Beginner" : "Intermediate",
+    "educationalLevel": config.levels.includes("essentials") ? "Beginner" : config.levels.includes("advanced") ? "Intermediate" : "Advanced",
     "inLanguage": "de-DE"
   };
 };
@@ -507,21 +507,19 @@ export const generateTrainingSchemas = (modules: TrainingModule[], faqs?: FAQ[])
         "alternateName": ["ChatGPT-Trainings", "ChatGPT Schulungen"],
         "url": "https://chatgpt-trainings.de",
         "logo": "https://chatgpt-trainings.de/og-image.jpg",
-        "description": "chatgpt-trainings.de bietet spezialisierte Weiterbildungen für den professionellen Einsatz von ChatGPT in der täglichen Büroarbeit. Wir befähigen Wissensarbeiter, Teams und Organisationen, ChatGPT produktiv, sicher und wertschöpfend im Arbeitsalltag einzusetzen.",
+        "description": "chatgpt-trainings.de vermittelt Prompt Engineering, LLM-Verständnis und KI-Workflow-Design für den professionellen Einsatz von ChatGPT in Unternehmen. Vom ersten Prompt bis zum automatisierten Workflow.",
         "foundingDate": "2025",
-        "slogan": "Büroarbeit durch ChatGPT messbar produktiver, wirksamer und menschlicher machen",
+        "slogan": "ChatGPT strategisch einsetzen – vom ersten Prompt bis zum produktiven KI-Workflow",
         "knowsAbout": [
-          "ChatGPT",
-          "ChatGPT Training",
-          "ChatGPT Schulung",
-          "ChatGPT Enablement",
-          "ChatGPT Adoption",
-          "Custom GPTs",
-          "KI-Strategie",
-          "KI-Agenten",
           "Prompt Engineering",
-          "KI-gestützte Büroarbeit",
-          "Produktivität mit Künstlicher Intelligenz"
+          "LLM-Architektur",
+          "KI-Workflow-Design",
+          "ChatGPT API & Custom GPTs",
+          "OpenAI Ecosystem",
+          "KI-Strategie & Adoption",
+          "Prompt-Bibliotheken & Team-Standards",
+          "KI-gestützte Wissensarbeit",
+          "ChatGPT Training"
         ],
         "areaServed": {
           "@type": "GeoCircle",
@@ -548,7 +546,7 @@ export const generateTrainingSchemas = (modules: TrainingModule[], faqs?: FAQ[])
         "contactPoint": {
           "@type": "ContactPoint",
           "contactType": "customer service",
-          "email": "info@chatgpt-trainings.de",
+          "email": "post@yellow-boat.com",
           "telephone": "+49 221 950 187 74",
           "availableLanguage": ["de", "en"],
           "areaServed": "DACH"
@@ -584,7 +582,7 @@ export const generateTrainingSchemas = (modules: TrainingModule[], faqs?: FAQ[])
         "@id": "https://chatgpt-trainings.de/#educationalOrganization",
         "name": "chatgpt-trainings.de",
         "url": "https://chatgpt-trainings.de",
-        "description": "Spezialisierte Akademie für ChatGPT Trainings mit klarem Fokus auf die Nutzung von ChatGPT im beruflichen Kontext. Praxisorientierter Trainingsansatz mit realen Arbeitsprozessen und direkt anwendbaren Workflows.",
+        "description": "Spezialisierte Akademie für Prompt Engineering, LLM-Verständnis und KI-Workflow-Design. Trainings, die beim Modellverständnis anfangen und bei produktiven Arbeitsabläufen enden.",
         "areaServed": "DACH",
         "parentOrganization": {
           "@id": "https://yellow-boat.com/#organization"

@@ -47,10 +47,10 @@ export const TrustBadge = ({ variant = 'full' }: TrustBadgeProps) => {
               <div className="text-lg font-semibold text-primary mb-1">Ihr Partner für ChatGPT Trainings</div>
               <div className="text-sm text-muted-foreground mb-3">Eine Marke der Yellow-Boat Consulting</div>
               <p className="text-sm leading-relaxed mb-4">
-                Die chatgpt-trainings.de ist Deutschlands spezialisierter Anbieter für ChatGPT Schulungen und KI-Trainings.
-                Als Marke der 2011 gegründeten Yellow-Boat Consulting verbinden wir über ein Jahrzehnt Erfahrung in digitaler
-                Transformation mit tiefgreifender Expertise im Microsoft-Ökosystem. Unsere Trainings fokussieren konsequent
-                auf reale Arbeitsprozesse – praxisnah, compliance-konform und wertschöpfend.
+                chatgpt-trainings.de vermittelt Prompt Engineering, LLM-Verständnis und KI-Workflow-Design für den
+                professionellen Einsatz von ChatGPT. Als Marke der 2011 gegründeten Yellow-Boat Consulting verbinden
+                wir über ein Jahrzehnt Erfahrung in Organisationsentwicklung mit fundierter Expertise rund um Large Language
+                Models. Unsere Trainings setzen beim Modellverständnis an und enden bei produktiven Arbeitsabläufen.
               </p>
               <div className="mb-3">
                 <div className="text-sm font-semibold mb-2">Warum ChatGPT-Trainings?</div>

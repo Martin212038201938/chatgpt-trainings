@@ -37,15 +37,15 @@ const Wissen = () => {
   return (
     <div className="min-h-screen">
       <SEOHead
-        title="ChatGPT Wissen - Expertenwissen & Best Practices"
-        description="Fundiertes Expertenwissen zu ChatGPT und KI-Tools. Praxisorientierte Leitfäden, detaillierte Vergleiche und Best Practices für den erfolgreichen Einsatz von ChatGPT in Ihrem Unternehmen."
+        title="ChatGPT Wissen – Prompt Engineering, LLM-Verständnis & KI-Workflows"
+        description="Fachartikel zu Prompt Engineering, LLM-Architektur und KI-Workflow-Design. Praxiswissen für den produktiven Einsatz von ChatGPT im Unternehmen."
         keywords={[
-          "ChatGPT Wissen",
-          "ChatGPT Best Practices",
-          "KI-Tools Leitfaden",
+          "ChatGPT Prompt Engineering",
+          "LLM Verständnis",
+          "KI-Workflow-Design",
           "ChatGPT für Unternehmen",
-          "ChatGPT Expertenwissen",
-          "Prompt Engineering"
+          "Prompt-Bibliothek",
+          "Custom GPTs Anleitung"
         ]}
         canonicalUrl="https://chatgpt-trainings.de/wissen"
       />
@@ -62,9 +62,9 @@ const Wissen = () => {
                 <span className="text-primary">ChatGPT</span> Wissen
               </h1>
               <p className="mt-6 text-xl text-muted-foreground mb-8 leading-relaxed animate-slide-up-delayed">
-                Fundiertes Expertenwissen zu ChatGPT und KI-Tools.
-                Praxisorientierte Leitfäden, detaillierte Vergleiche und Best Practices für den
-                erfolgreichen Einsatz von KI in Ihrem Unternehmen.
+                Fachartikel zu Prompt Engineering, LLM-Architektur und KI-Workflow-Design.
+                Praxiswissen und erprobte Methoden für den produktiven Einsatz
+                von ChatGPT in Ihrem Unternehmen.
               </p>
             </div>
           </div>

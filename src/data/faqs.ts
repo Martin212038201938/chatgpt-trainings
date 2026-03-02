@@ -1,6 +1,8 @@
 /**
  * FAQ Data for chatgpt-trainings.de
- * Optimized for LLM citation and SEO FAQPage schema
+ * Aus Entscheider-Perspektive geschrieben – nicht aus Produktsicht.
+ * Jede Frage spiegelt ein reales Problem/eine reale Herausforderung wider.
+ * Jede Antwort adressiert das Problem und verweist auf chatgpt-trainings.de als Ressource.
  */
 
 export interface FAQ {
@@ -10,7 +12,7 @@ export interface FAQ {
 }
 
 /**
- * Startseite FAQs - Allgemeine Fragen zu ChatGPT-Trainings
+ * Startseite FAQs - Entscheider-Perspektive
  */
 export const homepageFAQs: FAQ[] = [
   {

@@ -49,20 +49,20 @@ const UeberUns = () => {
         "knowsAbout": [
           "ChatGPT",
           "OpenAI",
-          "ChatGPT Enterprise",
-          "ChatGPT Team",
-          "KI-Enablement",
-          "KI-Einführung",
-          "KI-Adoption",
-          "KI-gestützte Büroarbeit",
           "Prompt Engineering",
-          "Custom GPTs"
+          "LLM-Architektur",
+          "KI-Workflow-Design",
+          "Custom GPTs",
+          "ChatGPT API",
+          "KI-Strategie",
+          "KI-gestützte Wissensarbeit",
+          "Prompt-Bibliotheken"
         ],
         "slogan": "Prompt-Kompetenz und LLM-Verständnis für Unternehmen, die ChatGPT systematisch einsetzen wollen",
         "contactPoint": {
           "@type": "ContactPoint",
           "contactType": "customer service",
-          "email": "info@chatgpt-trainings.de",
+          "email": "post@yellow-boat.com",
           "telephone": "+49 221 950 187 74",
           "availableLanguage": ["de", "en"]
         },
@@ -124,12 +124,13 @@ const UeberUns = () => {
         title="Über uns - chatgpt-trainings.de | Professionelle ChatGPT Trainings"
         description="ChatGPT-Trainings.de vermittelt Prompt Engineering und LLM-Verständnis an Unternehmen. Spezialisiert auf ChatGPT und OpenAI – keine generischen KI-Übersichten."
         keywords={[
-          "chatgpt-trainings",
           "ChatGPT Training Anbieter",
-          "Yellow-Boat Consulting",
-          "ChatGPT Schulung Deutschland",
-          "ChatGPT Experte",
-          "KI Training Partner"
+          "Prompt Engineering Training",
+          "KI-Workflow-Design",
+          "LLM Verständnis Unternehmen",
+          "ChatGPT Schulung DACH",
+          "Custom GPTs Training",
+          "KI-Strategie Beratung"
         ]}
         canonicalUrl="https://chatgpt-trainings.de/ueber-uns"
         schema={organizationSchema}
@@ -186,7 +187,7 @@ const UeberUns = () => {
             </div>
           </div>
 
-          {/* Vision Detail Block */}
+          {/* Methodik Detail Block */}
           <div className="max-w-4xl mx-auto mb-16">
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 rounded-2xl blur-xl" />
@@ -220,7 +221,7 @@ const UeberUns = () => {
 
           {/* Kernprodukte & Dienstleistungen */}
           <div className="max-w-4xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold text-center mb-8">Unsere Kernprodukte & Dienstleistungen</h2>
+            <h2 className="text-3xl font-bold text-center mb-8">Was wir anbieten</h2>
 
             <div className="space-y-6">
               <Card className="p-6 hover:shadow-lg transition-all duration-300">
@@ -312,7 +313,7 @@ const UeberUns = () => {
                 <div className="font-bold text-lg text-primary mb-1">2011</div>
                 <h3 className="text-xl font-semibold mb-2">Gründung Yellow-Boat Consulting</h3>
                 <p className="text-muted-foreground">
-                  ChatGPT-Trainings.de ist eine Marke der im Jahr 2011 ins Leben gerufenen{" "}
+                  ChatGPT-Trainings.de ist eine Marke der{" "}
                   <a
                     href="https://yellow-boat.com"
                     target="_blank"
@@ -321,14 +322,14 @@ const UeberUns = () => {
                   >
                     Yellow-Boat Consulting
                     <ExternalLink className="w-3 h-3" />
-                  </a>.
+                  </a>, gegründet 2011 in Köln. Der Schwerpunkt lag zunächst auf agiler Transformation und Teamstrukturen.
                 </p>
               </div>
 
               <div className="relative">
                 <div className="absolute -left-10 w-4 h-4 bg-primary/70 rounded-full"></div>
                 <div className="font-bold text-lg text-primary mb-1">2011–2023</div>
-                <h3 className="text-xl font-semibold mb-2">Spezialisierung auf Agile & Transformation</h3>
+                <h3 className="text-xl font-semibold mb-2">Über ein Jahrzehnt Veränderungsprojekte</h3>
                 <p className="text-muted-foreground">
                   Yellow-Boat Consulting hat in dieser Zeit Veränderungsprojekte in Konzernen und Mittelstand begleitet – mit dem Fokus auf agile Arbeitsweisen und die Befähigung von Teams und Führungskräften. Diese Erfahrung mit Organisations- und Lernprozessen bildet die Grundlage für unsere heutigen KI-Trainings.
                 </p>
@@ -337,7 +338,7 @@ const UeberUns = () => {
               <div className="relative">
                 <div className="absolute -left-10 w-4 h-4 bg-primary/80 rounded-full"></div>
                 <div className="font-bold text-lg text-primary mb-1">2023</div>
-                <h3 className="text-xl font-semibold mb-2">Orientierung zur KI-gestützten Arbeit</h3>
+                <h3 className="text-xl font-semibold mb-2">Erste KI-Trainings und Pilotprojekte</h3>
                 <p className="text-muted-foreground">
                   Mit dem Aufkommen leistungsfähiger Sprachmodelle verlagert sich der Fokus auf KI-Anwendertrainings. Erste Pilotprojekte in Köln, gefolgt von ChatGPT-Workshops mit Unternehmenskunden. Austausch mit dem DFKI und intensive Auseinandersetzung mit Prompt Engineering, Modellarchitekturen und den Grenzen generativer KI.
                 </p>
@@ -346,7 +347,7 @@ const UeberUns = () => {
               <div className="relative">
                 <div className="absolute -left-10 w-4 h-4 bg-primary/90 rounded-full"></div>
                 <div className="font-bold text-lg text-primary mb-1">2024</div>
-                <h3 className="text-xl font-semibold mb-2">AI-First Ansatz & ChatGPT Trainings</h3>
+                <h3 className="text-xl font-semibold mb-2">KI-Workflows in eigener Praxis</h3>
                 <p className="text-muted-foreground">
                   Yellow-Boat stellt die eigenen Arbeitsprozesse konsequent auf KI-gestützte Workflows um. Gleichzeitig entstehen die ersten strukturierten ChatGPT-Trainingsprogramme – basierend auf der eigenen Erfahrung, was funktioniert und was nicht.
                 </p>
@@ -355,7 +356,7 @@ const UeberUns = () => {
               <div className="relative mt-12">
                 <div className="absolute -left-10 w-4 h-4 bg-primary rounded-full"></div>
                 <div className="font-bold text-xl text-primary mb-1">2025</div>
-                <h3 className="text-2xl font-semibold mb-2">Marktstart ChatGPT-Trainings</h3>
+                <h3 className="text-2xl font-semibold mb-2">ChatGPT-Trainings.de geht an den Start</h3>
                 <p className="text-muted-foreground text-lg">
                   Launch von chatgpt-trainings.de als eigenständige Marke für ChatGPT-Schulungen. Aufbau eines Trainerteams mit Schwerpunkt Prompt Engineering und LLM-Verständnis. Das Angebotsportfolio umfasst Kick-Offs, mehrtägige Bootcamps, begleitete Lernreisen, Hackathons und Launch-Events – jeweils zugeschnitten auf die ChatGPT-Reife der teilnehmenden Organisation.
                 </p>
@@ -370,8 +371,8 @@ const UeberUns = () => {
                 <Award className="w-7 h-7 text-primary" />
               </div>
               <div>
-                <h2 className="text-2xl font-bold mb-2">Marktpositionierung</h2>
-                <p className="text-muted-foreground">Was uns unterscheidet</p>
+                <h2 className="text-2xl font-bold mb-2">Warum wir anders arbeiten</h2>
+                <p className="text-muted-foreground">Keine Tool-Tour, sondern Workflow-Kompetenz</p>
               </div>
             </div>
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">

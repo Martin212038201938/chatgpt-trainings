@@ -1,4 +1,4 @@
-import { Shield, Award, Users, Lock } from "lucide-react";
+import { BrainCircuit, Lock, GraduationCap, Users } from "lucide-react";
 
 const trustBadges = [
   {
@@ -26,7 +26,6 @@ const trustBadges = [
 const TrustBadges = () => {
   return (
     <section className="py-16 bg-gradient-to-b from-background to-muted/20 relative overflow-hidden">
-      {/* Decorative background */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-5xl">
         <div className="absolute top-10 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
         <div className="absolute bottom-10 right-10 w-72 h-72 bg-accent/5 rounded-full blur-3xl" />

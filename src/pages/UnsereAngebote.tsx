@@ -1,29 +1,28 @@
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Clock, HelpCircle, X, ArrowRight } from "lucide-react";
+import { Clock, ArrowRight } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import { generateTrainingSchemas } from "@/lib/schema";
-import { trainings, type Training, type ChatGPTTier } from "@/data/trainings";
+import { trainings, type Training, type CompetencyLevel, competencyLabels } from "@/data/trainings";
 
-export type { ChatGPTTier };
+export type { CompetencyLevel };
 
-// Trainings werden aus der zentralen Datei importiert
 const modules = trainings;
 
-type TierFilter = "all" | "free" | "paid";
+type LevelFilter = "all" | CompetencyLevel;
 
-const tierFilterOptions: { value: TierFilter; label: string }[] = [
+const levelFilterOptions: { value: LevelFilter; label: string }[] = [
   { value: "all", label: "Alle Trainings" },
-  { value: "free", label: "ChatGPT Free" },
-  { value: "paid", label: "ChatGPT Plus/Team/Enterprise" },
+  { value: "essentials", label: "Essentials" },
+  { value: "advanced", label: "Advanced" },
+  { value: "workflow-design", label: "Workflow-Design" },
 ];
 
-// Training modules data for schema generation - simplified for SEO
 const trainingModulesForSchema = modules.map(m => ({
   title: m.title,
   duration: m.duration,
@@ -32,12 +31,11 @@ const trainingModulesForSchema = modules.map(m => ({
 }));
 
 const UnsereAngebote = () => {
-  const [tierFilter, setTierFilter] = useState<TierFilter>("all");
-  const [showTierHelp, setShowTierHelp] = useState(false);
+  const [levelFilter, setLevelFilter] = useState<LevelFilter>("all");
 
-  const filteredModules = tierFilter === "all"
+  const filteredModules = levelFilter === "all"
     ? modules
-    : modules.filter(m => m.tiers.includes(tierFilter));
+    : modules.filter(m => m.levels.includes(levelFilter));
 
   const schema = generateTrainingSchemas(trainingModulesForSchema, []);
 
@@ -48,13 +46,11 @@ const UnsereAngebote = () => {
         description="Alle ChatGPT Trainingsformate im Überblick: Kick-Off, Starter Training, Intensiv-Bootcamp, Lernreise, Hackathon und Launch-Event. Für ChatGPT Free und Plus/Team/Enterprise."
         keywords={[
           "ChatGPT Schulung",
-          "ChatGPT Training",
-          "ChatGPT Trainings Übersicht",
-          "KI Training Unternehmen",
-          "ChatGPT Free Training",
-          "ChatGPT Plus Training",
           "Prompt Engineering Training",
-          "ChatGPT Anwendungen"
+          "ChatGPT Workshop",
+          "KI-Workflow-Design Training",
+          "Advanced Prompt Engineering",
+          "ChatGPT Kurs Unternehmen"
         ]}
         canonicalUrl="https://chatgpt-trainings.de/unsere-angebote"
         schema={schema}
@@ -70,89 +66,51 @@ const UnsereAngebote = () => {
             {/* Page Header */}
             <div className="text-center mb-12">
               <h1 className="text-5xl lg:text-7xl font-semibold tracking-tight leading-[1.1]">
-                Unsere Angebote
+                Unsere Trainings
               </h1>
               <p className="mt-6 text-xl text-muted-foreground max-w-3xl mx-auto animate-slide-up-delayed">
                 Von Prompt-Grundlagen bis zum KI-Hackathon – alle Formate auf einen Blick.
               </p>
             </div>
 
-            {/* Tier Info Section */}
+            {/* Level-Erklärung */}
             <div className="max-w-4xl mx-auto mb-12">
               <div className="bg-card border rounded-xl p-6 shadow-sm">
                 <h2 className="text-lg font-semibold mb-4 text-center">
-                  Wir trainieren gezielt auf die ChatGPT-Version, die Ihre Teilnehmer tatsächlich haben
+                  Klare Eskalationslogik: Wählen Sie das passende Level
                 </h2>
-                <p className="text-muted-foreground text-center mb-6">
-                  ChatGPT gibt es in verschiedenen Versionen. Wählen Sie unten Ihre Version aus, um nur die relevanten Trainings zu sehen.
-                </p>
-
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
-                  <div className="flex items-center gap-2 px-4 py-3 rounded-lg bg-emerald-50 border border-emerald-200">
-                    <Badge className="bg-emerald-100 text-emerald-700 border-emerald-200 hover:bg-emerald-100 text-[11px] px-2 py-0.5">
-                      ChatGPT Free
+                <div className="grid sm:grid-cols-3 gap-4 mb-4">
+                  <div className="flex flex-col items-center text-center px-4 py-3 rounded-lg bg-blue-50 border border-blue-200">
+                    <Badge className="bg-blue-100 text-blue-800 border-blue-200 hover:bg-blue-100 text-xs px-2 py-0.5 mb-2">
+                      Essentials
                     </Badge>
-                    <span className="text-sm text-muted-foreground">Kostenlose ChatGPT Version (Websuche, kostenlos)</span>
+                    <span className="text-sm text-muted-foreground">Prompting Basics, Fehler vermeiden, Textarbeit, Analyse</span>
                   </div>
-                  <div className="flex items-center gap-2 px-4 py-3 rounded-lg bg-blue-50 border border-blue-200">
-                    <Badge className="bg-blue-100 text-blue-700 border-blue-200 hover:bg-blue-100 text-[11px] px-2 py-0.5">
-                      ChatGPT Plus/Team/Enterprise
+                  <div className="flex flex-col items-center text-center px-4 py-3 rounded-lg bg-purple-50 border border-purple-200">
+                    <Badge className="bg-purple-100 text-purple-800 border-purple-200 hover:bg-purple-100 text-xs px-2 py-0.5 mb-2">
+                      Advanced
                     </Badge>
-                    <span className="text-sm text-muted-foreground">Bezahlte ChatGPT Versionen mit erweiterten Features</span>
+                    <span className="text-sm text-muted-foreground">Multi-Step Prompts, Rollenlogik, strukturierte Ausgaben, Templates</span>
                   </div>
-                </div>
-
-                <div className="flex justify-center">
-                  {!showTierHelp ? (
-                    <button
-                      onClick={() => setShowTierHelp(true)}
-                      className="flex items-center gap-2 px-4 py-2 rounded-lg border border-primary/30 bg-primary/5 hover:bg-primary/10 text-sm font-medium text-primary transition-all duration-200 hover:scale-105"
-                    >
-                      <HelpCircle className="w-4 h-4" />
-                      Welche ChatGPT-Version habe ich?
-                    </button>
-                  ) : (
-                    <div className="w-full max-w-md p-4 rounded-lg border border-primary/30 bg-card shadow-lg text-left animate-fade-in">
-                      <div className="flex items-center justify-between mb-3">
-                        <h4 className="font-semibold text-sm flex items-center gap-2">
-                          <HelpCircle className="w-4 h-4 text-primary" />
-                          So finden Sie Ihre ChatGPT-Version heraus
-                        </h4>
-                        <button
-                          onClick={() => setShowTierHelp(false)}
-                          className="text-muted-foreground hover:text-foreground transition-colors"
-                        >
-                          <X className="w-4 h-4" />
-                        </button>
-                      </div>
-                      <ol className="space-y-2 text-sm text-muted-foreground list-decimal list-inside">
-                        <li>Öffnen Sie <strong>ChatGPT</strong> im Browser unter chatgpt.com oder in der App</li>
-                        <li>Prüfen Sie Ihren <strong>Account-Status</strong> in den Einstellungen. Sehen Sie dort "Plus", "Team" oder "Enterprise", haben Sie eine bezahlte Version</li>
-                        <li>Achten Sie auf <strong>erweiterte Features</strong> wie "Web Browsing", "Code Interpreter" oder "File Uploads" – diese sind nur in Plus/Team/Enterprise verfügbar</li>
-                        <li>Sehen Sie <strong>alle Premium-Features</strong> → <Badge className="bg-blue-100 text-blue-700 border-blue-200 hover:bg-blue-100 text-[11px] px-2 py-0.5">ChatGPT Plus/Team/Enterprise</Badge></li>
-                        <li>Sehen Sie <strong>nur Standard-Features</strong> (nur Chat) → <Badge className="bg-emerald-100 text-emerald-700 border-emerald-200 hover:bg-emerald-100 text-[11px] px-2 py-0.5">ChatGPT Free</Badge></li>
-                      </ol>
-                      <button
-                        onClick={() => setShowTierHelp(false)}
-                        className="mt-3 text-xs text-primary hover:underline"
-                      >
-                        Schließen
-                      </button>
-                    </div>
-                  )}
+                  <div className="flex flex-col items-center text-center px-4 py-3 rounded-lg bg-orange-50 border border-orange-200">
+                    <Badge className="bg-orange-100 text-orange-800 border-orange-200 hover:bg-orange-100 text-xs px-2 py-0.5 mb-2">
+                      Workflow-Design
+                    </Badge>
+                    <span className="text-sm text-muted-foreground">Automatisierung, API-Anbindung, Custom GPTs, Prompt-Standards</span>
+                  </div>
                 </div>
               </div>
             </div>
 
-            {/* Tier Filter */}
+            {/* Level Filter */}
             <div className="flex justify-center mb-10">
               <div className="inline-flex items-center gap-1 p-1 bg-muted/60 rounded-lg border">
-                {tierFilterOptions.map((option) => (
+                {levelFilterOptions.map((option) => (
                   <button
                     key={option.value}
-                    onClick={() => setTierFilter(option.value)}
+                    onClick={() => setLevelFilter(option.value)}
                     className={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
-                      tierFilter === option.value
+                      levelFilter === option.value
                         ? "bg-primary text-primary-foreground shadow-sm"
                         : "text-muted-foreground hover:text-foreground hover:bg-muted"
                     }`}
@@ -163,7 +121,7 @@ const UnsereAngebote = () => {
               </div>
             </div>
 
-            {/* Training Cards Grid - jetzt mit Links zu Detailseiten */}
+            {/* Training Cards */}
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredModules.map((module) => (
                 <Link
@@ -174,16 +132,14 @@ const UnsereAngebote = () => {
                   <Card className="h-full min-h-[280px] flex flex-col cursor-pointer hover:shadow-2xl transition-all duration-300 border-2 hover:border-primary/50 bg-card/50 backdrop-blur-sm">
                     <CardHeader className="flex-1 py-4">
                       <div className="flex flex-wrap gap-1.5 mb-2">
-                        {module.tiers.includes("free") && (
-                          <Badge className="bg-emerald-100 text-emerald-700 border-emerald-200 hover:bg-emerald-100 text-[11px] px-2 py-0.5">
-                            ChatGPT Free
+                        {module.levels.map((level) => (
+                          <Badge
+                            key={level}
+                            className={`${competencyLabels[level].color} hover:opacity-90 text-[11px] px-2 py-0.5`}
+                          >
+                            {competencyLabels[level].label}
                           </Badge>
-                        )}
-                        {module.tiers.includes("paid") && (
-                          <Badge className="bg-blue-100 text-blue-700 border-blue-200 hover:bg-blue-100 text-[11px] px-2 py-0.5">
-                            ChatGPT Plus/Team/Enterprise
-                          </Badge>
-                        )}
+                        ))}
                       </div>
                       <CardTitle className="text-lg group-hover:text-primary transition-colors duration-300 line-clamp-2">
                         {module.title}
@@ -192,13 +148,9 @@ const UnsereAngebote = () => {
                         <Clock className="w-4 h-4" />
                         {module.duration}
                       </CardDescription>
-
-                      {/* SEO: Beschreibung jetzt sichtbar im HTML */}
                       <p className="text-sm text-muted-foreground mt-3 line-clamp-3">
                         {module.description}
                       </p>
-
-                      {/* Call-to-Action Link */}
                       <span className="inline-flex items-center gap-1 mt-3 text-sm font-medium text-primary group-hover:underline">
                         Mehr erfahren <ArrowRight className="w-3 h-3" />
                       </span>
@@ -208,7 +160,7 @@ const UnsereAngebote = () => {
               ))}
             </div>
 
-            {/* Modularer Konfigurator CTA */}
+            {/* Konfigurator CTA */}
             <div className="mt-12 relative max-w-4xl mx-auto">
               <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 rounded-xl blur-xl" />
               <div className="relative bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 border-2 border-primary/30 rounded-xl p-6 md:p-8 text-center">
@@ -227,7 +179,7 @@ const UnsereAngebote = () => {
               </div>
             </div>
 
-            {/* Zertifizierungsprogramme Info */}
+            {/* Zertifizierung */}
             <div className="mt-8 max-w-4xl mx-auto">
               <Card className="border-2 border-violet-500/30 bg-gradient-to-br from-violet-500/5 to-purple-500/5">
                 <CardHeader className="pb-3">

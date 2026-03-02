@@ -45,7 +45,7 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4">Kontakt</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><a href="mailto:info@chatgpt-trainings.de" className="hover:text-primary transition-colors">info@chatgpt-trainings.de</a></li>
+              <li><a href="mailto:post@yellow-boat.com" className="hover:text-primary transition-colors">post@yellow-boat.com</a></li>
               <li><a href="tel:+4922195018774" className="hover:text-primary transition-colors">+49 221 950 187 74</a></li>
               <li>Trainings in Köln, Deutschland, Österreich und der Schweiz</li>
             </ul>
