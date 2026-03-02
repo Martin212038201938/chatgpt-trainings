@@ -1,4 +1,4 @@
-import { BrainCircuit, Lock, GraduationCap, Users } from "lucide-react";
+import { Shield, Lock, Award, Users } from "lucide-react";
 
 const trustBadges = [
   {
