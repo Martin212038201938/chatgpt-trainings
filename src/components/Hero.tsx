@@ -30,11 +30,11 @@ const Hero = () => {
             lernen
           </h1>
           <p className="mt-6 text-lg sm:text-xl lg:text-2xl text-white/80 font-normal max-w-2xl">
-            Prompt Engineering, Modellverständnis und strukturierte Workflows für Ihr Team
+            ChatGPT und andere KI-Modelle sicher, datenschutzkonform und wirklich wertschöpfend nutzen
           </p>
 
           <p className="mt-6 text-base sm:text-lg text-white/70 leading-relaxed max-w-2xl">
-            Wir vermitteln Prompt Engineering als Handwerk, erklären wie Token, Kontextfenster und Halluzinationen funktionieren und zeigen, wie sich daraus belastbare Arbeitsergebnisse ableiten lassen. Ob vor Ort, remote oder im Blended-Format.
+            Unsere Trainings arbeiten an drei Dimensionen: <strong className="text-white/90">Schneller werden</strong> – Routineaufgaben in Minuten statt Stunden erledigen. <strong className="text-white/90">Bessere Ergebnisse liefern</strong> – Texte, Analysen und Konzepte, die direkt verwendbar sind. <strong className="text-white/90">Neues wagen</strong> – Aufgaben angehen, die man sich bisher nicht zugetraut hat. Im Tempo der Teilnehmer, ohne unnötige Theorie, mit maximalem Praxisbezug.
           </p>
 
           <div className="mt-8 flex flex-col sm:flex-row gap-4">
