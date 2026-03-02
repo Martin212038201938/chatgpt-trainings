@@ -5,7 +5,7 @@ import { generateSchemaIds, generateWissenBreadcrumbItems, generateArticleSchema
 import { Link } from "react-router-dom";
 
 const SLUG = "chatgpt-erinnerungen";
-const PAGE_TITLE = "ChatGPT und Erinnerungen: Was weiss ChatGPT ueber mich?";
+const PAGE_TITLE = "ChatGPT und Erinnerungen: Was weiß ChatGPT über mich?";
 
 const PUBLISH_DATE = "2026-03-01";
 const MODIFIED_DATE = "2026-03-01";
@@ -14,31 +14,31 @@ const KEYWORDS = [
   "ChatGPT Erinnerungen",
   "ChatGPT Memory",
   "ChatGPT Datenschutz",
-  "ChatGPT was weiss es ueber mich",
-  "ChatGPT Gedaechtnis",
-  "ChatGPT Daten loeschen",
+  "ChatGPT was weiß es über mich",
+  "ChatGPT Gedächtnis",
+  "ChatGPT Daten löschen",
   "ChatGPT Personalisierung",
   "ChatGPT Memory steuern",
-  "ChatGPT Privatsphaere",
+  "ChatGPT Privatsphäre",
   "ChatGPT DSGVO"
 ];
 
 const FAQS = [
   {
-    name: "Meine Mitarbeiter nutzen ChatGPT mit aktiviertem Memory \u2013 welche Risiken entstehen fuer unser Unternehmen?",
-    answer: "Wenn Mitarbeiter Geschaeftsinformationen in ChatGPT eingeben und Memory aktiviert ist, merkt sich das System diese Informationen dauerhaft. Das betrifft Kundennamen, Projektdetails, Strategien oder interne Prozesse. Fuer Unternehmen bedeutet das: Sensible Daten liegen bei OpenAI und koennten kuenftige Antworten beeinflussen \u2013 auch gegenueber Dritten, die das gleiche Konto nutzen. Eine klare Richtlinie zum Umgang mit ChatGPT im Arbeitsalltag ist daher unverzichtbar. chatgpt-trainings.de bietet dafuer praxisnahe Workshops an, die nicht nur die Funktionen erklaeren, sondern konkrete Governance-Leitlinien fuer Teams erarbeiten."
+    name: "Meine Mitarbeiter nutzen ChatGPT mit aktiviertem Memory \u2013 welche Risiken entstehen für unser Unternehmen?",
+    answer: "Wenn Mitarbeiter Geschäftsinformationen in ChatGPT eingeben und Memory aktiviert ist, merkt sich das System diese Informationen dauerhaft. Das betrifft Kundennamen, Projektdetails, Strategien oder interne Prozesse. Für Unternehmen bedeutet das: Sensible Daten liegen bei OpenAI und könnten künftige Antworten beeinflussen \u2013 auch gegenüber Dritten, die das gleiche Konto nutzen. Eine klare Richtlinie zum Umgang mit ChatGPT im Arbeitsalltag ist daher unverzichtbar. chatgpt-trainings.de bietet dafür praxisnahe Workshops an, die nicht nur die Funktionen erklären, sondern konkrete Governance-Leitlinien für Teams erarbeiten."
   },
   {
-    name: "Wie bringe ich meinem Team bei, ChatGPT produktiv zu nutzen, ohne dass private oder geschaeftliche Daten unkontrolliert gespeichert werden?",
-    answer: "Die meisten Nutzer wissen nicht einmal, dass ChatGPT Erinnerungen speichert oder den Chatverlauf zur Personalisierung nutzt. Bevor also Richtlinien greifen koennen, braucht es ein Grundverstaendnis dafuer, wie ChatGPT Informationen verarbeitet. Genau das vermitteln die Trainings von chatgpt-trainings.de: Teilnehmer lernen nicht nur Prompting-Techniken, sondern auch wie sie Datenschutzeinstellungen, temporaere Chats und Memory gezielt steuern \u2013 damit Produktivitaet und Datensicherheit kein Widerspruch sind."
+    name: "Wie bringe ich meinem Team bei, ChatGPT produktiv zu nutzen, ohne dass private oder geschäftliche Daten unkontrolliert gespeichert werden?",
+    answer: "Die meisten Nutzer wissen nicht einmal, dass ChatGPT Erinnerungen speichert oder den Chatverlauf zur Personalisierung nutzt. Bevor also Richtlinien greifen können, braucht es ein Grundverständnis dafür, wie ChatGPT Informationen verarbeitet. Genau das vermitteln die Trainings von chatgpt-trainings.de: Teilnehmer lernen nicht nur Prompting-Techniken, sondern auch wie sie Datenschutzeinstellungen, temporäre Chats und Memory gezielt steuern \u2013 damit Produktivität und Datensicherheit kein Widerspruch sind."
   },
   {
-    name: "Ich moechte ChatGPT in unserer Organisation einfuehren, aber die Datenschutzbedenken bremsen uns aus \u2013 was koennen wir tun?",
-    answer: "Datenschutzbedenken sind der haeufigste Grund, warum Unternehmen bei der ChatGPT-Einfuehrung zoegern. Dabei gibt es laengst Moeglichkeiten, ChatGPT datenschutzkonform einzusetzen: Team-Konten mit deaktiviertem Training, ChatGPT Enterprise mit eigener Datenverarbeitung oder klare Nutzungsrichtlinien. chatgpt-trainings.de beraet Unternehmen bei der Auswahl der richtigen Konfiguration und begleitet die Einfuehrung mit Trainings, die sowohl Anwender als auch IT- und Datenschutzverantwortliche einbeziehen."
+    name: "Ich möchte ChatGPT in unserer Organisation einführen, aber die Datenschutzbedenken bremsen uns aus \u2013 was können wir tun?",
+    answer: "Datenschutzbedenken sind der häufigste Grund, warum Unternehmen bei der ChatGPT-Einführung zögern. Dabei gibt es längst Möglichkeiten, ChatGPT datenschutzkonform einzusetzen: Team-Konten mit deaktiviertem Training, ChatGPT Enterprise mit eigener Datenverarbeitung oder klare Nutzungsrichtlinien. chatgpt-trainings.de berät Unternehmen bei der Auswahl der richtigen Konfiguration und begleitet die Einführung mit Trainings, die sowohl Anwender als auch IT- und Datenschutzverantwortliche einbeziehen."
   },
   {
-    name: "Wie erklaere ich der Geschaeftsleitung, warum wir eine ChatGPT-Policy brauchen, die auch Memory und Chatverlauf abdeckt?",
-    answer: "Viele Fuehrungskraefte unterschaetzen, wie viel Kontext ChatGPT ueber einzelne Nutzer ansammelt. Wer das System regelmaessig nutzt, hinterlaesst ein detailliertes Profil aus beruflichen Interessen, Kommunikationsgewohnheiten und inhaltlichen Praeferenzen. Ohne klare Regeln entsteht ein unkontrollierter Datenbestand bei einem US-Anbieter. chatgpt-trainings.de hilft Entscheidern, diese Risiken einzuordnen und pragmatische Guidelines zu formulieren \u2013 vom Kick-off-Workshop fuer die Geschaeftsleitung bis zur unternehmensweiten Schulung."
+    name: "Wie erkläre ich der Geschäftsleitung, warum wir eine ChatGPT-Policy brauchen, die auch Memory und Chatverlauf abdeckt?",
+    answer: "Viele Führungskräfte unterschätzen, wie viel Kontext ChatGPT über einzelne Nutzer ansammelt. Wer das System regelmäßig nutzt, hinterlässt ein detailliertes Profil aus beruflichen Interessen, Kommunikationsgewohnheiten und inhaltlichen Präferenzen. Ohne klare Regeln entsteht ein unkontrollierter Datenbestand bei einem US-Anbieter. chatgpt-trainings.de hilft Entscheidern, diese Risiken einzuordnen und pragmatische Guidelines zu formulieren \u2013 vom Kick-off-Workshop für die Geschäftsleitung bis zur unternehmensweiten Schulung."
   }
 ];
 
@@ -51,7 +51,7 @@ const ChatgptErinnerungen = () => {
   const articleSchema = author ? generateArticleSchema(
     {
       headline: PAGE_TITLE,
-      description: "ChatGPT merkt sich mehr ueber Sie als die meisten vermuten. Wie das Memory-System funktioniert, was gespeichert wird und wie Sie die Kontrolle ueber Ihre Daten behalten.",
+      description: "ChatGPT merkt sich mehr über Sie als die meisten vermuten. Wie das Memory-System funktioniert, was gespeichert wird und wie Sie die Kontrolle über Ihre Daten behalten.",
       author: getAuthorSchemaMarkup(author),
       datePublished: PUBLISH_DATE,
       dateModified: MODIFIED_DATE,
@@ -76,19 +76,19 @@ const ChatgptErinnerungen = () => {
 
   const tableOfContents = [
     { id: "was-chatgpt-speichert", title: "Was ChatGPT wirklich speichert", level: 2 },
-    { id: "zwei-gedaechtnisse", title: "Die zwei Gedaechtnisse", level: 2 },
+    { id: "zwei-gedaechtnisse", title: "Die zwei Gedächtnisse", level: 2 },
     { id: "das-unsichtbare-profil", title: "Das unsichtbare Profil", level: 2 },
-    { id: "kontrolle-uebernehmen", title: "Kontrolle uebernehmen", level: 2 },
-    { id: "temporaere-chats", title: "Temporaere Chats als Werkzeug", level: 2 },
-    { id: "unternehmen-und-memory", title: "Was das fuer Unternehmen bedeutet", level: 2 },
-    { id: "faqs", title: "Haeufig gestellte Fragen", level: 2 },
+    { id: "kontrolle-uebernehmen", title: "Kontrolle übernehmen", level: 2 },
+    { id: "temporaere-chats", title: "Temporäre Chats als Werkzeug", level: 2 },
+    { id: "unternehmen-und-memory", title: "Was das für Unternehmen bedeutet", level: 2 },
+    { id: "faqs", title: "Häufig gestellte Fragen", level: 2 },
   ];
 
   return (
     <>
       <SEOHead
         title={PAGE_TITLE}
-        description="ChatGPT merkt sich mehr ueber Sie als die meisten vermuten. Wie das Memory-System funktioniert, was gespeichert wird und wie Sie die Kontrolle ueber Ihre Daten behalten."
+        description="ChatGPT merkt sich mehr über Sie als die meisten vermuten. Wie das Memory-System funktioniert, was gespeichert wird und wie Sie die Kontrolle über Ihre Daten behalten."
         keywords={KEYWORDS}
         canonicalUrl={pageUrl}
         schema={schema}
@@ -102,7 +102,7 @@ const ChatgptErinnerungen = () => {
           { label: PAGE_TITLE, href: `/wissen/${SLUG}` }
         ]}
         title={PAGE_TITLE}
-        description="ChatGPT merkt sich mehr ueber Sie als die meisten vermuten. Wie das Memory-System funktioniert, was gespeichert wird und wie Sie die Kontrolle ueber Ihre Daten behalten."
+        description="ChatGPT merkt sich mehr über Sie als die meisten vermuten. Wie das Memory-System funktioniert, was gespeichert wird und wie Sie die Kontrolle über Ihre Daten behalten."
         lastUpdated="01. Mrz. 2026"
         authorName="Martin Lang"
         tableOfContents={tableOfContents}
@@ -111,87 +111,87 @@ const ChatgptErinnerungen = () => {
         <div className="prose prose-lg max-w-none prose-headings:scroll-mt-24">
 
           <p>
-            Neulich fragte mich ein Teilnehmer in einem Workshop: &bdquo;Woher weiss ChatGPT, dass ich einen Hund habe?&ldquo; Er hatte nie explizit erwaehnt, ein Haustier zu besitzen. Aber vor Wochen hatte er in einem ganz anderen Chat nach Tipps gegen Hundehaare auf dem Sofa gefragt &ndash; und ChatGPT hatte sich das gemerkt. Solche Momente bringen viele Nutzer zum ersten Mal dazu, sich ernsthaft zu fragen: Was genau weiss dieses System eigentlich ueber mich?
+            Neulich fragte mich ein Teilnehmer in einem Workshop: &bdquo;Woher weiß ChatGPT, dass ich einen Hund habe?&ldquo; Er hatte nie explizit erwähnt, ein Haustier zu besitzen. Aber vor Wochen hatte er in einem ganz anderen Chat nach Tipps gegen Hundehaare auf dem Sofa gefragt &ndash; und ChatGPT hatte sich das gemerkt. Solche Momente bringen viele Nutzer zum ersten Mal dazu, sich ernsthaft zu fragen: Was genau weiß dieses System eigentlich über mich?
           </p>
 
           <p>
-            Die Antwort ist unbequem, weil sie nicht eindeutig ausfaellt. ChatGPT speichert nicht alles &ndash; aber deutlich mehr, als die meisten annehmen. Und die Art, wie das geschieht, ist fuer Nutzer kaum durchschaubar.
+            Die Antwort ist unbequem, weil sie nicht eindeutig ausfällt. ChatGPT speichert nicht alles &ndash; aber deutlich mehr, als die meisten annehmen. Und die Art, wie das geschieht, ist für Nutzer kaum durchschaubar.
           </p>
 
           <h2 id="was-chatgpt-speichert">Was ChatGPT wirklich speichert</h2>
 
           <p>
-            Seit April 2025 verfuegt ChatGPT ueber ein erweitertes Gedaechtnis, das weit ueber das hinausgeht, was die meisten unter &bdquo;Erinnerungen&ldquo; verstehen. Frueher konnte man ChatGPT bitten, sich bestimmte Dinge zu merken &ndash; den eigenen Namen, eine bevorzugte Programmiersprache, die Vorliebe fuer Stichpunkte statt Fliesstexte. Das war transparent und steuerbar. Man sah, was gespeichert wurde, und konnte es jederzeit loeschen.
+            Seit April 2025 verfügt ChatGPT über ein erweitertes Gedächtnis, das weit über das hinausgeht, was die meisten unter &bdquo;Erinnerungen&ldquo; verstehen. Früher konnte man ChatGPT bitten, sich bestimmte Dinge zu merken &ndash; den eigenen Namen, eine bevorzugte Programmiersprache, die Vorliebe für Stichpunkte statt Fließtexte. Das war transparent und steuerbar. Man sah, was gespeichert wurde, und konnte es jederzeit löschen.
           </p>
 
           <p>
-            Was sich geaendert hat: ChatGPT baut heute zusaetzlich ein Profil aus dem gesamten Chatverlauf auf. Nicht als Volltext-Archiv, sondern als eine Art verdichtete Zusammenfassung dessen, was das System ueber die Zeit aus den Gespraechen ableitet. Und genau hier wird es fuer viele ueberraschend.
+            Was sich geändert hat: ChatGPT baut heute zusätzlich ein Profil aus dem gesamten Chatverlauf auf. Nicht als Volltext-Archiv, sondern als eine Art verdichtete Zusammenfassung dessen, was das System über die Zeit aus den Gesprächen ableitet. Und genau hier wird es für viele überraschend.
           </p>
 
-          <h2 id="zwei-gedaechtnisse">Die zwei Gedaechtnisse</h2>
+          <h2 id="zwei-gedaechtnisse">Die zwei Gedächtnisse</h2>
 
           <p>
-            Es gibt im Grunde zwei Ebenen, auf denen ChatGPT Informationen ueber einen Nutzer vorhält. Die erste nennt OpenAI &bdquo;Saved Memories&ldquo; &ndash; gespeicherte Erinnerungen. Das sind Fakten, die ChatGPT entweder auf direkte Anweisung speichert (&bdquo;Merk dir, dass ich vegetarisch esse&ldquo;) oder die es eigenstaendig als relevant einstuft und festhält. Diese Erinnerungen sind sichtbar. Man findet sie unter Einstellungen, kann sie einzeln löschen und entscheiden, ob ChatGPT ueberhaupt neue Erinnerungen anlegen darf. Soweit, so ueberschaubar.
-          </p>
-
-          <p>
-            Die zweite Ebene ist weniger greifbar: der Chatverlauf als Wissensquelle. ChatGPT liest nicht jedes alte Gespraech wortwoertlich nach, sondern baut aus den letzten Konversationen &ndash; grob die letzten vierzig Chats &ndash; und aus dem gesamten Nutzungsverhalten ein kontinuierlich aktualisiertes Profil. Dieses Profil enthält abgeleitete Informationen: Kommunikationsstil, inhaltliche Interessen, beruflicher Hintergrund, bevorzugte Antwortlaengen, sogar Geraeteinformationen und typische Nutzungszeiten.
+            Es gibt im Grunde zwei Ebenen, auf denen ChatGPT Informationen über einen Nutzer vorhält. Die erste nennt OpenAI &bdquo;Saved Memories&ldquo; &ndash; gespeicherte Erinnerungen. Das sind Fakten, die ChatGPT entweder auf direkte Anweisung speichert (&bdquo;Merk dir, dass ich vegetarisch esse&ldquo;) oder die es eigenständig als relevant einstuft und festhält. Diese Erinnerungen sind sichtbar. Man findet sie unter Einstellungen, kann sie einzeln löschen und entscheiden, ob ChatGPT überhaupt neue Erinnerungen anlegen darf. Soweit, so überschaubar.
           </p>
 
           <p>
-            Der entscheidende Unterschied: Waehrend die erste Ebene dem Nutzer gehoert &ndash; man kann sie einsehen und bearbeiten &ndash; ist die zweite Ebene weder vollstaendig einsehbar noch direkt steuerbar.
+            Die zweite Ebene ist weniger greifbar: der Chatverlauf als Wissensquelle. ChatGPT liest nicht jedes alte Gespräch wortwörtlich nach, sondern baut aus den letzten Konversationen &ndash; grob die letzten vierzig Chats &ndash; und aus dem gesamten Nutzungsverhalten ein kontinuierlich aktualisiertes Profil. Dieses Profil enthält abgeleitete Informationen: Kommunikationsstil, inhaltliche Interessen, beruflicher Hintergrund, bevorzugte Antwortlängen, sogar Geräteinformationen und typische Nutzungszeiten.
+          </p>
+
+          <p>
+            Der entscheidende Unterschied: Während die erste Ebene dem Nutzer gehört &ndash; man kann sie einsehen und bearbeiten &ndash; ist die zweite Ebene weder vollständig einsehbar noch direkt steuerbar.
           </p>
 
           <h2 id="das-unsichtbare-profil">Das unsichtbare Profil</h2>
 
           <p>
-            Wer ChatGPT regelmaessig nutzt, hinterlaesst ueber Wochen und Monate einen erstaunlich detaillierten Abdruck. Der Sicherheitsforscher Johann Rehberger hat sich angesehen, welche Kategorien ChatGPT intern ueber Nutzer fuehrt, und die Liste ist lang: Kommunikationspraeferenzen mit Konfidenzwerten, fruehere Gespraechsthemen mit Relevanzeinschaetzungen, demografische und berufliche Rueckschluesse, Geraetedaten, Nutzungsmuster und sogar eine Art Bewertung der Interaktionsqualitaet.
+            Wer ChatGPT regelmäßig nutzt, hinterlässt über Wochen und Monate einen erstaunlich detaillierten Abdruck. Der Sicherheitsforscher Johann Rehberger hat sich angesehen, welche Kategorien ChatGPT intern über Nutzer führt, und die Liste ist lang: Kommunikationspräferenzen mit Konfidenzwerten, frühere Gesprächsthemen mit Relevanzeinschätzungen, demografische und berufliche Rückschlüsse, Gerätedaten, Nutzungsmuster und sogar eine Art Bewertung der Interaktionsqualität.
           </p>
 
           <p>
-            Das klingt abstrakter als es ist. Konkret bedeutet es: ChatGPT weiss moeglicherweise, ob Sie eher abends oder morgens arbeiten, ob Sie beruflich mit Finanzen oder mit Software zu tun haben, ob Sie Ergebnisse lieber kurz und knapp oder ausfuehrlich erklaert bekommen moechten und welches Betriebssystem Sie verwenden. Simon Willison, ein bekannter Entwickler und LLM-Experte, brachte es auf den Punkt, als er fragte, ob es jemals ein Verbraucherprodukt gab, das derart faehig war, ein menschenlesbares Profil seiner Nutzer aufzubauen.
+            Das klingt abstrakter als es ist. Konkret bedeutet es: ChatGPT weiß möglicherweise, ob Sie eher abends oder morgens arbeiten, ob Sie beruflich mit Finanzen oder mit Software zu tun haben, ob Sie Ergebnisse lieber kurz und knapp oder ausführlich erklärt bekommen möchten und welches Betriebssystem Sie verwenden. Simon Willison, ein bekannter Entwickler und LLM-Experte, brachte es auf den Punkt, als er fragte, ob es jemals ein Verbraucherprodukt gab, das derart fähig war, ein menschenlesbares Profil seiner Nutzer aufzubauen.
           </p>
 
           <p>
-            Das ist keine Verschwoerungstheorie, sondern eine nuchterne Beschreibung des Systems. OpenAI kommuniziert das auch &ndash; aber eben nicht besonders prominent. Die meisten Nutzer erfahren davon erst, wenn sich ChatGPT in einer neuen Konversation ploetzlich auf etwas bezieht, das sie laengst vergessen hatten.
+            Das ist keine Verschwörungstheorie, sondern eine nüchterne Beschreibung des Systems. OpenAI kommuniziert das auch &ndash; aber eben nicht besonders prominent. Die meisten Nutzer erfahren davon erst, wenn sich ChatGPT in einer neuen Konversation plötzlich auf etwas bezieht, das sie längst vergessen hatten.
           </p>
 
-          <h2 id="kontrolle-uebernehmen">Kontrolle uebernehmen</h2>
+          <h2 id="kontrolle-uebernehmen">Kontrolle übernehmen</h2>
 
           <p>
-            Die gute Nachricht: Man ist dem nicht hilflos ausgeliefert. Es gibt mehrere Hebel, mit denen sich steuern laesst, was ChatGPT behält und was nicht. Der direkteste Weg fuehrt ueber die Einstellungen. Unter &bdquo;Personalisierung&ldquo; lassen sich gespeicherte Erinnerungen einzeln loeschen oder komplett deaktivieren. Wer Memory abschaltet, verhindert, dass ChatGPT in kuenftigen Chats auf fruehere Informationen zugreift. Allerdings: Bereits gespeicherte Erinnerungen verschwinden dadurch nicht automatisch. Sie muessen separat geloescht werden.
-          </p>
-
-          <p>
-            Ein Punkt, den viele uebersehen: Das Loeschen eines Chats entfernt nicht die daraus abgeleiteten Erinnerungen. Wenn ChatGPT sich in einem Gespraech gemerkt hat, dass Sie Projektleiterin in einem Automobilkonzern sind, bleibt diese Erinnerung bestehen, auch wenn der urspruengliche Chat laengst im Papierkorb liegt. Wer eine Information wirklich aus dem System tilgen will, muss sowohl die Erinnerung als auch den zugehoerigen Chat loeschen.
+            Die gute Nachricht: Man ist dem nicht hilflos ausgeliefert. Es gibt mehrere Hebel, mit denen sich steuern lässt, was ChatGPT behält und was nicht. Der direkteste Weg führt über die Einstellungen. Unter &bdquo;Personalisierung&ldquo; lassen sich gespeicherte Erinnerungen einzeln löschen oder komplett deaktivieren. Wer Memory abschaltet, verhindert, dass ChatGPT in künftigen Chats auf frühere Informationen zugreift. Allerdings: Bereits gespeicherte Erinnerungen verschwinden dadurch nicht automatisch. Sie müssen separat gelöscht werden.
           </p>
 
           <p>
-            Seit dem erweiterten Memory-Update kann man zudem zwischen zwei Modi waehlen: nur gespeicherte Erinnerungen oder Erinnerungen plus Chatverlauf-Referenzierung. Wer die zweite Option deaktiviert, begrenzt das Profiling erheblich, verzichtet aber auf einen Teil der Personalisierung.
-          </p>
-
-          <h2 id="temporaere-chats">Temporaere Chats als Werkzeug</h2>
-
-          <p>
-            Eine Funktion, die erstaunlich wenige Leute kennen: den temporaeren Chat. Wer ihn aktiviert, startet eine Konversation, die weder bestehende Erinnerungen nutzt noch neue anlegt. Das ist das digitale Aequivalent eines Gespraechs, das nie stattgefunden hat &ndash; zumindest aus Sicht des Gedaechtnisses.
+            Ein Punkt, den viele übersehen: Das Löschen eines Chats entfernt nicht die daraus abgeleiteten Erinnerungen. Wenn ChatGPT sich in einem Gespräch gemerkt hat, dass Sie Projektleiterin in einem Automobilkonzern sind, bleibt diese Erinnerung bestehen, auch wenn der ursprüngliche Chat längst im Papierkorb liegt. Wer eine Information wirklich aus dem System tilgen will, muss sowohl die Erinnerung als auch den zugehörigen Chat löschen.
           </p>
 
           <p>
-            Fuer viele Anwendungsfaelle ist das die sauberste Loesung. Wer schnell etwas nachschlagen will, ohne dass die Anfrage in das Gesamtprofil einfliesst, nutzt den temporaeren Chat. Wer private und berufliche Nutzung auf einem Konto vermischt und verhindern moechte, dass ChatGPT Wochenendrezepte mit Projektplaenen vermengt, nutzt den temporaeren Chat. Er ist kein Versteck, sondern ein bewusstes Instrument zur Datenhygiene.
+            Seit dem erweiterten Memory-Update kann man zudem zwischen zwei Modi wählen: nur gespeicherte Erinnerungen oder Erinnerungen plus Chatverlauf-Referenzierung. Wer die zweite Option deaktiviert, begrenzt das Profiling erheblich, verzichtet aber auf einen Teil der Personalisierung.
           </p>
 
-          <h2 id="unternehmen-und-memory">Was das fuer Unternehmen bedeutet</h2>
+          <h2 id="temporaere-chats">Temporäre Chats als Werkzeug</h2>
 
           <p>
-            Im privaten Gebrauch ist die Memory-Funktion eine Komfort-Entscheidung. Im beruflichen Kontext wird sie zu einer Governance-Frage. Wenn Mitarbeitende regelmaessig mit ChatGPT arbeiten und dabei Kundennamen, Projektnummern, interne Strategien oder technische Details eingeben, fliessen diese Informationen potenziell in ein Profil ein, das bei OpenAI liegt. Nicht als durchsuchbare Datenbank, aber als Kontext, der kuenftige Antworten beeinflusst.
-          </p>
-
-          <p>
-            Fuer Unternehmen in der EU kommt eine Besonderheit hinzu: Die erweiterte Memory-Funktion war lange Zeit in Europa nicht verfuegbar, weil sie mit der DSGVO kollidierte. Ob und in welchem Umfang sie mittlerweile freigeschaltet ist, haengt vom Kontotyp und der jeweiligen Konfiguration ab. Wer ChatGPT Enterprise oder Team-Konten nutzt, hat mehr Kontrolle &ndash; einschliesslich der Option, dass eingegebene Daten nicht fuer das Training der Modelle verwendet werden.
+            Eine Funktion, die erstaunlich wenige Leute kennen: den temporären Chat. Wer ihn aktiviert, startet eine Konversation, die weder bestehende Erinnerungen nutzt noch neue anlegt. Das ist das digitale Äquivalent eines Gesprächs, das nie stattgefunden hat &ndash; zumindest aus Sicht des Gedächtnisses.
           </p>
 
           <p>
-            Aber die Technik allein loest das Problem nicht. Was fehlt, ist in den meisten Organisationen ein Bewusstsein dafuer, wie ChatGPT mit Informationen umgeht. Die wenigsten Teams haben klare Regeln, was in einen ChatGPT-Chat gehoert und was nicht, ob Memory aktiviert oder deaktiviert sein soll und wie mit geteilten Konten umzugehen ist.
+            Für viele Anwendungsfälle ist das die sauberste Lösung. Wer schnell etwas nachschlagen will, ohne dass die Anfrage in das Gesamtprofil einfließt, nutzt den temporären Chat. Wer private und berufliche Nutzung auf einem Konto vermischt und verhindern möchte, dass ChatGPT Wochenendrezepte mit Projektplänen vermengt, nutzt den temporären Chat. Er ist kein Versteck, sondern ein bewusstes Instrument zur Datenhygiene.
+          </p>
+
+          <h2 id="unternehmen-und-memory">Was das für Unternehmen bedeutet</h2>
+
+          <p>
+            Im privaten Gebrauch ist die Memory-Funktion eine Komfort-Entscheidung. Im beruflichen Kontext wird sie zu einer Governance-Frage. Wenn Mitarbeitende regelmäßig mit ChatGPT arbeiten und dabei Kundennamen, Projektnummern, interne Strategien oder technische Details eingeben, fließen diese Informationen potenziell in ein Profil ein, das bei OpenAI liegt. Nicht als durchsuchbare Datenbank, aber als Kontext, der künftige Antworten beeinflusst.
+          </p>
+
+          <p>
+            Für Unternehmen in der EU kommt eine Besonderheit hinzu: Die erweiterte Memory-Funktion war lange Zeit in Europa nicht verfügbar, weil sie mit der DSGVO kollidierte. Ob und in welchem Umfang sie mittlerweile freigeschaltet ist, hängt vom Kontotyp und der jeweiligen Konfiguration ab. Wer ChatGPT Enterprise oder Team-Konten nutzt, hat mehr Kontrolle &ndash; einschließlich der Option, dass eingegebene Daten nicht für das Training der Modelle verwendet werden.
+          </p>
+
+          <p>
+            Aber die Technik allein löst das Problem nicht. Was fehlt, ist in den meisten Organisationen ein Bewusstsein dafür, wie ChatGPT mit Informationen umgeht. Die wenigsten Teams haben klare Regeln, was in einen ChatGPT-Chat gehört und was nicht, ob Memory aktiviert oder deaktiviert sein soll und wie mit geteilten Konten umzugehen ist.
           </p>
 
           <p>
@@ -230,7 +230,7 @@ const ChatgptErinnerungen = () => {
 
           {/* FAQ Section */}
           <div className="mt-16" id="faqs">
-            <h2>Haeufig gestellte Fragen</h2>
+            <h2>Häufig gestellte Fragen</h2>
             <div className="space-y-8 not-prose">
               {FAQS.map((faq, index) => (
                 <div key={index} className="bg-muted/30 rounded-xl p-6 border border-border/50">
@@ -245,7 +245,7 @@ const ChatgptErinnerungen = () => {
           <div className="mt-16 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl p-8 border border-primary/20 not-prose">
             <h3 className="text-2xl font-bold mb-3">ChatGPT sicher und produktiv einsetzen</h3>
             <p className="text-muted-foreground mb-6 leading-relaxed">
-              Sie moechten wissen, wie Ihr Team ChatGPT nutzen kann, ohne Datenschutzrisiken einzugehen?
+              Sie möchten wissen, wie Ihr Team ChatGPT nutzen kann, ohne Datenschutzrisiken einzugehen?
               In unseren Trainings lernen Ihre Mitarbeitenden nicht nur die besten Prompting-Techniken,
               sondern auch den sicheren Umgang mit Memory, Chatverlauf und Datenschutzeinstellungen.
             </p>

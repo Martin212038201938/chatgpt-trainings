@@ -31,8 +31,8 @@ export interface ArticleData {
 export const ALL_ARTICLES: ArticleData[] = [
   {
     id: "chatgpt-erinnerungen",
-    title: "ChatGPT und Erinnerungen: Was weiss ChatGPT ueber mich?",
-    description: "ChatGPT merkt sich mehr ueber Sie als die meisten vermuten. Wie das Memory-System funktioniert, was gespeichert wird und wie Sie die Kontrolle behalten.",
+    title: "ChatGPT und Erinnerungen: Was weiß ChatGPT über mich?",
+    description: "ChatGPT merkt sich mehr über Sie als die meisten vermuten. Wie das Memory-System funktioniert, was gespeichert wird und wie Sie die Kontrolle behalten.",
     link: "/wissen/chatgpt-erinnerungen",
     badge: "ChatGPT Praxis",
     icon: "\uD83E\uDDE0",
