@@ -24,19 +24,19 @@ const Hero = () => {
           <div className="max-w-4xl mx-auto">
             <h1 className="text-3xl sm:text-5xl lg:text-7xl font-semibold tracking-tight leading-[1.1]">
               <span className="text-foreground">
-                Unternehmens-
-              </span>
-              <br />
-              <span className="text-primary">
                 ChatGPT
               </span>
               <br />
+              <span className="text-primary">
+                richtig einsetzen
+              </span>
+              <br />
               <span className="text-foreground">
-                Schulungen
+                lernen
               </span>
             </h1>
             <p className="mt-4 sm:mt-6 text-base sm:text-xl lg:text-2xl text-muted-foreground font-normal animate-slide-up-delayed">
-              Kompetenzaufbau für die KI-Transformation in großen Organisationen
+              Prompt Engineering, Modellverständnis und strukturierte Workflows für Ihr Team
             </p>
           </div>
         </div>
@@ -44,22 +44,17 @@ const Hero = () => {
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div className="space-y-6 sm:space-y-8">
             <p className="text-base sm:text-xl text-muted-foreground leading-relaxed mb-4 animate-fade-in-delayed">
-              Yellow-Boat Consulting hat sich auf maßgeschneiderte KI-Schulungen für große Unternehmensorganisationen spezialisiert.
-              Wir unterstützen Ihre Teams dabei, ChatGPT und verwandte KI-Tools strategisch zu nutzen und messbare
-              Effizienzgewinne zu realisieren. Von der C-Suite bis zum Sachbearbeiter – wir vermitteln das Wissen für
-              sichere, verantwortungsvolle und gewinnbringende KI-Anwendungen.
+              Die meisten Teams nutzen ChatGPT weit unter ihren Möglichkeiten – weil ihnen das Verständnis für Prompt-Architektur, Kontextsteuerung und die Eigenheiten großer Sprachmodelle fehlt. Genau da setzen wir an: Wir vermitteln Prompt Engineering als Handwerk, erklären wie Token, Kontextfenster und Halluzinationen funktionieren und zeigen, wie sich daraus belastbare Arbeitsergebnisse ableiten lassen.
             </p>
             <p className="text-base sm:text-xl text-muted-foreground leading-relaxed animate-fade-in-delayed-2">
-              Flexibel und praxisnah: Ob Vor-Ort-Workshop in Ihrer Organisation, virtuelle Live-Sessions oder
-              Blended-Learning-Formate – wir richten unsere Schulungen an Ihre Anforderungen aus. Alle Trainings
-              sind modular aufgebaut und adressieren die spezifischen Herausforderungen Ihrer Branche und Unternehmensgröße.
+              Ob vor Ort bei Ihnen, als Live-Online-Session oder im Blended-Format über mehrere Wochen: Jedes Training endet mit erprobten Prompts und Workflows, die Ihre Leute am nächsten Arbeitstag einsetzen können. Kein Marketing-Vortrag, sondern echte Arbeit an echten Aufgaben.
             </p>
 
             <div className="grid grid-cols-3 gap-4 sm:gap-8 pt-6 sm:pt-8 border-t border-border/50">
               {[
-                { value: "Seit 2011", label: "Digitale Transformation", delay: "delay-100" },
-                { value: "500+", label: "Teilnehmer pro Jahr", delay: "delay-200" },
-                { value: "50+", label: "Unternehmen vertrauen uns", delay: "delay-300" }
+                { value: "100%", label: "ChatGPT-Fokus", delay: "delay-100" },
+                { value: "7+", label: "Trainingsformate", delay: "delay-200" },
+                { value: "DACH", label: "Vor Ort & Remote", delay: "delay-300" }
               ].map((stat, idx) => (
                 <div
                   key={idx}

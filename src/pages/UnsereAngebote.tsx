@@ -45,7 +45,7 @@ const UnsereAngebote = () => {
     <div className="min-h-screen">
       <SEOHead
         title="Unsere Angebote – ChatGPT Schulungen & Trainings | chatgpt-trainings.de"
-        description="Alle ChatGPT Trainings im Überblick: Grundlagen, ChatGPT für verschiedene Berufsgruppen, Prompt Engineering, KI-Strategie und mehr. Trainings für ChatGPT Free und ChatGPT Plus/Team/Enterprise Versionen."
+        description="Alle ChatGPT Trainingsformate im Überblick: Kick-Off, Starter Training, Intensiv-Bootcamp, Lernreise, Hackathon und Launch-Event. Für ChatGPT Free und Plus/Team/Enterprise."
         keywords={[
           "ChatGPT Schulung",
           "ChatGPT Training",
@@ -73,8 +73,7 @@ const UnsereAngebote = () => {
                 Unsere Angebote
               </h1>
               <p className="mt-6 text-xl text-muted-foreground max-w-3xl mx-auto animate-slide-up-delayed">
-                ChatGPT Schulungen & Trainings für Unternehmen –
-                konsequent auf die konkreten Bedarfe Ihrer Organisation zugeschnitten.
+                Von Prompt-Grundlagen bis zum KI-Hackathon – alle Formate auf einen Blick.
               </p>
             </div>
 
@@ -214,15 +213,14 @@ const UnsereAngebote = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 rounded-xl blur-xl" />
               <div className="relative bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 border-2 border-primary/30 rounded-xl p-6 md:p-8 text-center">
                 <h3 className="text-xl md:text-2xl font-bold mb-3">
-                  Ihr Training, Ihre Module – individuell zusammengestellt
+                  Trainingsbausteine frei kombinieren
                 </h3>
                 <p className="text-muted-foreground max-w-2xl mx-auto mb-6">
-                  Kein passendes Training gefunden? Bei chatgpt-trainings.de können Sie Ihr Training aus einzelnen Modulen
-                  selbst zusammenstellen – exakt auf die Bedürfnisse Ihres Teams zugeschnitten.
+                  Kein passendes Format dabei? Stellen Sie aus unseren Modulen genau das Programm zusammen, das zur aktuellen ChatGPT-Reife Ihres Teams passt.
                 </p>
                 <Link to="/training-konfigurator" className="inline-block max-w-xs sm:max-w-none">
                   <Button size="default" className="group whitespace-normal h-auto py-2">
-                    <span>Module individuell zusammenstellen</span>
+                    <span>Eigenes Programm konfigurieren</span>
                     <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform flex-shrink-0" />
                   </Button>
                 </Link>
@@ -234,19 +232,18 @@ const UnsereAngebote = () => {
               <Card className="border-2 border-violet-500/30 bg-gradient-to-br from-violet-500/5 to-purple-500/5">
                 <CardHeader className="pb-3">
                   <CardTitle className="flex items-center justify-center gap-2 text-lg">
-                    🎓 Prüfungen & Zertifizierungen auf Wunsch
+                    Kompetenznachweis mit Prüfung
                   </CardTitle>
                 </CardHeader>
                 <CardDescription className="px-6 pb-6 text-center">
                   <p className="mb-3">
-                    Für alle Trainings bieten wir optional <strong>maßgeschneiderte Quizze und Prüfungen</strong> an,
-                    bei denen Teilnehmer beweisen, dass sie das Gelernte verstanden haben. Nach bestandener Prüfung
-                    erhalten Mitarbeiter und Unternehmen ein offizielles <strong>Zertifikat</strong>.
+                    Zu jedem Training bieten wir optional eine <strong>praxisbasierte Prüfung</strong> an:
+                    Teilnehmer zeigen, dass sie Prompts gezielt formulieren, KI-Outputs kritisch bewerten und ChatGPT sicher im Unternehmenskontext anwenden können. Wer besteht, erhält ein <strong>dokumentiertes Zertifikat</strong>.
                   </p>
                   <p className="text-sm text-muted-foreground">
-                    Auch aufbauende Zertifizierungsstufen möglich: <strong>Beginner → Advanced → Pro → Expert</strong>
+                    Aufbauende Stufen verfügbar: <strong>Beginner → Advanced → Pro → Expert</strong>
                     <br />
-                    <span className="italic">Investitionssicherheit für Unternehmen, Karriere-Boost für Mitarbeiter.</span>
+                    <span className="italic">Belastbarer Nachweis für Mitarbeiter, Planungssicherheit für die Organisation.</span>
                   </p>
                 </CardDescription>
               </Card>

@@ -115,10 +115,10 @@ const Contact = () => {
             Kontakt
           </span>
           <h2 className="text-4xl font-bold mt-6 mb-4">
-            ChatGPT sicher und erfolgreich einsetzen
+            Prompt-Kompetenz für Ihr Team aufbauen
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Lassen Sie uns gemeinsam das passende Training für Ihr Team entwickeln.
+            Schildern Sie uns kurz Ihre Ausgangslage – wir schlagen das passende Format vor.
           </p>
         </div>
 
@@ -293,10 +293,9 @@ const Contact = () => {
             </Card>
 
             <Card className="p-6 bg-primary/5 border-primary/20">
-              <h3 className="font-semibold mb-3">Schnelle Antwort garantiert</h3>
+              <h3 className="font-semibold mb-3">Antwort binnen 24 Stunden</h3>
               <p className="text-sm text-muted-foreground">
-                Wir melden uns innerhalb von 24 Stunden bei Ihnen und besprechen 
-                Ihre individuellen Anforderungen für ein maßgeschneidertes Training.
+                Wir melden uns zeitnah mit einem konkreten Vorschlag – passend zu Teamgröße, ChatGPT-Erfahrung und Ihren Zielen.
               </p>
             </Card>
           </div>

@@ -12,33 +12,33 @@ import {
 const benefits = [
   {
     icon: PlaneTakeoff,
-    title: "Fokus auf reale Büro-Workflows",
-    description: "ChatGPT als sicheres und leistungsstarkes KI-Tool, mit dem Sie Dinge tun können, die bisher nicht möglich waren – und das Ihnen Arbeit abnimmt, auf die Sie keine Lust haben. Keine Tool-Demos von Anwendungen, die in Ihrem Unternehmen gar nicht freigegeben sind, sondern konsequenter Fokus auf Ihre realen Arbeitsprozesse."
+    title: "Prompt Engineering als Kernkompetenz",
+    description: "Wir behandeln Prompting nicht als Nebensache, sondern als erlernbares Handwerk. Ihre Mitarbeiter verstehen, warum bestimmte Formulierungen funktionieren und andere nicht – von Rollenanweisungen über Chain-of-Thought bis zu strukturierten Multi-Step-Prompts. Das Ergebnis: reproduzierbare, qualitativ hochwertige KI-Outputs statt Zufallstreffer."
   },
   {
     icon: Radar,
-    title: "Tiefe ChatGPT-Expertise",
-    description: "Herstellernahe Expertise zu ChatGPT und OpenAI-Produkten mit klarem Fokus auf Adoption und Nutzungsreife. Wir befähigen Ihre Mitarbeiter, ChatGPT compliant, sicher und hoch effizient in der täglichen Arbeit zu nutzen. Alle Lösungen sind DSGVO-konform und entsprechen höchsten Sicherheitsstandards."
+    title: "Modellverständnis statt Klick-Anleitung",
+    description: "Wer versteht, wie Token, Kontextfenster und Temperatur zusammenspielen, trifft bessere Entscheidungen im Umgang mit ChatGPT. Wir erklären, wann und warum das Modell halluziniert, wie sich Antwortqualität systematisch steuern lässt und welche Grenzen aktuell nicht überwindbar sind. Dieses Wissen altert langsamer als jede Feature-Schulung."
   },
   {
     icon: Headset,
-    title: "Training, Coaching & Organisationsperspektive",
-    description: "Kombination aus Training, Coaching und ganzheitlicher Organisationsperspektive. Wir begleiten ChatGPT-Einführungen inklusive Governance, Use-Case-Definition und Adoption. Individuelle Begleitung von Führungskräften, Produkt- und Transformationsteams zur Etablierung nachhaltiger, ChatGPT-gestützter Arbeitsweisen."
+    title: "Vom Einzelprompt zum Team-Standard",
+    description: "Einzelne gute Prompts bringen wenig, wenn jede Abteilung anders arbeitet. Wir helfen Ihrem Team, verbindliche Prompt-Templates, Rollenarchitekturen und Qualitätskriterien für KI-Outputs zu definieren. So entsteht eine gemeinsame Arbeitsweise, die skaliert – inklusive Custom GPTs für wiederkehrende Aufgaben."
   },
   {
     icon: Gauge,
-    title: "Praxisorientierter Trainingsansatz",
-    description: "Unser praxisorientierter Trainingsansatz verbindet reale Arbeitsprozesse mit direkt anwendbaren Workflows. Jeder Teilnehmer verlässt das Training mit fertigen, getesteten Workflows und Prompts. Die erlernten Techniken können ab dem nächsten Arbeitstag produktiv eingesetzt werden."
+    title: "Fertige Workflows ab Tag 1",
+    description: "Jeder Teilnehmer verlässt das Training mit getesteten Prompts und Workflows für die eigene Arbeit. Keine theoretischen Slides, sondern Live-Arbeit an echten Aufgaben aus dem eigenen Berufsalltag. Was im Training funktioniert, funktioniert auch am Schreibtisch – weil es dort entwickelt wurde."
   },
   {
     icon: Award,
-    title: "Zertifizierung",
-    description: "Auf Wunsch können Teilnehmende ihr Wissen in einer praxisnahen Prüfung zeigen. Dabei geht es um reale Anwendung: sinnvolles Prompting, kritische Bewertung von Ergebnissen und ein sicheres Arbeiten mit ChatGPT. Wer die Prüfung ablegt, erhält ein aussagekräftiges Zertifikat als Nachweis der erworbenen Fähigkeiten. Optional aufeinander aufbauende Stufen von Beginner bis Expert unterstützen einen strukturierten Lernweg."
+    title: "Kompetenznachweis auf Wunsch",
+    description: "Wer sein Wissen belegen möchte, kann eine Prüfung ablegen: sinnvolles Prompting, kritische Ergebnisbewertung und sicherer Umgang mit ChatGPT im Unternehmenskontext. Bestandene Prüfungen werden mit einem Zertifikat dokumentiert. Aufeinander aufbauende Stufen (Beginner bis Expert) ermöglichen einen strukturierten Lernweg."
   },
   {
     icon: Medal,
-    title: "Über ein Jahrzehnt Erfahrung",
-    description: "Die chatgpt-trainings.de ist eine Marke der 2011 gegründeten Yellow-Boat Consulting. Seit über einem Jahrzehnt realisieren wir Agile Trainings und Digitalisierungsprojekte in Konzernen und im Mittelstand. Seit 2023 liegt ein starker Fokus auf praxisnahen KI-Anwendertrainings mit ChatGPT und anderen KI-Tools."
+    title: "Trainerkompetenz aus Konzernerfahrung",
+    description: "ChatGPT-Trainings.de gehört zur Yellow-Boat Consulting, die seit 2011 Transformationsprojekte in Konzernen und Mittelstand umsetzt. Seit 2023 fließt diese Erfahrung in spezialisierte KI-Trainings: Wir kennen die Realität in Organisationen und wissen, welche Hürden zwischen einem guten Prompt und der tatsächlichen Nutzung im Arbeitsalltag liegen."
   }
 ];
 
@@ -123,7 +123,7 @@ const Benefits = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-8 sm:mb-16 animate-fade-in">
           <h2 className="text-2xl sm:text-4xl font-bold mb-4 animate-slide-up">
-            Warum ChatGPT-Trainings.de der beste Partner für professionelle ChatGPT-Schulungen ist
+            Was unsere ChatGPT-Trainings von generischen KI-Schulungen unterscheidet
           </h2>
         </div>
 

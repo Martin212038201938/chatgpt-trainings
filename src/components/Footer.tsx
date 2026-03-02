@@ -10,8 +10,8 @@ const Footer = () => {
               <img src="/images/chatgpt-trainings-logo.png" alt="ChatGPT-Trainings Logo" className="h-16 w-auto object-contain" />
             </div>
             <p className="text-muted-foreground text-sm mb-3">
-              Professionelle ChatGPT Trainings für Unternehmen.
-              Praxisorientierte Workshops für Wissensarbeiter, Teams und Organisationen.
+              Prompt Engineering und LLM-Verständnis für Unternehmen.
+              Spezialisierte ChatGPT-Trainings von Kick-Off bis Bootcamp.
             </p>
             <p className="text-muted-foreground text-xs">
               Eine Marke der{" "}

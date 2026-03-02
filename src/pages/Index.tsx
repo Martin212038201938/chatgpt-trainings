@@ -117,8 +117,8 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <SEOHead
-        title="ChatGPT Training für Unternehmen | Workshops & Schulungen"
-        description="Professionelle ChatGPT Trainings für Unternehmen: Praxisnahe Workshops, Prompt Engineering und KI-Enablement. Maßgeschneidert für Ihr Team."
+        title="ChatGPT Training für Unternehmen | Prompt Engineering & LLM-Kompetenz"
+        description="ChatGPT-Trainings mit Fokus auf Prompt Engineering, Modellverständnis und strukturierte Workflows. Spezialisierte Schulungen für Teams im DACH-Raum."
         keywords={[
           "ChatGPT Training",
           "ChatGPT Schulung Unternehmen",

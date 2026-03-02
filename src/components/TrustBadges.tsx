@@ -3,23 +3,23 @@ import { Shield, Award, Users, Lock } from "lucide-react";
 const trustBadges = [
   {
     icon: Shield,
-    title: "Microsoft Partner",
-    description: "Zertifizierter Microsoft-Partner mit nachgewiesener Expertise"
+    title: "ChatGPT-Spezialisten",
+    description: "Ausschließlich auf ChatGPT und OpenAI-Produkte fokussiert – kein Tool-Bauchladen"
   },
   {
     icon: Lock,
-    title: "DSGVO-konform",
-    description: "100% datenschutzkonforme Schulungen nach EU-Standards"
+    title: "DSGVO-geprüft",
+    description: "Alle Trainings behandeln datenschutzkonforme Nutzung nach EU-Vorgaben"
   },
   {
     icon: Award,
-    title: "15+ Jahre Erfahrung",
-    description: "Fundierte Expertise in Microsoft-Technologien seit 2009"
+    title: "Prompt Engineering Fokus",
+    description: "Tiefes Verständnis von LLM-Mechaniken statt oberflächlicher Feature-Touren"
   },
   {
     icon: Users,
-    title: "500+ geschulte Teams",
-    description: "Erfolgreiche Trainings in führenden Unternehmen"
+    title: "Konzern- & Mittelstand",
+    description: "Erfahrung mit Rollouts in Organisationen von 20 bis 5.000 Mitarbeitenden"
   }
 ];
 
@@ -35,10 +35,10 @@ const TrustBadges = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-12 animate-fade-in">
           <h2 className="text-3xl font-bold mb-4">
-            Ihre Garantie für exzellente Trainings
+            Worauf Sie sich verlassen können
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Vertrauen Sie auf geprüfte Qualität, langjährige Erfahrung und höchste Sicherheitsstandards
+            Spezialisierung, Tiefe und Organisationserfahrung – statt generischer KI-Übersichten
           </p>
         </div>
 

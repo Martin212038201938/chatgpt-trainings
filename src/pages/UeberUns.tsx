@@ -19,7 +19,7 @@ const UeberUns = () => {
         "alternateName": "ChatGPT-Trainings",
         "url": "https://chatgpt-trainings.de",
         "logo": "https://chatgpt-trainings.de/og-image.jpg",
-        "description": "ChatGPT-Trainings.de ist der spezialisierte Weiterbildungsanbieter für den professionellen Einsatz von ChatGPT und KI-Tools in Unternehmen. Wir setzen auf tiefgreifende Praxisnähe statt oberflächliche Tool-Übersichten.",
+        "description": "ChatGPT-Trainings.de vermittelt Prompt Engineering, Modellverständnis und strukturierte KI-Workflows an Unternehmen im DACH-Raum. Spezialisiert auf ChatGPT und OpenAI-Produkte.",
         "foundingDate": "2025",
         "founder": {
           "@type": "Person",
@@ -58,7 +58,7 @@ const UeberUns = () => {
           "Prompt Engineering",
           "Custom GPTs"
         ],
-        "slogan": "Büroarbeit durch ChatGPT und KI messbar produktiver, wirksamer und menschlicher machen",
+        "slogan": "Prompt-Kompetenz und LLM-Verständnis für Unternehmen, die ChatGPT systematisch einsetzen wollen",
         "contactPoint": {
           "@type": "ContactPoint",
           "contactType": "customer service",
@@ -83,7 +83,7 @@ const UeberUns = () => {
         "@id": "https://chatgpt-trainings.de/#educationalOrganization",
         "name": "chatgpt-trainings.de",
         "url": "https://chatgpt-trainings.de",
-        "description": "Spezialisierte Akademie für professionelle ChatGPT und KI-Weiterbildung",
+        "description": "Spezialisierte Akademie für Prompt Engineering, LLM-Verständnis und ChatGPT-Workflows in Unternehmen",
         "foundingDate": "2025",
         "parentOrganization": {
           "@id": "https://yellow-boat.com/#organization"
@@ -122,7 +122,7 @@ const UeberUns = () => {
     <div className="min-h-screen">
       <SEOHead
         title="Über uns - chatgpt-trainings.de | Professionelle ChatGPT Trainings"
-        description="ChatGPT-Trainings.de ist der spezialisierte Weiterbildungsanbieter für den professionellen Einsatz von ChatGPT und KI-Tools in Unternehmen. Tiefe Praxisnähe statt oberflächliche Tool-Übersichten."
+        description="ChatGPT-Trainings.de vermittelt Prompt Engineering und LLM-Verständnis an Unternehmen. Spezialisiert auf ChatGPT und OpenAI – keine generischen KI-Übersichten."
         keywords={[
           "chatgpt-trainings",
           "ChatGPT Training Anbieter",
@@ -140,13 +140,13 @@ const UeberUns = () => {
           {/* Hero Section - Apple-inspired clean design */}
           <div className="max-w-4xl mx-auto text-center mb-16">
             <h1 className="text-5xl lg:text-7xl font-semibold tracking-tight leading-[1.1]">
-              Ihr Partner für <span className="text-primary">professionelle ChatGPT</span> Weiterbildung
+              Wer wir sind und <span className="text-primary">warum ChatGPT</span>
             </h1>
             <p className="mt-6 text-xl text-muted-foreground leading-relaxed mb-4 animate-slide-up-delayed">
-              <strong>ChatGPT-Trainings.de</strong> hat sich darauf spezialisiert, Unternehmen bei der professionellen Einführung und Nutzung von ChatGPT zu begleiten. Statt eines beliebigen Rundumschlags über verschiedenste KI-Tools konzentrieren wir uns gezielt auf die Werkzeuge, die in Ihrem Arbeitsalltag tatsächlich Wirkung zeigen.
+              <strong>ChatGPT-Trainings.de</strong> vermittelt Prompt Engineering, Modellverständnis und strukturierte KI-Workflows an Teams, die ChatGPT nicht nur ausprobieren, sondern systematisch in ihre Arbeit einbauen wollen. Kein Tool-Überblick, kein Feature-Bingo – sondern Tiefe in einem Werkzeug.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Unser Ziel: Ihre Mitarbeiter, Teams und Führungskräfte befähigen, ChatGPT sicher, effizient und wertschöpfend einzusetzen. Dabei verbinden wir echte Arbeitssituationen mit sofort umsetzbaren Methoden.
+              Wir zeigen, wie man Prompts baut, die reproduzierbare Ergebnisse liefern. Wie man Halluzinationen erkennt und vermeidet. Und wie Teams gemeinsame Standards für die Arbeit mit großen Sprachmodellen entwickeln.
             </p>
           </div>
 
@@ -155,22 +155,21 @@ const UeberUns = () => {
             <Card className="p-6 hover:shadow-xl transition-all duration-300 border-2 hover:border-primary/50">
               <h2 className="text-2xl font-bold mb-4">Unsere Mission</h2>
               <p className="text-muted-foreground leading-relaxed">
-                Wir machen Wissensarbeit durch den gezielten Einsatz von ChatGPT und KI spürbar
-                <strong> produktiver und wirkungsvoller</strong>.
+                Teams befähigen, ChatGPT als <strong>verlässliches Arbeitswerkzeug</strong> einzusetzen – mit Verständnis für die Mechanik hinter den Ergebnissen.
               </p>
             </Card>
 
             <Card className="p-6 hover:shadow-xl transition-all duration-300 border-2 hover:border-primary/50">
               <h2 className="text-2xl font-bold mb-4">Unsere Vision</h2>
               <p className="text-muted-foreground leading-relaxed">
-                Wir sehen eine Zukunft, in der KI als <strong>alltäglicher Sparringspartner</strong> am Arbeitsplatz dient und Menschen sich auf das konzentrieren können, was wirklich zählt: kreative, strategische und zwischenmenschliche Aufgaben.
+                Eine Arbeitswelt, in der Prompt-Kompetenz so selbstverständlich ist wie der Umgang mit E-Mail – und in der jeder Wissensarbeiter weiß, <strong>wann und wie er KI sinnvoll einsetzt</strong>.
               </p>
             </Card>
 
             <Card className="p-6 hover:shadow-xl transition-all duration-300 border-2 hover:border-primary/50">
               <h2 className="text-2xl font-bold mb-4">Unsere Werte</h2>
               <p className="text-muted-foreground leading-relaxed">
-                <strong>Praxisnähe, Wirksamkeit, Ehrlichkeit.</strong> Was wir vermitteln, funktioniert am nächsten Arbeitstag. Was nicht funktioniert, kommunizieren wir offen.
+                <strong>Tiefe statt Breite. Klartext statt Marketing.</strong> Wir zeigen, was funktioniert – und sagen offen, wo die Grenzen von ChatGPT liegen.
               </p>
             </Card>
           </div>
@@ -193,28 +192,26 @@ const UeberUns = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 rounded-2xl blur-xl" />
               <div className="relative bg-gradient-to-br from-card/80 to-card/60 backdrop-blur-xl rounded-2xl p-8 md:p-12 text-center border border-border/50 shadow-xl">
                 <h3 className="text-2xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/70">
-                  Unsere Vision: KI als selbstverständlicher Sparringspartner
+                  Unser Ansatz: Vom Prompt zum Arbeitsergebnis
                 </h3>
                 <p className="text-muted-foreground max-w-2xl mx-auto mb-6 leading-relaxed">
-                  Wir stellen uns eine Arbeitswelt vor, in der KI als natürlicher Bestandteil des beruflichen Handelns angesehen wird und Mitarbeiter ihre volle Aufmerksamkeit auf Aufgaben richten können, die Innovationskraft, Kreativität und menschliche Interaktion erfordern. Jedes Trainingskonzept wird präzise nach den Anforderungen Ihrer Organisation, Ihrer Branche und Ihren strategischen Zielen ausgerichtet.
+                  Wir glauben, dass der Unterschied zwischen produktiver und unproduktiver ChatGPT-Nutzung im Verständnis liegt – nicht im Tool selbst. Wer weiß, wie Tokenisierung funktioniert, warum Kontext entscheidend ist und wann ein Prompt scheitert, arbeitet auf einem völlig anderen Niveau. Genau dieses Verständnis vermitteln wir, angepasst an die Aufgaben und Rollen Ihrer Teilnehmer.
                 </p>
                 <p className="text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed">
-                  Wir unterstützen KI-Einführungsprojekte umfassend – von der initialen Bedarfsanalyse über Governance-Konzepte bis zur nachhaltigen Verankerung im Arbeitsalltag.
-                  Nach der Trainingsphase bieten wir Coaching und laufende Unterstützung für Leitungskräfte,
-                  Projektverantwortliche und Transformationsteams, um KI-gestützte Arbeitsweisen dauerhaft zu etablieren.
+                  Über das reine Training hinaus begleiten wir den Aufbau von Prompt-Standards, die Entwicklung von Custom GPTs für Ihre Organisation und die Einführung von Qualitätskriterien für KI-generierte Arbeitsergebnisse. Für Führungskräfte und Projektverantwortliche bieten wir Coaching zur strategischen ChatGPT-Integration.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
                   <div className="group flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-primary/10 transition-all duration-300 hover:scale-105 cursor-default">
                     <span className="text-primary text-2xl group-hover:scale-125 transition-transform">✓</span>
-                    <span className="font-medium">Vor Ort oder Remote</span>
+                    <span className="font-medium">Vor Ort & Remote</span>
                   </div>
                   <div className="group flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-primary/10 transition-all duration-300 hover:scale-105 cursor-default">
                     <span className="text-primary text-2xl group-hover:scale-125 transition-transform">✓</span>
-                    <span className="font-medium">Flexible Termine</span>
+                    <span className="font-medium">ChatGPT Free & Enterprise</span>
                   </div>
                   <div className="group flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-primary/10 transition-all duration-300 hover:scale-105 cursor-default">
                     <span className="text-primary text-2xl group-hover:scale-125 transition-transform">✓</span>
-                    <span className="font-medium">Individueller Zuschnitt</span>
+                    <span className="font-medium">Branchen-Use-Cases</span>
                   </div>
                 </div>
               </div>
@@ -229,30 +226,30 @@ const UeberUns = () => {
               <Card className="p-6 hover:shadow-lg transition-all duration-300">
                 <h3 className="text-xl font-bold mb-3 flex items-center gap-2">
                   <span className="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center text-primary font-bold">1</span>
-                  Praxistrainings & Workshops
+                  Prompt Engineering Trainings
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Praxistrainings und interaktive Workshops zu ChatGPT mit starkem Fokus auf echte Anwendungsfälle aus dem Arbeitsalltag. Hauptzielgruppe: <strong>Fachkräfte, Wissensarbeiter, Teams und Entscheider</strong>.
+                  Hands-on-Trainings, in denen Teilnehmer lernen, wie Prompts aufgebaut sein müssen, damit ChatGPT zuverlässig brauchbare Ergebnisse liefert. Von der Rollenanweisung über Multi-Step-Prompts bis zu strukturierten Outputs in JSON oder Tabellenform. Für <strong>Fachkräfte, Wissensarbeiter und Führungskräfte</strong>.
                 </p>
               </Card>
 
               <Card className="p-6 hover:shadow-lg transition-all duration-300">
                 <h3 className="text-xl font-bold mb-3 flex items-center gap-2">
                   <span className="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center text-primary font-bold">2</span>
-                  Projektbegleitung & KI-Einführung
+                  ChatGPT-Rollout & Prompt-Standards
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Begleitung von KI-Einführungsprojekten – von der Bedarfsanalyse über Governance-Konzepte bis zur nachhaltigen Verankerung im Arbeitsalltag. Für <strong>mittelständische und große Organisationen</strong> im DACH-Raum.
+                  Begleitung beim Aufbau von Prompt-Bibliotheken, Custom GPTs und Qualitätsstandards für KI-generierte Arbeitsergebnisse. Inklusive Regelwerk für DSGVO-konforme Nutzung und Leitlinien für den verantwortungsvollen Umgang mit LLM-Outputs. Für <strong>mittelständische und große Organisationen</strong> im DACH-Raum.
                 </p>
               </Card>
 
               <Card className="p-6 hover:shadow-lg transition-all duration-300">
                 <h3 className="text-xl font-bold mb-3 flex items-center gap-2">
                   <span className="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center text-primary font-bold">3</span>
-                  Führungs-Coaching & Strategieberatung
+                  Führungskräfte-Coaching
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Persönliches Coaching für Führungskräfte und Transformationsteams, die <strong>ChatGPT-gestützte Arbeitsweisen dauerhaft etablieren</strong> wollen.
+                  Persönliches Coaching für Entscheider, die verstehen wollen, was ChatGPT leisten kann, wo die Risiken liegen und wie sich <strong>KI-gestützte Arbeitsweisen im Team verankern</strong> lassen – jenseits von Pilotprojekten.
                 </p>
               </Card>
             </div>
@@ -305,7 +302,7 @@ const UeberUns = () => {
               </div>
               <div>
                 <h2 className="text-3xl font-bold mb-2">Unternehmensgeschichte</h2>
-                <p className="text-muted-foreground">Über ein Jahrzehnt Erfahrung</p>
+                <p className="text-muted-foreground">Von Agile Coaching zu KI-Trainings</p>
               </div>
             </div>
 
@@ -333,8 +330,7 @@ const UeberUns = () => {
                 <div className="font-bold text-lg text-primary mb-1">2011–2023</div>
                 <h3 className="text-xl font-semibold mb-2">Spezialisierung auf Agile & Transformation</h3>
                 <p className="text-muted-foreground">
-                  Über mehr als ein Jahrzehnt hat Yellow-Boat Consulting umfangreiche Veränderungsprojekte umgesetzt und Hunderte von Scrum Mastern, Product Ownern und agilen Fachleuten ausgebildet.
-                  Daneben berät das Unternehmen Organisationen aller Größen bei der Umsetzung agiler, flexibler, dezentraler und hybridarbeit-orientierter Teamstrukturen. Das Netzwerk „Yellow-Fleet" vereint hochqualifizierte, zertifizierte Berater und Trainern.
+                  Yellow-Boat Consulting hat in dieser Zeit Veränderungsprojekte in Konzernen und Mittelstand begleitet – mit dem Fokus auf agile Arbeitsweisen und die Befähigung von Teams und Führungskräften. Diese Erfahrung mit Organisations- und Lernprozessen bildet die Grundlage für unsere heutigen KI-Trainings.
                 </p>
               </div>
 
@@ -343,8 +339,7 @@ const UeberUns = () => {
                 <div className="font-bold text-lg text-primary mb-1">2023</div>
                 <h3 className="text-xl font-semibold mb-2">Orientierung zur KI-gestützten Arbeit</h3>
                 <p className="text-muted-foreground">
-                  Schrittweise Neuausrichtung auf praxisnahe Schulungsangebote für die Transformation von Arbeitsabläufen durch Künstliche Intelligenz. 2023 starten erste KI-Anwendertrainings. Pilotprojekte erfolgen im Rahmen der Workshop-Serie in Köln, gefolgt von KI-Trainings mit unterschiedlichen Kundenorganisationen. Aktiver Austausch mit dem DFKI (Deutsche Forschungszentrum für Künstliche Intelligenz).
-                  Gleichzeitig werden intensive Lernprogramme, Konferenzen und Fachdiskussionen genutzt, um fundierte Expertise in der Anwendung von KI im beruflichen Umfeld aufzubauen.
+                  Mit dem Aufkommen leistungsfähiger Sprachmodelle verlagert sich der Fokus auf KI-Anwendertrainings. Erste Pilotprojekte in Köln, gefolgt von ChatGPT-Workshops mit Unternehmenskunden. Austausch mit dem DFKI und intensive Auseinandersetzung mit Prompt Engineering, Modellarchitekturen und den Grenzen generativer KI.
                 </p>
               </div>
 
@@ -353,7 +348,7 @@ const UeberUns = () => {
                 <div className="font-bold text-lg text-primary mb-1">2024</div>
                 <h3 className="text-xl font-semibold mb-2">AI-First Ansatz & ChatGPT Trainings</h3>
                 <p className="text-muted-foreground">
-                  Im Sommer 2024 stellt Yellow-Boat Consulting ihre Prozesse und Abläufe konsequent auf einen KI-zentrierten Arbeitsansatz um. In der Folge werden zahlreiche Softwareprojekte mit No-Code- und Low-Code-Technologien realisiert und von erfahrenen Entwicklern betreut und überwacht. Im Dezember 2024 wird das erste ChatGPT-Trainingsprogramm konzipiert und erfolgreich durchgeführt.
+                  Yellow-Boat stellt die eigenen Arbeitsprozesse konsequent auf KI-gestützte Workflows um. Gleichzeitig entstehen die ersten strukturierten ChatGPT-Trainingsprogramme – basierend auf der eigenen Erfahrung, was funktioniert und was nicht.
                 </p>
               </div>
 
@@ -362,9 +357,7 @@ const UeberUns = () => {
                 <div className="font-bold text-xl text-primary mb-1">2025</div>
                 <h3 className="text-2xl font-semibold mb-2">Marktstart ChatGPT-Trainings</h3>
                 <p className="text-muted-foreground text-lg">
-                  Start von chatgpt-trainings.de und Aufbau eines kompetenten Trainer- und Beratungsteams für eine eigenständige,
-                  spezialisierte Lernakademie mit deutlichem Schwerpunkt auf der beruflichen Anwendung von ChatGPT und KI-Systemen.
-                  Gleichzeitig wird das Angebot strategisch erweitert um zusätzliche Formate wie praxisorientierte Launch-Veranstaltungen und spezialisierte Schulungsreisen. Das Partnernetzwerk wird um technische Dienstleistungsunternehmen ergänzt, um Softwareprojekte umzusetzen und zu unterstützen. Entwickler werden von spezialisierten KI-Experten in moderne, KI-gestützte Entwicklungsmethoden und Toollandschaften eingeführt.
+                  Launch von chatgpt-trainings.de als eigenständige Marke für ChatGPT-Schulungen. Aufbau eines Trainerteams mit Schwerpunkt Prompt Engineering und LLM-Verständnis. Das Angebotsportfolio umfasst Kick-Offs, mehrtägige Bootcamps, begleitete Lernreisen, Hackathons und Launch-Events – jeweils zugeschnitten auf die ChatGPT-Reife der teilnehmenden Organisation.
                 </p>
               </div>
             </div>
@@ -382,20 +375,19 @@ const UeberUns = () => {
               </div>
             </div>
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-              Wir positionieren uns als <strong>Spezialist für echte Praxisanwendung</strong> mit
-              tiefem Verständnis für die Realität moderner Wissensarbeit und Unternehmensstrukturen.
+              Wir sind <strong>Spezialisten für ChatGPT und Prompt Engineering</strong> – keine generische KI-Weiterbildung, die alles ein bisschen abdeckt.
             </p>
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <h4 className="font-semibold mb-2">Im Vergleich zu Standard-Kursanbietern:</h4>
+                <h4 className="font-semibold mb-2">Gegenüber breiten KI-Kursanbietern:</h4>
                 <p className="text-muted-foreground text-sm">
-                  Wir verzichten auf oberflächliche Übersichtskurse. Stattdessen fokussieren wir auf konkrete, unmittelbar umsetzbare Lösungen für Ihren Arbeitsalltag.
+                  Wir unterrichten ausschließlich ChatGPT und OpenAI-Produkte. Dafür mit einer Tiefe, die generische Anbieter nicht erreichen: Token-Mechanik, Prompt-Architektur, systematische Output-Steuerung.
                 </p>
               </div>
               <div>
-                <h4 className="font-semibold mb-2">Im Vergleich zu technischen IT-Schulungen:</h4>
+                <h4 className="font-semibold mb-2">Gegenüber reinen IT-Schulungen:</h4>
                 <p className="text-muted-foreground text-sm">
-                  Unser Angebot ist zugeschnitten auf die spezifischen Anforderungen jeder Gruppe von Teilnehmern und nutzt Szenarien aus ihrem eigentlichen beruflichen Umfeld.
+                  Unsere Trainings arbeiten mit den echten Aufgaben der Teilnehmer. Ein Controller baut andere Prompts als jemand im Marketing – und genau so behandeln wir das.
                 </p>
               </div>
             </div>
@@ -429,9 +421,9 @@ const UeberUns = () => {
 
           {/* CTA */}
           <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-2xl font-bold mb-4">Bereit für ChatGPT und KI im Unternehmen?</h2>
+            <h2 className="text-2xl font-bold mb-4">Prompt-Kompetenz für Ihr Team aufbauen?</h2>
             <p className="text-muted-foreground mb-6">
-              Lassen Sie uns über Ihre KI-Strategie und ein passendes Trainingskonzept sprechen.
+              Lassen Sie uns besprechen, welches Format zu Ihrem Team und Ihren Zielen passt.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="group">
