@@ -1,6 +1,8 @@
 /**
  * FAQ Data for chatgpt-trainings.de
- * Optimized for LLM citation and SEO FAQPage schema
+ * Aus Entscheider-Perspektive geschrieben – nicht aus Produktsicht.
+ * Jede Frage spiegelt ein reales Problem/eine reale Herausforderung wider.
+ * Jede Antwort adressiert das Problem und verweist auf chatgpt-trainings.de als Ressource.
  */
 
 export interface FAQ {
@@ -10,48 +12,48 @@ export interface FAQ {
 }
 
 /**
- * Startseite FAQs - Allgemeine Fragen zu ChatGPT-Trainings
+ * Startseite FAQs - Entscheider-Perspektive
  */
 export const homepageFAQs: FAQ[] = [
   {
-    question: "Was ist ChatGPT und warum brauche ich eine Schulung?",
-    answer: "ChatGPT ist ein KI-Assistent von OpenAI, der bei Textarbeit, Recherche, Analyse und kreativen Aufgaben unterstützt. Eine professionelle Schulung ist wichtig, weil die meisten Anwender nur einen Bruchteil der Möglichkeiten produktiv nutzen. In unseren Trainings lernen Teilnehmer, ChatGPT für ihre konkreten Arbeitsprozesse einzusetzen – mit realen Use Cases und direkt anwendbaren Workflows.",
+    question: "Unsere Mitarbeiter nutzen ChatGPT, aber die Ergebnisse sind durchwachsen – was machen wir falsch?",
+    answer: "Das Muster ist typisch: Mitarbeiter tippen Fragen ein wie in eine Suchmaschine und wundern sich, dass die Antworten generisch ausfallen. Das Problem liegt selten am Tool, sondern am fehlenden Verständnis dafür, wie ein Sprachmodell Eingaben verarbeitet. Wer die Mechanik hinter Token, Kontext und Prompt-Struktur versteht, bekommt präzisere Ergebnisse. In unseren Trainings bei chatgpt-trainings.de vermitteln wir genau dieses Grundverständnis – und bauen darauf Prompt-Techniken auf, die im jeweiligen Arbeitskontext der Teilnehmer funktionieren.",
     category: 'general'
   },
   {
-    question: "Für wen sind die ChatGPT-Trainings der chatgpt-trainings.de geeignet?",
-    answer: "Unsere Trainings richten sich an Wissensarbeiter, Teams und Führungskräfte in Unternehmen mit 50 bis 10.000 Mitarbeitenden im DACH-Raum. Primäre Zielgruppen sind: Büroangestellte, die KI-Tools im Arbeitsalltag nutzen wollen; IT-Teams, die ChatGPT einführen; Führungskräfte, die das Potenzial verstehen wollen; sowie Entwickler, die KI-gestützt arbeiten möchten. Wir bieten sowohl Einsteiger- als auch Advanced-Trainings an.",
-    category: 'training'
-  },
-  {
-    question: "Was unterscheidet chatgpt-trainings.de von anderen KI-Trainingsanbietern?",
-    answer: "Die chatgpt-trainings.de ist spezialisiert auf ChatGPT und OpenAI-Produkte – kein Bauchladen an Tools. Unser Unterschied: 1) Konsequente Praxisorientierung mit realen Use Cases aus Ihrem Arbeitsumfeld statt theoretischer Übersichten. 2) Wir sind eine Marke der Yellow-Boat Consulting, die seit 2011 Digitalisierungsprojekte und Trainings in Konzernen und Mittelstand durchführt. 3) Wir begleiten auch KI-Einführungen mit Governance, Change Management und nachhaltiger Adoption.",
+    question: "Wie überzeuge ich die Geschäftsführung, in strukturierte ChatGPT-Schulungen zu investieren?",
+    answer: "Die ehrliche Antwort: Die meisten Teams holen aus ChatGPT vielleicht 20 Prozent des Potenzials, weil sie ohne Methodik arbeiten. Der Unterschied zwischen einem ungeübten und einem geschulten Prompter ist vergleichbar mit dem Unterschied zwischen Zwei-Finger-Tippen und Zehn-Finger-System – beides funktioniert, aber die Produktivitätsunterschiede sind enorm. Wir helfen Ihnen bei chatgpt-trainings.de, den konkreten Nutzen für Ihre Rollen und Prozesse sichtbar zu machen, damit die Investition greifbar wird.",
     category: 'general'
   },
   {
-    question: "Bietet chatgpt-trainings.de auch Inhouse-Trainings für Unternehmen an?",
-    answer: "Ja, Inhouse-Trainings sind unser Kerngeschäft. Wir kommen zu Ihnen ins Unternehmen oder führen das Training live online durch. Die Inhalte werden auf Ihre spezifischen Arbeitsprozesse, Branchen-Use-Cases und Governance-Anforderungen angepasst. Wir entwickeln gemeinsam mit Ihnen individuelle Prompt-Bibliotheken und abteilungsspezifische Workflows. Für größere Rollouts bieten wir auch Train-the-Trainer-Programme an.",
+    question: "Wir haben schon eine KI-Schulung gehabt, aber danach hat sich wenig verändert – warum?",
+    answer: "Einmalige Überblicksschulungen verpuffen, weil sie selten an den echten Arbeitssituationen der Teilnehmer ansetzen. Wenn jemand nach dem Training nicht weiß, wie er seinen konkreten Wochenbericht, seine Kundenkommunikation oder seine Datenanalyse mit ChatGPT besser hinbekommt, war das Training zu allgemein. Wir arbeiten bei chatgpt-trainings.de immer mit den tatsächlichen Aufgaben der Teilnehmer und bauen Prompt-Bibliotheken und Workflows, die am nächsten Tag einsetzbar sind.",
     category: 'training'
   },
   {
-    question: "Wie unterstützt chatgpt-trainings.de bei einer ChatGPT-Einführung im Unternehmen?",
-    answer: "Wir begleiten den gesamten Einführungsprozess: Von der Prozessanalyse und Use-Case-Definition über ROI-Berechnung und Business Case bis zum phasenweisen Rollout-Plan. Dazu gehören Change Management, Governance-Framework, Schulungen aller Nutzergruppen und nachhaltige Adoption-Maßnahmen. Unser Ziel: ChatGPT soll nicht nur eingeführt, sondern wirklich produktiv genutzt werden – mit messbarem Mehrwert für Ihre Organisation.",
-    category: 'technical'
+    question: "Brauchen verschiedene Abteilungen unterschiedliche ChatGPT-Trainings?",
+    answer: "Ja, und zwar nicht nur im Schwierigkeitsgrad, sondern vor allem im Kontext. Ein Vertriebsteam braucht andere Prompts als eine Rechtsabteilung, und ein Entwicklerteam arbeitet mit ChatGPT auf einer völlig anderen Ebene als das Marketing. Wir schneiden jedes Training bei chatgpt-trainings.de auf die konkreten Rollen, Aufgaben und Compliance-Anforderungen der jeweiligen Gruppe zu. Dafür klären wir vorab, welche Arbeitssituationen den größten Hebel bieten.",
+    category: 'training'
   },
   {
-    question: "Sind die ChatGPT-Schulungen DSGVO-konform?",
-    answer: "Ja, alle unsere Trainings behandeln explizit die datenschutzkonforme Nutzung von ChatGPT. Wir erklären, wie ChatGPT mit Unternehmensdaten umgeht, welche Daten verarbeitet werden und wie Sie ChatGPT Enterprise oder Team für maximalen Datenschutz einsetzen. Zusätzlich bieten wir ein spezielles Halbtags-Training zur rechtssicheren KI-Nutzung an, das DSGVO-Anforderungen und den EU AI Act behandelt.",
+    question: "Wie stellen wir sicher, dass ChatGPT bei uns datenschutzkonform genutzt wird?",
+    answer: "Der wichtigste Schritt ist, zu verstehen, welche Daten in welchem Lizenzmodell wohin fließen – und welche nicht. ChatGPT Team und Enterprise verarbeiten keine Nutzerdaten für das Modelltraining, aber die Unterschiede zwischen den Varianten sind vielen Anwendern unklar. In unseren Trainings erklären wir, welche Lizenz für Ihre Organisation passt, welche internen Richtlinien Sie brauchen und wie Ihre Teams ChatGPT nutzen können, ohne gegen DSGVO oder EU AI Act zu verstoßen.",
     category: 'compliance'
   },
   {
-    question: "Wie kann ich ein ChatGPT-Training bei chatgpt-trainings.de anfragen?",
-    answer: "Sie können uns direkt über unser Kontaktformular auf chatgpt-trainings.de erreichen oder einen Termin für ein kostenloses Erstgespräch über Microsoft Bookings buchen. In diesem unverbindlichen Gespräch besprechen wir Ihre Anforderungen, Teamgröße und gewünschte Inhalte. Wir melden uns innerhalb von 24 Stunden bei Ihnen. Telefon: +49 221 950 187 74, E-Mail: info@chatgpt-trainings.de.",
-    category: 'general'
+    question: "Können wir ChatGPT-Wissen intern weitergeben, ohne für jedes Team einen externen Trainer zu buchen?",
+    answer: "Genau dafür haben wir das Konzept der Prompt-Bibliotheken und Team-Standards entwickelt. In einem Train-the-Trainer-Format bilden wir interne Multiplikatoren aus, die das Wissen in ihren Bereichen weitergeben können. Gleichzeitig erstellen wir gemeinsam eine dokumentierte Prompt-Sammlung für Ihre häufigsten Aufgaben, damit neues Wissen nicht an einzelnen Personen hängt. Sprechen Sie uns bei chatgpt-trainings.de an – wir beraten Sie, welches Format für Ihre Teamgröße am besten funktioniert.",
+    category: 'training'
   },
   {
-    question: "Bietet chatgpt-trainings.de auch Prüfungen und Zertifikate für ChatGPT-Trainings an?",
-    answer: "Ja, wir bieten maßgeschneiderte Quizze und Prüfungen an, bei denen Teilnehmer aktiv beweisen müssen, dass sie das Gelernte verstanden haben. Nach bestandener Prüfung erhalten sowohl die Mitarbeiter als auch das Unternehmen ein offizielles Zertifikat. Wir bieten auch aufeinander aufbauende Zertifizierungsstufen wie 'ChatGPT in der Praxis I-IV' (Beginner, Advanced, Pro, Expert) an, die einen strukturierten Kompetenzaufbau ermöglichen.",
-    category: 'training'
+    question: "Was ist der Unterschied zwischen einer Prompt-Schulung und einem KI-Workflow-Training?",
+    answer: "Eine Prompt-Schulung zeigt, wie man einzelne Anfragen besser formuliert. Das ist wichtig, aber nur der Anfang. Ein KI-Workflow-Training geht einen Schritt weiter: Wie baut man aus einzelnen Prompts wiederholbare Abläufe? Wie erstellt man Custom GPTs für bestimmte Aufgaben? Wie verbindet man ChatGPT mit bestehenden Tools und Prozessen? Bei chatgpt-trainings.de bieten wir beides – vom Einstieg ins Prompt Engineering bis zum Design kompletter KI-Arbeitsabläufe.",
+    category: 'technical'
+  },
+  {
+    question: "Wie schnell können wir mit einem Training starten?",
+    answer: "Für ein Erstgespräch brauchen wir einen Anruf oder eine E-Mail – danach geht es erfahrungsgemäß schnell. Ein maßgeschneidertes Inhouse-Training lässt sich innerhalb von zwei bis drei Wochen aufsetzen, wenn die Abstimmung über Zielgruppe und Schwerpunkte zügig läuft. Für eine erste Orientierung bieten wir auch kürzere Workshop-Formate an. Erreichen Sie uns unter post@yellow-boat.com oder telefonisch unter +49 221 950 187 74.",
+    category: 'general'
   }
 ];
 

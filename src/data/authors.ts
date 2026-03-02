@@ -22,28 +22,28 @@ export const authors: Record<string, Author> = {
   'martin-lang': {
     id: 'martin-lang',
     name: 'Martin Lang',
-    role: 'Gründer & ChatGPT Experte',
+    role: 'Gründer & KI-Workflow-Experte',
     expertise: [
-      'ChatGPT Enablement',
-      'ChatGPT Training',
-      'OpenAI API',
-      'ChatGPT Enterprise',
       'Prompt Engineering',
-      'KI-Einführung & Adoption',
-      'KI-gestützte Büroarbeit',
-      'Agile Transformation',
-      'Change Management',
-      'EU AI Act Compliance'
+      'LLM-Architektur & Modellverständnis',
+      'KI-Workflow-Design',
+      'ChatGPT API & Custom GPTs',
+      'OpenAI Ecosystem',
+      'KI-Strategie & Adoption',
+      'Prompt-Bibliotheken & Team-Standards',
+      'KI-gestützte Wissensarbeit',
+      'Change Management für KI-Einführung',
+      'EU AI Act & KI-Compliance'
     ],
     qualifications: [
       'Über 14 Jahre Erfahrung in digitaler Transformation',
       'Gründer Yellow-Boat Consulting (2011)',
       'Gründer chatgpt-trainings.de (2025)',
-      'Certified Scrum Master',
-      'Agile Coach',
-      'ChatGPT Trainer'
+      'KI-Workflow-Designer & Prompt Engineer',
+      'Agile Coach & Transformation Consultant',
+      'ChatGPT Trainer für Konzerne und Mittelstand'
     ],
-    bio: 'Martin Lang ist Gründer der Yellow-Boat Consulting (2011) und der chatgpt-trainings.de (2025). Seit über einem Jahrzehnt realisiert er Agile Trainings und Digitalisierungsprojekte in Konzernen und im Mittelstand. Als ChatGPT-Experte befähigt er Wissensarbeiter, Teams und Organisationen, ChatGPT produktiv, sicher und wertschöpfend im Arbeitsalltag einzusetzen. Sein praxisorientierter Trainingsansatz verbindet reale Arbeitsprozesse mit direkt anwendbaren Workflows.',
+    bio: 'Martin Lang ist Gründer der Yellow-Boat Consulting (2011) und der chatgpt-trainings.de (2025). Er verbindet über ein Jahrzehnt Erfahrung in digitaler Transformation mit tiefem Verständnis für Large Language Models und Prompt Engineering. Als KI-Workflow-Experte entwickelt er systematische Ansätze, mit denen Unternehmen ChatGPT nicht als Spielzeug, sondern als strategisches Arbeitsinstrument einsetzen – von der Prompt-Architektur über Custom GPTs bis zum produktiven Dauerbetrieb.',
     image: '/images/authors/martin-lang.png',
     linkedin: 'https://www.linkedin.com/in/martin-lang-a95b1010',
     email: 'martin@yellow-boat.com',

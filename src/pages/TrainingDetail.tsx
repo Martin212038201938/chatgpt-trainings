@@ -8,7 +8,7 @@ import Contact from "@/components/Contact";
 import SEOHead from "@/components/SEOHead";
 import { TrustBadge } from "@/components/TrustBadge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { getTrainingBySlug, trainings } from "@/data/trainings";
+import { getTrainingBySlug, trainings, competencyLabels } from "@/data/trainings";
 import { getAuthor, getAuthorSchemaMarkup } from "@/data/authors";
 import { generateSchemaIds, generateTrainingBreadcrumbItems } from "@/lib/schema";
 
@@ -23,9 +23,9 @@ const TrainingDetail = () => {
 
   const Icon = training.icon;
 
-  // Finde ähnliche Trainings (gleiche Tiers, aber anderer Slug)
+  // Finde ähnliche Trainings (gleiche Levels, aber anderer Slug)
   const relatedTrainings = trainings
-    .filter(t => t.slug !== training.slug && t.tiers.some(tier => training.tiers.includes(tier)))
+    .filter(t => t.slug !== training.slug && t.levels.some(level => training.levels.includes(level)))
     .slice(0, 3);
 
   // Trainer-Profil
@@ -57,7 +57,7 @@ const TrainingDetail = () => {
     },
     "teaches": training.features.slice(0, 5).join(", "),
     "coursePrerequisites": "Keine Vorkenntnisse erforderlich",
-    "educationalLevel": training.tiers.includes("free") ? "Beginner" : "Intermediate",
+    "educationalLevel": training.levels.includes("essentials") ? "Beginner" : training.levels.includes("advanced") ? "Intermediate" : "Advanced",
     "inLanguage": "de-DE"
   };
 
@@ -128,18 +128,16 @@ const TrainingDetail = () => {
 
             {/* Header */}
             <div className="max-w-4xl">
-              {/* Tier Badges */}
+              {/* Level Badges */}
               <div className="flex flex-wrap gap-2 mb-4">
-                {training.tiers.includes("free") && (
-                  <Badge className="bg-emerald-100 text-emerald-700 border-emerald-200 hover:bg-emerald-100">
-                    Copilot Free
+                {training.levels.map((level) => (
+                  <Badge
+                    key={level}
+                    className={`${competencyLabels[level].color} hover:opacity-90`}
+                  >
+                    {competencyLabels[level].label}
                   </Badge>
-                )}
-                {training.tiers.includes("paid") && (
-                  <Badge className="bg-blue-100 text-blue-700 border-blue-200 hover:bg-blue-100">
-                    Copilot Paid
-                  </Badge>
-                )}
+                ))}
               </div>
 
               {/* h1 - Hauptüberschrift */}
@@ -230,12 +228,14 @@ const TrainingDetail = () => {
                           <RelatedIcon className="w-5 h-5 text-primary" />
                         </div>
                         <div className="flex gap-1">
-                          {related.tiers.includes("free") && (
-                            <Badge variant="outline" className="text-[10px] px-1.5 py-0">Free</Badge>
-                          )}
-                          {related.tiers.includes("paid") && (
-                            <Badge variant="outline" className="text-[10px] px-1.5 py-0">Paid</Badge>
-                          )}
+                          {related.levels.map((level) => (
+                            <Badge
+                              key={level}
+                              className={`${competencyLabels[level].color} hover:opacity-90 text-[10px] px-1.5 py-0`}
+                            >
+                              {competencyLabels[level].label}
+                            </Badge>
+                          ))}
                         </div>
                       </div>
                       <h3 className="font-semibold text-lg group-hover:text-primary transition-colors line-clamp-2 mb-2">

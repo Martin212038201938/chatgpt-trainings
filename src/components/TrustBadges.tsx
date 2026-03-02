@@ -1,32 +1,31 @@
-import { Shield, Award, Users, Lock } from "lucide-react";
+import { BrainCircuit, Lock, GraduationCap, Users } from "lucide-react";
 
 const trustBadges = [
   {
-    icon: Shield,
-    title: "Microsoft Partner",
-    description: "Zertifizierter Microsoft-Partner mit nachgewiesener Expertise"
+    icon: BrainCircuit,
+    title: "LLM-Expertise",
+    description: "Tiefes Verständnis von GPT-Modellen, Token-Logik und Prompt-Architektur"
   },
   {
     icon: Lock,
     title: "DSGVO-konform",
-    description: "100% datenschutzkonforme Schulungen nach EU-Standards"
+    description: "Datenschutzkonforme Schulungen – inklusive Bewertung aller ChatGPT-Varianten"
   },
   {
-    icon: Award,
-    title: "15+ Jahre Erfahrung",
-    description: "Fundierte Expertise in Microsoft-Technologien seit 2009"
+    icon: GraduationCap,
+    title: "Seit 2011 im Training",
+    description: "Über ein Jahrzehnt Erfahrung in Unternehmensschulungen und Transformation"
   },
   {
     icon: Users,
-    title: "500+ geschulte Teams",
-    description: "Erfolgreiche Trainings in führenden Unternehmen"
+    title: "500+ geschulte Fachkräfte",
+    description: "Praxiserprobte KI-Trainings in Unternehmen aller Größen"
   }
 ];
 
 const TrustBadges = () => {
   return (
     <section className="py-16 bg-gradient-to-b from-background to-muted/20 relative overflow-hidden">
-      {/* Decorative background */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-5xl">
         <div className="absolute top-10 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
         <div className="absolute bottom-10 right-10 w-72 h-72 bg-accent/5 rounded-full blur-3xl" />
@@ -35,10 +34,10 @@ const TrustBadges = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-12 animate-fade-in">
           <h2 className="text-3xl font-bold mb-4">
-            Ihre Garantie für exzellente Trainings
+            Warum Unternehmen mit uns arbeiten
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Vertrauen Sie auf geprüfte Qualität, langjährige Erfahrung und höchste Sicherheitsstandards
+            Fundierte KI-Kompetenz, erprobte Methodik und konsequenter Praxisfokus
           </p>
         </div>
 

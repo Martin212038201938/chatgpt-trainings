@@ -3,7 +3,6 @@ import Hero from "@/components/Hero";
 import TrustBadges from "@/components/TrustBadges";
 import TrainingModules from "@/components/TrainingModules";
 import Benefits from "@/components/Benefits";
-import CustomerReviews from "@/components/CustomerReviews";
 import Contact from "@/components/Contact";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
@@ -14,120 +13,110 @@ import { homepageFAQs } from "@/data/faqs";
 /**
  * Homepage - chatgpt-trainings.de
  *
- * Main entry point for the website. Displays:
- * - Hero section with value proposition
- * - CTA to training offerings and configurator
- * - Benefits of our training approach
- * - Trust badges and customer reviews
- * - Contact section and FAQs
+ * Eigenständige Positionierung:
+ * KI-Workflow-Exzellenz mit ChatGPT als Kerntechnologie.
+ * Fokus: Prompt Engineering, Modellverständnis, KI-Workflows.
  *
- * For full training catalog, see /unsere-angebote
- * For custom training configuration, see /training-konfigurator
+ * KEINE Testimonials (werden später mit echten ergänzt).
  */
 
-// Training modules data for schema generation - essential for LLM referencing
-// Matches the 7 trainings defined in src/data/trainings.ts
 const trainingModulesForSchema = [
   {
-    title: "ChatGPT Kick-Off",
-    duration: "4 Stunden (Halbtag)",
-    description: "Kompakter Einstieg in ChatGPT für Teams und Abteilungen. Dieser Halbtages-Workshop vermittelt die Grundlagen der produktiven ChatGPT-Nutzung: von den ersten Prompts über Textarbeit und Recherche bis hin zu DSGVO-konformen Arbeitspraktiken.",
+    title: "ChatGPT Essentials",
+    duration: "4 Stunden bis 1 Tag",
+    description: "Fundierter Einstieg in professionelles Prompting: Struktur, Kontext und Rollenanweisungen. Teilnehmer lernen, ChatGPT für Textarbeit, Recherche und Analyse produktiv einzusetzen.",
     features: [
-      "Prompt Engineering Grundlagen erlernen",
-      "ChatGPT für Textarbeit und Recherche einsetzen",
-      "Halluzinationen erkennen und KI-Output bewerten",
-      "DSGVO-konforme Nutzung sicherstellen"
+      "Prompt Engineering Grundlagen und Struktur",
+      "Texte schreiben, zusammenfassen und analysieren",
+      "Halluzinationen erkennen und gegensteuern",
+      "DSGVO-konforme Nutzung im Unternehmenskontext"
     ]
   },
   {
-    title: "ChatGPT Starter Training",
-    duration: "1 Tag (7 Stunden) oder 2 × 3,5 Stunden",
-    description: "Umfassendes Grundlagentraining für den professionellen Einsatz von ChatGPT in der täglichen Büroarbeit. Teilnehmer erarbeiten produktive Workflows für Textarbeit, Datenanalyse, Recherche und kreative Aufgaben – mit echten Praxisszenarien.",
+    title: "Advanced Prompt Systems",
+    duration: "1–2 Tage",
+    description: "Fortgeschrittene Prompt-Techniken für komplexe Wissensarbeit: Multi-Step-Prompts, Rollenlogik, strukturierte Ausgabeformate und der Aufbau wiederverwendbarer Prompt-Bibliotheken.",
     features: [
-      "Fortgeschrittenes Prompt Engineering mit Kontext und Beispielen",
-      "Datenanalyse und Reporting mit ChatGPT",
-      "Custom GPTs für wiederkehrende Aufgaben",
-      "Eigene Prompt-Bibliothek aufbauen",
-      "ChatGPT Free vs. Plus/Team/Enterprise verstehen"
+      "Chain-of-Thought und Multi-Step-Prompts",
+      "Rollenbasierte Systemprompts entwickeln",
+      "Strukturierte JSON- und Tabellenausgaben",
+      "Prompt-Templates für Teams und Abteilungen"
     ]
   },
   {
-    title: "ChatGPT Intensiv Bootcamp",
-    duration: "2 Tage (14 Stunden)",
-    description: "Zweitägiges Intensiv-Programm für Teams, die ChatGPT als strategisches Arbeitswerkzeug etablieren wollen. Von Advanced Prompt Engineering über Automatisierung bis zur Entwicklung eigener KI-Agenten – das volle Spektrum der professionellen ChatGPT-Nutzung.",
+    title: "KI-Workflow-Design",
+    duration: "2 Tage",
+    description: "ChatGPT als strategisches Arbeitsinstrument: Automatisierte Prozesse, API-Anbindung, Custom GPTs und unternehmensweite Prompt-Standards für den produktiven Dauerbetrieb.",
     features: [
-      "Advanced Prompt Engineering und Chain-of-Thought",
-      "Custom GPTs und KI-Agenten entwickeln",
-      "API-Anbindung und Workflow-Automatisierung",
-      "Abteilungsspezifische Use Cases erarbeiten",
-      "Strategische KI-Integration und Change Management"
+      "Custom GPTs für Abteilungs-Workflows bauen",
+      "API-Anbindung und Tool-Integration",
+      "Automatisierte Text-Workflows designen",
+      "Unternehmensweite Prompt-Standards etablieren"
     ]
   },
   {
     title: "ChatGPT Lernreise",
-    duration: "4 × 2 Stunden oder 6 × 2 Stunden",
-    description: "Begleitete Lernreise über mehrere Wochen für nachhaltigen Kompetenzaufbau. Zwischen den Sessions setzen Teilnehmer das Gelernte in ihrem Arbeitsalltag um und bringen Erfahrungen in die nächste Session ein.",
+    duration: "4–6 Sessions über mehrere Wochen",
+    description: "Nachhaltiger Kompetenzaufbau über Wochen: Zwischen den Live-Sessions wenden Teilnehmer das Gelernte direkt an und bringen Erfahrungen in die nächste Runde.",
     features: [
-      "Schrittweiser Aufbau über mehrere Wochen",
+      "Verteiltes Lernen über 4–8 Wochen",
       "Praxistransfer zwischen den Sessions",
       "Persönliche Prompt-Bibliothek entwickeln",
-      "Peer-Learning und Erfahrungsaustausch",
-      "Nachhaltige Verhaltensänderung im Arbeitsalltag"
+      "Peer-Learning und Erfahrungsaustausch"
     ]
   },
   {
-    title: "ChatGPT Keynote",
+    title: "KI-Keynote & Impulsvortrag",
     duration: "60–90 Minuten",
-    description: "Inspirierende Keynote zu den Möglichkeiten von ChatGPT und KI im Arbeitsalltag. Live-Demonstrationen zeigen beeindruckende Anwendungsfälle und motivieren zum Einstieg in die KI-gestützte Arbeitswelt.",
+    description: "Inspirierender Impulsvortrag zu ChatGPT und KI in der Arbeitswelt. Live-Demonstrationen zeigen, was heute möglich ist – und was das für Ihr Unternehmen bedeutet.",
     features: [
       "Live-Demonstrationen mit ChatGPT",
-      "Einordnung: Was kann KI heute leisten?",
-      "Inspiration für konkrete Einsatzmöglichkeiten",
+      "Einordnung: Was kann KI – und was nicht?",
+      "Branchenspezifische Anwendungsfälle",
       "Interaktive Q&A-Runde"
     ]
   },
   {
-    title: "ChatGPT Launch Event",
+    title: "KI-Launch-Event",
     duration: "Halber oder ganzer Tag",
-    description: "Professionell organisierter Eventtag zur Einführung von ChatGPT in Ihrem Unternehmen. Kombination aus Keynote, Hands-on-Stationen und interaktiven KI-Challenges für maximale Aufmerksamkeit und Begeisterung.",
+    description: "Erlebnistag zur ChatGPT-Einführung: Keynote, Hands-on-Stationen und interaktive Workshops schaffen Begeisterung statt Berührungsangst.",
     features: [
-      "Professioneller Infostand mit Experten",
-      "Interaktive KI-Challenges mit Gamification",
+      "Keynote mit Live-Demos",
       "Hands-on-Stationen zum Ausprobieren",
-      "Hochwertige Infomaterialien und Quick Guides"
+      "Abteilungs-Workshops für erste Use Cases",
+      "Roadmap für die nächsten Schritte"
     ]
   },
   {
-    title: "ChatGPT Hackathon",
-    duration: "1 Tag (7 Stunden)",
-    description: "Intensiver Team-Hackathon, bei dem Abteilungen echte Geschäftsprobleme mit ChatGPT lösen. Teambildung, Challenge-Briefing, Arbeitsphase und Pitch – inklusive professioneller Moderation und Jury-Bewertung.",
+    title: "KI-Hackathon",
+    duration: "1 Tag",
+    description: "Abteilungsübergreifende Teams lösen echte Geschäftsprobleme mit ChatGPT im Wettbewerb. Innovation, Teamgeist und direkt umsetzbare Ergebnisse.",
     features: [
-      "Use Case Ideation und Teambildung",
       "Challenge-basiertes Arbeiten mit ChatGPT",
-      "Prompt Engineering Battle und Wettbewerb",
-      "Pitch-Präsentationen mit Jury-Bewertung"
+      "Custom GPTs und Prototypen bauen",
+      "Pitch-Session mit Jury-Bewertung",
+      "Umsetzungsplan für die besten Ideen"
     ]
   }
 ];
 
 const Index = () => {
-  // Generate schema with FAQs for LLM optimization
   const schema = generateTrainingSchemas(trainingModulesForSchema, homepageFAQs);
 
   return (
     <div className="min-h-screen">
       <SEOHead
-        title="ChatGPT Training für Unternehmen | Workshops & Schulungen"
-        description="Professionelle ChatGPT Trainings für Unternehmen: Praxisnahe Workshops, Prompt Engineering und KI-Enablement. Maßgeschneidert für Ihr Team."
+        title="ChatGPT strategisch einsetzen | Prompt Engineering & KI-Workflow-Trainings"
+        description="Professionelle ChatGPT-Trainings: Prompt Engineering, Modellverständnis und KI-Workflow-Design für Unternehmen. Von der Prompt-Architektur bis zum produktiven Dauerbetrieb."
         keywords={[
-          "ChatGPT Training",
-          "ChatGPT Schulung Unternehmen",
-          "ChatGPT Workshop",
+          "ChatGPT Schulung",
           "Prompt Engineering Training",
-          "KI Training Unternehmen",
-          "ChatGPT für Firmen",
-          "ChatGPT Enablement",
-          "KI Workshop"
+          "ChatGPT Workshop Unternehmen",
+          "KI Prompting Seminar",
+          "ChatGPT im Unternehmen einsetzen",
+          "ChatGPT Workflow Training",
+          "KI-Workflow-Design",
+          "ChatGPT Kurs"
         ]}
         canonicalUrl="https://chatgpt-trainings.de/"
         schema={schema}
@@ -138,7 +127,6 @@ const Index = () => {
         <Benefits />
         <TrainingModules />
         <TrustBadges />
-        <CustomerReviews />
         <Contact />
         <FAQ faqs={homepageFAQs} />
       </main>

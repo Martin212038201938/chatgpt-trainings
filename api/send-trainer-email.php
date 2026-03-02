@@ -331,8 +331,8 @@ $boundary2 = md5(time() . 'confirmation');
 $customerHeaders = array();
 $customerHeaders[] = 'MIME-Version: 1.0';
 $customerHeaders[] = 'Content-Type: multipart/alternative; boundary="' . $boundary2 . '"';
-$customerHeaders[] = 'From: ChatGPT-Trainings <info@chatgpt-trainings.de>';
-$customerHeaders[] = 'Reply-To: ChatGPT-Trainings <info@chatgpt-trainings.de>';
+$customerHeaders[] = 'From: ChatGPT-Trainings <post@yellow-boat.com>';
+$customerHeaders[] = 'Reply-To: ChatGPT-Trainings <post@yellow-boat.com>';
 $customerHeaders[] = 'X-Mailer: PHP/' . phpversion();
 
 $customerBody = "--{$boundary2}\r\n";

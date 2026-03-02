@@ -20,42 +20,42 @@ interface ModuleCategory {
   modules: TrainingModule[];
 }
 
-type ChatGPTTier = "free" | "paid";
+type CompetencyLevel = "essentials" | "advanced" | "workflow-design";
 
 interface TrainingModule {
   id: string;
   title: string;
   category: string;
-  tiers: ChatGPTTier[];
+  levels: CompetencyLevel[];
 }
 
-// Alle auswählbaren Trainingsmodule - konsistent mit TrainingModules.tsx
+// Alle auswählbaren Trainingsmodule – nach Kompetenzstufe kategorisiert
 const moduleCategories: ModuleCategory[] = [
   {
     id: "chatgpt-basics",
     title: "ChatGPT Grundlagen",
     description: "Einstieg in die produktive Nutzung von ChatGPT – Prompt Engineering und KI-Kompetenz",
     modules: [
-      { id: "prompt-basics", title: "Prompt Engineering Grundlagen: Struktur, Kontext, Beispiele", tiers: ["free", "paid"], category: "chatgpt-basics" },
-      { id: "iterative-prompting", title: "Iteratives Prompting: Ergebnisse verfeinern, nachfragen, vertiefen", tiers: ["free", "paid"], category: "chatgpt-basics" },
-      { id: "web-search", title: "ChatGPT Web Search für Recherche: Web-Suche, Zusammenfassungen, Faktenprüfung", tiers: ["free"], category: "chatgpt-basics" },
-      { id: "text-work", title: "Textarbeit mit KI: Schreiben, Umformulieren, Kürzen, Übersetzen", tiers: ["free", "paid"], category: "chatgpt-basics" },
-      { id: "creative-ai", title: "Kreative Anwendungen: Brainstorming, Ideengenerierung, Perspektivwechsel", tiers: ["free", "paid"], category: "chatgpt-basics" },
-      { id: "ai-output-eval", title: "KI-Output kritisch bewerten: Halluzinationen erkennen, Grenzen verstehen", tiers: ["free", "paid"], category: "chatgpt-basics" },
-      { id: "prompt-library", title: "Eigene Prompt-Bibliothek aufbauen: Templates für wiederkehrende Aufgaben", tiers: ["free", "paid"], category: "chatgpt-basics" },
+      { id: "prompt-basics", title: "Prompt Engineering Grundlagen: Struktur, Kontext, Beispiele", levels: ["essentials"], category: "chatgpt-basics" },
+      { id: "iterative-prompting", title: "Iteratives Prompting: Ergebnisse verfeinern, nachfragen, vertiefen", levels: ["essentials"], category: "chatgpt-basics" },
+      { id: "web-search", title: "ChatGPT Web Search für Recherche: Web-Suche, Zusammenfassungen, Faktenprüfung", levels: ["essentials"], category: "chatgpt-basics" },
+      { id: "text-work", title: "Textarbeit mit KI: Schreiben, Umformulieren, Kürzen, Übersetzen", levels: ["essentials"], category: "chatgpt-basics" },
+      { id: "creative-ai", title: "Kreative Anwendungen: Brainstorming, Ideengenerierung, Perspektivwechsel", levels: ["essentials"], category: "chatgpt-basics" },
+      { id: "ai-output-eval", title: "KI-Output kritisch bewerten: Halluzinationen erkennen, Grenzen verstehen", levels: ["essentials"], category: "chatgpt-basics" },
+      { id: "prompt-library", title: "Eigene Prompt-Bibliothek aufbauen: Templates für wiederkehrende Aufgaben", levels: ["essentials", "advanced"], category: "chatgpt-basics" },
     ]
   },
   {
     id: "chatgpt-advanced",
-    title: "ChatGPT für Fortgeschrittene",
-    description: "Erweiterte Features und Premium-Funktionen meistern – Datenanalyse, Code Interpreter, DALL-E",
+    title: "Advanced Prompt Systems",
+    description: "Fortgeschrittene Prompt-Techniken, Datenanalyse und strukturierte Ausgabeformate",
     modules: [
-      { id: "data-analysis", title: "Datenanalyse mit ChatGPT: Dateien hochladen, Auswertungen, Visualisierungen", tiers: ["paid"], category: "chatgpt-advanced" },
-      { id: "code-interpreter", title: "Code Interpreter: Python-Code ausführen, Ergebnisse analysieren, Automatisierung", tiers: ["paid"], category: "chatgpt-advanced" },
-      { id: "dalle-generation", title: "Bildgenerierung mit DALL-E 3: Prompts for visuals, Variationen, Batch-Generierung", tiers: ["paid"], category: "chatgpt-advanced" },
-      { id: "advanced-prompting", title: "Advanced Prompting Techniken: Chain-of-Thought, Few-Shot Learning, Role-Playing", tiers: ["paid"], category: "chatgpt-advanced" },
-      { id: "multi-turn-convos", title: "Multi-Turn-Konversationen: Komplexe Dialoge, Kontextgeflecht, Zusammenhänge bewahren", tiers: ["paid"], category: "chatgpt-advanced" },
-      { id: "file-handling", title: "File Handling & Batch-Processing: Mehrere Dateien verarbeiten, Export, Formate", tiers: ["paid"], category: "chatgpt-advanced" },
+      { id: "data-analysis", title: "Datenanalyse mit ChatGPT: Dateien hochladen, Auswertungen, Visualisierungen", levels: ["advanced"], category: "chatgpt-advanced" },
+      { id: "code-interpreter", title: "Code Interpreter: Python-Code ausführen, Ergebnisse analysieren, Automatisierung", levels: ["advanced"], category: "chatgpt-advanced" },
+      { id: "dalle-generation", title: "Bildgenerierung mit DALL-E 3: Prompts for visuals, Variationen, Batch-Generierung", levels: ["advanced"], category: "chatgpt-advanced" },
+      { id: "advanced-prompting", title: "Advanced Prompting Techniken: Chain-of-Thought, Few-Shot Learning, Role-Playing", levels: ["advanced"], category: "chatgpt-advanced" },
+      { id: "multi-turn-convos", title: "Multi-Turn-Konversationen: Komplexe Dialoge, Kontextgeflecht, Zusammenhänge bewahren", levels: ["advanced"], category: "chatgpt-advanced" },
+      { id: "file-handling", title: "File Handling & Batch-Processing: Mehrere Dateien verarbeiten, Export, Formate", levels: ["advanced"], category: "chatgpt-advanced" },
     ]
   },
   {
@@ -63,13 +63,13 @@ const moduleCategories: ModuleCategory[] = [
     title: "ChatGPT im Arbeitsalltag",
     description: "ChatGPT für Ihre tägliche Arbeit – E-Mails, Meetings, Reporting, Projektmanagement",
     modules: [
-      { id: "email-templates", title: "E-Mail-Vorlagen & -Schreiben: Professional Emails, Follow-ups, Templates", tiers: ["free", "paid"], category: "chatgpt-office" },
-      { id: "meeting-prep", title: "Meeting-Vorbereitung: Agendas, Unterlagen, Talking Points generieren", tiers: ["free", "paid"], category: "chatgpt-office" },
-      { id: "reporting", title: "Reporting & Dashboards: Status-Reports, Monatsberichte, Präsentationen", tiers: ["free", "paid"], category: "chatgpt-office" },
-      { id: "project-mgmt", title: "Projektmanagement-Support: Zeitpläne, Meilensteine, Risiko-Analyse, Dokumentation", tiers: ["free", "paid"], category: "chatgpt-office" },
-      { id: "summaries", title: "Zusammenfassungen & Notizen: Meetings, Dokumente, E-Mails zusammenfassen", tiers: ["free", "paid"], category: "chatgpt-office" },
-      { id: "translations", title: "Professionelle Übersetzungen: Business Documents, E-Mails, multilingual Communication", tiers: ["free", "paid"], category: "chatgpt-office" },
-      { id: "content-calendars", title: "Content-Planung: Editorial Calendars, Social Media Posts, Newsletter", tiers: ["free", "paid"], category: "chatgpt-office" },
+      { id: "email-templates", title: "E-Mail-Vorlagen & -Schreiben: Professional Emails, Follow-ups, Templates", levels: ["essentials"], category: "chatgpt-office" },
+      { id: "meeting-prep", title: "Meeting-Vorbereitung: Agendas, Unterlagen, Talking Points generieren", levels: ["essentials"], category: "chatgpt-office" },
+      { id: "reporting", title: "Reporting & Dashboards: Status-Reports, Monatsberichte, Präsentationen", levels: ["essentials", "advanced"], category: "chatgpt-office" },
+      { id: "project-mgmt", title: "Projektmanagement-Support: Zeitpläne, Meilensteine, Risiko-Analyse, Dokumentation", levels: ["advanced"], category: "chatgpt-office" },
+      { id: "summaries", title: "Zusammenfassungen & Notizen: Meetings, Dokumente, E-Mails zusammenfassen", levels: ["essentials"], category: "chatgpt-office" },
+      { id: "translations", title: "Professionelle Übersetzungen: Business Documents, E-Mails, multilingual Communication", levels: ["essentials"], category: "chatgpt-office" },
+      { id: "content-calendars", title: "Content-Planung: Editorial Calendars, Social Media Posts, Newsletter", levels: ["essentials", "advanced"], category: "chatgpt-office" },
     ]
   },
   {
@@ -77,13 +77,13 @@ const moduleCategories: ModuleCategory[] = [
     title: "Custom GPTs & Automatisierung",
     description: "Erstellen Sie Ihre eigenen ChatGPT-Versionen für spezifische Use Cases",
     modules: [
-      { id: "custom-gpts-basics", title: "Custom GPTs erstellen: Builder-Interface, Instructions, Knowledge hochladen", tiers: ["paid"], category: "custom-gpts" },
-      { id: "gpt-actions", title: "GPT Actions & API-Integration: External APIs anbinden, Workflows automatisieren", tiers: ["paid"], category: "custom-gpts" },
-      { id: "knowledge-upload", title: "Knowledge Base aufbauen: PDFs, Docs, Interne Wissensquellen integrieren", tiers: ["paid"], category: "custom-gpts" },
-      { id: "workflow-automation", title: "Workflow-Automatisierung: Geschäftsprozesse mit Custom GPTs digitalisieren", tiers: ["paid"], category: "custom-gpts" },
-      { id: "internal-chatbots", title: "Interne Chatbots: Employee Support, FAQ-Automatisierung, Self-Service", tiers: ["paid"], category: "custom-gpts" },
-      { id: "gpt-governance", title: "Governance & Sharing: Team-GPTs, Rollen, Berechtigungen verwalten", tiers: ["paid"], category: "custom-gpts" },
-      { id: "custom-gpt-examples", title: "Use Case Vorlagen: Sales Assistant, Customer Support, HR Bot, Content Generator", tiers: ["paid"], category: "custom-gpts" },
+      { id: "custom-gpts-basics", title: "Custom GPTs erstellen: Builder-Interface, Instructions, Knowledge hochladen", levels: ["workflow-design"], category: "custom-gpts" },
+      { id: "gpt-actions", title: "GPT Actions & API-Integration: External APIs anbinden, Workflows automatisieren", levels: ["workflow-design"], category: "custom-gpts" },
+      { id: "knowledge-upload", title: "Knowledge Base aufbauen: PDFs, Docs, Interne Wissensquellen integrieren", levels: ["workflow-design"], category: "custom-gpts" },
+      { id: "workflow-automation", title: "Workflow-Automatisierung: Geschäftsprozesse mit Custom GPTs digitalisieren", levels: ["workflow-design"], category: "custom-gpts" },
+      { id: "internal-chatbots", title: "Interne Chatbots: Employee Support, FAQ-Automatisierung, Self-Service", levels: ["workflow-design"], category: "custom-gpts" },
+      { id: "gpt-governance", title: "Governance & Sharing: Team-GPTs, Rollen, Berechtigungen verwalten", levels: ["workflow-design"], category: "custom-gpts" },
+      { id: "custom-gpt-examples", title: "Use Case Vorlagen: Sales Assistant, Customer Support, HR Bot, Content Generator", levels: ["workflow-design"], category: "custom-gpts" },
     ]
   },
   {
@@ -91,14 +91,14 @@ const moduleCategories: ModuleCategory[] = [
     title: "Compliance, Recht & EU AI Act",
     description: "DSGVO-konforme und rechtssichere ChatGPT-Nutzung im Unternehmen",
     modules: [
-      { id: "dsgvo", title: "DSGVO-konforme ChatGPT-Nutzung: Rechtsgrundlagen, Dokumentationspflichten", tiers: ["free", "paid"], category: "compliance" },
-      { id: "eu-ai-act", title: "EU AI Act Grundlagen: Anwendungsbereich, Risikoklassifizierung, Pflichten", tiers: ["free", "paid"], category: "compliance" },
-      { id: "ai-kompetenz", title: "Artikel 4 KI-Kompetenz: Was der Gesetzgeber fordert, Anforderungen erfüllen", tiers: ["free", "paid"], category: "compliance" },
-      { id: "data-protection", title: "Datenschutz-Impact-Assessment: Risiken identifizieren, Maßnahmen definieren", tiers: ["free", "paid"], category: "compliance" },
-      { id: "openai-security", title: "OpenAI Sicherheitsarchitektur: Datenflüsse, Verschlüsselung, Audit-Logs, Privacy", tiers: ["paid"], category: "compliance" },
-      { id: "sensitive-data", title: "Umgang mit sensiblen Daten: Was darf rein, was nicht – Klassifizierung, Policies", tiers: ["paid"], category: "compliance" },
-      { id: "legal-ip", title: "Rechtliche Aspekte: Urheberrecht, Haftungsfragen, Vertragsgestaltung, IP-Rechte", tiers: ["free", "paid"], category: "compliance" },
-      { id: "eu-ai-certificate", title: "Schulungszertifikat gemäß EU AI Act für Audits und Behörden", tiers: ["free", "paid"], category: "compliance" },
+      { id: "dsgvo", title: "DSGVO-konforme ChatGPT-Nutzung: Rechtsgrundlagen, Dokumentationspflichten", levels: ["essentials"], category: "compliance" },
+      { id: "eu-ai-act", title: "EU AI Act Grundlagen: Anwendungsbereich, Risikoklassifizierung, Pflichten", levels: ["essentials"], category: "compliance" },
+      { id: "ai-kompetenz", title: "Artikel 4 KI-Kompetenz: Was der Gesetzgeber fordert, Anforderungen erfüllen", levels: ["essentials"], category: "compliance" },
+      { id: "data-protection", title: "Datenschutz-Impact-Assessment: Risiken identifizieren, Maßnahmen definieren", levels: ["advanced"], category: "compliance" },
+      { id: "openai-security", title: "OpenAI Sicherheitsarchitektur: Datenflüsse, Verschlüsselung, Audit-Logs, Privacy", levels: ["advanced"], category: "compliance" },
+      { id: "sensitive-data", title: "Umgang mit sensiblen Daten: Was darf rein, was nicht – Klassifizierung, Policies", levels: ["advanced"], category: "compliance" },
+      { id: "legal-ip", title: "Rechtliche Aspekte: Urheberrecht, Haftungsfragen, Vertragsgestaltung, IP-Rechte", levels: ["essentials", "advanced"], category: "compliance" },
+      { id: "eu-ai-certificate", title: "Schulungszertifikat gemäß EU AI Act für Audits und Behörden", levels: ["essentials", "advanced"], category: "compliance" },
     ]
   },
   {
@@ -106,13 +106,13 @@ const moduleCategories: ModuleCategory[] = [
     title: "Strategie & Change Management",
     description: "Erfolgreiche Einführung und Skalierung von ChatGPT im Unternehmen",
     modules: [
-      { id: "process-analysis", title: "Prozessanalyse: Wo generiert ChatGPT den größten Mehrwert?", tiers: ["free", "paid"], category: "strategy" },
-      { id: "roi-calculation", title: "ROI-Berechnung und Business Case: Kosteneinsparungen quantifizieren, Timeframes", tiers: ["free", "paid"], category: "strategy" },
-      { id: "rollout-plan", title: "Phasenweiser Rollout-Plan: Pilot-Gruppen, Erfolgskriterien, Skalierung", tiers: ["free", "paid"], category: "strategy" },
-      { id: "change-mgmt", title: "Change Management und Adoption: Widerstände überwinden, Champions aufbauen", tiers: ["free", "paid"], category: "strategy" },
-      { id: "governance", title: "Governance Framework: Policies definieren, Verantwortlichkeiten klären, Audit Trails", tiers: ["free", "paid"], category: "strategy" },
-      { id: "kpis", title: "Success Metrics und KPIs: Nutzung messen, Produktivität tracken, Performance Monitoring", tiers: ["free", "paid"], category: "strategy" },
-      { id: "best-practices", title: "Best Practices aus erfolgreichen ChatGPT-Rollouts: Lessons Learned, Fallstudien", tiers: ["free", "paid"], category: "strategy" },
+      { id: "process-analysis", title: "Prozessanalyse: Welche Aufgaben profitieren am meisten von ChatGPT?", levels: ["advanced", "workflow-design"], category: "strategy" },
+      { id: "roi-calculation", title: "ROI-Berechnung und Business Case: Kosteneinsparungen quantifizieren, Timeframes", levels: ["advanced", "workflow-design"], category: "strategy" },
+      { id: "rollout-plan", title: "Phasenweiser Rollout-Plan: Pilot-Gruppen, Erfolgskriterien, Skalierung", levels: ["workflow-design"], category: "strategy" },
+      { id: "change-mgmt", title: "Change Management und Adoption: Widerstände überwinden, Champions aufbauen", levels: ["workflow-design"], category: "strategy" },
+      { id: "governance", title: "Governance Framework: Policies definieren, Verantwortlichkeiten klären, Audit Trails", levels: ["workflow-design"], category: "strategy" },
+      { id: "kpis", title: "Success Metrics und KPIs: Nutzung messen, Produktivität tracken, Performance Monitoring", levels: ["advanced", "workflow-design"], category: "strategy" },
+      { id: "rollout-learnings", title: "Erfahrungen aus erfolgreichen ChatGPT-Rollouts: Fallstudien und erprobte Muster", levels: ["advanced", "workflow-design"], category: "strategy" },
     ]
   },
   {
@@ -120,28 +120,28 @@ const moduleCategories: ModuleCategory[] = [
     title: "Events, Workshops & Keynotes",
     description: "Hackathons, Keynotes, Eventtage – für maximales Engagement und Lerneffekt",
     modules: [
-      { id: "hackathon-format", title: "ChatGPT Hackathon: Teambildung, Challenge-Briefing, Arbeitsphase, Pitch", tiers: ["free", "paid"], category: "events-workshops" },
-      { id: "hackathon-ideation", title: "Use Case Ideation Workshop: Geschäftsprobleme mit ChatGPT lösen", tiers: ["free", "paid"], category: "events-workshops" },
-      { id: "prompt-battle", title: "Prompt Engineering Battle: Wer entwickelt die effektivsten Prompts? Wettbewerb mit Preisen", tiers: ["free", "paid"], category: "events-workshops" },
-      { id: "keynote-vision", title: "Keynote: Die Zukunft der Wissensarbeit mit KI – was kommt auf uns zu?", tiers: ["free", "paid"], category: "events-workshops" },
-      { id: "keynote-live-demos", title: "Live-Demonstrationen: Beeindruckende ChatGPT Use Cases in Action", tiers: ["free", "paid"], category: "events-workshops" },
-      { id: "launch-event", title: "Launch Event: Multistation Eventtag mit Keynote, Hands-on, Challenges, Networking", tiers: ["free", "paid"], category: "events-workshops" },
-      { id: "gamification", title: "Gamification & Interaktive Challenges: KI-Rätsel, Quizze, Leaderboards, Preise", tiers: ["free", "paid"], category: "events-workshops" },
+      { id: "hackathon-format", title: "ChatGPT Hackathon: Teambildung, Challenge-Briefing, Arbeitsphase, Pitch", levels: ["advanced", "workflow-design"], category: "events-workshops" },
+      { id: "hackathon-ideation", title: "Use Case Ideation Workshop: Geschäftsprobleme mit ChatGPT lösen", levels: ["advanced", "workflow-design"], category: "events-workshops" },
+      { id: "prompt-battle", title: "Prompt Engineering Battle: Wer entwickelt die effektivsten Prompts? Wettbewerb mit Preisen", levels: ["essentials", "advanced"], category: "events-workshops" },
+      { id: "keynote-vision", title: "Keynote: Die Zukunft der Wissensarbeit mit KI – was kommt auf uns zu?", levels: ["essentials"], category: "events-workshops" },
+      { id: "keynote-live-demos", title: "Live-Demonstrationen: Beeindruckende ChatGPT Use Cases in Action", levels: ["essentials"], category: "events-workshops" },
+      { id: "launch-event", title: "Launch Event: Multistation Eventtag mit Keynote, Hands-on, Challenges, Networking", levels: ["essentials"], category: "events-workshops" },
+      { id: "gamification", title: "Gamification & Interaktive Challenges: KI-Rätsel, Quizze, Leaderboards, Preise", levels: ["essentials", "advanced"], category: "events-workshops" },
     ]
   },
   {
     id: "lernreise",
-    title: "ChatGPT Lernreise (8 Wochen)",
-    description: "Begleitete Lernreise für nachhaltigen Kompetenzaufbau – von den Basics zum Experten",
+    title: "KI-Workflow-Lernreise (8 Wochen)",
+    description: "Begleitete Lernreise für nachhaltigen Kompetenzaufbau – von den Basics zum Workflow-Experten",
     modules: [
-      { id: "woche1", title: "Woche 1: ChatGPT Grundlagen – Interface, erste Prompts + Use Case: E-Mail-Zusammenfassungen", tiers: ["paid"], category: "lernreise" },
-      { id: "woche2", title: "Woche 2: Prompt Engineering Mastery + Use Case: Textoptimierung und Übersetzungen", tiers: ["paid"], category: "lernreise" },
-      { id: "woche3", title: "Woche 3: Web Search & Recherche + Use Case: Marktanalysen und Competitive Intelligence", tiers: ["paid"], category: "lernreise" },
-      { id: "woche4", title: "Woche 4: Kreative Anwendungen + Use Case: Content-Generierung und Ideenfindung", tiers: ["paid"], category: "lernreise" },
-      { id: "woche5", title: "Woche 5: Code Interpreter & Datenanalyse + Use Case: Automatisierte Reports", tiers: ["paid"], category: "lernreise" },
-      { id: "woche6", title: "Woche 6: DALL-E & Bildgenerierung + Use Case: Visual Content erstellen", tiers: ["paid"], category: "lernreise" },
-      { id: "woche7", title: "Woche 7: Custom GPTs & Automatisierung + Use Case: Eigenen KI-Assistent bauen", tiers: ["paid"], category: "lernreise" },
-      { id: "woche8", title: "Woche 8: Compliance, Strategie & Skalierung + Use Case: Rollout-Plan für Ihr Team", tiers: ["paid"], category: "lernreise" },
+      { id: "woche1", title: "Woche 1: ChatGPT Grundlagen – Interface, erste Prompts + Use Case: E-Mail-Zusammenfassungen", levels: ["essentials"], category: "lernreise" },
+      { id: "woche2", title: "Woche 2: Prompt Engineering Mastery + Use Case: Textoptimierung und Übersetzungen", levels: ["essentials", "advanced"], category: "lernreise" },
+      { id: "woche3", title: "Woche 3: Web Search & Recherche + Use Case: Marktanalysen und Competitive Intelligence", levels: ["advanced"], category: "lernreise" },
+      { id: "woche4", title: "Woche 4: Kreative Anwendungen + Use Case: Content-Generierung und Ideenfindung", levels: ["advanced"], category: "lernreise" },
+      { id: "woche5", title: "Woche 5: Code Interpreter & Datenanalyse + Use Case: Automatisierte Reports", levels: ["advanced"], category: "lernreise" },
+      { id: "woche6", title: "Woche 6: DALL-E & Bildgenerierung + Use Case: Visual Content erstellen", levels: ["advanced"], category: "lernreise" },
+      { id: "woche7", title: "Woche 7: Custom GPTs & Automatisierung + Use Case: Eigenen KI-Assistent bauen", levels: ["workflow-design"], category: "lernreise" },
+      { id: "woche8", title: "Woche 8: Compliance, Strategie & Skalierung + Use Case: Rollout-Plan für Ihr Team", levels: ["workflow-design"], category: "lernreise" },
     ]
   },
 ];
@@ -149,12 +149,13 @@ const moduleCategories: ModuleCategory[] = [
 // Alle Module flach für einfache Suche
 const allModules = moduleCategories.flatMap(cat => cat.modules);
 
-type TierFilter = "all" | "free" | "paid";
+type LevelFilter = "all" | CompetencyLevel;
 
-const tierFilterOptions: { value: TierFilter; label: string }[] = [
+const levelFilterOptions: { value: LevelFilter; label: string }[] = [
   { value: "all", label: "Alle Module" },
-  { value: "free", label: "ChatGPT Free" },
-  { value: "paid", label: "ChatGPT Paid" },
+  { value: "essentials", label: "Essentials" },
+  { value: "advanced", label: "Advanced" },
+  { value: "workflow-design", label: "Workflow-Design" },
 ];
 
 interface FormData {
@@ -175,8 +176,8 @@ interface FormData {
 const TrainingKonfigurator = () => {
   const [step, setStep] = useState(1);
   const [selectedModules, setSelectedModules] = useState<string[]>([]);
-  const [tierFilter, setTierFilter] = useState<TierFilter>("all");
-  const [showTierHelp, setShowTierHelp] = useState(false);
+  const [levelFilter, setLevelFilter] = useState<LevelFilter>("all");
+  const [showLevelHelp, setShowLevelHelp] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isBookingSubmitting, setIsBookingSubmitting] = useState(false);
   const [customModules, setCustomModules] = useState<string[]>([]);
@@ -198,17 +199,17 @@ const TrainingKonfigurator = () => {
     additionalInfo: ""
   });
 
-  // Gefilterte Kategorien basierend auf Tier-Filter
+  // Gefilterte Kategorien basierend auf Level-Filter
   const filteredCategories = useMemo(() => {
-    if (tierFilter === "all") return moduleCategories;
+    if (levelFilter === "all") return moduleCategories;
 
     return moduleCategories
       .map(cat => ({
         ...cat,
-        modules: cat.modules.filter(m => m.tiers.includes(tierFilter))
+        modules: cat.modules.filter(m => m.levels.includes(levelFilter))
       }))
       .filter(cat => cat.modules.length > 0);
-  }, [tierFilter]);
+  }, [levelFilter]);
 
   const toggleModule = (moduleId: string) => {
     setSelectedModules(prev =>
@@ -435,8 +436,8 @@ ${formData.additionalInfo ? `---\nINFORMATIONEN UND WEITERE BENÖTIGTE INHALTE:\
   return (
     <div className="min-h-screen">
       <SEOHead
-        title="Training Konfigurator | ChatGPT Schulungen individuell zusammenstellen"
-        description="Stellen Sie Ihr individuelles ChatGPT Training zusammen. Wählen Sie aus unseren Modulen und erhalten Sie ein maßgeschneidertes Angebot."
+        title="Training Konfigurator | Prompt Engineering & KI-Workflow-Module zusammenstellen"
+        description="Stellen Sie Ihr individuelles ChatGPT-Training zusammen: Prompt Engineering, LLM-Verständnis, Custom GPTs und KI-Workflow-Design – modularer Baukasten für Ihr Team."
         canonicalUrl="https://chatgpt-trainings.de/training-konfigurator"
       />
       <Header />
@@ -453,67 +454,29 @@ ${formData.additionalInfo ? `---\nINFORMATIONEN UND WEITERE BENÖTIGTE INHALTE:\
               Wählen Sie die Module, die für Ihr Team relevant sind, und erhalten Sie ein maßgeschneidertes Angebot.
             </p>
 
-            {/* Tier Badges Info - identisch mit Hauptseite */}
-            <div className="flex flex-col lg:flex-row items-center lg:items-start justify-center gap-6 mt-6 max-w-5xl mx-auto">
-              {/* Tier badges - centered */}
-              <div className="flex flex-col sm:flex-row items-center gap-3">
-                <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-50 border border-emerald-200">
-                  <Badge className="bg-emerald-100 text-emerald-700 border-emerald-200 hover:bg-emerald-100 text-[11px] px-2 py-0.5">
-                    ChatGPT Free
-                  </Badge>
-                  <span className="text-sm text-muted-foreground">ChatGPT Free (Websuche, kostenlos)</span>
-                </div>
-                <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-50 border border-blue-200">
-                  <Badge className="bg-blue-100 text-blue-700 border-blue-200 hover:bg-blue-100 text-[11px] px-2 py-0.5">
-                    ChatGPT Paid
-                  </Badge>
-                  <span className="text-sm text-muted-foreground">ChatGPT Plus/Team/Enterprise (erweiterte Features)</span>
-                </div>
+            {/* Kompetenzstufen-Erklärung */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-6 max-w-4xl mx-auto">
+              <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-50 border border-blue-200">
+                <Badge className="bg-blue-100 text-blue-800 border-blue-200 hover:bg-blue-100 text-[11px] px-2 py-0.5">
+                  Essentials
+                </Badge>
+                <span className="text-sm text-muted-foreground">Prompting Basics, Textarbeit</span>
               </div>
-
-              {/* Collapsible tier check helper */}
-              <div className="flex-shrink-0">
-                {!showTierHelp ? (
-                  <button
-                    onClick={() => setShowTierHelp(true)}
-                    className="flex items-center gap-2 px-4 py-2 rounded-lg border border-primary/30 bg-primary/5 hover:bg-primary/10 text-sm font-medium text-primary transition-all duration-200 hover:scale-105"
-                  >
-                    <HelpCircle className="w-4 h-4" />
-                    Welche ChatGPT-Version habe ich?
-                  </button>
-                ) : (
-                  <div className="w-80 p-4 rounded-lg border border-primary/30 bg-card shadow-lg text-left animate-fade-in">
-                    <div className="flex items-center justify-between mb-3">
-                      <h4 className="font-semibold text-sm flex items-center gap-2">
-                        <HelpCircle className="w-4 h-4 text-primary" />
-                        So finden Sie Ihre ChatGPT-Version heraus
-                      </h4>
-                      <button
-                        onClick={() => setShowTierHelp(false)}
-                        className="text-muted-foreground hover:text-foreground transition-colors"
-                      >
-                        <X className="w-4 h-4" />
-                      </button>
-                    </div>
-                    <ol className="space-y-2 text-sm text-muted-foreground list-decimal list-inside">
-                      <li>Öffnen Sie <strong>ChatGPT</strong> im Browser unter chatgpt.com oder in der App</li>
-                      <li>Prüfen Sie Ihren <strong>Account-Status</strong> in den Einstellungen. Sehen Sie dort "Plus", "Team" oder "Enterprise", haben Sie <strong>ChatGPT Paid</strong></li>
-                      <li>Stellen Sie die Frage: <em>„Welche Termine habe ich heute?"</em></li>
-                      <li>Sehen Sie <strong>alle Premium-Features</strong> wie Web Browsing, Code Interpreter oder File Uploads → <Badge className="bg-blue-100 text-blue-700 border-blue-200 hover:bg-blue-100 text-[11px] px-2 py-0.5">ChatGPT Paid</Badge></li>
-                      <li>Sehen Sie <strong>nur Standard-Features</strong> (nur Chat) → <Badge className="bg-emerald-100 text-emerald-700 border-emerald-200 hover:bg-emerald-100 text-[11px] px-2 py-0.5">ChatGPT Free</Badge></li>
-                    </ol>
-                    <button
-                      onClick={() => setShowTierHelp(false)}
-                      className="mt-3 text-xs text-primary hover:underline"
-                    >
-                      Schließen
-                    </button>
-                  </div>
-                )}
+              <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-purple-50 border border-purple-200">
+                <Badge className="bg-purple-100 text-purple-800 border-purple-200 hover:bg-purple-100 text-[11px] px-2 py-0.5">
+                  Advanced
+                </Badge>
+                <span className="text-sm text-muted-foreground">Multi-Step Prompts, Rollenlogik</span>
+              </div>
+              <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-orange-50 border border-orange-200">
+                <Badge className="bg-orange-100 text-orange-800 border-orange-200 hover:bg-orange-100 text-[11px] px-2 py-0.5">
+                  Workflow-Design
+                </Badge>
+                <span className="text-sm text-muted-foreground">Automatisierung, Custom GPTs</span>
               </div>
             </div>
             <p className="text-sm text-muted-foreground max-w-2xl mx-auto mt-4">
-              Wir bieten Trainings gezielt für beide Tiers an, damit Ihre Mitarbeitenden genau auf die Tools geschult werden, die sie im Unternehmen tatsächlich zur Verfügung haben.
+              Drei Kompetenzstufen – wählen Sie die Module, die zum aktuellen Stand Ihres Teams passen.
             </p>
           </div>
 
@@ -537,15 +500,15 @@ ${formData.additionalInfo ? `---\nINFORMATIONEN UND WEITERE BENÖTIGTE INHALTE:\
           {/* Step 1: Module Selection */}
           {step === 1 && (
             <div className="animate-fade-in">
-              {/* Tier Filter */}
+              {/* Level Filter */}
               <div className="flex justify-center mb-10">
                 <div className="inline-flex items-center gap-1 p-1 bg-muted/60 rounded-lg border">
-                  {tierFilterOptions.map((option) => (
+                  {levelFilterOptions.map((option) => (
                     <button
                       key={option.value}
-                      onClick={() => setTierFilter(option.value)}
+                      onClick={() => setLevelFilter(option.value)}
                       className={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
-                        tierFilter === option.value
+                        levelFilter === option.value
                           ? "bg-primary text-primary-foreground shadow-sm"
                           : "text-muted-foreground hover:text-foreground hover:bg-muted"
                       }`}
@@ -610,16 +573,18 @@ ${formData.additionalInfo ? `---\nINFORMATIONEN UND WEITERE BENÖTIGTE INHALTE:\
                                   <div className="flex-1">
                                     <span className="text-sm leading-tight block">{module.title}</span>
                                     <div className="flex gap-1 mt-1.5">
-                                      {module.tiers.includes("free") && (
-                                        <Badge className="bg-emerald-100 text-emerald-700 border-emerald-200 hover:bg-emerald-100 text-[10px] px-1.5 py-0">
-                                          Free
+                                      {module.levels.map((level) => (
+                                        <Badge
+                                          key={level}
+                                          className={`${
+                                            level === "essentials" ? "bg-blue-100 text-blue-800 border-blue-200" :
+                                            level === "advanced" ? "bg-purple-100 text-purple-800 border-purple-200" :
+                                            "bg-orange-100 text-orange-800 border-orange-200"
+                                          } hover:opacity-90 text-[10px] px-1.5 py-0`}
+                                        >
+                                          {level === "essentials" ? "Essentials" : level === "advanced" ? "Advanced" : "Workflow-Design"}
                                         </Badge>
-                                      )}
-                                      {module.tiers.includes("paid") && (
-                                        <Badge className="bg-blue-100 text-blue-700 border-blue-200 hover:bg-blue-100 text-[10px] px-1.5 py-0">
-                                          Paid
-                                        </Badge>
-                                      )}
+                                      ))}
                                     </div>
                                   </div>
                                 </label>
@@ -874,9 +839,10 @@ ${formData.additionalInfo ? `---\nINFORMATIONEN UND WEITERE BENÖTIGTE INHALTE:\
                               <SelectValue placeholder="Bitte wählen" />
                             </SelectTrigger>
                             <SelectContent>
-                              <SelectItem value="free">ChatGPT Free</SelectItem>
-                              <SelectItem value="paid">ChatGPT mit Lizenz</SelectItem>
-                              <SelectItem value="mixed">Gemischt (beides)</SelectItem>
+                              <SelectItem value="free">ChatGPT Free (kostenlos)</SelectItem>
+                              <SelectItem value="plus">ChatGPT Plus / Team</SelectItem>
+                              <SelectItem value="enterprise">ChatGPT Enterprise</SelectItem>
+                              <SelectItem value="mixed">Gemischt (verschiedene Lizenzen)</SelectItem>
                               <SelectItem value="unsure">Noch nicht bekannt</SelectItem>
                             </SelectContent>
                           </Select>

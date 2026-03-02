@@ -92,7 +92,7 @@ const Contact = () => {
       console.error('Error submitting form:', error);
       toast({
         title: "Fehler",
-        description: error instanceof Error ? error.message : "Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut oder kontaktieren Sie uns direkt unter info@chatgpt-trainings.de",
+        description: error instanceof Error ? error.message : "Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut oder kontaktieren Sie uns direkt unter post@yellow-boat.com",
         variant: "destructive",
       });
     } finally {
@@ -256,8 +256,8 @@ const Contact = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1">E-Mail</h3>
-                  <a href="mailto:info@chatgpt-trainings.de" className="text-muted-foreground hover:text-primary transition-colors">
-                    info@chatgpt-trainings.de
+                  <a href="mailto:post@yellow-boat.com" className="text-muted-foreground hover:text-primary transition-colors">
+                    post@yellow-boat.com
                   </a>
                 </div>
               </div>

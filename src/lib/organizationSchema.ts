@@ -9,8 +9,8 @@ export const founderSchema = {
   "@type": "Person",
   "@id": "https://chatgpt-trainings.de/#martin-lang",
   "name": "Martin Lang",
-  "jobTitle": "Gründer & ChatGPT Experte",
-  "description": "Martin Lang ist Gründer der Yellow-Boat Consulting (2011) und der chatgpt-trainings.de (2025). Seit über einem Jahrzehnt realisiert er Agile Trainings und Digitalisierungsprojekte. Als ChatGPT Experte befähigt er Wissensarbeiter, Teams und Organisationen, ChatGPT produktiv und sicher einzusetzen.",
+  "jobTitle": "Gründer & KI-Workflow-Experte",
+  "description": "Martin Lang verbindet über ein Jahrzehnt Erfahrung in digitaler Transformation mit tiefem Verständnis für Large Language Models und Prompt Engineering. Als Gründer der Yellow-Boat Consulting (2011) und chatgpt-trainings.de (2025) entwickelt er systematische Ansätze, mit denen Unternehmen ChatGPT als strategisches Arbeitsinstrument einsetzen.",
   "url": "https://chatgpt-trainings.de/trainer/martin-lang",
   "image": {
     "@type": "ImageObject",
@@ -19,13 +19,13 @@ export const founderSchema = {
     "height": 400
   },
   "knowsAbout": [
-    "ChatGPT",
-    "KI-Strategie",
-    "ChatGPT & Custom GPTs",
     "Prompt Engineering",
-    "Agile Transformation",
-    "Change Management",
-    "EU AI Act Compliance"
+    "LLM-Architektur & Modellverständnis",
+    "KI-Workflow-Design",
+    "ChatGPT API & Custom GPTs",
+    "OpenAI Ecosystem",
+    "KI-Strategie & Adoption",
+    "Prompt-Bibliotheken & Team-Standards"
   ],
   "hasCredential": [
     {
@@ -41,7 +41,7 @@ export const founderSchema = {
     {
       "@type": "EducationalOccupationalCredential",
       "credentialCategory": "certification",
-      "name": "Certified Scrum Master & Agile Coach"
+      "name": "KI-Workflow-Designer & Prompt Engineer"
     }
   ],
   "sameAs": [
