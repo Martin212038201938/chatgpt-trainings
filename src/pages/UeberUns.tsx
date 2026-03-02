@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Building, Award, ArrowRight, ExternalLink } from "lucide-react";
 import ueberUns from "@/assets/ueber-uns.png";
-import heroImage from "@/assets/trainingsraum-nippes.png";
 
 const UeberUns = () => {
   const organizationSchema = {
@@ -142,8 +141,8 @@ const UeberUns = () => {
       <section className="relative min-h-[70vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src={heroImage}
-            alt="Moderner Trainingsraum für ChatGPT-Schulungen"
+            src={ueberUns}
+            alt="Unser Team bei einem ChatGPT-Workshop"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/30" />
