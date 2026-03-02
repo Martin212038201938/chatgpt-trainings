@@ -1,9 +1,11 @@
 import { useState } from "react";
 import {
-  Terminal,
-  BrainCircuit,
-  Workflow,
-  Lightbulb,
+  PlaneTakeoff,
+  Radar,
+  Headset,
+  Gauge,
+  Award,
+  Medal,
   ChevronDown
 } from "lucide-react";
 
