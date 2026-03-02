@@ -179,6 +179,13 @@ const TIMELINE: TimelineEntry[] = [
     description: "OpenAI veröffentlicht ChatGPT als kostenlose Vorschau. Innerhalb von fünf Tagen erreicht der Chatbot eine Million Nutzer – schneller als jedes andere Verbraucherprodukt.",
     category: "produkt"
   },
+  {
+    date: "05. Dez. 2022",
+    sortDate: "2022-12-05",
+    title: "Erster ChatGPT-Account bei Yellow-Boat",
+    description: "Fünf Tage nach dem Launch erstellt Yellow-Boat Consulting den ersten ChatGPT-Account und beginnt mit ersten Versuchen. Seitdem: permanente und intensive Nutzung des Tools in der täglichen Arbeit.",
+    category: "yellowboat"
+  },
   // Yellow-Boat Meilensteine
   {
     date: "2025",
