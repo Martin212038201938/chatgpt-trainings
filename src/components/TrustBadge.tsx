@@ -68,10 +68,10 @@ export const TrustBadge = ({ variant = 'full' }: TrustBadgeProps) => {
                   ChatGPT
                 </span>
                 <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium">
-                  GitHub Copilot
+                  Prompt Engineering
                 </span>
                 <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium">
-                  Copilot Studio
+                  KI-Strategie
                 </span>
                 <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium">
                   EU AI Act Compliance

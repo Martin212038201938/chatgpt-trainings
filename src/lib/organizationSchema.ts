@@ -20,7 +20,7 @@ export const founderSchema = {
   },
   "knowsAbout": [
     "ChatGPT",
-    "GitHub Copilot",
+    "KI-Strategie",
     "ChatGPT & Custom GPTs",
     "Prompt Engineering",
     "Agile Transformation",
@@ -120,7 +120,7 @@ export const organizationSchema = {
   ],
   "knowsAbout": [
     "ChatGPT",
-    "GitHub Copilot",
+    "KI-Strategie",
     "ChatGPT & Custom GPTs",
     "Prompt Engineering",
     "KI-Training für Unternehmen",
@@ -142,7 +142,7 @@ export const organizationSchema = {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Course",
-          "name": "GitHub Copilot für Softwareentwickler"
+          "name": "ChatGPT für Teams und Organisationen"
         }
       },
       {
