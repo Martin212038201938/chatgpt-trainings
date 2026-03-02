@@ -289,15 +289,6 @@ const UeberUns = () => {
               </div>
 
               <div className="relative">
-                <div className="absolute -left-10 w-4 h-4 bg-primary/70 rounded-full"></div>
-                <div className="font-bold text-lg text-primary mb-1">2011–2022</div>
-                <h3 className="text-xl font-semibold mb-2">Über ein Jahrzehnt Veränderungsprojekte</h3>
-                <p className="text-muted-foreground">
-                  Yellow-Boat Consulting begleitet Veränderungsprojekte in Konzernen und Mittelstand – mit dem Fokus auf agile Arbeitsweisen und die Befähigung von Teams und Führungskräften. Diese Erfahrung mit Organisations- und Lernprozessen bildet die Grundlage für unsere heutigen KI-Trainings.
-                </p>
-              </div>
-
-              <div className="relative">
                 <div className="absolute -left-10 w-4 h-4 bg-primary/80 rounded-full"></div>
                 <div className="font-bold text-lg text-primary mb-1">November 2022</div>
                 <h3 className="text-xl font-semibold mb-2">ChatGPT geht online</h3>
