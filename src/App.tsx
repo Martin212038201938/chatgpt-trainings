@@ -17,6 +17,7 @@ import TrainingDetail from "./pages/TrainingDetail";
 import TrainerProfil from "./pages/TrainerProfil";
 import ChatgptErinnerungen from "./pages/ChatgptErinnerungen";
 import ChatgptNews from "./pages/ChatgptNews";
+import ChatgptCanvasMode from "./pages/ChatgptCanvasMode";
 
 const queryClient = new QueryClient();
 
@@ -39,6 +40,7 @@ const App = () => (
           <Route path="/training-konfigurator" element={<TrainingKonfigurator />} />
           <Route path="/wissen/chatgpt-erinnerungen" element={<ChatgptErinnerungen />} />
           <Route path="/wissen/chatgpt-news" element={<ChatgptNews />} />
+          <Route path="/wissen/chatgpt-canvas-mode" element={<ChatgptCanvasMode />} />
           <Route path="/admin" element={<Admin />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

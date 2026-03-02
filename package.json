@@ -46,7 +46,8 @@
       "/trainings/keynote-agentische-arbeit",
       "/trainer/martin-lang",
       "/wissen/chatgpt-erinnerungen",
-      "/wissen/chatgpt-news"
+      "/wissen/chatgpt-news",
+      "/wissen/chatgpt-canvas-mode"
     ],
     "skipThirdPartyRequests": true,
     "crawl": false
