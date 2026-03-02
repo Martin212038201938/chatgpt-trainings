@@ -28,7 +28,7 @@ interface TimelineEntry {
   sortDate: string;
   title: string;
   description: string;
-  category: "modell" | "feature" | "produkt" | "policy";
+  category: "modell" | "feature" | "produkt" | "policy" | "yellowboat";
 }
 
 const TIMELINE: TimelineEntry[] = [
@@ -178,6 +178,35 @@ const TIMELINE: TimelineEntry[] = [
     title: "ChatGPT geht online",
     description: "OpenAI veröffentlicht ChatGPT als kostenlose Vorschau. Innerhalb von fünf Tagen erreicht der Chatbot eine Million Nutzer – schneller als jedes andere Verbraucherprodukt.",
     category: "produkt"
+  },
+  // Yellow-Boat Meilensteine
+  {
+    date: "2025",
+    sortDate: "2025-01-15",
+    title: "ChatGPT-Trainings.de geht an den Start",
+    description: "Yellow-Boat Consulting launcht chatgpt-trainings.de als eigenständige Marke für ChatGPT-Schulungen. Trainingsportfolio von Kick-Offs bis Bootcamps, zugeschnitten auf die ChatGPT-Reife der Organisation.",
+    category: "yellowboat"
+  },
+  {
+    date: "2024",
+    sortDate: "2024-01-15",
+    title: "Yellow-Boat stellt eigene Workflows auf KI um",
+    description: "Yellow-Boat Consulting stellt die eigenen Arbeitsprozesse konsequent auf KI-gestützte Workflows um. Daraus entstehen die ersten strukturierten ChatGPT-Trainingsprogramme.",
+    category: "yellowboat"
+  },
+  {
+    date: "2023",
+    sortDate: "2023-06-01",
+    title: "Erste KI-Trainings und Pilotprojekte",
+    description: "Yellow-Boat startet erste ChatGPT-Workshops mit Unternehmenskunden in Köln. Austausch mit dem DFKI und intensive Auseinandersetzung mit Prompt Engineering und Modellarchitekturen.",
+    category: "yellowboat"
+  },
+  {
+    date: "2011",
+    sortDate: "2011-01-01",
+    title: "Gründung Yellow-Boat Consulting",
+    description: "Martin Lang gründet Yellow-Boat Consulting in Köln. Schwerpunkt: agile Transformation, Teamstrukturen und Veränderungsprojekte in Konzernen und Mittelstand.",
+    category: "yellowboat"
   }
 ];
 
@@ -185,7 +214,8 @@ const categoryColors: Record<TimelineEntry["category"], { bg: string; text: stri
   modell: { bg: "bg-blue-100 dark:bg-blue-900/30", text: "text-blue-700 dark:text-blue-300", label: "Modell" },
   feature: { bg: "bg-emerald-100 dark:bg-emerald-900/30", text: "text-emerald-700 dark:text-emerald-300", label: "Feature" },
   produkt: { bg: "bg-purple-100 dark:bg-purple-900/30", text: "text-purple-700 dark:text-purple-300", label: "Produkt" },
-  policy: { bg: "bg-amber-100 dark:bg-amber-900/30", text: "text-amber-700 dark:text-amber-300", label: "Policy" }
+  policy: { bg: "bg-amber-100 dark:bg-amber-900/30", text: "text-amber-700 dark:text-amber-300", label: "Policy" },
+  yellowboat: { bg: "bg-yellow-100 dark:bg-yellow-900/30", text: "text-yellow-700 dark:text-yellow-300", label: "Yellow-Boat" }
 };
 
 const ChatgptNews = () => {
@@ -281,19 +311,28 @@ const ChatgptNews = () => {
               <div className="relative pl-8 border-l-2 border-primary/20 space-y-6">
                 {groupedByYear[year].map((entry, idx) => {
                   const cat = categoryColors[entry.category];
+                  const isYB = entry.category === "yellowboat";
                   return (
                     <div key={idx} className="relative group">
                       {/* Punkt auf der Zeitlinie */}
-                      <div className="absolute -left-[25px] top-1.5 w-4 h-4 rounded-full border-2 border-primary bg-background group-hover:bg-primary transition-colors" />
+                      <div className={`absolute -left-[25px] top-1.5 rounded-full border-2 transition-colors ${
+                        isYB
+                          ? "w-5 h-5 -left-[27px] top-1 border-yellow-500 bg-yellow-400 dark:bg-yellow-500"
+                          : "w-4 h-4 border-primary bg-background group-hover:bg-primary"
+                      }`} />
 
-                      <div className="bg-card rounded-xl p-5 border border-border/50 hover:border-primary/30 transition-colors">
+                      <div className={`rounded-xl p-5 border transition-colors ${
+                        isYB
+                          ? "bg-yellow-50 dark:bg-yellow-950/20 border-yellow-300 dark:border-yellow-700 hover:border-yellow-400"
+                          : "bg-card border-border/50 hover:border-primary/30"
+                      }`}>
                         <div className="flex flex-wrap items-center gap-3 mb-2">
                           <time className="text-sm font-mono text-muted-foreground">{entry.date}</time>
                           <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${cat.bg} ${cat.text}`}>
-                            {cat.label}
+                            {isYB ? "\u2693 " : ""}{cat.label}
                           </span>
                         </div>
-                        <h3 className="text-lg font-semibold text-foreground mb-1">{entry.title}</h3>
+                        <h3 className={`text-lg font-semibold mb-1 ${isYB ? "text-yellow-800 dark:text-yellow-200" : "text-foreground"}`}>{entry.title}</h3>
                         <p className="text-muted-foreground text-sm leading-relaxed">{entry.description}</p>
                       </div>
                     </div>
