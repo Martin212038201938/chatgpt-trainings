@@ -8,7 +8,7 @@ const SLUG = "chatgpt-news";
 const PAGE_TITLE = "ChatGPT News: Alle Updates und Meilensteine im Zeitstrahl";
 
 const PUBLISH_DATE = "2026-03-02";
-const MODIFIED_DATE = "2026-03-02";
+const MODIFIED_DATE = "2026-03-02"; // Updated with YB milestones, EU AI Act, user growth
 
 const KEYWORDS = [
   "ChatGPT News",
@@ -32,6 +32,7 @@ interface TimelineEntry {
 }
 
 const TIMELINE: TimelineEntry[] = [
+  // === 2026 ===
   {
     date: "28. Feb. 2026",
     sortDate: "2026-02-28",
@@ -53,19 +54,20 @@ const TIMELINE: TimelineEntry[] = [
     description: "OpenAI rollt ein KI-basiertes Altersschätzungsmodell aus, um Inhalte altersgerecht anzupassen und Minderjährige vor bestimmten Features zu schützen.",
     category: "policy"
   },
-  {
-    date: "11. Dez. 2025",
-    sortDate: "2025-12-11",
-    title: "GPT-5.2 veröffentlicht",
-    description: "Das neue Flaggschiff-Modell bringt automatische Modellauswahl (Fast/Thinking/Pro), einen Study-Mode für schrittweises Lernen und verbesserte Coding-Fähigkeiten.",
-    category: "modell"
-  },
+  // === 2025 ===
   {
     date: "17. Dez. 2025",
     sortDate: "2025-12-17",
     title: "Connectors werden zu «Apps»",
     description: "OpenAI benennt die Connector-Integrationen in «Apps» um und führt ein App-Verzeichnis direkt in ChatGPT ein.",
     category: "feature"
+  },
+  {
+    date: "11. Dez. 2025",
+    sortDate: "2025-12-11",
+    title: "GPT-5.2 veröffentlicht",
+    description: "Das neue Flaggschiff-Modell bringt automatische Modellauswahl (Fast/Thinking/Pro), einen Study-Mode für schrittweises Lernen und verbesserte Coding-Fähigkeiten.",
+    category: "modell"
   },
   {
     date: "Nov. 2025",
@@ -131,6 +133,35 @@ const TIMELINE: TimelineEntry[] = [
     category: "feature"
   },
   {
+    date: "02. Feb. 2025",
+    sortDate: "2025-02-02",
+    title: "EU AI Act: Schulungspflicht tritt in Kraft",
+    description: "Artikel 4 der EU-KI-Verordnung wird wirksam: Unternehmen, die KI-Systeme einsetzen, müssen sicherstellen, dass ihre Mitarbeitenden über ausreichende KI-Kompetenz verfügen.",
+    category: "policy"
+  },
+  {
+    date: "Feb. 2025",
+    sortDate: "2025-02-01",
+    title: "Erste Pflicht-Trainings nach EU AI Act",
+    description: "Yellow-Boat bietet als einer der ersten Anbieter zertifizierte Pflicht-Trainings gemäß EU AI Act an – immer mit dem Anspruch, Mitarbeitende tatsächlich zu befähigen, die ersten Schritte mit KI-gestützter Arbeit zu gehen.",
+    category: "yellowboat"
+  },
+  {
+    date: "2025",
+    sortDate: "2025-01-15",
+    title: "ChatGPT-Trainings.de geht an den Start",
+    description: "Yellow-Boat Consulting launcht chatgpt-trainings.de als eigenständige Marke für ChatGPT-Schulungen. Trainingsportfolio von Kick-Offs bis Bootcamps, zugeschnitten auf die ChatGPT-Reife der Organisation.",
+    category: "yellowboat"
+  },
+  // === 2024 ===
+  {
+    date: "Dez. 2024",
+    sortDate: "2024-12-20",
+    title: "300 Millionen wöchentliche Nutzer",
+    description: "ChatGPT erreicht 300 Millionen aktive Nutzer pro Woche. Die Nutzerbasis hat sich innerhalb eines Jahres verdreifacht.",
+    category: "produkt"
+  },
+  {
     date: "05. Dez. 2024",
     sortDate: "2024-12-05",
     title: "ChatGPT Pro für 200 $/Monat",
@@ -152,11 +183,26 @@ const TIMELINE: TimelineEntry[] = [
     category: "modell"
   },
   {
+    date: "2024",
+    sortDate: "2024-01-15",
+    title: "Yellow-Boat stellt eigene Workflows auf KI um",
+    description: "Yellow-Boat Consulting stellt die eigenen Arbeitsprozesse konsequent auf KI-gestützte Workflows um. Daraus entstehen die ersten strukturierten ChatGPT-Trainingsprogramme.",
+    category: "yellowboat"
+  },
+  // === 2023 ===
+  {
     date: "06. Nov. 2023",
     sortDate: "2023-11-06",
     title: "GPTs und der GPT Store",
     description: "Nutzer können eigene ChatGPT-Varianten erstellen und teilen. Der GPT Store wird zur Plattform für spezialisierte KI-Assistenten.",
     category: "produkt"
+  },
+  {
+    date: "Okt. 2023",
+    sortDate: "2023-10-01",
+    title: "Erste KI-Trainings und Pilotprojekte",
+    description: "Yellow-Boat startet erste ChatGPT-Workshops mit Unternehmenskunden in Köln und Leverkusen. Austausch mit dem DFKI (Deutsches Forschungszentrum für Künstliche Intelligenz) und intensive Auseinandersetzung mit Prompt Engineering und Nutzung im beruflichen Kontext.",
+    category: "yellowboat"
   },
   {
     date: "14. März 2023",
@@ -173,12 +219,13 @@ const TIMELINE: TimelineEntry[] = [
     category: "produkt"
   },
   {
-    date: "30. Nov. 2022",
-    sortDate: "2022-11-30",
-    title: "ChatGPT geht online",
-    description: "OpenAI veröffentlicht ChatGPT als kostenlose Vorschau. Innerhalb von fünf Tagen erreicht der Chatbot eine Million Nutzer – schneller als jedes andere Verbraucherprodukt.",
+    date: "Jan. 2023",
+    sortDate: "2023-01-30",
+    title: "100 Millionen monatliche Nutzer",
+    description: "Nur zwei Monate nach dem Start erreicht ChatGPT 100 Millionen monatlich aktive Nutzer – ein Rekord in der Geschichte digitaler Verbraucherprodukte.",
     category: "produkt"
   },
+  // === 2022 ===
   {
     date: "05. Dez. 2022",
     sortDate: "2022-12-05",
@@ -186,28 +233,14 @@ const TIMELINE: TimelineEntry[] = [
     description: "Fünf Tage nach dem Launch erstellt Yellow-Boat Consulting den ersten ChatGPT-Account und beginnt mit ersten Versuchen. Seitdem: permanente und intensive Nutzung des Tools in der täglichen Arbeit.",
     category: "yellowboat"
   },
-  // Yellow-Boat Meilensteine
   {
-    date: "2025",
-    sortDate: "2025-01-15",
-    title: "ChatGPT-Trainings.de geht an den Start",
-    description: "Yellow-Boat Consulting launcht chatgpt-trainings.de als eigenständige Marke für ChatGPT-Schulungen. Trainingsportfolio von Kick-Offs bis Bootcamps, zugeschnitten auf die ChatGPT-Reife der Organisation.",
-    category: "yellowboat"
+    date: "30. Nov. 2022",
+    sortDate: "2022-11-30",
+    title: "ChatGPT geht online",
+    description: "OpenAI veröffentlicht ChatGPT als kostenlose Vorschau. Innerhalb von fünf Tagen erreicht der Chatbot eine Million Nutzer – schneller als jedes andere Verbraucherprodukt.",
+    category: "produkt"
   },
-  {
-    date: "2024",
-    sortDate: "2024-01-15",
-    title: "Yellow-Boat stellt eigene Workflows auf KI um",
-    description: "Yellow-Boat Consulting stellt die eigenen Arbeitsprozesse konsequent auf KI-gestützte Workflows um. Daraus entstehen die ersten strukturierten ChatGPT-Trainingsprogramme.",
-    category: "yellowboat"
-  },
-  {
-    date: "2023",
-    sortDate: "2023-06-01",
-    title: "Erste KI-Trainings und Pilotprojekte",
-    description: "Yellow-Boat startet erste ChatGPT-Workshops mit Unternehmenskunden in Köln. Austausch mit dem DFKI und intensive Auseinandersetzung mit Prompt Engineering und Modellarchitekturen.",
-    category: "yellowboat"
-  },
+  // === 2011 ===
   {
     date: "2011",
     sortDate: "2011-01-01",
