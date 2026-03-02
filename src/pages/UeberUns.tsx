@@ -273,7 +273,7 @@ const UeberUns = () => {
               <div className="relative">
                 <div className="absolute -left-10 w-4 h-4 bg-primary rounded-full"></div>
                 <div className="font-bold text-lg text-primary mb-1">2011</div>
-                <h3 className="text-xl font-semibold mb-2">Gr\u00fcndung Yellow-Boat Consulting</h3>
+                <h3 className="text-xl font-semibold mb-2">Gründung Yellow-Boat Consulting</h3>
                 <p className="text-muted-foreground">
                   ChatGPT-Trainings.de ist eine Marke der{" "}
                   <a
@@ -284,16 +284,16 @@ const UeberUns = () => {
                   >
                     Yellow-Boat Consulting
                     <ExternalLink className="w-3 h-3" />
-                  </a>, gegr\u00fcndet 2011 in K\u00f6ln. Der Schwerpunkt lag zun\u00e4chst auf agiler Transformation und Teamstrukturen.
+                  </a>, gegründet 2011 in Köln. Der Schwerpunkt lag zunächst auf agiler Transformation und Teamstrukturen.
                 </p>
               </div>
 
               <div className="relative">
                 <div className="absolute -left-10 w-4 h-4 bg-primary/70 rounded-full"></div>
-                <div className="font-bold text-lg text-primary mb-1">2011\u20132022</div>
-                <h3 className="text-xl font-semibold mb-2">\u00dcber ein Jahrzehnt Ver\u00e4nderungsprojekte</h3>
+                <div className="font-bold text-lg text-primary mb-1">2011–2022</div>
+                <h3 className="text-xl font-semibold mb-2">Über ein Jahrzehnt Veränderungsprojekte</h3>
                 <p className="text-muted-foreground">
-                  Yellow-Boat Consulting begleitet Ver\u00e4nderungsprojekte in Konzernen und Mittelstand \u2013 mit dem Fokus auf agile Arbeitsweisen und die Bef\u00e4higung von Teams und F\u00fchrungskr\u00e4ften. Diese Erfahrung mit Organisations- und Lernprozessen bildet die Grundlage f\u00fcr unsere heutigen KI-Trainings.
+                  Yellow-Boat Consulting begleitet Veränderungsprojekte in Konzernen und Mittelstand – mit dem Fokus auf agile Arbeitsweisen und die Befähigung von Teams und Führungskräften. Diese Erfahrung mit Organisations- und Lernprozessen bildet die Grundlage für unsere heutigen KI-Trainings.
                 </p>
               </div>
 
@@ -302,16 +302,16 @@ const UeberUns = () => {
                 <div className="font-bold text-lg text-primary mb-1">November 2022</div>
                 <h3 className="text-xl font-semibold mb-2">ChatGPT geht online</h3>
                 <p className="text-muted-foreground">
-                  OpenAI ver\u00f6ffentlicht ChatGPT als kostenlose Vorschau. Innerhalb von f\u00fcnf Tagen erreicht der Chatbot eine Million Nutzer \u2013 schneller als jedes andere Verbraucherprodukt zuvor.
+                  OpenAI veröffentlicht ChatGPT als kostenlose Vorschau. Innerhalb von fünf Tagen erreicht der Chatbot eine Million Nutzer – schneller als jedes andere Verbraucherprodukt zuvor.
                 </p>
               </div>
 
               <div className="relative">
                 <div className="absolute -left-10 w-4 h-4 bg-yellow-500 rounded-full border-2 border-yellow-300"></div>
                 <div className="font-bold text-lg text-yellow-600 mb-1">Dezember 2022</div>
-                <h3 className="text-xl font-semibold mb-2">\u2693 Erster ChatGPT-Account bei Yellow-Boat</h3>
+                <h3 className="text-xl font-semibold mb-2">Erster ChatGPT-Account bei Yellow-Boat</h3>
                 <p className="text-muted-foreground">
-                  F\u00fcnf Tage nach dem Launch erstellt Yellow-Boat Consulting den ersten ChatGPT-Account und beginnt mit ersten Versuchen. Seitdem: permanente und intensive Nutzung des Tools in der t\u00e4glichen Arbeit.
+                  Fünf Tage nach dem Launch erstellt Yellow-Boat Consulting den ersten ChatGPT-Account und beginnt mit ersten Versuchen. Seitdem: permanente und intensive Nutzung des Tools in der täglichen Arbeit.
                 </p>
               </div>
 
@@ -320,34 +320,34 @@ const UeberUns = () => {
                 <div className="font-bold text-lg text-primary mb-1">Januar 2023</div>
                 <h3 className="text-xl font-semibold mb-2">100 Millionen Nutzer in zwei Monaten</h3>
                 <p className="text-muted-foreground">
-                  ChatGPT erreicht 100 Millionen monatlich aktive Nutzer \u2013 ein Rekord in der Geschichte digitaler Verbraucherprodukte. Das Thema KI r\u00fcckt endg\u00fcltig in den Mainstream.
+                  ChatGPT erreicht 100 Millionen monatlich aktive Nutzer – ein Rekord in der Geschichte digitaler Verbraucherprodukte. Das Thema KI rückt endgültig in den Mainstream.
                 </p>
               </div>
 
               <div className="relative">
                 <div className="absolute -left-10 w-4 h-4 bg-yellow-500 rounded-full border-2 border-yellow-300"></div>
                 <div className="font-bold text-lg text-yellow-600 mb-1">Oktober 2023</div>
-                <h3 className="text-xl font-semibold mb-2">\u2693 Erste KI-Trainings und Pilotprojekte</h3>
+                <h3 className="text-xl font-semibold mb-2">Erste KI-Trainings und Pilotprojekte</h3>
                 <p className="text-muted-foreground">
-                  Yellow-Boat startet erste ChatGPT-Workshops mit Unternehmenskunden in K\u00f6ln und Leverkusen. Austausch mit dem DFKI (Deutsches Forschungszentrum f\u00fcr K\u00fcnstliche Intelligenz) und intensive Auseinandersetzung mit Prompt Engineering und Nutzung im beruflichen Kontext.
+                  Yellow-Boat startet erste ChatGPT-Workshops mit Unternehmenskunden in Köln und Leverkusen. Austausch mit dem DFKI (Deutsches Forschungszentrum für Künstliche Intelligenz) und intensive Auseinandersetzung mit Prompt Engineering und Nutzung im beruflichen Kontext.
                 </p>
               </div>
 
               <div className="relative">
                 <div className="absolute -left-10 w-4 h-4 bg-primary/80 rounded-full"></div>
                 <div className="font-bold text-lg text-primary mb-1">Mai 2024</div>
-                <h3 className="text-xl font-semibold mb-2">GPT-4o ver\u00e4ndert die Spielregeln</h3>
+                <h3 className="text-xl font-semibold mb-2">GPT-4o verändert die Spielregeln</h3>
                 <p className="text-muted-foreground">
-                  Mit GPT-4o kombiniert OpenAI Text, Bild und Sprache in einem Modell \u2013 und macht leistungsf\u00e4hige KI erstmals f\u00fcr alle kostenlos zug\u00e4nglich. Die Nachfrage nach Trainings steigt sp\u00fcrbar.
+                  Mit GPT-4o kombiniert OpenAI Text, Bild und Sprache in einem Modell – und macht leistungsfähige KI erstmals für alle kostenlos zugänglich. Die Nachfrage nach Trainings steigt spürbar.
                 </p>
               </div>
 
               <div className="relative">
                 <div className="absolute -left-10 w-4 h-4 bg-yellow-500 rounded-full border-2 border-yellow-300"></div>
                 <div className="font-bold text-lg text-yellow-600 mb-1">2024</div>
-                <h3 className="text-xl font-semibold mb-2">\u2693 KI-Workflows in eigener Praxis</h3>
+                <h3 className="text-xl font-semibold mb-2">KI-Workflows in eigener Praxis</h3>
                 <p className="text-muted-foreground">
-                  Yellow-Boat stellt die eigenen Arbeitsprozesse konsequent auf KI-gest\u00fctzte Workflows um. Daraus entstehen die ersten strukturierten ChatGPT-Trainingsprogramme \u2013 basierend auf der eigenen Erfahrung, was funktioniert und was nicht. ChatGPT erreicht Ende des Jahres 300 Millionen w\u00f6chentliche Nutzer.
+                  Yellow-Boat stellt die eigenen Arbeitsprozesse konsequent auf KI-gestützte Workflows um. Daraus entstehen die ersten strukturierten ChatGPT-Trainingsprogramme – basierend auf der eigenen Erfahrung, was funktioniert und was nicht. ChatGPT erreicht Ende des Jahres 300 Millionen wöchentliche Nutzer.
                 </p>
               </div>
 
@@ -356,16 +356,16 @@ const UeberUns = () => {
                 <div className="font-bold text-lg text-primary mb-1">Februar 2025</div>
                 <h3 className="text-xl font-semibold mb-2">EU AI Act: Schulungspflicht tritt in Kraft</h3>
                 <p className="text-muted-foreground">
-                  Artikel 4 der EU-KI-Verordnung wird wirksam: Unternehmen, die KI-Systeme einsetzen, m\u00fcssen sicherstellen, dass ihre Mitarbeitenden \u00fcber ausreichende KI-Kompetenz verf\u00fcgen.
+                  Artikel 4 der EU-KI-Verordnung wird wirksam: Unternehmen, die KI-Systeme einsetzen, müssen sicherstellen, dass ihre Mitarbeitenden über ausreichende KI-Kompetenz verfügen.
                 </p>
               </div>
 
               <div className="relative">
                 <div className="absolute -left-10 w-4 h-4 bg-yellow-500 rounded-full border-2 border-yellow-300"></div>
                 <div className="font-bold text-lg text-yellow-600 mb-1">Februar 2025</div>
-                <h3 className="text-xl font-semibold mb-2">\u2693 Erste Pflicht-Trainings nach EU AI Act</h3>
+                <h3 className="text-xl font-semibold mb-2">Erste Pflicht-Trainings nach EU AI Act</h3>
                 <p className="text-muted-foreground">
-                  Yellow-Boat bietet als einer der ersten Anbieter zertifizierte Pflicht-Trainings gem\u00e4\u00df EU AI Act an \u2013 immer mit dem Anspruch, Mitarbeitende tats\u00e4chlich zu bef\u00e4higen, die ersten Schritte mit KI-gest\u00fctzter Arbeit zu gehen.
+                  Yellow-Boat bietet als einer der ersten Anbieter zertifizierte Pflicht-Trainings gemäß EU AI Act an – immer mit dem Anspruch, Mitarbeitende tatsächlich zu befähigen, die ersten Schritte mit KI-gestützter Arbeit zu gehen.
                 </p>
               </div>
 
@@ -374,14 +374,14 @@ const UeberUns = () => {
                 <div className="font-bold text-xl text-primary mb-1">2025</div>
                 <h3 className="text-2xl font-semibold mb-2">ChatGPT-Trainings.de geht an den Start</h3>
                 <p className="text-muted-foreground text-lg">
-                  Launch von chatgpt-trainings.de als eigenst\u00e4ndige Marke f\u00fcr ChatGPT-Schulungen. Das Angebotsportfolio umfasst Kick-Offs, Ganztagstrainings, Bootcamps, begleitete Lernreisen, Hackathons und Launch-Events \u2013 jeweils zugeschnitten auf die ChatGPT-Reife der teilnehmenden Organisation.
+                  Launch von chatgpt-trainings.de als eigenständige Marke für ChatGPT-Schulungen. Das Angebotsportfolio umfasst Kick-Offs, Ganztagstrainings, Bootcamps, begleitete Lernreisen, Hackathons und Launch-Events – jeweils zugeschnitten auf die ChatGPT-Reife der teilnehmenden Organisation.
                 </p>
               </div>
 
               <div className="relative">
                 <div className="absolute -left-10 w-5 h-5 bg-yellow-500 rounded-full border-2 border-yellow-300"></div>
                 <div className="font-bold text-xl text-yellow-600 mb-1">2025</div>
-                <h3 className="text-2xl font-semibold mb-2">\u2693 Gr\u00fcndung{" "}
+                <h3 className="text-2xl font-semibold mb-2">Gründung{" "}
                   <a
                     href="https://copilotenschule.de"
                     target="_blank"
@@ -393,7 +393,7 @@ const UeberUns = () => {
                   </a>
                 </h3>
                 <p className="text-muted-foreground text-lg">
-                  Um gezielt tiefe Trainings f\u00fcr Firmen und Teams anzubieten, die in der Microsoft Copilot Welt starten, gr\u00fcndet Yellow-Boat die{" "}
+                  Um gezielt tiefe Trainings für Firmen und Teams anzubieten, die in der Microsoft Copilot Welt starten, gründet Yellow-Boat die{" "}
                   <a
                     href="https://copilotenschule.de"
                     target="_blank"
