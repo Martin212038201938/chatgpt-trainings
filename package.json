@@ -44,7 +44,8 @@
       "/trainings/chatgpt-launch-event",
       "/trainings/chatgpt-hackathon",
       "/trainer/martin-lang",
-      "/wissen/chatgpt-erinnerungen"
+      "/wissen/chatgpt-erinnerungen",
+      "/wissen/chatgpt-news"
     ],
     "skipThirdPartyRequests": true,
     "crawl": false

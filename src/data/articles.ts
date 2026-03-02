@@ -30,6 +30,18 @@ export interface ArticleData {
 // Alle Artikel - sortiert nach Veröffentlichungsdatum (neueste zuerst)
 export const ALL_ARTICLES: ArticleData[] = [
   {
+    id: "chatgpt-news",
+    title: "ChatGPT News: Alle Updates und Meilensteine im Zeitstrahl",
+    description: "Alle wichtigen ChatGPT-Updates und OpenAI-Meilensteine chronologisch geordnet – vom Launch 2022 bis zu den neuesten Features 2026.",
+    link: "/wissen/chatgpt-news",
+    badge: "ChatGPT News",
+    icon: "📰",
+    lastUpdated: "02. Mrz. 2026",
+    publishDate: "2026-03-02",
+    publishTime: "10:00",
+    isDraft: false
+  },
+  {
     id: "chatgpt-erinnerungen",
     title: "ChatGPT und Erinnerungen: Was weiß ChatGPT über mich?",
     description: "ChatGPT merkt sich mehr über Sie als die meisten vermuten. Wie das Memory-System funktioniert, was gespeichert wird und wie Sie die Kontrolle behalten.",
