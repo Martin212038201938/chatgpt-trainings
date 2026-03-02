@@ -20,7 +20,6 @@ const levelFilterOptions: { value: LevelFilter; label: string }[] = [
   { value: "all", label: "Alle Trainings" },
   { value: "essentials", label: "Essentials" },
   { value: "advanced", label: "Advanced" },
-  { value: "workflow-design", label: "Workflow-Design" },
 ];
 
 const trainingModulesForSchema = modules.map(m => ({
@@ -48,7 +47,7 @@ const UnsereAngebote = () => {
           "ChatGPT Schulung",
           "Prompt Engineering Training",
           "ChatGPT Workshop",
-          "KI-Workflow-Design Training",
+          "ChatGPT Datenschutz Training",
           "Advanced Prompt Engineering",
           "ChatGPT Kurs Unternehmen"
         ]}
@@ -79,7 +78,7 @@ const UnsereAngebote = () => {
                 <h2 className="text-lg font-semibold mb-4 text-center">
                   Klare Eskalationslogik: Wählen Sie das passende Level
                 </h2>
-                <div className="grid sm:grid-cols-3 gap-4 mb-4">
+                <div className="grid sm:grid-cols-2 gap-4 mb-4 max-w-2xl mx-auto">
                   <div className="flex flex-col items-center text-center px-4 py-3 rounded-lg bg-blue-50 border border-blue-200">
                     <Badge className="bg-blue-100 text-blue-800 border-blue-200 hover:bg-blue-100 text-xs px-2 py-0.5 mb-2">
                       Essentials
@@ -90,13 +89,7 @@ const UnsereAngebote = () => {
                     <Badge className="bg-purple-100 text-purple-800 border-purple-200 hover:bg-purple-100 text-xs px-2 py-0.5 mb-2">
                       Advanced
                     </Badge>
-                    <span className="text-sm text-muted-foreground">Multi-Step Prompts, Rollenlogik, strukturierte Ausgaben, Templates</span>
-                  </div>
-                  <div className="flex flex-col items-center text-center px-4 py-3 rounded-lg bg-orange-50 border border-orange-200">
-                    <Badge className="bg-orange-100 text-orange-800 border-orange-200 hover:bg-orange-100 text-xs px-2 py-0.5 mb-2">
-                      Workflow-Design
-                    </Badge>
-                    <span className="text-sm text-muted-foreground">Automatisierung, API-Anbindung, Custom GPTs, Prompt-Standards</span>
+                    <span className="text-sm text-muted-foreground">Multi-Step Prompts, Rollenlogik, Custom GPTs, Automatisierung</span>
                   </div>
                 </div>
               </div>

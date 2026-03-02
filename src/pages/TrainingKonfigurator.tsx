@@ -20,7 +20,7 @@ interface ModuleCategory {
   modules: TrainingModule[];
 }
 
-type CompetencyLevel = "essentials" | "advanced" | "workflow-design";
+type CompetencyLevel = "essentials" | "advanced";
 
 interface TrainingModule {
   id: string;
@@ -42,7 +42,6 @@ const moduleCategories: ModuleCategory[] = [
       { id: "text-work", title: "Textarbeit mit KI: Schreiben, Umformulieren, Kürzen, Übersetzen", levels: ["essentials"], category: "chatgpt-basics" },
       { id: "creative-ai", title: "Kreative Anwendungen: Brainstorming, Ideengenerierung, Perspektivwechsel", levels: ["essentials"], category: "chatgpt-basics" },
       { id: "ai-output-eval", title: "KI-Output kritisch bewerten: Halluzinationen erkennen, Grenzen verstehen", levels: ["essentials"], category: "chatgpt-basics" },
-      { id: "prompt-library", title: "Eigene Prompt-Bibliothek aufbauen: Templates für wiederkehrende Aufgaben", levels: ["essentials", "advanced"], category: "chatgpt-basics" },
     ]
   },
   {
@@ -77,13 +76,13 @@ const moduleCategories: ModuleCategory[] = [
     title: "Custom GPTs & Automatisierung",
     description: "Erstellen Sie Ihre eigenen ChatGPT-Versionen für spezifische Use Cases",
     modules: [
-      { id: "custom-gpts-basics", title: "Custom GPTs erstellen: Builder-Interface, Instructions, Knowledge hochladen", levels: ["workflow-design"], category: "custom-gpts" },
-      { id: "gpt-actions", title: "GPT Actions & API-Integration: External APIs anbinden, Workflows automatisieren", levels: ["workflow-design"], category: "custom-gpts" },
-      { id: "knowledge-upload", title: "Knowledge Base aufbauen: PDFs, Docs, Interne Wissensquellen integrieren", levels: ["workflow-design"], category: "custom-gpts" },
-      { id: "workflow-automation", title: "Workflow-Automatisierung: Geschäftsprozesse mit Custom GPTs digitalisieren", levels: ["workflow-design"], category: "custom-gpts" },
-      { id: "internal-chatbots", title: "Interne Chatbots: Employee Support, FAQ-Automatisierung, Self-Service", levels: ["workflow-design"], category: "custom-gpts" },
-      { id: "gpt-governance", title: "Governance & Sharing: Team-GPTs, Rollen, Berechtigungen verwalten", levels: ["workflow-design"], category: "custom-gpts" },
-      { id: "custom-gpt-examples", title: "Use Case Vorlagen: Sales Assistant, Customer Support, HR Bot, Content Generator", levels: ["workflow-design"], category: "custom-gpts" },
+      { id: "custom-gpts-basics", title: "Custom GPTs erstellen: Builder-Interface, Instructions, Knowledge hochladen", levels: ["advanced"], category: "custom-gpts" },
+      { id: "gpt-actions", title: "GPT Actions & API-Integration: External APIs anbinden, Workflows automatisieren", levels: ["advanced"], category: "custom-gpts" },
+      { id: "knowledge-upload", title: "Knowledge Base aufbauen: PDFs, Docs, Interne Wissensquellen integrieren", levels: ["advanced"], category: "custom-gpts" },
+      { id: "workflow-automation", title: "Workflow-Automatisierung: Gesch\u00e4ftsprozesse mit Custom GPTs digitalisieren", levels: ["advanced"], category: "custom-gpts" },
+      { id: "internal-chatbots", title: "Interne Chatbots: Employee Support, FAQ-Automatisierung, Self-Service", levels: ["advanced"], category: "custom-gpts" },
+      { id: "gpt-governance", title: "Governance & Sharing: Team-GPTs, Rollen, Berechtigungen verwalten", levels: ["advanced"], category: "custom-gpts" },
+      { id: "custom-gpt-examples", title: "Use Case Vorlagen: Sales Assistant, Customer Support, HR Bot, Content Generator", levels: ["advanced"], category: "custom-gpts" },
     ]
   },
   {
@@ -106,13 +105,13 @@ const moduleCategories: ModuleCategory[] = [
     title: "Strategie & Change Management",
     description: "Erfolgreiche Einführung und Skalierung von ChatGPT im Unternehmen",
     modules: [
-      { id: "process-analysis", title: "Prozessanalyse: Welche Aufgaben profitieren am meisten von ChatGPT?", levels: ["advanced", "workflow-design"], category: "strategy" },
-      { id: "roi-calculation", title: "ROI-Berechnung und Business Case: Kosteneinsparungen quantifizieren, Timeframes", levels: ["advanced", "workflow-design"], category: "strategy" },
-      { id: "rollout-plan", title: "Phasenweiser Rollout-Plan: Pilot-Gruppen, Erfolgskriterien, Skalierung", levels: ["workflow-design"], category: "strategy" },
-      { id: "change-mgmt", title: "Change Management und Adoption: Widerstände überwinden, Champions aufbauen", levels: ["workflow-design"], category: "strategy" },
-      { id: "governance", title: "Governance Framework: Policies definieren, Verantwortlichkeiten klären, Audit Trails", levels: ["workflow-design"], category: "strategy" },
-      { id: "kpis", title: "Success Metrics und KPIs: Nutzung messen, Produktivität tracken, Performance Monitoring", levels: ["advanced", "workflow-design"], category: "strategy" },
-      { id: "rollout-learnings", title: "Erfahrungen aus erfolgreichen ChatGPT-Rollouts: Fallstudien und erprobte Muster", levels: ["advanced", "workflow-design"], category: "strategy" },
+      { id: "process-analysis", title: "Prozessanalyse: Welche Aufgaben profitieren am meisten von ChatGPT?", levels: ["advanced"], category: "strategy" },
+      { id: "roi-calculation", title: "ROI-Berechnung und Business Case: Kosteneinsparungen quantifizieren, Timeframes", levels: ["advanced"], category: "strategy" },
+      { id: "rollout-plan", title: "Phasenweiser Rollout-Plan: Pilot-Gruppen, Erfolgskriterien, Skalierung", levels: ["advanced"], category: "strategy" },
+      { id: "change-mgmt", title: "Change Management und Adoption: Widerstände überwinden, Champions aufbauen", levels: ["advanced"], category: "strategy" },
+      { id: "governance", title: "Governance Framework: Policies definieren, Verantwortlichkeiten klären, Audit Trails", levels: ["advanced"], category: "strategy" },
+      { id: "kpis", title: "Success Metrics und KPIs: Nutzung messen, Produktivität tracken, Performance Monitoring", levels: ["advanced"], category: "strategy" },
+      { id: "rollout-learnings", title: "Erfahrungen aus erfolgreichen ChatGPT-Rollouts: Fallstudien und erprobte Muster", levels: ["advanced"], category: "strategy" },
     ]
   },
   {
@@ -120,8 +119,8 @@ const moduleCategories: ModuleCategory[] = [
     title: "Events, Workshops & Keynotes",
     description: "Hackathons, Keynotes, Eventtage – für maximales Engagement und Lerneffekt",
     modules: [
-      { id: "hackathon-format", title: "ChatGPT Hackathon: Teambildung, Challenge-Briefing, Arbeitsphase, Pitch", levels: ["advanced", "workflow-design"], category: "events-workshops" },
-      { id: "hackathon-ideation", title: "Use Case Ideation Workshop: Geschäftsprobleme mit ChatGPT lösen", levels: ["advanced", "workflow-design"], category: "events-workshops" },
+      { id: "hackathon-format", title: "ChatGPT Hackathon: Teambildung, Challenge-Briefing, Arbeitsphase, Pitch", levels: ["advanced"], category: "events-workshops" },
+      { id: "hackathon-ideation", title: "Use Case Ideation Workshop: Geschäftsprobleme mit ChatGPT lösen", levels: ["advanced"], category: "events-workshops" },
       { id: "prompt-battle", title: "Prompt Engineering Battle: Wer entwickelt die effektivsten Prompts? Wettbewerb mit Preisen", levels: ["essentials", "advanced"], category: "events-workshops" },
       { id: "keynote-vision", title: "Keynote: Die Zukunft der Wissensarbeit mit KI – was kommt auf uns zu?", levels: ["essentials"], category: "events-workshops" },
       { id: "keynote-live-demos", title: "Live-Demonstrationen: Beeindruckende ChatGPT Use Cases in Action", levels: ["essentials"], category: "events-workshops" },
@@ -140,8 +139,8 @@ const moduleCategories: ModuleCategory[] = [
       { id: "woche4", title: "Woche 4: Kreative Anwendungen + Use Case: Content-Generierung und Ideenfindung", levels: ["advanced"], category: "lernreise" },
       { id: "woche5", title: "Woche 5: Code Interpreter & Datenanalyse + Use Case: Automatisierte Reports", levels: ["advanced"], category: "lernreise" },
       { id: "woche6", title: "Woche 6: DALL-E & Bildgenerierung + Use Case: Visual Content erstellen", levels: ["advanced"], category: "lernreise" },
-      { id: "woche7", title: "Woche 7: Custom GPTs & Automatisierung + Use Case: Eigenen KI-Assistent bauen", levels: ["workflow-design"], category: "lernreise" },
-      { id: "woche8", title: "Woche 8: Compliance, Strategie & Skalierung + Use Case: Rollout-Plan für Ihr Team", levels: ["workflow-design"], category: "lernreise" },
+      { id: "woche7", title: "Woche 7: Custom GPTs & Automatisierung + Use Case: Eigenen KI-Assistent bauen", levels: ["advanced"], category: "lernreise" },
+      { id: "woche8", title: "Woche 8: Compliance, Strategie & Skalierung + Use Case: Rollout-Plan für Ihr Team", levels: ["advanced"], category: "lernreise" },
     ]
   },
 ];
@@ -155,7 +154,6 @@ const levelFilterOptions: { value: LevelFilter; label: string }[] = [
   { value: "all", label: "Alle Module" },
   { value: "essentials", label: "Essentials" },
   { value: "advanced", label: "Advanced" },
-  { value: "workflow-design", label: "Workflow-Design" },
 ];
 
 interface FormData {
@@ -437,7 +435,7 @@ ${formData.additionalInfo ? `---\nINFORMATIONEN UND WEITERE BENÖTIGTE INHALTE:\
     <div className="min-h-screen">
       <SEOHead
         title="Training Konfigurator | Prompt Engineering & KI-Workflow-Module zusammenstellen"
-        description="Stellen Sie Ihr individuelles ChatGPT-Training zusammen: Prompt Engineering, LLM-Verständnis, Custom GPTs und KI-Workflow-Design – modularer Baukasten für Ihr Team."
+        description="Stellen Sie Ihr individuelles ChatGPT-Training zusammen: Prompt Engineering, LLM-Verständnis, Custom GPTs und Datenschutz – modularer Baukasten für Ihr Team."
         canonicalUrl="https://chatgpt-trainings.de/training-konfigurator"
       />
       <Header />
@@ -468,15 +466,9 @@ ${formData.additionalInfo ? `---\nINFORMATIONEN UND WEITERE BENÖTIGTE INHALTE:\
                 </Badge>
                 <span className="text-sm text-muted-foreground">Multi-Step Prompts, Rollenlogik</span>
               </div>
-              <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-orange-50 border border-orange-200">
-                <Badge className="bg-orange-100 text-orange-800 border-orange-200 hover:bg-orange-100 text-[11px] px-2 py-0.5">
-                  Workflow-Design
-                </Badge>
-                <span className="text-sm text-muted-foreground">Automatisierung, Custom GPTs</span>
-              </div>
             </div>
             <p className="text-sm text-muted-foreground max-w-2xl mx-auto mt-4">
-              Drei Kompetenzstufen – wählen Sie die Module, die zum aktuellen Stand Ihres Teams passen.
+              Zwei Kompetenzstufen – wählen Sie die Module, die zum aktuellen Stand Ihres Teams passen.
             </p>
           </div>
 
@@ -582,7 +574,7 @@ ${formData.additionalInfo ? `---\nINFORMATIONEN UND WEITERE BENÖTIGTE INHALTE:\
                                             "bg-orange-100 text-orange-800 border-orange-200"
                                           } hover:opacity-90 text-[10px] px-1.5 py-0`}
                                         >
-                                          {level === "essentials" ? "Essentials" : level === "advanced" ? "Advanced" : "Workflow-Design"}
+                                          {level === "essentials" ? "Essentials" : "Advanced"}
                                         </Badge>
                                       ))}
                                     </div>
