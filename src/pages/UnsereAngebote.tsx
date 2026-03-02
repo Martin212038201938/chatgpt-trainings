@@ -172,18 +172,17 @@ const UnsereAngebote = () => {
               </div>
             </div>
 
-            {/* Zertifizierung */}
+            {/* Zertifikat */}
             <div className="mt-8 max-w-4xl mx-auto">
               <Card className="border-2 border-violet-500/30 bg-gradient-to-br from-violet-500/5 to-purple-500/5">
                 <CardHeader className="pb-3">
                   <CardTitle className="flex items-center justify-center gap-2 text-lg">
-                    Kompetenznachweis mit Prüfung
+                    Zertifikat auf Wunsch
                   </CardTitle>
                 </CardHeader>
                 <CardDescription className="px-6 pb-6 text-center">
                   <p className="mb-3">
-                    Zu jedem Training bieten wir optional eine <strong>praxisbasierte Prüfung</strong> an:
-                    Teilnehmer zeigen, dass sie Prompts gezielt formulieren, KI-Outputs kritisch bewerten und ChatGPT sicher im Unternehmenskontext anwenden können. Wer besteht, erhält ein <strong>dokumentiertes Zertifikat</strong>.
+                    Zu jedem Training bieten wir auf Wunsch ein <strong>dokumentiertes Zertifikat</strong> als Kompetenznachweis an.
                   </p>
                   <p className="text-sm text-muted-foreground">
                     Aufbauende Stufen verfügbar: <strong>Beginner → Advanced → Pro → Expert</strong>

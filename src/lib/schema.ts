@@ -517,7 +517,7 @@ export const generateTrainingSchemas = (modules: TrainingModule[], faqs?: FAQ[])
           "ChatGPT API & Custom GPTs",
           "OpenAI Ecosystem",
           "KI-Strategie & Adoption",
-          "Prompt-Bibliotheken & Team-Standards",
+          "Datenschutzkonforme KI-Nutzung & Team-Standards",
           "KI-gestützte Wissensarbeit",
           "ChatGPT Training"
         ],

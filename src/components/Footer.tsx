@@ -66,12 +66,12 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Rechtlicher Hinweis zu Zertifizierungen */}
+        {/* Rechtlicher Hinweis zu Zertifikaten */}
         <div className="mt-6 pt-4 border-t border-border/50">
           <p className="text-xs text-muted-foreground/70 text-center max-w-4xl mx-auto">
-            Hinweis: Die von der chatgpt-trainings.de angebotenen Prüfungen und Zertifikate sind unternehmensinterne Kompetenznachweise
-            und keine staatlich anerkannten Abschlüsse. Zertifizierungsoptionen gelten ausschließlich für Trainings, die direkt über
-            die chatgpt-trainings.de gebucht werden, nicht für extern finanzierte Maßnahmen.
+            Hinweis: Die von chatgpt-trainings.de ausgestellten Zertifikate sind unternehmensinterne Kompetenznachweise
+            und keine staatlich anerkannten Abschlüsse. Zertifikate gelten ausschließlich für Trainings, die direkt über
+            chatgpt-trainings.de gebucht werden.
           </p>
         </div>
       </div>

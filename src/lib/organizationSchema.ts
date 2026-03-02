@@ -25,7 +25,7 @@ export const founderSchema = {
     "ChatGPT API & Custom GPTs",
     "OpenAI Ecosystem",
     "KI-Strategie & Adoption",
-    "Prompt-Bibliotheken & Team-Standards"
+    "Datenschutzkonforme KI-Nutzung & Team-Standards"
   ],
   "hasCredential": [
     {
@@ -53,7 +53,7 @@ export const founderSchema = {
   "worksFor": {
     "@id": "https://chatgpt-trainings.de/#organization"
   },
-  "email": "mailto:martin@yellow-boat.com"
+  "email": "mailto:post@yellow-boat.com"
 };
 
 // Muttergesellschaft: Yellow-Boat Consulting

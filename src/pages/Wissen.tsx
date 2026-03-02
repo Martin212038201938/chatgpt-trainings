@@ -44,7 +44,7 @@ const Wissen = () => {
           "LLM Verständnis",
           "KI-Workflow-Design",
           "ChatGPT für Unternehmen",
-          "Prompt-Bibliothek",
+          "ChatGPT Datenschutz",
           "Custom GPTs Anleitung"
         ]}
         canonicalUrl="https://chatgpt-trainings.de/wissen"

@@ -56,7 +56,7 @@ const UeberUns = () => {
           "ChatGPT API",
           "KI-Strategie",
           "KI-gestützte Wissensarbeit",
-          "Prompt-Bibliotheken"
+          "Datenschutzkonforme KI-Nutzung"
         ],
         "slogan": "Prompt-Kompetenz und LLM-Verständnis für Unternehmen, die ChatGPT systematisch einsetzen wollen",
         "contactPoint": {
@@ -240,7 +240,7 @@ const UeberUns = () => {
                   ChatGPT-Rollout & Prompt-Standards
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Begleitung beim Aufbau von Prompt-Bibliotheken, Custom GPTs und Qualitätsstandards für KI-generierte Arbeitsergebnisse. Inklusive Regelwerk für DSGVO-konforme Nutzung und Leitlinien für den verantwortungsvollen Umgang mit LLM-Outputs. Für <strong>mittelständische und große Organisationen</strong> im DACH-Raum.
+                  Begleitung beim Aufbau von Custom GPTs, Qualitätsstandards für KI-generierte Arbeitsergebnisse und datenschutzkonformen Nutzungsrichtlinien. Inklusive Regelwerk für DSGVO-konforme Nutzung und Leitlinien für den verantwortungsvollen Umgang mit LLM-Outputs. Für <strong>mittelständische und große Organisationen</strong> im DACH-Raum.
                 </p>
               </Card>
 

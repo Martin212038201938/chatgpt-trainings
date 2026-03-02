@@ -35,23 +35,23 @@ const trainingModulesForSchema = [
   {
     title: "Advanced Prompt Systems",
     duration: "1–2 Tage",
-    description: "Fortgeschrittene Prompt-Techniken für komplexe Wissensarbeit: Multi-Step-Prompts, Rollenlogik, strukturierte Ausgabeformate und der Aufbau wiederverwendbarer Prompt-Bibliotheken.",
+    description: "Fortgeschrittene Prompt-Techniken für komplexe Wissensarbeit: Multi-Step-Prompts, Rollenlogik, strukturierte Ausgabeformate und Custom GPTs für wiederkehrende Aufgaben.",
     features: [
       "Chain-of-Thought und Multi-Step-Prompts",
       "Rollenbasierte Systemprompts entwickeln",
       "Strukturierte JSON- und Tabellenausgaben",
-      "Prompt-Templates für Teams und Abteilungen"
+      "Custom GPTs für Teams und Abteilungen"
     ]
   },
   {
     title: "KI-Workflow-Design",
     duration: "2 Tage",
-    description: "ChatGPT als strategisches Arbeitsinstrument: Automatisierte Prozesse, API-Anbindung, Custom GPTs und unternehmensweite Prompt-Standards für den produktiven Dauerbetrieb.",
+    description: "ChatGPT als strategisches Arbeitsinstrument: Automatisierte Prozesse, agentische Workflows, Custom GPTs und datenschutzkonforme Nutzung im Unternehmen.",
     features: [
       "Custom GPTs für Abteilungs-Workflows bauen",
-      "API-Anbindung und Tool-Integration",
+      "Agentische Arbeitsweisen und Automatisierung",
       "Automatisierte Text-Workflows designen",
-      "Unternehmensweite Prompt-Standards etablieren"
+      "Datenschutzkonformer Einsatz im Unternehmen"
     ]
   },
   {
@@ -61,7 +61,7 @@ const trainingModulesForSchema = [
     features: [
       "Verteiltes Lernen über 4–8 Wochen",
       "Praxistransfer zwischen den Sessions",
-      "Persönliche Prompt-Bibliothek entwickeln",
+      "Praxistransfer in den eigenen Arbeitsalltag",
       "Peer-Learning und Erfahrungsaustausch"
     ]
   },

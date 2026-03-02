@@ -40,7 +40,7 @@ const sections = [
     title: "Vom Einzelprompt zum Team-Standard",
     summary: "Einzelne gute Prompts bringen wenig, wenn jede Abteilung anders arbeitet.",
     details: [
-      "Verbindliche Prompt-Templates und Rollenarchitekturen für Ihr Team.",
+      "Verbindliche Rollenarchitekturen und Custom GPTs für Ihr Team.",
       "Qualitätskriterien für KI-Outputs, die teamübergreifend gelten.",
       "Custom GPTs für wiederkehrende Aufgaben – eine gemeinsame Arbeitsweise, die skaliert."
     ]
@@ -57,12 +57,12 @@ const sections = [
   },
   {
     icon: Award,
-    title: "Kompetenznachweis auf Wunsch",
-    summary: "Praxisbasierte Prüfung mit dokumentiertem Zertifikat.",
+    title: "Zertifikat auf Wunsch",
+    summary: "Dokumentierter Kompetenznachweis nach Abschluss des Trainings.",
     details: [
-      "Sinnvolles Prompting, kritische Ergebnisbewertung und sicherer Umgang mit ChatGPT im Unternehmenskontext.",
-      "Bestandene Prüfungen werden mit einem Zertifikat dokumentiert.",
-      "Aufeinander aufbauende Stufen (Beginner bis Expert) ermöglichen einen strukturierten Lernweg."
+      "Teilnehmer erhalten auf Wunsch ein Zertifikat als Kompetenznachweis.",
+      "Aufeinander aufbauende Stufen (Beginner bis Expert) ermöglichen einen strukturierten Lernweg.",
+      "Belastbarer Nachweis für Mitarbeiter, Planungssicherheit für die Organisation."
     ]
   },
   {

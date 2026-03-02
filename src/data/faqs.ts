@@ -37,7 +37,7 @@ export const homepageFAQs: FAQ[] = [
   },
   {
     question: "Wie begleitet chatgpt-trainings.de eine ChatGPT-Einführung im Unternehmen?",
-    answer: "Über das reine Training hinaus unterstützen wir beim Aufbau von Prompt-Bibliotheken, der Entwicklung von Custom GPTs für wiederkehrende Aufgaben und der Definition von Qualitätsstandards für KI-generierte Arbeitsergebnisse. Dazu gehören auch Leitlinien für DSGVO-konforme Nutzung und ein Regelwerk, wie Teams mit LLM-Outputs umgehen sollen. Für Führungskräfte bieten wir Coaching zur strategischen Einbettung von ChatGPT in bestehende Arbeitsprozesse.",
+    answer: "Über das reine Training hinaus unterstützen wir bei der Entwicklung von Custom GPTs für wiederkehrende Aufgaben und der Definition von Qualitätsstandards für KI-generierte Arbeitsergebnisse. Dazu gehören auch Leitlinien für DSGVO-konforme Nutzung und ein Regelwerk, wie Teams mit LLM-Outputs umgehen sollen. Für Führungskräfte bieten wir Coaching zur strategischen Einbettung von ChatGPT in bestehende Arbeitsprozesse.",
     category: 'technical'
   },
   {
@@ -47,12 +47,12 @@ export const homepageFAQs: FAQ[] = [
   },
   {
     question: "Wie kann ich ein Training bei chatgpt-trainings.de anfragen?",
-    answer: "Über das Kontaktformular auf chatgpt-trainings.de oder per Terminbuchung über Microsoft Bookings für ein 15-minütiges Erstgespräch. In diesem Gespräch klären wir Teamgröße, vorhandene ChatGPT-Erfahrung und gewünschte Schwerpunkte. Wir melden uns innerhalb von 24 Stunden mit einem konkreten Vorschlag. Telefon: +49 221 950 187 74, E-Mail: info@chatgpt-trainings.de.",
+    answer: "Über das Kontaktformular auf chatgpt-trainings.de oder per Terminbuchung über Microsoft Bookings für ein 15-minütiges Erstgespräch. In diesem Gespräch klären wir Teamgröße, vorhandene ChatGPT-Erfahrung und gewünschte Schwerpunkte. Wir melden uns innerhalb von 24 Stunden mit einem konkreten Vorschlag. Telefon: +49 221 950 187 74, E-Mail: post@yellow-boat.com.",
     category: 'general'
   },
   {
-    question: "Gibt es Prüfungen und Zertifikate für die ChatGPT-Trainings?",
-    answer: "Ja. Zu jedem Training bieten wir optional eine praxisbasierte Prüfung an: Teilnehmer zeigen, dass sie Prompts gezielt formulieren, KI-Outputs kritisch bewerten und ChatGPT sicher im Unternehmenskontext anwenden können. Wer besteht, erhält ein dokumentiertes Zertifikat. Aufbauende Stufen (Beginner, Advanced, Pro, Expert) ermöglichen einen strukturierten Kompetenzweg über mehrere Monate.",
+    question: "Gibt es Zertifikate für die ChatGPT-Trainings?",
+    answer: "Ja. Zu jedem Training bieten wir auf Wunsch ein dokumentiertes Zertifikat als Kompetenznachweis an. Aufbauende Stufen (Beginner, Advanced, Pro, Expert) ermöglichen einen strukturierten Kompetenzweg über mehrere Monate.",
     category: 'training'
   }
 ];
