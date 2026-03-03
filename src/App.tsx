@@ -21,6 +21,7 @@ import ChatgptCanvasMode from "./pages/ChatgptCanvasMode";
 import Microsoft365InChatgpt from "./pages/Microsoft365InChatgpt";
 import ChatgptCustomGptsUndSkills from "./pages/ChatgptCustomGptsUndSkills";
 import ChatgptDeepResearch from "./pages/ChatgptDeepResearch";
+import ChatgptAgentMode from "./pages/ChatgptAgentMode";
 
 const queryClient = new QueryClient();
 
@@ -47,6 +48,7 @@ const App = () => (
           <Route path="/wissen/microsoft-365-daten-in-chatgpt" element={<Microsoft365InChatgpt />} />
           <Route path="/wissen/chatgpt-custom-gpts-und-skills" element={<ChatgptCustomGptsUndSkills />} />
           <Route path="/wissen/chatgpt-deep-research" element={<ChatgptDeepResearch />} />
+          <Route path="/wissen/chatgpt-agent-mode" element={<ChatgptAgentMode />} />
           <Route path="/admin" element={<Admin />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

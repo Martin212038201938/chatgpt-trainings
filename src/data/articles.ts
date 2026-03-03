@@ -78,6 +78,18 @@ export const ALL_ARTICLES: ArticleData[] = [
     isDraft: false
   },
   {
+    id: "chatgpt-agent-mode",
+    title: "Der agentische Modus in ChatGPT: Wenn die KI nicht nur antwortet, sondern handelt",
+    description: "Der agentische Modus macht ChatGPT vom Chatbot zum digitalen Assistenten, der eigenständig mehrstufige Aufgaben erledigt. Was er kann, wie man ihn aktiviert und wo die Grenzen liegen.",
+    link: "/wissen/chatgpt-agent-mode",
+    badge: "ChatGPT Praxis",
+    icon: "🤖",
+    lastUpdated: "17. Feb. 2026",
+    publishDate: "2026-02-17",
+    publishTime: "09:00",
+    isDraft: false
+  },
+  {
     id: "chatgpt-custom-gpts-und-skills",
     title: "ChatGPT Fähigkeiten geben: Custom GPTs, Actions und die neue Welt der Connectoren",
     description: "Custom GPTs, Actions, Connectoren und Skills: Wie man ChatGPT gezielt für den eigenen Arbeitsbereich erweitert.",

@@ -53,7 +53,8 @@
       "/wissen/chatgpt-canvas-mode",
       "/wissen/microsoft-365-daten-in-chatgpt",
       "/wissen/chatgpt-custom-gpts-und-skills",
-      "/wissen/chatgpt-deep-research"
+      "/wissen/chatgpt-deep-research",
+      "/wissen/chatgpt-agent-mode"
     ],
     "skipThirdPartyRequests": true,
     "crawl": false
