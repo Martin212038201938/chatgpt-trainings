@@ -38,9 +38,12 @@ const SEOHead = ({
   // Structured Data (Schema.org) - immer mit globalem Organization/Person Schema
   const combinedSchema = combineWithGlobalSchema(schema);
 
+  // Doppeltes Domain-Suffix verhindern (manche Seiten übergeben title bereits mit Suffix)
+  const fullTitle = title.includes('chatgpt-trainings.de') ? title : `${title} | chatgpt-trainings.de`;
+
   return (
     <Helmet>
-      <title>{`${title} | chatgpt-trainings.de`}</title>
+      <title>{fullTitle}</title>
 
       {/* Basic meta tags */}
       <meta name="description" content={description} />
@@ -48,7 +51,7 @@ const SEOHead = ({
       {authorName && <meta name="author" content={authorName} />}
 
       {/* Open Graph tags */}
-      <meta property="og:title" content={`${title} | chatgpt-trainings.de`} />
+      <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:type" content="website" />
       {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
@@ -57,7 +60,7 @@ const SEOHead = ({
 
       {/* Twitter Card tags */}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={`${title} | chatgpt-trainings.de`} />
+      <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={absoluteOgImage} />
 
