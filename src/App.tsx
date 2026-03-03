@@ -22,6 +22,34 @@ import Microsoft365InChatgpt from "./pages/Microsoft365InChatgpt";
 import ChatgptCustomGptsUndSkills from "./pages/ChatgptCustomGptsUndSkills";
 import ChatgptDeepResearch from "./pages/ChatgptDeepResearch";
 import ChatgptAgentMode from "./pages/ChatgptAgentMode";
+// Copilot Wissen articles (from copilotenschule.de)
+import CopilotLicenses from "./pages/CopilotLicenses";
+import GitHubCopilot from "./pages/GitHubCopilot";
+import CopilotStudio from "./pages/CopilotStudio";
+import PromptEngineering from "./pages/PromptEngineering";
+import KIAgenten from "./pages/KIAgenten";
+import CopilotFehler from "./pages/CopilotFehler";
+import CopilotRoiBerechnen from "./pages/CopilotRoiBerechnen";
+import CopilotFuerWord from "./pages/CopilotFuerWord";
+import CopilotSicherheit from "./pages/CopilotSicherheit";
+import CopilotTippsTricks from "./pages/CopilotTippsTricks";
+import CopilotTraining from "./pages/CopilotTraining";
+import KiRealitaet2026 from "./pages/KiRealitaet2026";
+import CopilotUnternehmensweitEinfuehren from "./pages/CopilotUnternehmensweitEinfuehren";
+import PromptBibliothekenQuatsch from "./pages/PromptBibliothekenQuatsch";
+import CopilotDigitalesGedaechtnis from "./pages/CopilotDigitalesGedaechtnis";
+import CopilotLaunchKampagne from "./pages/CopilotLaunchKampagne";
+import CopilotROIErfolgsgeschichten from "./pages/CopilotROIErfolgsgeschichten";
+import CopilotAdoption2026 from "./pages/CopilotAdoption2026";
+import CopilotLernreisen from "./pages/CopilotLernreisen";
+import WarumVerteiltesLernen from "./pages/WarumVerteiltesLernen";
+import CopilotADHS from "./pages/CopilotADHS";
+import CopilotSalesUseCases from "./pages/CopilotSalesUseCases";
+import CopilotHRUseCases from "./pages/CopilotHRUseCases";
+import KiHalluzinationenVermeiden from "./pages/KiHalluzinationenVermeiden";
+import CopilotChatPernodRicard from "./pages/CopilotChatPernodRicard";
+import CopilotAgentDigitalesGedaechtnis from "./pages/CopilotAgentDigitalesGedaechtnis";
+import CopilotFuerExcel from "./pages/CopilotFuerExcel";
 
 const queryClient = new QueryClient();
 
@@ -42,6 +70,7 @@ const App = () => (
           <Route path="/trainings/:slug" element={<TrainingDetail />} />
           <Route path="/trainer/:id" element={<TrainerProfil />} />
           <Route path="/training-konfigurator" element={<TrainingKonfigurator />} />
+          {/* ChatGPT Wissen articles */}
           <Route path="/wissen/chatgpt-erinnerungen" element={<ChatgptErinnerungen />} />
           <Route path="/wissen/chatgpt-news" element={<ChatgptNews />} />
           <Route path="/wissen/chatgpt-canvas-mode" element={<ChatgptCanvasMode />} />
@@ -49,6 +78,34 @@ const App = () => (
           <Route path="/wissen/chatgpt-custom-gpts-und-skills" element={<ChatgptCustomGptsUndSkills />} />
           <Route path="/wissen/chatgpt-deep-research" element={<ChatgptDeepResearch />} />
           <Route path="/wissen/chatgpt-agent-mode" element={<ChatgptAgentMode />} />
+          {/* Copilot Wissen articles */}
+          <Route path="/wissen/microsoft-copilot-lizenzen" element={<CopilotLicenses />} />
+          <Route path="/wissen/github-copilot" element={<GitHubCopilot />} />
+          <Route path="/wissen/copilot-studio" element={<CopilotStudio />} />
+          <Route path="/wissen/prompt-engineering" element={<PromptEngineering />} />
+          <Route path="/wissen/ki-agenten" element={<KIAgenten />} />
+          <Route path="/wissen/copilot-fehler-vermeiden" element={<CopilotFehler />} />
+          <Route path="/wissen/copilot-roi-berechnen" element={<CopilotRoiBerechnen />} />
+          <Route path="/wissen/copilot-fuer-word" element={<CopilotFuerWord />} />
+          <Route path="/wissen/copilot-sicherheit-datenschutz" element={<CopilotSicherheit />} />
+          <Route path="/wissen/copilot-tipps-tricks-produktivitaet" element={<CopilotTippsTricks />} />
+          <Route path="/wissen/copilot-training-schulung" element={<CopilotTraining />} />
+          <Route path="/wissen/ki-realitaet-beratungsfirmen-2026" element={<KiRealitaet2026 />} />
+          <Route path="/wissen/copilot-unternehmensweit-einfuehren" element={<CopilotUnternehmensweitEinfuehren />} />
+          <Route path="/wissen/prompt-bibliotheken-vs-training" element={<PromptBibliothekenQuatsch />} />
+          <Route path="/wissen/copilot-digitales-gedaechtnis" element={<CopilotDigitalesGedaechtnis />} />
+          <Route path="/wissen/copilot-launch-kampagne" element={<CopilotLaunchKampagne />} />
+          <Route path="/wissen/copilot-roi-erfolgsgeschichten" element={<CopilotROIErfolgsgeschichten />} />
+          <Route path="/wissen/copilot-adoption-2026-zahlen" element={<CopilotAdoption2026 />} />
+          <Route path="/wissen/copilot-lernreise-vs-tagesschulung" element={<CopilotLernreisen />} />
+          <Route path="/wissen/warum-verteiltes-lernen-bei-copilot-trainings-funktioniert" element={<WarumVerteiltesLernen />} />
+          <Route path="/wissen/copilot-adhs-produktiver-arbeiten" element={<CopilotADHS />} />
+          <Route path="/wissen/copilot-vertrieb-use-cases" element={<CopilotSalesUseCases />} />
+          <Route path="/wissen/copilot-hr-use-cases" element={<CopilotHRUseCases />} />
+          <Route path="/wissen/ki-halluzinationen-vermeiden" element={<KiHalluzinationenVermeiden />} />
+          <Route path="/wissen/copilot-chat-free-pernod-ricard" element={<CopilotChatPernodRicard />} />
+          <Route path="/wissen/copilot-agent-digitales-gedaechtnis" element={<CopilotAgentDigitalesGedaechtnis />} />
+          <Route path="/wissen/copilot-fuer-excel" element={<CopilotFuerExcel />} />
           <Route path="/admin" element={<Admin />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
