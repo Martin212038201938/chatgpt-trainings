@@ -110,7 +110,7 @@ const ChatgptCustomGptsUndSkills = () => {
         <div className="prose prose-lg max-w-none prose-headings:scroll-mt-24">
 
           <p>
-            Eine Frage, die in jedem Training kommt, meistens in der Mittagspause: „Kann ich ChatGPT beibringen, unsere internen Richtlinien zu kennen?“ Die Antwort ist ja – und zwar ohne eine Zeile Code zu schreiben, ohne IT-Ticket und ohne monatelanges Projekt. Custom GPTs machen es möglich, ChatGPT auf einen bestimmten Aufgabenbereich zuzuschneiden, mit eigenem Wissen auszustatten und als spezialisierten Assistenten bereitzustellen. Trotzdem nutzen die wenigsten Teams dieses Feature. Die meisten bleiben beim allgemeinen Chat und wundern sich, warum die Ergebnisse so generisch ausfallen.
+            Ich habe einen Freund, der mich leider viel zu selten fragt, was er denn mit ChatGPT Sinnvolles machen kann. Als er es neulich doch tat, war meine erste Gegenfrage: &bdquo;Welche Aufgabe in deinem Job nervt dich am meisten?&ldquo; Er erzählte von Angebotstexten, die er jede Woche fast identisch schreibt, von internen Richtlinien die er jedes Mal nachschlagen muss, von Reporting-Mails die immer gleich aufgebaut sind. Meine Antwort: &bdquo;Du brauchst keinen besseren Prompt. Du brauchst einen Custom GPT.&ldquo; Custom GPTs machen es möglich, ChatGPT auf einen bestimmten Aufgabenbereich zuzuschneiden, mit eigenem Wissen auszustatten und als spezialisierten Assistenten bereitzustellen. Ohne eine Zeile Code, ohne IT-Ticket und ohne monatelanges Projekt. Trotzdem nutzen die wenigsten Teams dieses Feature. Die meisten bleiben beim allgemeinen Chat und wundern sich, warum die Ergebnisse so generisch ausfallen.
           </p>
 
           <h2 id="custom-gpts-das-prinzip">Custom GPTs: Das Prinzip</h2>
