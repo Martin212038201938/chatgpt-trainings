@@ -116,6 +116,16 @@ const ChatgptCanvasMode = () => {
             Es gibt in jedem Training diese gewissen Schlüsselmomente in denen man auf einmal über den Köpfen der Teilnehmer kleine Glühbirnen sieht und man weiß, soeben hat man etwas geliefert, dass die Arbeit dieser Menschen verändern wird. Wenn ich über den Canvas Modus berichte ist das zuverlässig der Fall. Selbst Teilnehmer die sich selbst als regelmäßige und erfahrene Nutzer beschreiben, kennen diesen Modus nicht. Es ist fast so als sei das das best gehütete Geheimnis rund um die Arbeit mit ChatGPT. Der Canvas Mode hat nichts mit dem KI-basierten Grafikprogramm Canva zu tun. Null. Rien. Nada. Canvas Mode ist ein &bdquo;Mini-Word&ldquo; in ChatGPT, ein Lektor, ein KI Autor, ein privater Redakteur der nicht autonom irgendwelche Texte runterschreibt, sondern gemeinsam mit mir Absatz für Absatz nach meinen Wünschen bearbeitet, ohne den Rest des Dokuments zu verändern. Aber von vorne.
           </p>
 
+          <figure className="my-8">
+            <img
+              src="/images/canvas/canvas-uebersicht.png"
+              alt="Übersicht der Canvas-Funktionen in ChatGPT: Iteratives Pairing, Starten, Anweisungen zu markierten Textpassagen, Inputs und Outputs nebeneinander, automatisierte Verbesserungsfeatures"
+              className="rounded-lg border border-border/50 w-full"
+              loading="lazy"
+            />
+            <figcaption className="text-sm text-muted-foreground mt-2 text-center">Die fünf Kernfunktionen von Canvas auf einen Blick</figcaption>
+          </figure>
+
           <h2 id="canvas-starten">Canvas starten: So kommt man rein</h2>
 
           <p>
@@ -151,6 +161,45 @@ const ChatgptCanvasMode = () => {
           </p>
 
           <h2 id="die-canvas-werkzeuge">Die Canvas-Werkzeuge im Überblick</h2>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 my-8 not-prose">
+            <figure className="text-center">
+              <img
+                src="/images/canvas/canvas-suggestions.png"
+                alt="Canvas Vorschläge-Feature: Inline-Änderungsvorschläge wie in Word"
+                className="rounded-lg border border-border/50 w-full aspect-square object-cover"
+                loading="lazy"
+              />
+              <figcaption className="text-xs text-muted-foreground mt-2">Vorschläge</figcaption>
+            </figure>
+            <figure className="text-center">
+              <img
+                src="/images/canvas/canvas-laenge.png"
+                alt="Canvas Textlänge anpassen: Texte per Schieberegler kürzen oder verlängern"
+                className="rounded-lg border border-border/50 w-full aspect-square object-cover"
+                loading="lazy"
+              />
+              <figcaption className="text-xs text-muted-foreground mt-2">Länge anpassen</figcaption>
+            </figure>
+            <figure className="text-center">
+              <img
+                src="/images/canvas/canvas-leseniveau.jpg"
+                alt="Canvas Leseniveau: Sprachliche Komplexität vom Allgemeinverständlichen bis Fachlich anpassen"
+                className="rounded-lg border border-border/50 w-full aspect-square object-cover"
+                loading="lazy"
+              />
+              <figcaption className="text-xs text-muted-foreground mt-2">Leseniveau</figcaption>
+            </figure>
+            <figure className="text-center">
+              <img
+                src="/images/canvas/canvas-feinschliff.png"
+                alt="Canvas Feinschliff: Grammatik, Konsistenz und sprachliche Sauberkeit prüfen"
+                className="rounded-lg border border-border/50 w-full aspect-square object-cover"
+                loading="lazy"
+              />
+              <figcaption className="text-xs text-muted-foreground mt-2">Letzte Politur</figcaption>
+            </figure>
+          </div>
 
           <p>
             Die Werkzeugleiste am unteren Rand der Canvas-Fläche enthält für Texte fünf Shortcuts, die jeweils eine häufige Bearbeitungsaufgabe abdecken. &bdquo;Vorschläge&ldquo; lässt ChatGPT den gesamten Text durchgehen und fügt Verbesserungsvorschläge als Inline-Markierungen ein, ähnlich wie die Änderungsverfolgung in Word. Man kann jede einzelne Änderung annehmen oder ablehnen. &bdquo;Länge anpassen&ldquo; kürzt oder verlängert den Text per Schieberegler, ohne den Kern zu verändern &ndash; extrem nützlich, wenn ein Absatz zu lang für eine E-Mail ist oder zu kurz für einen Bericht. &bdquo;Leseniveau&ldquo; verändert die sprachliche Komplexität, von allgemeinverständlich bis fachlich, was hilfreich ist wenn man denselben Sachverhalt für verschiedene Zielgruppen aufbereiten muss. &bdquo;Letzte Politur&ldquo; prüft Grammatik, Konsistenz und sprachliche Sauberkeit &ndash; der letzte Schliff vor dem Abschicken. Und &bdquo;Emojis hinzufügen&ldquo;, nun ja, fügt Emojis ein, was für Social-Media-Posts durchaus praktisch ist, auch wenn ich persönlich meistens darauf verzichte.
