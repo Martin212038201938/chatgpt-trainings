@@ -88,6 +88,18 @@ export const ALL_ARTICLES: ArticleData[] = [
     publishDate: "2026-01-20",
     publishTime: "09:00",
     isDraft: false
+  },
+  {
+    id: "chatgpt-deep-research",
+    title: "ChatGPT Deep Research: Der Recherchemodus, den die meisten falsch benutzen",
+    description: "Wie der Deep Research Modus in ChatGPT funktioniert, wie man ihn richtig promptet und wo seine Grenzen liegen.",
+    link: "/wissen/chatgpt-deep-research",
+    badge: "ChatGPT Praxis",
+    icon: "🔬",
+    lastUpdated: "06. Jan. 2026",
+    publishDate: "2026-01-06",
+    publishTime: "09:00",
+    isDraft: false
   }
 ];
 

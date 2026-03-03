@@ -182,7 +182,7 @@ const ChatgptCanvasMode = () => {
           </p>
 
           <p>
-            Die ehrliche Einschätzung: Canvas ist kein revolutionäres Feature, das alles umwirft. Es ist eine konsequente Weiterentwicklung, die aus ChatGPT ein brauchbares Arbeitswerkzeug macht, statt nur ein beeindruckendes Spielzeug. Und genau das ist der Punkt, an dem viele Nutzer noch nicht angekommen sind. Sie chatten mit ChatGPT. Sie arbeiten nicht damit. Canvas ist der Modus, in dem aus Chatten Arbeiten wird.
+            Canvas ist eines der wichtigsten und gleichzeitig das unbekannteste Toolset in ChatGPT. Es verändert grundlegend wie wir mit ChatGPT arbeiten aber kaum ein Nutzer kennt es. Und genau das ist der Punkt, an dem viele Nutzer noch nicht angekommen sind. Sie chatten mit ChatGPT. Sie arbeiten nicht damit. Canvas ist der Modus, in dem aus Chatten Arbeiten wird.
           </p>
 
           {/* Author Bio */}
