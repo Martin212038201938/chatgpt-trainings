@@ -66,21 +66,14 @@ const knowledgePages = [
 
 // Trainingsseiten - Slugs aus trainings.ts
 const trainingsSlugs = [
-  'copilot-grundlagen-prompt-design',
-  'microsoft-365-copilot-praxis',
-  'ausbildung-ki-wissensarbeiter',
-  'github-copilot-entwickler',
-  'copilot-compliance-datenschutz',
-  'copilot-strategie-change-management',
-  'copilot-studio-ki-agenten',
-  'chatbot-workshop',
-  'low-code-power-platform',
-  'eu-ai-act-pflichtschulung',
-  'copilot-hackathon',
-  'keynote-copilot-arbeitswelt',
-  'copilot-lernreise-8-wochen',
-  'copilot-launch-eventtag',
-  'individuelle-copilot-schulung',
+  'chatgpt-kick-off',
+  'chatgpt-starter-training',
+  'chatgpt-intensiv-bootcamp',
+  'chatgpt-lernreise',
+  'chatgpt-keynote',
+  'chatgpt-launch-event',
+  'chatgpt-hackathon',
+  'keynote-agentische-arbeit',
 ];
 
 const trainingPages = trainingsSlugs.map(slug => ({

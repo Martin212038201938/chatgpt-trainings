@@ -41,7 +41,7 @@ const UnsereAngebote = () => {
   return (
     <div className="min-h-screen">
       <SEOHead
-        title="Unsere Angebote – ChatGPT Schulungen & Trainings | chatgpt-trainings.de"
+        title="Unsere Angebote – ChatGPT Schulungen & Trainings"
         description="Alle ChatGPT Trainingsformate im Überblick: Kick-Off, Starter Training, Intensiv-Bootcamp, Lernreise, Hackathon und Launch-Event. Für ChatGPT Free und Plus/Team/Enterprise."
         keywords={[
           "ChatGPT Schulung",

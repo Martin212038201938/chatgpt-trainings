@@ -12,7 +12,7 @@ Disallow: /admin
 Sitemap: https://chatgpt-trainings.de/sitemap.xml
 
 # IndexNow - Sofortige Indexierung für Bing, Yandex, Seznam, Naver
-# Key-Datei: https://chatgpt-trainings.de/695afc50b8ee44729593fd861c4e96e9.txt
+# Key-Datei: https://chatgpt-trainings.de/02184b6b954d4a158c75668dbf809161.txt
 
 # LLMs.txt für KI-Crawler
 # https://chatgpt-trainings.de/llms.txt
