@@ -5,7 +5,7 @@ import { generateSchemaIds, generateWissenBreadcrumbItems, generateArticleSchema
 import { Link } from "react-router-dom";
 
 const SLUG = "chatgpt-canvas-mode";
-const PAGE_TITLE = "ChatGPT Canvas: Der verkannte Arbeitsmodus, der nichts mit Canva zu tun hat";
+const PAGE_TITLE = "ChatGPT Canvas – der unbekannte Modus der die Arbeit verändert";
 
 const PUBLISH_DATE = "2026-03-02";
 const MODIFIED_DATE = "2026-03-02";
@@ -110,7 +110,7 @@ const ChatgptCanvasMode = () => {
         <div className="prose prose-lg max-w-none prose-headings:scroll-mt-24">
 
           <p>
-            In fast jedem Training, das ich gebe, passiert irgendwann derselbe Moment. Jemand fragt: &bdquo;Kann ChatGPT auch Grafiken erstellen? So wie Canva?&ldquo; Und dann muss ich kurz ausholen, weil hier zwei Dinge durcheinandergehen, die außer dem ähnlichen Namen nichts miteinander zu tun haben. Canva ist ein Grafikdesign-Tool. Canvas ist ein Arbeitsmodus innerhalb von ChatGPT. Und genau diese Verwechslung sorgt dafür, dass einer der nützlichsten Bereiche von ChatGPT von den meisten Nutzern konsequent übersehen wird.
+            Es gibt in jedem Training diese gewissen Schlüsselmomente in denen man auf einmal über den Köpfen der Teilnehmer kleine Glühbirnen sieht und man weiß, soeben hat man etwas geliefert, dass die Arbeit dieser Menschen verändern wird. Wenn ich über den Canvas Modus berichte ist das zuverlässig der Fall. Selbst Teilnehmer die sich selbst als regelmäßige und erfahrene Nutzer beschreiben, kennen diesen Modus nicht. Es ist fast so als sei das das best gehütete Geheimnis rund um die Arbeit mit ChatGPT. Der Canvas Mode hat nichts mit dem KI-basierten Grafikprogramm Canva zu tun. Null. Rien. Nada. Canvas Mode ist ein &bdquo;Mini-Word&ldquo; in ChatGPT, ein Lektor, ein KI Autor, ein privater Redakteur der nicht autonom irgendwelche Texte runterschreibt, sondern gemeinsam mit mir Absatz für Absatz nach meinen Wünschen bearbeitet, ohne den Rest des Dokuments zu verändern. Aber von vorne.
           </p>
 
           <h2 id="verwechslungsgefahr">Die Verwechslung, die alles erklärt</h2>

@@ -31,7 +31,7 @@ export interface ArticleData {
 export const ALL_ARTICLES: ArticleData[] = [
   {
     id: "chatgpt-canvas-mode",
-    title: "ChatGPT Canvas: Der verkannte Arbeitsmodus, der nichts mit Canva zu tun hat",
+    title: "ChatGPT Canvas – der unbekannte Modus der die Arbeit verändert",
     description: "ChatGPT Canvas ist kein Grafikdesign-Tool, sondern ein Arbeitsmodus für Texte und Code. Was Canvas kann, warum es die meisten übersehen und wie ein Workflow ohne Copy-Paste aussieht.",
     link: "/wissen/chatgpt-canvas-mode",
     badge: "ChatGPT Praxis",
