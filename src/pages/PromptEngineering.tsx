@@ -20,8 +20,8 @@ const PromptEngineering = () => {
     { id: "was-ist", title: "Was ist Prompt Engineering?", level: 2 },
     { id: "craft-framework", title: "Das CRAFT-Framework", level: 2 },
     { id: "techniken", title: "Prompt-Techniken im Überblick", level: 2 },
-    { id: "m365-prompts", title: "Prompts für Microsoft 365 Copilot", level: 2 },
-    { id: "github-prompts", title: "Prompts für GitHub Copilot", level: 2 },
+    { id: "m365-prompts", title: "Prompts für Microsoft 365 & Copilot", level: 2 },
+    { id: "github-prompts", title: "Prompts für GitHub Copilot (Entwickler)", level: 2 },
     { id: "fehler", title: "Typische Fehler vermeiden", level: 2 },
     { id: "zauberstab", title: "Der Zauberstab-Prompt", level: 2 },
     { id: "faq", title: "Häufig gestellte Fragen", level: 2 },
@@ -30,7 +30,7 @@ const PromptEngineering = () => {
 
   const faqs = [
     {
-      name: "Warum bekommen unsere Mitarbeiter so unterschiedliche Ergebnisse vom Copilot?",
+      name: "Warum bekommen unsere Mitarbeiter so unterschiedliche Ergebnisse von ChatGPT / Copilot?",
       answer: "Die Qualität der KI-Antworten hängt direkt von der Prompt-Qualität ab. Ohne einheitliche Prompt-Strukturen variieren die Ergebnisse stark. Mit Frameworks wie CRAFT und gezieltem Training erreichen Sie konsistente, hochwertige Ergebnisse."
     },
     {
@@ -53,15 +53,15 @@ const PromptEngineering = () => {
       {
         "@type": "Article",
         "@id": ids.article,
-        "headline": "Prompt Engineering: Effektive KI-Prompts für Microsoft Copilot",
-        "description": "Prompt Engineering Masterclass: Das CRAFT-Framework, bewährte Techniken und der Zauberstab-Prompt für bessere Copilot-Ergebnisse.",
+        "headline": "Prompt Engineering: Effektive KI-Prompts für ChatGPT & KI-Tools",
+        "description": "Prompt Engineering Masterclass: Das CRAFT-Framework, bewährte Techniken und der Zauberstab-Prompt für bessere KI-Ergebnisse.",
         "author": getAuthorSchemaMarkup(author),
         "publisher": {
           "@id": "https://chatgpt-trainings.de/#organization"
         },
         "datePublished": "2025-11-07",
         "dateModified": "2026-02-03",
-        "keywords": ["Prompt Engineering", "CRAFT Framework", "Microsoft Copilot Prompts", "Prompt Techniken", "KI Prompts"],
+        "keywords": ["Prompt Engineering", "CRAFT Framework", "ChatGPT Prompts", "Prompt Techniken", "KI Prompts"],
         "articleSection": "Best Practices",
         "mainEntityOfPage": {
           "@type": "WebPage",
@@ -96,9 +96,9 @@ const PromptEngineering = () => {
   return (
     <>
       <SEOHead
-        title="Prompt Engineering: Effektive KI-Prompts für Microsoft Copilot | ChatGPT-Trainings"
-        description="Prompt Engineering Masterclass: Das CRAFT-Framework, bewährte Techniken und der Zauberstab-Prompt für bessere Copilot-Ergebnisse."
-        keywords={["Prompt Engineering", "CRAFT Framework", "Microsoft Copilot Prompts", "Prompt Techniken", "KI Prompts", "Copilot Best Practices"]}
+        title="Prompt Engineering: Effektive KI-Prompts für ChatGPT & KI-Tools | ChatGPT-Trainings"
+        description="Prompt Engineering Masterclass: Das CRAFT-Framework, bewährte Techniken und der Zauberstab-Prompt für bessere KI-Ergebnisse."
+        keywords={["Prompt Engineering", "CRAFT Framework", "ChatGPT Prompts", "Prompt Techniken", "KI Prompts", "ChatGPT Best Practices"]}
         canonicalUrl={pageUrl}
         schema={schema}
         publishedTime="2025-11-07"
@@ -110,7 +110,7 @@ const PromptEngineering = () => {
           { label: "Wissen", href: "/wissen" },
           { label: "Prompt Engineering", href: "/wissen/prompt-engineering" }
         ]}
-        title="Prompt Engineering: Effektive KI-Prompts für Microsoft Copilot"
+        title="Prompt Engineering: Effektive KI-Prompts für ChatGPT & KI-Tools"
         description="Das CRAFT-Framework, bewährte Techniken und der Zauberstab-Prompt für bessere Ergebnisse."
         lastUpdated="03. Februar 2026"
         authorName="Martin Lang"
@@ -355,7 +355,7 @@ const PromptEngineering = () => {
         {/* M365 Prompts */}
         <section id="m365-prompts">
           <h2 className="text-3xl md:text-4xl font-bold pb-4 border-b-4 border-cyan-500">
-            Prompts für Microsoft 365 Copilot
+            Prompts für Microsoft 365 & Copilot
           </h2>
 
           <p className="mb-6">
@@ -451,7 +451,7 @@ const PromptEngineering = () => {
         {/* GitHub Copilot */}
         <section id="github-prompts">
           <h2 className="text-3xl md:text-4xl font-bold pb-4 border-b-4 border-emerald-500">
-            Prompts für GitHub Copilot
+            Prompts für GitHub Copilot (Entwickler)
           </h2>
 
           <p className="mb-6">

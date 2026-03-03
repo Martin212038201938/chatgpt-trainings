@@ -95,15 +95,15 @@ const KiHalluzinationenVermeiden = () => {
         description="Wie KI-Halluzinationen entstehen, wie man sie durch besseres Prompting vermeidet und wie man KI selbst zur Qualitätssicherung und Fehlerkorrektur einsetzt."
         keywords={[
           "KI Halluzinationen vermeiden",
-          "Copilot Halluzinationen",
+          
           "KI Fehler vermeiden",
           "KI Qualitätssicherung",
           "AI Hallucinations",
-          "Copilot Fehler korrigieren",
+          
           "KI Output prüfen",
           "Prompting Fehler vermeiden",
           "KI Review Workflow",
-          "Microsoft Copilot Qualität",
+          
           "ChatGPT Fehler",
           "KI faktencheck"
         ]}

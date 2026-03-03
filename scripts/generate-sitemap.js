@@ -34,34 +34,11 @@ const staticPages = [
 // Alle Wissensseiten unter /wissen/ (konsolidiert)
 // WICHTIG: Bei neuen Artikeln hier den Pfad hinzufügen!
 const knowledgePages = [
-  { loc: '/wissen/github-copilot', lastmod: TODAY, changefreq: 'monthly', priority: 0.9 },
-  { loc: '/wissen/copilot-studio', lastmod: TODAY, changefreq: 'monthly', priority: 0.9 },
   { loc: '/wissen/prompt-engineering', lastmod: TODAY, changefreq: 'monthly', priority: 0.9 },
-  { loc: '/wissen/copilot-fehler-vermeiden', lastmod: TODAY, changefreq: 'monthly', priority: 0.9 },
-  { loc: '/wissen/ki-agenten', lastmod: TODAY, changefreq: 'monthly', priority: 0.9 },
-  { loc: '/wissen/microsoft-copilot-lizenzen', lastmod: TODAY, changefreq: 'monthly', priority: 0.9 },
-  { loc: '/wissen/copilot-roi-berechnen', lastmod: TODAY, changefreq: 'monthly', priority: 0.8 },
-  { loc: '/wissen/copilot-fuer-word', lastmod: TODAY, changefreq: 'monthly', priority: 0.8 },
-  { loc: '/wissen/copilot-sicherheit-datenschutz', lastmod: TODAY, changefreq: 'monthly', priority: 0.8 },
-  { loc: '/wissen/copilot-tipps-tricks-produktivitaet', lastmod: TODAY, changefreq: 'monthly', priority: 0.8 },
-  { loc: '/wissen/copilot-training-schulung', lastmod: TODAY, changefreq: 'monthly', priority: 0.8 },
   { loc: '/wissen/ki-realitaet-beratungsfirmen-2026', lastmod: TODAY, changefreq: 'monthly', priority: 0.8 },
-  { loc: '/wissen/copilot-unternehmensweit-einfuehren', lastmod: TODAY, changefreq: 'monthly', priority: 0.8 },
   { loc: '/wissen/prompt-bibliotheken-vs-training', lastmod: TODAY, changefreq: 'monthly', priority: 0.8 },
-  { loc: '/wissen/copilot-digitales-gedaechtnis', lastmod: TODAY, changefreq: 'monthly', priority: 0.8 },
-  { loc: '/wissen/copilot-launch-kampagne', lastmod: TODAY, changefreq: 'monthly', priority: 0.8 },
-  { loc: '/wissen/copilot-roi-erfolgsgeschichten', lastmod: TODAY, changefreq: 'monthly', priority: 0.8 },
-  { loc: '/wissen/copilot-adoption-2026-zahlen', lastmod: TODAY, changefreq: 'monthly', priority: 0.8 },
-  { loc: '/wissen/copilot-lernreise-vs-tagesschulung', lastmod: TODAY, changefreq: 'monthly', priority: 0.8 },
-  { loc: '/wissen/warum-verteiltes-lernen-bei-copilot-trainings-funktioniert', lastmod: TODAY, changefreq: 'monthly', priority: 0.8 },
-  { loc: '/wissen/copilot-adhs-produktiver-arbeiten', lastmod: TODAY, changefreq: 'monthly', priority: 0.8 },
-  { loc: '/wissen/copilot-vertrieb-use-cases', lastmod: TODAY, changefreq: 'monthly', priority: 0.8 },
-  { loc: '/wissen/copilot-hr-use-cases', lastmod: TODAY, changefreq: 'monthly', priority: 0.8 },
   { loc: '/wissen/ki-halluzinationen-vermeiden', lastmod: TODAY, changefreq: 'monthly', priority: 0.8 },
-  { loc: '/wissen/copilot-chat-free-pernod-ricard', lastmod: TODAY, changefreq: 'monthly', priority: 0.8 },
-  { loc: '/wissen/copilot-agent-digitales-gedaechtnis', lastmod: TODAY, changefreq: 'monthly', priority: 0.8 },
   { loc: '/wissen/chatgpt-erinnerungen', lastmod: TODAY, changefreq: 'monthly', priority: 0.8 },
-  { loc: '/wissen/copilot-fuer-excel', lastmod: TODAY, changefreq: 'monthly', priority: 0.8 },
 ];
 
 // Trainingsseiten - Slugs aus trainings.ts

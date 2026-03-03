@@ -372,33 +372,7 @@ const UeberUns = () => {
                 </p>
               </div>
 
-              <div className="relative">
-                <div className="absolute -left-10 w-5 h-5 bg-yellow-500 rounded-full border-2 border-yellow-300"></div>
-                <div className="font-bold text-xl text-yellow-600 mb-1">2025</div>
-                <h3 className="text-2xl font-semibold mb-2">Gründung{" "}
-                  <a
-                    href="https://copilotenschule.de"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary hover:underline inline-flex items-center gap-1"
-                  >
-                    Copilotenschule.de
-                    <ExternalLink className="w-3 h-3" />
-                  </a>
-                </h3>
-                <p className="text-muted-foreground text-lg">
-                  Um gezielt tiefe Trainings für Firmen und Teams anzubieten, die in der Microsoft Copilot Welt starten, gründet Yellow-Boat die{" "}
-                  <a
-                    href="https://copilotenschule.de"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary hover:underline"
-                  >
-                    Copilotenschule.de
-                  </a>{" "}
-                  als zweite spezialisierte Trainingsmarke.
-                </p>
-              </div>
+
             </div>
           </div>
 

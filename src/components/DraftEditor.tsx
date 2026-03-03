@@ -1741,7 +1741,7 @@ Das System analysiert automatisch die Kernthemen und erstellt passende Metadaten
                                 id="custom-topic-keywords"
                                 value={customTopicKeywords}
                                 onChange={(e) => setCustomTopicKeywords(e.target.value)}
-                                placeholder="z.B. Copilot, Einführung, Grundlagen, Microsoft 365"
+                                placeholder="z.B. ChatGPT, Prompt Engineering, KI-Workflows, Custom GPTs"
                                 className="mt-1"
                               />
                             </div>

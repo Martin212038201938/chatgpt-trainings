@@ -10,7 +10,6 @@ import {
 } from "lucide-react";
 
 /**
- * Vier eigenständige Kernsektionen – NICHT die Copilotenschule-Struktur.
  * Jede Sektion repräsentiert einen Kompetenzbereich von chatgpt-trainings.de.
  */
 

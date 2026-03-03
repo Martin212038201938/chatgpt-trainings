@@ -52,14 +52,14 @@ const PromptBibliothekenQuatsch = () => {
         "@type": "Article",
         "@id": ids.article,
         "headline": "Warum Prompt-Bibliotheken Quatsch sind – und was wirklich funktioniert",
-        "description": "Prompt-Listen klingen gut, bringen aber wenig. Erfahren Sie, warum echtes Prompting-Training und Copilot-Agenten die besseren Alternativen sind.",
+        "description": "Prompt-Listen klingen gut, bringen aber wenig. Erfahren Sie, warum echtes Prompting-Training und KI-Agenten die besseren Alternativen sind.",
         "author": getAuthorSchemaMarkup(author),
         "publisher": {
           "@id": "https://chatgpt-trainings.de/#organization"
         },
         "datePublished": "2026-02-03",
         "dateModified": "2026-02-03",
-        "keywords": ["Prompt Bibliothek", "Prompting Training", "Copilot Agenten", "KI Training", "Prompt Engineering"],
+        "keywords": ["Prompt Bibliothek", "Prompting Training", "KI Agenten", "KI Training", "Prompt Engineering"],
         "articleSection": "KI-Strategie",
         "mainEntityOfPage": {
           "@type": "WebPage",
@@ -95,8 +95,8 @@ const PromptBibliothekenQuatsch = () => {
     <>
       <SEOHead
         title="Warum Prompt-Bibliotheken Quatsch sind | ChatGPT-Trainings"
-        description="Prompt-Listen klingen gut, bringen aber wenig. Erfahren Sie, warum echtes Prompting-Training und Copilot-Agenten die besseren Alternativen sind."
-        keywords={["Prompt Bibliothek", "Prompting Training", "Copilot Agenten", "KI Training", "Prompt Engineering", "Copilot Training"]}
+        description="Prompt-Listen klingen gut, bringen aber wenig. Erfahren Sie, warum echtes Prompting-Training und KI-Agenten die besseren Alternativen sind."
+        keywords={["Prompt Bibliothek", "Prompting Training", "KI Agenten", "KI Training", "Prompt Engineering", "KI Training"]}
         canonicalUrl={pageUrl}
         schema={schema}
         publishedTime="2026-02-03"

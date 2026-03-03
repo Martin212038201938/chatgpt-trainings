@@ -39,10 +39,10 @@ const Impressum = () => {
                   unsere Entscheidungen.
                 </p>
                 <p className="text-base">
-                  Unser Schwesterangebot für Microsoft Copilot Schulungen finden Sie auf{" "}
-                  <a href="https://copilotenschule.de" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                  Unsere Schwestermarke für Microsoft Copilot Schulungen:{" "}
+                  <a href="https://copilotenschule.de" target="_blank" rel="noopener noreferrer nofollow" className="text-muted-foreground hover:underline text-sm">
                     copilotenschule.de
-                  </a>.
+                  </a>
                 </p>
               </div>
 
