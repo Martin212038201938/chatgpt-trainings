@@ -48,7 +48,8 @@
       "/wissen/chatgpt-erinnerungen",
       "/wissen/chatgpt-news",
       "/wissen/chatgpt-canvas-mode",
-      "/wissen/microsoft-365-daten-in-chatgpt"
+      "/wissen/microsoft-365-daten-in-chatgpt",
+      "/wissen/chatgpt-custom-gpts-und-skills"
     ],
     "skipThirdPartyRequests": true,
     "crawl": false

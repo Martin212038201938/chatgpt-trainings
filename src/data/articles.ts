@@ -76,6 +76,18 @@ export const ALL_ARTICLES: ArticleData[] = [
     publishDate: "2026-02-10",
     publishTime: "09:00",
     isDraft: false
+  },
+  {
+    id: "chatgpt-custom-gpts-und-skills",
+    title: "ChatGPT Fähigkeiten geben: Custom GPTs, Actions und die neue Welt der Connectoren",
+    description: "Custom GPTs, Actions, Connectoren und Skills: Wie man ChatGPT gezielt für den eigenen Arbeitsbereich erweitert.",
+    link: "/wissen/chatgpt-custom-gpts-und-skills",
+    badge: "ChatGPT Praxis",
+    icon: "🔧",
+    lastUpdated: "20. Jan. 2026",
+    publishDate: "2026-01-20",
+    publishTime: "09:00",
+    isDraft: false
   }
 ];
 
