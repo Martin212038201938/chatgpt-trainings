@@ -39,6 +39,12 @@ const knowledgePages = [
   { loc: '/wissen/prompt-bibliotheken-vs-training', lastmod: TODAY, changefreq: 'monthly', priority: 0.8 },
   { loc: '/wissen/ki-halluzinationen-vermeiden', lastmod: TODAY, changefreq: 'monthly', priority: 0.8 },
   { loc: '/wissen/chatgpt-erinnerungen', lastmod: TODAY, changefreq: 'monthly', priority: 0.8 },
+  { loc: '/wissen/chatgpt-news', lastmod: TODAY, changefreq: 'weekly', priority: 0.8 },
+  { loc: '/wissen/chatgpt-canvas-mode', lastmod: TODAY, changefreq: 'monthly', priority: 0.8 },
+  { loc: '/wissen/microsoft-365-daten-in-chatgpt', lastmod: TODAY, changefreq: 'monthly', priority: 0.8 },
+  { loc: '/wissen/chatgpt-custom-gpts-und-skills', lastmod: TODAY, changefreq: 'monthly', priority: 0.8 },
+  { loc: '/wissen/chatgpt-deep-research', lastmod: TODAY, changefreq: 'monthly', priority: 0.8 },
+  { loc: '/wissen/chatgpt-agent-mode', lastmod: TODAY, changefreq: 'monthly', priority: 0.8 },
 ];
 
 // Trainingsseiten - Slugs aus trainings.ts
