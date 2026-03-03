@@ -18,6 +18,7 @@ import TrainerProfil from "./pages/TrainerProfil";
 import ChatgptErinnerungen from "./pages/ChatgptErinnerungen";
 import ChatgptNews from "./pages/ChatgptNews";
 import ChatgptCanvasMode from "./pages/ChatgptCanvasMode";
+import Microsoft365InChatgpt from "./pages/Microsoft365InChatgpt";
 
 const queryClient = new QueryClient();
 
@@ -41,6 +42,7 @@ const App = () => (
           <Route path="/wissen/chatgpt-erinnerungen" element={<ChatgptErinnerungen />} />
           <Route path="/wissen/chatgpt-news" element={<ChatgptNews />} />
           <Route path="/wissen/chatgpt-canvas-mode" element={<ChatgptCanvasMode />} />
+          <Route path="/wissen/microsoft-365-daten-in-chatgpt" element={<Microsoft365InChatgpt />} />
           <Route path="/admin" element={<Admin />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

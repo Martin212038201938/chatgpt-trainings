@@ -64,6 +64,18 @@ export const ALL_ARTICLES: ArticleData[] = [
     publishDate: "2026-03-01",
     publishTime: "09:00",
     isDraft: false
+  },
+  {
+    id: "microsoft-365-daten-in-chatgpt",
+    title: "Microsoft 365 Daten in ChatGPT: So wird Ihr Büroalltag zum KI-Workflow",
+    description: "Wie Sie OneDrive, SharePoint und Outlook mit ChatGPT verbinden und welche Workflows im Büroalltag sofort Zeit sparen.",
+    link: "/wissen/microsoft-365-daten-in-chatgpt",
+    badge: "ChatGPT Praxis",
+    icon: "📂",
+    lastUpdated: "10. Feb. 2026",
+    publishDate: "2026-02-10",
+    publishTime: "09:00",
+    isDraft: false
   }
 ];
 

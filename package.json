@@ -47,7 +47,8 @@
       "/trainer/martin-lang",
       "/wissen/chatgpt-erinnerungen",
       "/wissen/chatgpt-news",
-      "/wissen/chatgpt-canvas-mode"
+      "/wissen/chatgpt-canvas-mode",
+      "/wissen/microsoft-365-daten-in-chatgpt"
     ],
     "skipThirdPartyRequests": true,
     "crawl": false
