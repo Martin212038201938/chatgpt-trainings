@@ -75,8 +75,11 @@ const ChatgptCanvasMode = () => {
   };
 
   const tableOfContents = [
+    { id: "canvas-starten", title: "Canvas starten: So kommt man rein", level: 2 },
     { id: "verwechslungsgefahr", title: "Die Verwechslung, die alles erklärt", level: 2 },
     { id: "was-canvas-wirklich-ist", title: "Was Canvas wirklich ist", level: 2 },
+    { id: "die-canvas-werkzeuge", title: "Die Canvas-Werkzeuge im Überblick", level: 2 },
+    { id: "versionierung", title: "Versionierung: Das Sicherheitsnetz", level: 2 },
     { id: "der-entscheidende-unterschied", title: "Warum Canvas den Chat verändert", level: 2 },
     { id: "workflow-ohne-copy-paste", title: "Ein Workflow ohne Copy-Paste", level: 2 },
     { id: "canvas-fuer-code", title: "Canvas für Code", level: 2 },
@@ -113,6 +116,20 @@ const ChatgptCanvasMode = () => {
             Es gibt in jedem Training diese gewissen Schlüsselmomente in denen man auf einmal über den Köpfen der Teilnehmer kleine Glühbirnen sieht und man weiß, soeben hat man etwas geliefert, dass die Arbeit dieser Menschen verändern wird. Wenn ich über den Canvas Modus berichte ist das zuverlässig der Fall. Selbst Teilnehmer die sich selbst als regelmäßige und erfahrene Nutzer beschreiben, kennen diesen Modus nicht. Es ist fast so als sei das das best gehütete Geheimnis rund um die Arbeit mit ChatGPT. Der Canvas Mode hat nichts mit dem KI-basierten Grafikprogramm Canva zu tun. Null. Rien. Nada. Canvas Mode ist ein &bdquo;Mini-Word&ldquo; in ChatGPT, ein Lektor, ein KI Autor, ein privater Redakteur der nicht autonom irgendwelche Texte runterschreibt, sondern gemeinsam mit mir Absatz für Absatz nach meinen Wünschen bearbeitet, ohne den Rest des Dokuments zu verändern. Aber von vorne.
           </p>
 
+          <h2 id="canvas-starten">Canvas starten: So kommt man rein</h2>
+
+          <p>
+            Es gibt zwei Wege, Canvas zu öffnen. Der erste: Man tippt in das ChatGPT-Eingabefeld einfach &bdquo;Canvas Modus&ldquo; oder &bdquo;Öffne Canvas&ldquo; und drückt Enter. ChatGPT versteht die Anweisung und aktiviert den Modus. Der zweite Weg: Man klickt auf das kleine Stiftsymbol neben dem Eingabefeld, das den Modus direkt auslöst. Manchmal aktiviert ChatGPT Canvas auch von selbst, wenn es merkt, dass die aktuelle Aufgabe von der Arbeitsfläche profitieren würde &ndash; etwa bei längeren Texten oder Code-Aufgaben.
+          </p>
+
+          <p>
+            Was dann passiert, verändert den Bildschirm spürbar. Statt der gewohnten Chat-Ansicht teilt sich das Fenster in zwei Bereiche. Links bleibt der Chat, in dem man weiter mit ChatGPT kommuniziert, Anweisungen gibt und Rückfragen stellt. Rechts öffnet sich die Canvas-Fläche &ndash; ein sauberer Texteditor, in dem das eigentliche Dokument lebt. Dieser Editor ist kein dekoratives Element. Man kann dort direkt tippen, Text markieren, löschen, einfügen, umstellen &ndash; alles, was man aus einem normalen Textprogramm kennt. Der Unterschied: Wenn man eine Stelle markiert und im Chat links eine Anweisung gibt, bearbeitet ChatGPT nur diese markierte Stelle. Der Rest des Dokuments bleibt unangetastet.
+          </p>
+
+          <p>
+            Am unteren Rand der Canvas-Fläche findet man eine Werkzeugleiste mit Shortcuts. Diese Shortcuts sind kontextabhängig: Bei Texten bieten sie andere Funktionen als bei Code. Und oben rechts in der Canvas-Fläche sitzt die Versionsverwaltung &ndash; ein unscheinbarer Button, der sich als einer der wichtigsten Bestandteile des ganzen Systems herausstellt.
+          </p>
+
           <h2 id="verwechslungsgefahr">Die Verwechslung, die alles erklärt</h2>
 
           <p>
@@ -133,6 +150,38 @@ const ChatgptCanvasMode = () => {
             Canvas löst dieses Problem, indem es die Chatlogik aufbricht. Wenn Canvas aktiv ist, öffnet sich rechts neben dem Chat ein Textfeld &ndash; vergleichbar mit einem einfachen Texteditor. Dort steht der Inhalt, an dem man gerade arbeitet. Und jetzt passiert das Entscheidende: Man kann einzelne Passagen markieren und nur für diese markierte Stelle eine Anweisung geben. Der Rest bleibt stehen. Das klingt nach einer Kleinigkeit, verändert aber den gesamten Arbeitsprozess.
           </p>
 
+          <h2 id="die-canvas-werkzeuge">Die Canvas-Werkzeuge im Überblick</h2>
+
+          <p>
+            Die Werkzeugleiste am unteren Rand der Canvas-Fläche enthält für Texte fünf Shortcuts, die jeweils eine häufige Bearbeitungsaufgabe abdecken. &bdquo;Vorschläge&ldquo; lässt ChatGPT den gesamten Text durchgehen und fügt Verbesserungsvorschläge als Inline-Markierungen ein, ähnlich wie die Änderungsverfolgung in Word. Man kann jede einzelne Änderung annehmen oder ablehnen. &bdquo;Länge anpassen&ldquo; kürzt oder verlängert den Text per Schieberegler, ohne den Kern zu verändern &ndash; extrem nützlich, wenn ein Absatz zu lang für eine E-Mail ist oder zu kurz für einen Bericht. &bdquo;Leseniveau&ldquo; verändert die sprachliche Komplexität, von allgemeinverständlich bis fachlich, was hilfreich ist wenn man denselben Sachverhalt für verschiedene Zielgruppen aufbereiten muss. &bdquo;Letzte Politur&ldquo; prüft Grammatik, Konsistenz und sprachliche Sauberkeit &ndash; der letzte Schliff vor dem Abschicken. Und &bdquo;Emojis hinzufügen&ldquo;, nun ja, fügt Emojis ein, was für Social-Media-Posts durchaus praktisch ist, auch wenn ich persönlich meistens darauf verzichte.
+          </p>
+
+          <p>
+            Im Alltag nutze ich vor allem zwei dieser Werkzeuge regelmäßig: &bdquo;Vorschläge&ldquo;, weil es mir erlaubt, einen eigenen Text von ChatGPT gegenlesen zu lassen, ohne dass gleich alles umgeschrieben wird. Und &bdquo;Länge anpassen&ldquo;, weil es eine Aufgabe löst, die manuell erstaunlich viel Zeit frisst: Einen guten Text zu haben, der leider 30 Prozent zu lang ist.
+          </p>
+
+          <p>
+            Für Code ändern sich die Shortcuts: Statt &bdquo;Vorschläge&ldquo; gibt es &bdquo;Code Review&ldquo;, das den Code analysiert und Verbesserungsvorschläge als Inline-Kommentare einfügt. &bdquo;Kommentare hinzufügen&ldquo; erklärt den Code zeilenweise, was besonders wertvoll ist, wenn man fremden Code verstehen muss. &bdquo;Bugs finden&ldquo; sucht nach Fehlern und schlägt Korrekturen vor. &bdquo;Logging einfügen&ldquo; ergänzt Print-Statements zum Debuggen. Und &bdquo;In andere Sprache portieren&ldquo; übersetzt Code zwischen Python, JavaScript, TypeScript, Java, C++ und PHP.
+          </p>
+
+          <p>
+            Zusätzlich zu den Shortcuts kann man in Canvas auch Python-Code direkt ausführen. Das klingt nach einer Kleinigkeit, ist aber für alle, die Datenanalysen oder kleine Automatisierungen bauen, ein erheblicher Vorteil: Man schreibt den Code, testet ihn und sieht das Ergebnis, ohne ChatGPT verlassen zu müssen.
+          </p>
+
+          <h2 id="versionierung">Versionierung: Das Sicherheitsnetz</h2>
+
+          <p>
+            Die Versionsverwaltung ist das Feature, das ich in Trainings am längsten erkläre, weil es das ist, das die meiste Angst nimmt. Jede Änderung, die ChatGPT an einem Canvas-Dokument vornimmt, wird als eigene Version gespeichert. Man findet die Versionshistorie über die kleine Uhr oder den Pfeil oben in der Canvas-Fläche. Ein Klick darauf öffnet einen Slider, mit dem man durch alle bisherigen Versionen blättern kann &ndash; vorwärts und rückwärts. Jede Version zeigt dabei die Änderungen farblich hervorgehoben an: Was hinzugefügt wurde, was gelöscht wurde, was verändert wurde.
+          </p>
+
+          <p>
+            Warum das so wichtig ist? Weil es die größte Angst beim Arbeiten mit KI auflöst: die Angst, etwas zu verlieren. Im normalen Chat gibt es kein Zurück. Wenn man ChatGPT bittet, einen Text umzuschreiben, ist die alte Version weg. Bei Canvas nicht. Man kann experimentieren, ChatGPT bitten, einen komplett anderen Ton auszuprobieren, und wenn das Ergebnis schlechter ist als das Original, geht man einfach eine Version zurück. Das verändert die Herangehensweise grundlegend. Statt jeden Prompt ängstlich abzuwägen, kann man mutiger ausprobieren. Der schlimmste Fall ist ein Klick auf &bdquo;Zurück&ldquo;.
+          </p>
+
+          <p>
+            Exportieren lässt sich das fertige Dokument als PDF, als Markdown-Datei oder als Word-Dokument. Für Code gibt es den Export als sprachspezifische Datei &ndash; also .py für Python, .js für JavaScript und so weiter. Auch das Kopieren in die Zwischenablage funktioniert, wobei die Formatierung dabei erhalten bleibt.
+          </p>
+
           <h2 id="der-entscheidende-unterschied">Warum Canvas den Chat verändert</h2>
 
           <p>
@@ -141,10 +190,6 @@ const ChatgptCanvasMode = () => {
 
           <p>
             Canvas macht aus ChatGPT ein Werkzeug, das auf Textstellen statt auf ganze Nachrichten reagiert. Man markiert einen Satz, schreibt in den Chat &bdquo;formeller&ldquo; &ndash; und nur dieser Satz wird angepasst. Oder man nutzt die eingebauten Shortcuts: Länge anpassen, Leseniveau ändern, Tonfall verschieben, eine Zusammenfassung einfügen. Das geht schneller und präziser als jeder Prompt im normalen Chat, weil die KI genau weiß, auf welchen Bereich sie sich konzentrieren soll.
-          </p>
-
-          <p>
-            Was viele nicht wissen: Canvas verfügt über eine Versionsverwaltung. Jede Änderung wird als eigene Version gespeichert, und man kann jederzeit zu einem früheren Stand zurückkehren. Wer einmal versehentlich einen ganzen Absatz hat überschreiben lassen, weiß, wie wertvoll das ist. Kein Control-Z-Hoffen mehr, kein &bdquo;Gib mir bitte die vorherige Version zurück&ldquo;. Ein Klick, und der alte Stand ist wieder da.
           </p>
 
           <h2 id="workflow-ohne-copy-paste">Ein Workflow ohne Copy-Paste</h2>
