@@ -30,7 +30,7 @@ const Hero = () => {
           </p>
 
           <p className="mt-6 text-base sm:text-lg text-white/70 leading-relaxed max-w-2xl">
-            Unsere Trainings arbeiten an drei Dimensionen:<br /><br /><strong className="text-white/90">Schneller werden</strong> – Routineaufgaben in Minuten statt Stunden erledigen.<br /><strong className="text-white/90">Bessere Ergebnisse liefern</strong> – Texte, Analysen und Konzepte, die direkt verwendbar sind.<br /><strong className="text-white/90">Neues wagen</strong> – Aufgaben angehen, die man sich bisher nicht zugetraut hat.<br /><br />Im Tempo der Teilnehmer, ohne unnötige Theorie, mit maximalem Praxisbezug.
+            Unsere Trainings arbeiten an drei Dimensionen:<br /><br /><strong className="text-white/90">Schneller werden</strong> – Routineaufgaben in Minuten statt Stunden erledigen.<br /><strong className="text-white/90">Messbare Verbesserungen</strong> – KI-unterstützte Arbeit alltäglich machen.<br /><strong className="text-white/90">Neues wagen</strong> – Aufgaben angehen, die man sich bisher nicht zugetraut hat.<br /><br />Im Tempo der Teilnehmer, ohne unnötige Theorie, mit maximalem Praxisbezug.
           </p>
 
           <div className="mt-8 flex flex-col sm:flex-row gap-4">
