@@ -19,6 +19,11 @@ export interface Training {
   description: string;
   features: string[];
   levels: CompetencyLevel[];
+  // Neue Rubriken für Content-Tiefe & LLM-Sichtbarkeit
+  questionLead?: string;
+  targetAudience?: string[];
+  learningOutcomes?: string[];
+  businessImpact?: string[];
   // SEO
   metaTitle: string;
   metaDescription: string;
@@ -51,6 +56,24 @@ export const trainings: Training[] = [
       "Datenschutz und sicherer Einsatz: DSGVO-konforme Nutzung, klare Regeln was in den Prompt darf und was nicht"
     ],
     levels: ["essentials"],
+    questionLead: "Welches ChatGPT Training eignet sich als schneller Einstieg für ein ganzes Team?",
+    targetAudience: [
+      "Teams und Abteilungen, die einen strukturierten Einstieg in ChatGPT brauchen – ohne tagelange Schulungen",
+      "Führungskräfte, die ihren Mitarbeitenden einen produktiven Start mit KI ermöglichen wollen",
+      "Unternehmen, die ChatGPT einführen und eine gemeinsame Wissensbasis schaffen möchten",
+      "Mitarbeitende aller Fachbereiche – von Marketing bis Controlling – ohne KI-Vorkenntnisse"
+    ],
+    learningOutcomes: [
+      "Die Teilnehmer verstehen, wie ChatGPT Sprache verarbeitet und warum Prompt-Struktur entscheidend ist",
+      "Sie beherrschen zehn sofort anwendbare Prompt-Muster für den Büroalltag",
+      "Sie können typische ChatGPT-Fehler erkennen und durch gezieltes Prompting vermeiden",
+      "Sie kennen die DSGVO-Regeln für den sicheren Einsatz von ChatGPT im Unternehmen"
+    ],
+    businessImpact: [
+      "Schnellere Einarbeitung: Teams nutzen ChatGPT ab Tag 1 produktiv statt wochenlang herumzuprobieren",
+      "Weniger Fehlversuche: Strukturiertes Prompting spart durchschnittlich 30–40 % der Iterationszeit",
+      "Rechtssicherheit: Klare Datenschutz-Regeln verhindern DSGVO-Verstöße bei der KI-Nutzung"
+    ],
     metaTitle: "ChatGPT Kick-Off Training – 4 Stunden Prompt Engineering Einstieg",
     metaDescription: "In 4 Stunden vom ChatGPT-Einsteiger zum strukturierten Prompter. Kompakter Kick-Off mit Live-Übungen und Datenschutz-Modul.",
     keywords: ["ChatGPT Kick-Off", "Prompt Engineering Einstieg", "ChatGPT Halbtag", "ChatGPT Kompaktschulung", "KI Kick-Off"],
@@ -82,6 +105,26 @@ export const trainings: Training[] = [
       "Kompakt vs. Ganztag: Gleicher Inhalt – im Ganztag mit praktischen \u00dcbungen und Use-Case-Arbeit"
     ],
     levels: ["essentials"],
+    questionLead: "Wie baue ich KI-Kompetenz im Unternehmen systematisch auf – nicht nur oberflächlich?",
+    targetAudience: [
+      "Wissensarbeiter aller Fachbereiche, die ChatGPT im Arbeitsalltag systematisch nutzen wollen",
+      "HR- und L&D-Verantwortliche, die ein fundiertes KI-Basisprogramm für die Organisation suchen",
+      "Teams, die über den Kick-Off hinaus ein solides Fundament für den KI-Einsatz brauchen",
+      "Führungskräfte, die verstehen wollen, was ChatGPT in ihrem Verantwortungsbereich leisten kann"
+    ],
+    learningOutcomes: [
+      "Die Teilnehmer beherrschen fortgeschrittene Prompt-Techniken wie Chain-of-Thought und Few-Shot-Prompting",
+      "Sie können ChatGPT für Textarbeit, E-Mail-Workflows und Datenanalyse produktiv einsetzen",
+      "Sie verstehen agentische Arbeitsweisen und können erste Automatisierungen konzipieren",
+      "Sie haben konkrete Use Cases aus dem eigenen Arbeitskontext identifiziert und umgesetzt (Ganztagsformat)",
+      "Sie kennen die Grenzen und Risiken von ChatGPT und können KI-Outputs kritisch bewerten"
+    ],
+    businessImpact: [
+      "Messbare Produktivitätssteigerung: Teilnehmer berichten von 2–4 Stunden Zeitersparnis pro Woche",
+      "Höhere Outputqualität: Strukturierte Prompts liefern konsistentere und professionellere Ergebnisse",
+      "Breitere KI-Adoption: Das systematische Fundament senkt die Hemmschwelle für den täglichen Einsatz",
+      "Use-Case-Pipeline: Die im Training erarbeiteten Anwendungsfälle liefern sofort umsetzbare Quick Wins"
+    ],
     metaTitle: "ChatGPT Starter Training – KI-Kompetenz aufbauen | 1 Tag oder 3,5h",
     metaDescription: "Umfassendes ChatGPT Training in 8 Modulen: KI-Grundlagen, Prompting, Textarbeit, Datenanalyse, Automatisierung. Inkl. Datenschutz-Modul.",
     keywords: ["ChatGPT Starter Training", "Prompt Engineering Grundlagen", "ChatGPT Ganztag", "KI Training Unternehmen", "ChatGPT Workshop", "ChatGPT Datenschutz"],
@@ -114,6 +157,26 @@ export const trainings: Training[] = [
       "30-Tage-Aktionsplan: Strukturierte Nachbereitung f\u00fcr den Transfer in den Alltag"
     ],
     levels: ["advanced"],
+    questionLead: "Wie komme ich über ChatGPT-Grundlagen hinaus und baue professionelle Prompt-Systeme?",
+    targetAudience: [
+      "Erfahrene ChatGPT-Nutzer, die systematische Prompt-Architekturen statt Einzelprompts entwickeln wollen",
+      "Analysten, Berater und Projektmanager, die komplexe Aufgaben mit Multi-Step-Prompts lösen",
+      "Innovationsverantwortliche und Power User, die Custom GPTs für ihr Team bereitstellen möchten",
+      "Fachexperten, die KI-Qualitätssicherung und professionelle Output-Standards etablieren wollen"
+    ],
+    learningOutcomes: [
+      "Die Teilnehmer können mehrstufige Prompt-Ketten für komplexe Analyse- und Entscheidungsprozesse entwerfen",
+      "Sie beherrschen strukturierte Ausgabeformate (JSON, Markdown-Reports, Templates) für konsistente Ergebnisse",
+      "Sie können Custom GPTs für wiederkehrende Team-Workflows bauen und bereitstellen",
+      "Sie wenden fortgeschrittene Datenschutz-Praktiken an: Datenklassifizierung, Audit-Trails, sichere Verarbeitung",
+      "Sie haben ein Capstone-Projekt aus dem eigenen Arbeitskontext erfolgreich umgesetzt"
+    ],
+    businessImpact: [
+      "Professionelle KI-Workflows: Multi-Step-Systeme ersetzen manuelle Routineprozesse und reduzieren Durchlaufzeiten",
+      "Skalierbare Lösungen: Custom GPTs werden zu wiederverwendbaren Team-Tools, die ohne KI-Expertise nutzbar sind",
+      "Qualitätssicherung: Strukturierte Output-Formate und Review-Prozesse erhöhen die Verlässlichkeit von KI-Ergebnissen",
+      "30-Tage-Aktionsplan: Der strukturierte Transfer sorgt dafür, dass Gelerntes im Alltag tatsächlich ankommt"
+    ],
     metaTitle: "Advanced Prompt Systems – 2-Tage ChatGPT Intensivprogramm",
     metaDescription: "2-Tage-Intensivprogramm: Multi-Step-Prompts, Custom GPTs, strukturierte Ausgaben und Datenschutz f\u00fcr Fortgeschrittene. F\u00fcr erfahrene ChatGPT-Anwender.",
     keywords: ["ChatGPT Bootcamp", "Advanced Prompt Engineering", "Custom GPTs Training", "ChatGPT Intensiv", "Multi-Step Prompts"],
@@ -145,6 +208,25 @@ export const trainings: Training[] = [
       "Erfahrungsaustausch: Was funktioniert, was nicht – gemeinsam optimieren"
     ],
     levels: ["essentials", "advanced"],
+    questionLead: "Wie stelle ich sicher, dass ChatGPT-Trainings auch langfristig im Arbeitsalltag ankommen?",
+    targetAudience: [
+      "Organisationen, die nachhaltige Verhaltensänderung statt Einmal-Trainingseffekte wollen",
+      "L&D-Verantwortliche, die ein begleitetes Lernprogramm über mehrere Wochen suchen",
+      "Teams, die schrittweise von Grundlagen bis zu fortgeschrittenen KI-Workflows aufbauen möchten",
+      "Unternehmen, die den ROI ihrer KI-Trainings durch Transfer-Sicherung maximieren wollen"
+    ],
+    learningOutcomes: [
+      "Die Teilnehmer bauen systematisch KI-Kompetenz auf – von Prompt-Grundlagen bis zu Custom GPTs und Automatisierung",
+      "Sie entwickeln zwischen den Sessions eigene Workflows und verfeinern diese durch Peer-Feedback",
+      "Sie können abteilungsspezifische Anwendungen eigenständig identifizieren und umsetzen",
+      "Sie haben einen persönlichen Workflow-Plan für den nachhaltigen KI-Einsatz im Arbeitsalltag"
+    ],
+    businessImpact: [
+      "Nachhaltige Adoption: Verteiltes Lernen mit Praxisphasen führt zu 3x höherer Anwendungsrate als Kompakttrainings",
+      "Organische Verbreitung: Teilnehmer werden zu KI-Multiplikatoren in ihren Teams und Abteilungen",
+      "Messbare Ergebnisse: Zwischen den Sessions entstehen dokumentierte Use Cases mit konkretem Business Value",
+      "Kulturwandel: Die Lernreise etabliert eine kontinuierliche Lern- und Experimentierkultur rund um KI"
+    ],
     metaTitle: "KI-Workflow-Lernreise – Nachhaltiger ChatGPT-Kompetenzaufbau",
     metaDescription: "ChatGPT-Lernreise \u00fcber 4–8 Wochen: Von Prompt-Grundlagen und Datenschutz \u00fcber Advanced Systems bis zu Custom GPTs. Nachhaltiger Transfer garantiert.",
     keywords: ["ChatGPT Lernreise", "KI-Workflow lernen", "ChatGPT Blended Learning", "Prompt Engineering Programm", "ChatGPT nachhaltig"],
@@ -176,6 +258,24 @@ export const trainings: Training[] = [
       "Interaktive Q&A: Echte Fragen, echte Antworten, keine vorbereiteten Phrasen"
     ],
     levels: ["essentials"],
+    questionLead: "Wie gebe ich meiner Organisation einen inspirierenden und ehrlichen Einstieg in das Thema KI?",
+    targetAudience: [
+      "Geschäftsführungen und Vorstände, die eine fundierte Einordnung von ChatGPT für ihre Strategie brauchen",
+      "Eventorganisatoren, die einen packenden KI-Vortrag für Firmenevents oder Führungskräfte-Runden suchen",
+      "Verantwortliche für KI-Initiativen, die vor dem Rollout Orientierung und Begeisterung schaffen wollen",
+      "Alle Mitarbeitenden – der Vortrag wird an das jeweilige Publikum angepasst"
+    ],
+    learningOutcomes: [
+      "Die Teilnehmer verstehen, was ChatGPT heute leisten kann – und wo die realistischen Grenzen liegen",
+      "Sie haben durch Live-Demonstrationen ein konkretes Bild davon, wie KI ihren Arbeitsalltag verändern kann",
+      "Entscheider kennen die wichtigsten Compliance-Aspekte: DSGVO und EU AI Act im Überblick",
+      "Sie wissen, wie eine erfolgreiche KI-Einführung die Mitarbeitenden mitnimmt statt überfordert"
+    ],
+    businessImpact: [
+      "Orientierung statt Verunsicherung: Führungskräfte treffen fundiertere Entscheidungen zur KI-Strategie",
+      "Kultureller Auftakt: Der Impulsvortrag schafft die emotionale Grundlage für eine erfolgreiche KI-Einführung",
+      "Abbau von Widerständen: Ehrliche Einordnung reduziert sowohl übertriebene Erwartungen als auch unbegründete Ängste"
+    ],
     metaTitle: "ChatGPT Keynote – KI-Impulsvortrag f\u00fcr Unternehmen",
     metaDescription: "Keynote zu ChatGPT: Live-Demos, Modellverst\u00e4ndnis und klare Orientierung f\u00fcr Entscheider. Ideal als Auftakt f\u00fcr Ihre KI-Initiative.",
     keywords: ["ChatGPT Keynote", "KI Impulsvortrag", "ChatGPT Vortrag", "KI Keynote Speaker", "KI Zukunft der Arbeit"],
@@ -201,6 +301,24 @@ export const trainings: Training[] = [
       "Interaktive Q&A: Offene Diskussion \u00fcber Chancen, Risiken und die n\u00e4chsten Schritte"
     ],
     levels: ["essentials"],
+    questionLead: "Wie verändert agentische KI die Wissensarbeit – und was bedeutet das konkret für unser Unternehmen?",
+    targetAudience: [
+      "Geschäftsführungen und Strategieverantwortliche, die verstehen wollen, wohin sich KI in 3–5 Jahren entwickelt",
+      "Innovationsmanager und Digitalisierungsverantwortliche, die agentische Workflows kennenlernen wollen",
+      "Führungskräfte, die ihre Organisation auf die nächste Stufe der KI-Transformation vorbereiten",
+      "Tech-affine Entscheider, die den Unterschied zwischen Chat-KI und agentischen Systemen verstehen wollen"
+    ],
+    learningOutcomes: [
+      "Die Teilnehmer haben live erlebt, wie agentische KI komplexe End-to-End-Prozesse eigenständig ausführt",
+      "Sie verstehen den Unterschied zwischen assistierter KI und agentischen Systemen",
+      "Sie können einschätzen, welche Prozesse in ihrem Unternehmen für agentische Automatisierung geeignet sind",
+      "Sie kennen die kritischen Fragen zu Arbeitsplätzen, Kompetenzen und Organisationsstrukturen"
+    ],
+    businessImpact: [
+      "Strategische Vorausschau: Entscheider können frühzeitig die richtigen Weichen für agentische KI stellen",
+      "Investitionssicherheit: Fundierte Einschätzung, welche KI-Investitionen sich lohnen und welche zu früh sind",
+      "Veränderungsbereitschaft: Die Live-Demos machen abstrakte Zukunftsszenarien greifbar und motivieren zum Handeln"
+    ],
     metaTitle: "Keynote: Die Zukunft der Arbeit ist agentisch – mit Live-Demos",
     metaDescription: "Keynote mit Live-Demos agentischer KI-Workflows: Automatische Angebotserstellung, Vibe Coding und KI-Browser-Automatisierung. Vision f\u00fcr 3–5 Jahre.",
     keywords: ["KI Keynote", "agentische KI", "Zukunft der Arbeit", "KI Automatisierung", "Vibe Coding", "KI Keynote Speaker", "agentische Workflows"],
@@ -230,6 +348,24 @@ export const trainings: Training[] = [
       "Skalierbar: Von 20 bis 500+ Teilnehmer, vor Ort oder hybrid"
     ],
     levels: ["essentials"],
+    questionLead: "Wie mache ich den Start unserer KI-Initiative zu einem Erlebnis, das alle Mitarbeitenden begeistert?",
+    targetAudience: [
+      "Unternehmen, die ChatGPT oder andere KI-Tools einführen und von Anfang an Begeisterung schaffen wollen",
+      "HR- und Kommunikationsverantwortliche, die den KI-Rollout als Change-Projekt professionell begleiten",
+      "Führungskräfte, die ihre KI-Initiative mit einem starken Signal starten möchten",
+      "Große Organisationen (20 bis 500+ Teilnehmer), die verschiedene Stakeholder gleichzeitig abholen wollen"
+    ],
+    learningOutcomes: [
+      "Die Teilnehmer haben ChatGPT an verschiedenen Hands-on-Stationen selbst ausprobiert und erste Erfolgserlebnisse gehabt",
+      "Abteilungen haben erste konkrete Anwendungsideen für ihren Bereich identifiziert",
+      "Führungskräfte haben in der Leadership-Session Governance- und Strategiefragen geklärt",
+      "Die gesamte Organisation hat eine gemeinsame positive Haltung gegenüber der KI-Einführung entwickelt"
+    ],
+    businessImpact: [
+      "Change-Beschleunigung: Ein begeisternder Auftakt reduziert Widerstände und beschleunigt die KI-Adoption um Monate",
+      "Professionelle Kommunikation: Rollout-Materialien (Poster, Cheat-Sheets, Trainingsmaterialien) sorgen für nachhaltige Sichtbarkeit",
+      "Skalierbare Wirkung: Ein Event erreicht hunderte Mitarbeitende gleichzeitig – deutlich effizienter als individuelle Schulungen"
+    ],
     metaTitle: "ChatGPT Launch-Event – Erlebnistag f\u00fcr Ihre KI-Einf\u00fchrung",
     metaDescription: "KI-Launch-Event mit Keynote, Workshops und Live-Demos: Der Auftakt, der Begeisterung schafft. Von 20 bis 500+ Teilnehmer.",
     keywords: ["ChatGPT Launch Event", "KI Einf\u00fchrung Event", "ChatGPT Kick-Off Event", "KI Erlebnistag"],
@@ -255,6 +391,24 @@ export const trainings: Training[] = [
       "Umsetzungsplan: Die besten Ideen werden tats\u00e4chlich weiterverfolgt"
     ],
     levels: ["advanced"],
+    questionLead: "Wie finde ich die besten KI-Anwendungsfälle in meinem Unternehmen – und zwar praxisnah statt theoretisch?",
+    targetAudience: [
+      "Innovationsverantwortliche, die konkrete KI-Use-Cases aus den eigenen Teams generieren wollen",
+      "Unternehmen, die abteilungsübergreifend KI-Potenziale identifizieren und umsetzen möchten",
+      "Teams mit ChatGPT-Grundkenntnissen, die den nächsten Schritt in die praktische Anwendung machen wollen",
+      "Führungskräfte, die Innovationskultur und Teamgeist gleichzeitig fördern möchten"
+    ],
+    learningOutcomes: [
+      "Die Teilnehmer haben im Wettbewerb echte Geschäftsprobleme mit ChatGPT gelöst – nicht nur theoretisch",
+      "Sie können Custom GPTs und Prompt-Systeme für konkrete Unternehmensanforderungen entwickeln",
+      "Sie haben erfahren, wie abteilungsübergreifende Zusammenarbeit zu besseren KI-Lösungen führt",
+      "Sie haben einen Umsetzungsplan für die besten Hackathon-Ideen erarbeitet"
+    ],
+    businessImpact: [
+      "Use-Case-Pipeline: Ein Hackathon-Tag liefert mehr umsetzbare KI-Ideen als Monate interner Brainstormings",
+      "Innovationskultur: Der Wettbewerbscharakter aktiviert Kreativität und Eigeninitiative in der gesamten Organisation",
+      "Schnelle Prototypen: Custom GPTs aus dem Hackathon können direkt als Team-Tools eingesetzt werden"
+    ],
     metaTitle: "KI-Hackathon – ChatGPT Innovation im Team",
     metaDescription: "KI-Hackathon f\u00fcr Unternehmen: Teams entwickeln im Wettbewerb echte ChatGPT-L\u00f6sungen. Innovation, Teamgeist und umsetzbare Ergebnisse.",
     keywords: ["KI Hackathon", "ChatGPT Hackathon", "KI Innovation Tag", "ChatGPT Team Event"],
