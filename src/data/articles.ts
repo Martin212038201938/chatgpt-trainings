@@ -30,6 +30,18 @@ export interface ArticleData {
 // Alle Artikel - sortiert nach Veröffentlichungsdatum (neueste zuerst)
 export const ALL_ARTICLES: ArticleData[] = [
   {
+    id: "chatgpt-kosten-und-lizenzen-unternehmen",
+    title: "ChatGPT Kosten und Lizenzen im Unternehmen: Was die Einführung wirklich kostet",
+    description: "Was kostet die ChatGPT-Einführung im Unternehmen? Lizenzmodelle von Free bis Enterprise, API-Kosten, Nutzergruppen, Datensicherheit und warum Schulung den ROI bestimmt.",
+    link: "/wissen/chatgpt-kosten-und-lizenzen-unternehmen",
+    badge: "ChatGPT Praxis",
+    icon: "💰",
+    lastUpdated: "09. Mrz. 2026",
+    publishDate: "2026-03-09",
+    publishTime: "09:00",
+    isDraft: true
+  },
+  {
     id: "chatgpt-canvas-mode",
     title: "ChatGPT Canvas – der unbekannte Modus der die Arbeit verändert",
     description: "ChatGPT Canvas ist kein Grafikdesign-Tool, sondern ein Arbeitsmodus für Texte und Code. Was Canvas kann, warum es die meisten übersehen und wie ein Workflow ohne Copy-Paste aussieht.",

@@ -26,6 +26,7 @@ import PromptEngineering from "./pages/PromptEngineering";
 import KiRealitaet2026 from "./pages/KiRealitaet2026";
 import PromptBibliothekenQuatsch from "./pages/PromptBibliothekenQuatsch";
 import KiHalluzinationenVermeiden from "./pages/KiHalluzinationenVermeiden";
+import ChatgptKostenUndLizenzen from "./pages/ChatgptKostenUndLizenzen";
 
 const queryClient = new QueryClient();
 
@@ -58,6 +59,7 @@ const App = () => (
           <Route path="/wissen/ki-realitaet-beratungsfirmen-2026" element={<KiRealitaet2026 />} />
           <Route path="/wissen/prompt-bibliotheken-vs-training" element={<PromptBibliothekenQuatsch />} />
           <Route path="/wissen/ki-halluzinationen-vermeiden" element={<KiHalluzinationenVermeiden />} />
+          <Route path="/wissen/chatgpt-kosten-und-lizenzen-unternehmen" element={<ChatgptKostenUndLizenzen />} />
           <Route path="/admin" element={<Admin />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
