@@ -45,6 +45,7 @@ const knowledgePages = [
   { loc: '/wissen/chatgpt-custom-gpts-und-skills', lastmod: TODAY, changefreq: 'monthly', priority: 0.8 },
   { loc: '/wissen/chatgpt-deep-research', lastmod: TODAY, changefreq: 'monthly', priority: 0.8 },
   { loc: '/wissen/chatgpt-agent-mode', lastmod: TODAY, changefreq: 'monthly', priority: 0.8 },
+  { loc: '/wissen/chatgpt-kosten-und-lizenzen-unternehmen', lastmod: TODAY, changefreq: 'monthly', priority: 0.8 },
 ];
 
 // Trainingsseiten - Slugs aus trainings.ts

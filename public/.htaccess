@@ -102,6 +102,53 @@ RewriteRule . /index.html [L]
 AddType "text/plain; charset=utf-8" .txt
 AddType text/xml .xml
 AddType application/xml .xml
+AddType image/webp .webp
+AddType image/avif .avif
+AddType font/woff2 .woff2
+AddType application/javascript .js
+AddType text/css .css
+
+# ============================================
+# GZIP / DEFLATE KOMPRESSION
+# Reduziert Dateigröße um 60-80% bei Textdateien
+# ============================================
+
+<IfModule mod_deflate.c>
+    # HTML, CSS, JavaScript
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE text/javascript
+
+    # XML, JSON, SVG
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/json
+    AddOutputFilterByType DEFLATE image/svg+xml
+
+    # Fonts
+    AddOutputFilterByType DEFLATE font/woff
+    AddOutputFilterByType DEFLATE font/woff2
+    AddOutputFilterByType DEFLATE application/font-woff
+    AddOutputFilterByType DEFLATE application/font-woff2
+
+    # Plain Text
+    AddOutputFilterByType DEFLATE text/plain
+</IfModule>
+
+# Brotli-Kompression (falls verfügbar, besser als gzip)
+<IfModule mod_brotli.c>
+    AddOutputFilterByType BROTLI_COMPRESS text/html
+    AddOutputFilterByType BROTLI_COMPRESS text/css
+    AddOutputFilterByType BROTLI_COMPRESS application/javascript
+    AddOutputFilterByType BROTLI_COMPRESS text/javascript
+    AddOutputFilterByType BROTLI_COMPRESS text/xml
+    AddOutputFilterByType BROTLI_COMPRESS application/xml
+    AddOutputFilterByType BROTLI_COMPRESS application/json
+    AddOutputFilterByType BROTLI_COMPRESS image/svg+xml
+    AddOutputFilterByType BROTLI_COMPRESS font/woff
+    AddOutputFilterByType BROTLI_COMPRESS font/woff2
+</IfModule>
 
 # ============================================
 # CACHE-CONTROL
@@ -118,10 +165,44 @@ AddType application/xml .xml
         Header set Cache-Control "max-age=86400, must-revalidate"
     </FilesMatch>
 
+    # Gehashte Assets (JS, CSS von Vite): Langzeit-Cache (1 Jahr)
+    # Vite generiert content-hashed Dateinamen, daher immutable
+    <FilesMatch "\.(js|css)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+
+    # Bilder: 30 Tage Cache
+    <FilesMatch "\.(jpg|jpeg|png|gif|webp|avif|svg)$">
+        Header set Cache-Control "public, max-age=2592000"
+    </FilesMatch>
+
+    # Fonts: 1 Jahr Cache
+    <FilesMatch "\.(woff|woff2|eot|ttf|otf)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+
+    # HTML: kein Cache (immer frisch)
+    <FilesMatch "\.html$">
+        Header set Cache-Control "no-cache, must-revalidate"
+    </FilesMatch>
+
     # Sicherheits-Header
     Header always set X-Frame-Options "SAMEORIGIN"
     Header always set X-Content-Type-Options "nosniff"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
 </IfModule>
+
+# ============================================
+# ETAG OPTIMIERUNG
+# ============================================
+
+# ETags deaktivieren für gehashte Assets (redundant mit immutable Cache)
+<IfModule mod_headers.c>
+    <FilesMatch "\.(js|css|jpg|jpeg|png|gif|webp|avif|svg|woff|woff2)$">
+        Header unset ETag
+    </FilesMatch>
+</IfModule>
+FileETag None
 
 # ============================================
 # SICHERHEIT

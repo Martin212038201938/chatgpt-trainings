@@ -9,26 +9,34 @@ import {
 } from "@/components/ui/carousel";
 import { MapPin } from "lucide-react";
 import { useEffect, useState } from "react";
+import raumChillWebp from "@/assets/raum-chill.webp";
 import raumChill from "@/assets/raum-chill.jpg";
+import raumVibesWebp from "@/assets/raum-vibes.webp";
 import raumVibes from "@/assets/raum-vibes.jpg";
+import raumMeetingWebp from "@/assets/raum-meeting.webp";
 import raumMeeting from "@/assets/raum-meeting.jpg";
+import raumOfficeWebp from "@/assets/raum-office.webp";
 import raumOffice from "@/assets/raum-office.jpg";
 
 const roomImages = [
   {
     src: raumChill,
+    srcWebp: raumChillWebp,
     alt: "Gemütlicher Lounge-Bereich mit Schallplattenspieler und Ledersofas"
   },
   {
     src: raumVibes,
+    srcWebp: raumVibesWebp,
     alt: "Trainingsraum mit Esstisch und künstlerischem Köln-Wandbild"
   },
   {
     src: raumMeeting,
+    srcWebp: raumMeetingWebp,
     alt: "Meetingraum mit großem Konferenztisch für Workshop-Sessions"
   },
   {
     src: raumOffice,
+    srcWebp: raumOfficeWebp,
     alt: "Offener Office-Bereich mit begrüntem Ambiente"
   }
 ];
@@ -73,11 +81,18 @@ const KoelnTraining = () => {
                   <div className="p-1">
                     <Card>
                       <CardContent className="p-0">
-                        <img
-                          src={image.src}
-                          alt={image.alt}
-                          className="w-full h-[400px] md:h-[500px] object-contain rounded-lg bg-muted/50"
-                        />
+                        <picture>
+                          <source srcSet={image.srcWebp} type="image/webp" />
+                          <img
+                            src={image.src}
+                            alt={image.alt}
+                            className="w-full h-[400px] md:h-[500px] object-contain rounded-lg bg-muted/50"
+                            loading="lazy"
+                            decoding="async"
+                            width={1600}
+                            height={1067}
+                          />
+                        </picture>
                       </CardContent>
                     </Card>
                   </div>

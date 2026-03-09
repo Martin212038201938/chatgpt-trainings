@@ -1,18 +1,26 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import heroImage from "@/assets/trainingsraum-nippes.png";
+import heroImageWebp from "@/assets/trainingsraum-nippes.webp";
+import heroImageJpg from "@/assets/trainingsraum-nippes.jpg";
 
 const Hero = () => {
   return (
     <section className="relative min-h-[85vh] flex items-center overflow-hidden">
       {/* Full-width background image */}
       <div className="absolute inset-0 z-0">
-        <img
-          src={heroImage}
-          alt="ChatGPT Training in modernem Trainingsraum"
-          className="w-full h-full object-cover"
-        />
+        <picture>
+          <source srcSet={heroImageWebp} type="image/webp" />
+          <img
+            src={heroImageJpg}
+            alt="ChatGPT Training in modernem Trainingsraum"
+            className="w-full h-full object-cover"
+            fetchPriority="high"
+            decoding="async"
+            width={1600}
+            height={1067}
+          />
+        </picture>
         {/* Dark gradient overlay for text readability */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/30" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20" />

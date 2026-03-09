@@ -6,7 +6,8 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Building, Award, ArrowRight, ExternalLink } from "lucide-react";
-import ueberUns from "@/assets/ueber-uns.png";
+import ueberUnsWebp from "@/assets/ueber-uns.webp";
+import ueberUns from "@/assets/ueber-uns.jpg";
 
 const UeberUns = () => {
   const organizationSchema = {
@@ -140,11 +141,18 @@ const UeberUns = () => {
       {/* Full-Width Hero mit Hintergrundbild */}
       <section className="relative min-h-[70vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img
-            src={ueberUns}
-            alt="Unser Team bei einem ChatGPT-Workshop"
-            className="w-full h-full object-cover"
-          />
+          <picture>
+            <source srcSet={ueberUnsWebp} type="image/webp" />
+            <img
+              src={ueberUns}
+              alt="Unser Team bei einem ChatGPT-Workshop"
+              className="w-full h-full object-cover"
+              loading="lazy"
+              decoding="async"
+              width={1400}
+              height={933}
+            />
+          </picture>
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/30" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20" />
         </div>
