@@ -20,26 +20,8 @@ export default defineConfig(({ mode }) => ({
     target: "es2019",
     // Optimize CSS
     cssMinify: true,
-    rollupOptions: {
-      output: {
-        // Chunk strategy: separate vendor bundles for better caching
-        manualChunks(id) {
-          // React core - rarely changes
-          if (id.includes("node_modules/react/") || id.includes("node_modules/react-dom/") || id.includes("node_modules/react-router")) {
-            return "react-vendor";
-          }
-          // Radix UI components
-          if (id.includes("node_modules/@radix-ui/")) {
-            return "radix-ui";
-          }
-          // Other vendor chunks
-          if (id.includes("node_modules/")) {
-            return "vendor";
-          }
-        },
-      },
-    },
-    // Increase chunk size warning limit (Radix UI creates larger chunks)
+    // Note: manualChunks removed – causes circular dependency (vendor <-> react-vendor)
+    // which breaks react-snap pre-rendering with "Cannot access 'V' before initialization"
     chunkSizeWarningLimit: 600,
   },
 }));

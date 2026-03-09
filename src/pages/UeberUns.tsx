@@ -160,7 +160,7 @@ const UeberUns = () => {
         <div className="container mx-auto px-4 relative z-10 py-20 sm:py-28">
           <div className="max-w-3xl">
             <h1 className="text-4xl sm:text-5xl lg:text-7xl font-semibold tracking-tight leading-[1.1] text-white">
-              Wer wir sind und <span className="text-primary">warum ChatGPT</span>
+              Wer wir sind<br />und warum<br /><span className="text-primary">ChatGPT</span>
             </h1>
             <p className="mt-6 text-lg sm:text-xl text-white/80 leading-relaxed max-w-2xl">
               <strong className="text-white">ChatGPT-Trainings.de</strong> vermittelt Prompt Engineering, Modellverständnis und strukturierte KI-Workflows an Teams, die ChatGPT nicht nur ausprobieren, sondern systematisch in ihre Arbeit einbauen wollen.

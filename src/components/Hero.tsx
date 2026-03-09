@@ -29,9 +29,9 @@ const Hero = () => {
       <div className="container mx-auto px-4 relative z-10 py-20 sm:py-28">
         <div className="max-w-3xl">
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-semibold tracking-tight leading-[1.1]">
-            <span className="text-primary">ChatGPT</span>
+            <span className="text-primary">ChatGPT Trainings</span>
             <br />
-            <span className="text-white">Trainings für Unternehmen</span>
+            <span className="text-white">für Unternehmen</span>
           </h1>
           <p className="mt-6 text-lg sm:text-xl lg:text-2xl text-white/80 font-normal max-w-2xl">
             ChatGPT und andere KI-Modelle sicher, datenschutzkonform und wirklich wertschöpfend nutzen
