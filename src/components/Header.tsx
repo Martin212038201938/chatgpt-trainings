@@ -63,7 +63,11 @@ const Header = () => {
               <Link
                 key={link.to}
                 to={link.to}
-                className="text-muted-foreground hover:text-foreground transition-colors"
+                className={`transition-colors ${
+                  isActive(link.to)
+                    ? 'text-foreground font-semibold'
+                    : 'text-foreground/80 hover:text-foreground'
+                }`}
               >
                 {link.label}
               </Link>

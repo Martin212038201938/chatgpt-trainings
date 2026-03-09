@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import TrustBadges from "@/components/TrustBadges";
+import PainPoints from "@/components/PainPoints";
 import TrainingModules from "@/components/TrainingModules";
 import Benefits from "@/components/Benefits";
 import Contact from "@/components/Contact";
@@ -124,6 +125,7 @@ const Index = () => {
       <Header />
       <main>
         <Hero />
+        <PainPoints />
         <Benefits />
         <TrainingModules />
         <TrustBadges />

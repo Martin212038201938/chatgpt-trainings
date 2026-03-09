@@ -67,9 +67,9 @@ const sections = [
   {
     icon: Medal,
     title: "Trainerkompetenz aus Konzernerfahrung",
-    summary: "Yellow-Boat Consulting: Transformationsprojekte seit 2011, KI-Trainings seit 2023.",
+    summary: "Gründung Yellow-Boat Consulting: 2011. KI-Trainings für Unternehmen: seit 2023.",
     details: [
-      "Erfahrung aus Konzernen und Mittelstand fließt direkt in die Trainings ein.",
+      "Über 14 Jahre Erfahrung in Transformationsprojekten bei Konzernen und Mittelstand.",
       "Wir kennen die Realität in Organisationen – nicht nur die Theorie.",
       "Wir wissen, welche Hürden zwischen einem guten Prompt und der tatsächlichen Nutzung im Arbeitsalltag liegen."
     ]

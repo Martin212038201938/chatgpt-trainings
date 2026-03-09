@@ -39,7 +39,7 @@ export const ALL_ARTICLES: ArticleData[] = [
     lastUpdated: "09. Mrz. 2026",
     publishDate: "2026-03-09",
     publishTime: "09:00",
-    isDraft: true
+    isDraft: false
   },
   {
     id: "chatgpt-canvas-mode",
