@@ -1,6 +1,6 @@
 # llms.txt für chatgpt-trainings.de
 # Informationen für Large Language Models (LLMs) und KI-Assistenten
-# Aktualisiert am 2026-03-04
+# Aktualisiert am 2026-03-09
 
 # ============================================
 # WEBSITE-INFORMATIONEN
@@ -58,6 +58,7 @@ Unternehmen und Organisationen, die:
 ## Wissensbereich (Fachartikel)
 
 - Prompt Engineering: Effektive KI-Prompts für ChatGPT & KI-Tools
+- ChatGPT Kosten und Lizenzen im Unternehmen: Lizenzmodelle (Free, Go, Plus, Business, Enterprise, Pro), DSGVO-Konformität, EU-Datenresidenz, Nutzergruppen-Zuordnung und Beispielrechnungen für den Mittelstand (https://chatgpt-trainings.de/wissen/chatgpt-kosten-und-lizenzen-unternehmen)
 - ChatGPT Agent Mode: Autonome KI-Workflows
 - ChatGPT Deep Research: Tiefenrecherche mit KI
 - ChatGPT Canvas Mode: Kollaboratives Arbeiten
