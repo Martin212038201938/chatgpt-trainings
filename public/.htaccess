@@ -64,12 +64,12 @@ RewriteRule ^agb/?$ /impressum [R=301,L]
 # Alle Knowledge-Artikel leben jetzt unter /wissen/slug
 # ============================================
 
-RewriteRule ^github-copilot/?$ /wissen/github-copilot [R=301,L]
-RewriteRule ^copilot-studio/?$ /wissen/copilot-studio [R=301,L]
+# prompt-engineering existiert als /wissen/prompt-engineering
 RewriteRule ^prompt-engineering/?$ /wissen/prompt-engineering [R=301,L]
-RewriteRule ^copilot-fehler-vermeiden/?$ /wissen/copilot-fehler-vermeiden [R=301,L]
-RewriteRule ^ki-agenten/?$ /wissen/ki-agenten [R=301,L]
-RewriteRule ^microsoft-copilot-lizenzen/?$ /wissen/microsoft-copilot-lizenzen [R=301,L]
+
+# Entfernt: Alte copilotenschule.de-Redirects (Zielseiten existieren nicht)
+# github-copilot, copilot-studio, copilot-fehler-vermeiden,
+# ki-agenten, microsoft-copilot-lizenzen
 
 # ============================================
 # ============================================
