@@ -30,6 +30,18 @@ export interface ArticleData {
 // Alle Artikel - sortiert nach Veröffentlichungsdatum (neueste zuerst)
 export const ALL_ARTICLES: ArticleData[] = [
   {
+    id: "chatgpt-gpt-5-4-bueroalltag",
+    title: "GPT-5.4 und der Büroalltag: Was sich für Anwender wirklich verändert hat",
+    description: "Was GPT-5.4 für den Büroalltag verändert: Computer Use, Excel-Integration, weniger Fehler – und warum kompetente Anwender jetzt wichtiger sind als je zuvor.",
+    link: "/wissen/chatgpt-gpt-5-4-bueroalltag",
+    badge: "ChatGPT Praxis",
+    icon: "\uD83D\uDE80",
+    lastUpdated: "14. Mrz. 2026",
+    publishDate: "2026-03-14",
+    publishTime: "09:00",
+    isDraft: false
+  },
+  {
     id: "chatgpt-im-unternehmen-dsgvo-konform",
     title: "ChatGPT im Unternehmen DSGVO-konform nutzen: Was wirklich nötig ist",
     description: "Wie Unternehmen ChatGPT datenschutzkonform einsetzen: Lizenzwahl, Auftragsverarbeitung, Schatten-KI eindämmen und EU-Datenresidenz nutzen. Ein Praxisleitfaden.",

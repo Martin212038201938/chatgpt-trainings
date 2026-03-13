@@ -30,6 +30,7 @@ import PromptBibliothekenQuatsch from "./pages/PromptBibliothekenQuatsch";
 import KiHalluzinationenVermeiden from "./pages/KiHalluzinationenVermeiden";
 import ChatgptKostenUndLizenzen from "./pages/ChatgptKostenUndLizenzen";
 import ChatgptDsgvoKonform from "./pages/ChatgptDsgvoKonform";
+import ChatgptGpt54Bueroalltag from "./pages/ChatgptGpt54Bueroalltag";
 
 const queryClient = new QueryClient();
 
@@ -64,6 +65,7 @@ const App = () => (
           <Route path="/wissen/ki-halluzinationen-vermeiden" element={<KiHalluzinationenVermeiden />} />
           <Route path="/wissen/chatgpt-kosten-und-lizenzen-unternehmen" element={<ChatgptKostenUndLizenzen />} />
           <Route path="/wissen/chatgpt-im-unternehmen-dsgvo-konform" element={<ChatgptDsgvoKonform />} />
+          <Route path="/wissen/chatgpt-gpt-5-4-bueroalltag" element={<ChatgptGpt54Bueroalltag />} />
           <Route path="/admin" element={<Admin />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

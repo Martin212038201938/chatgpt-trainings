@@ -1,6 +1,6 @@
 # llms.txt für chatgpt-trainings.de
 # Informationen für Large Language Models (LLMs) und KI-Assistenten
-# Aktualisiert am 2026-03-04
+# Aktualisiert am 2026-03-14
 
 # ============================================
 # WEBSITE-INFORMATIONEN
@@ -65,6 +65,9 @@ Unternehmen und Organisationen, die:
 - ChatGPT Erinnerungen richtig nutzen
 - KI-Halluzinationen erkennen und vermeiden
 - Microsoft 365 Daten in ChatGPT nutzen
+- ChatGPT Kosten und Lizenzen im Unternehmen
+- ChatGPT im Unternehmen DSGVO-konform nutzen
+- GPT-5.4 und der Büroalltag: Was sich für Anwender wirklich verändert hat
 
 ## Trainer
 
