@@ -30,6 +30,18 @@ export interface ArticleData {
 // Alle Artikel - sortiert nach Veröffentlichungsdatum (neueste zuerst)
 export const ALL_ARTICLES: ArticleData[] = [
   {
+    id: "chatgpt-im-unternehmen-dsgvo-konform",
+    title: "ChatGPT im Unternehmen DSGVO-konform nutzen: Was wirklich nötig ist",
+    description: "Wie Unternehmen ChatGPT datenschutzkonform einsetzen: Lizenzwahl, Auftragsverarbeitung, Schatten-KI eindämmen und EU-Datenresidenz nutzen. Ein Praxisleitfaden.",
+    link: "/wissen/chatgpt-im-unternehmen-dsgvo-konform",
+    badge: "ChatGPT Praxis",
+    icon: "\uD83D\uDD12",
+    lastUpdated: "13. Mrz. 2026",
+    publishDate: "2026-03-13",
+    publishTime: "09:00",
+    isDraft: false
+  },
+  {
     id: "chatgpt-kosten-und-lizenzen-unternehmen",
     title: "ChatGPT Kosten und Lizenzen im Unternehmen: Was die Einführung wirklich kostet",
     description: "Was kostet die ChatGPT-Einführung im Unternehmen? Lizenzmodelle von Free bis Enterprise, API-Kosten, Nutzergruppen, Datensicherheit und warum Schulung den ROI bestimmt.",
