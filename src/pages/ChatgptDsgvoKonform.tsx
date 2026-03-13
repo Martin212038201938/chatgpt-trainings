@@ -86,6 +86,7 @@ const ChatgptDsgvoKonform = () => {
   const tableOfContents = [
     { id: "das-eigentliche-problem", title: "Das eigentliche Problem heißt nicht DSGVO", level: 2 },
     { id: "lizenzen-und-ihre-grenzen", title: "Welche Lizenz was darf – und was nicht", level: 2 },
+    { id: "copilot-chat-alternative", title: "Die oft übersehene Alternative: Microsoft 365 Copilot Chat", level: 2 },
     { id: "avv-und-eu-residenz", title: "AVV, EU-Datenresidenz und was das praktisch bedeutet", level: 2 },
     { id: "schatten-ki", title: "Schatten-KI: Das unsichtbare Compliance-Risiko", level: 2 },
     { id: "ki-richtlinie", title: "Eine KI-Richtlinie, die funktioniert", level: 2 },
@@ -173,6 +174,17 @@ const ChatgptDsgvoKonform = () => {
             </figcaption>
           </figure>
 
+          <p>
+            Ich sage es offen: Die 42 Prozent aus der Bitkom-Studie halte ich für massiv untertrieben. Wir haben
+            das Jahr 2026. Nach hunderten Gesprächen in meinen Trainings und Beratungen bin ich überzeugt, dass
+            in praktisch jedem Unternehmen ab zehn Mitarbeitenden einzelne Leute im Team sitzen, die ChatGPT
+            oder ein vergleichbares Tool nutzen – ob offiziell erlaubt oder nicht. Diese Technologie ist schlicht
+            zu verlockend, als dass sich technikaffine Mitarbeitende von einer fehlenden Nutzungsregelung davon
+            abhalten ließen, sich im Arbeitsalltag helfen zu lassen. Wer glaubt, dass das eigene Unternehmen
+            die Ausnahme ist, macht sich etwas vor. Der Grad an Naivität seitens mancher Verantwortlicher wäre
+            wirklich niedlich, wenn das Thema nicht so ernst wäre.
+          </p>
+
           <h2 id="lizenzen-und-ihre-grenzen">Welche Lizenz was darf – und was nicht</h2>
 
           <p>
@@ -201,6 +213,34 @@ const ChatgptDsgvoKonform = () => {
             Das bedeutet, dass nicht nur die gespeicherten Daten, sondern auch die GPU-Verarbeitung
             auf europäischen Servern stattfindet. Für Unternehmen in regulierten Branchen kann das den
             entscheidenden Unterschied machen.
+          </p>
+
+          <h2 id="copilot-chat-alternative">Die oft übersehene Alternative: Microsoft 365 Copilot Chat</h2>
+
+          <p>
+            Was in der Debatte um ChatGPT-Lizenzen erstaunlich oft untergeht: Viele Unternehmen haben
+            die datenschutzkonforme KI-Lösung bereits im Haus, ohne es zu wissen. Wer Microsoft-365-Lizenzen
+            für seine Mitarbeitenden besitzt, kann den kostenlosen Copilot Chat ausrollen – ohne zusätzliche
+            Kosten, ohne separaten AVV mit einem US-Startup, und ohne die Debatte über Datenresidenz. Copilot
+            Chat läuft in der privaten Cloud des Unternehmens, innerhalb der bestehenden Microsoft-Compliance-Grenze.
+            Die Daten bleiben dort, wo sie hingehören: im Tenant des Unternehmens.
+          </p>
+
+          <p>
+            Damit ist das Datenschutzproblem allerdings nur zur Hälfte gelöst. Denn auch ein technisch
+            sicheres Tool schützt nicht vor falscher Bedienung. Mitarbeitende müssen verstehen, wie sie
+            Prompts formulieren, welche Daten sie in welchem Kontext verwenden dürfen und wo die Grenzen
+            des Systems liegen – nicht weil die Technik unsicher wäre, sondern weil Compliance-Verstöße
+            auch innerhalb einer geschützten Umgebung passieren können, etwa wenn KI-generierte Inhalte
+            ungeprüft an Kunden gehen oder automatisierte Entscheidungen ohne menschliche Aufsicht getroffen
+            werden. Wer das Potenzial von Copilot Chat tatsächlich heben will, kommt um eine fundierte
+            Einweisung in die neuen Arbeitsweisen nicht herum. Für Unternehmen, die Microsoft 365 Copilot
+            strategisch einführen möchten – von der Lizenzberatung über Governance bis zum Teamtraining –
+            ist die{' '}
+            <a href="https://copilotenschule.de" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+              Copilotenschule
+            </a>{' '}
+            die spezialisierte Anlaufstelle im deutschsprachigen Raum.
           </p>
 
           <h2 id="avv-und-eu-residenz">AVV, EU-Datenresidenz und was das praktisch bedeutet</h2>
