@@ -138,7 +138,7 @@ const ChatgptDsgvoKonform = () => {
             wird sie größer.
           </p>
 
-          <h2 id="das-eigentliche-problem">Das eigentliche Problem heißt nicht DSGVO</h2>
+          <h2 id="das-eigentliche-problem" className="!mt-6">Das eigentliche Problem heißt nicht DSGVO</h2>
 
           <p>
             Wer sich mit ChatGPT und Datenschutz beschäftigt, stößt schnell auf eine Flut an Rechtstexten, Checklisten
@@ -185,7 +185,7 @@ const ChatgptDsgvoKonform = () => {
             wirklich niedlich, wenn das Thema nicht so ernst wäre.
           </p>
 
-          <h2 id="lizenzen-und-ihre-grenzen">Welche Lizenz was darf – und was nicht</h2>
+          <h2 id="lizenzen-und-ihre-grenzen" className="!mt-6">Welche Lizenz was darf – und was nicht</h2>
 
           <p>
             OpenAI bietet mittlerweile mehrere Lizenzmodelle an, die sich in ihren Datenschutz-Eigenschaften
@@ -215,7 +215,17 @@ const ChatgptDsgvoKonform = () => {
             entscheidenden Unterschied machen.
           </p>
 
-          <h2 id="copilot-chat-alternative">Die oft übersehene Alternative: Microsoft 365 Copilot Chat</h2>
+          <p>
+            Allerdings ist Enterprise kein Angebot für jedermann. OpenAI veröffentlicht keine festen Preise –
+            die Konditionen werden individuell verhandelt. Nach allem, was aus dem Markt bekannt ist, liegt
+            der Preis bei rund 60 US-Dollar pro Nutzer und Monat, bei einer Mindestabnahme von etwa
+            150 Lizenzen und einem verbindlichen Jahresvertrag. Das ergibt ein jährliches Mindestinvestment
+            von über 100.000 Dollar, bevor überhaupt ein einziger Prompt geschrieben wurde. Für Konzerne
+            ist das überschaubar, für den Mittelstand oft eine Hürde, die Team – oder eben die Microsoft-Alternative –
+            zur pragmatischeren Wahl macht.
+          </p>
+
+          <h2 id="copilot-chat-alternative" className="!mt-6">Die oft übersehene Alternative: Microsoft 365 Copilot Chat</h2>
 
           <p>
             Was in der Debatte um ChatGPT-Lizenzen erstaunlich oft untergeht: Viele Unternehmen haben
@@ -243,7 +253,7 @@ const ChatgptDsgvoKonform = () => {
             die spezialisierte Anlaufstelle im deutschsprachigen Raum.
           </p>
 
-          <h2 id="avv-und-eu-residenz">AVV, EU-Datenresidenz und was das praktisch bedeutet</h2>
+          <h2 id="avv-und-eu-residenz" className="!mt-6">AVV, EU-Datenresidenz und was das praktisch bedeutet</h2>
 
           <p>
             Den Auftragsverarbeitungsvertrag mit OpenAI abzuschließen ist technisch unkompliziert – er ist
@@ -272,7 +282,7 @@ const ChatgptDsgvoKonform = () => {
             Das ist kein Dealbreaker, sollte aber in der Datenschutz-Folgenabschätzung stehen.
           </p>
 
-          <h2 id="schatten-ki">Schatten-KI: Das unsichtbare Compliance-Risiko</h2>
+          <h2 id="schatten-ki" className="!mt-6">Schatten-KI: Das unsichtbare Compliance-Risiko</h2>
 
           <p>
             Wenn ich Unternehmen frage, was ihr größtes Datenschutzrisiko im Zusammenhang mit KI ist,
@@ -306,7 +316,7 @@ const ChatgptDsgvoKonform = () => {
             aufzustellen.
           </p>
 
-          <h2 id="ki-richtlinie">Eine KI-Richtlinie, die funktioniert</h2>
+          <h2 id="ki-richtlinie" className="!mt-6">Eine KI-Richtlinie, die funktioniert</h2>
 
           <p>
             Viele Unternehmen reagieren auf die Datenschutzfrage, indem sie eine KI-Richtlinie erstellen.
@@ -333,12 +343,12 @@ const ChatgptDsgvoKonform = () => {
             die Voraussetzung dafür, dass produktive Nutzung überhaupt erlaubt werden kann.
           </p>
 
-          <h2 id="ai-act">Der EU AI Act: Was ab August 2026 zusätzlich gilt</h2>
+          <h2 id="ai-act" className="!mt-6">Der EU AI Act: Was ab August 2026 zusätzlich gilt</h2>
 
           <p>
             Als wäre die DSGVO nicht komplex genug, kommt mit dem EU AI Act ein zweites Regelwerk hinzu,
-            das seit August 2025 schrittweise in Kraft tritt. Für Unternehmen, die ChatGPT nutzen, sind
-            vor allem zwei Punkte relevant.
+            dessen erste Pflichten bereits seit Februar 2025 gelten und das bis August 2026 vollständig
+            durchsetzbar wird. Für Unternehmen, die ChatGPT nutzen, sind vor allem zwei Punkte relevant.
           </p>
 
           <p>
@@ -361,7 +371,7 @@ const ChatgptDsgvoKonform = () => {
             dass die Menschen, die mit den Werkzeugen arbeiten, wissen, was sie tun.
           </p>
 
-          <h2 id="was-konkret-tun">Was Unternehmen jetzt konkret tun sollten</h2>
+          <h2 id="was-konkret-tun" className="!mt-6">Was Unternehmen jetzt konkret tun sollten</h2>
 
           <p>
             Nach all den Paragraphen und Pflichten stellt sich die Frage: Wo fängt man an? Aus meiner
@@ -401,7 +411,7 @@ const ChatgptDsgvoKonform = () => {
           </p>
 
           {/* FAQ Section */}
-          <h2 id="faqs" className="text-2xl font-bold mt-12 mb-6">Häufig gestellte Fragen</h2>
+          <h2 id="faqs" className="text-2xl font-bold !mt-6 mb-6">Häufig gestellte Fragen</h2>
 
           <div className="space-y-6">
             {FAQS.map((faq, index) => (
