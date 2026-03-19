@@ -16,6 +16,14 @@ RewriteCond %{HTTPS} off
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L,NE]
 
 # ============================================
+# WWW → NON-WWW REDIRECT (301)
+# Verhindert Duplicate Content & Crawl-Budget-Verschwendung
+# ============================================
+
+RewriteCond %{HTTP_HOST} ^www\.chatgpt-trainings\.de$ [NC]
+RewriteRule ^ https://chatgpt-trainings.de%{REQUEST_URI} [R=301,L,NE]
+
+# ============================================
 # SEO & CRAWLER DATEIEN - HÖCHSTE PRIORITÄT
 # Diese Dateien DIREKT ausliefern (keine Rewrites!)
 # ============================================
