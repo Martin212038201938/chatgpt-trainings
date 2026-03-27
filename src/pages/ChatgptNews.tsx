@@ -143,7 +143,7 @@ const TIMELINE: TimelineEntry[] = [
     date: "Feb. 2025",
     sortDate: "2025-02-01",
     title: "Erste Pflicht-Trainings nach EU AI Act",
-    description: "Yellow-Boat bietet als einer der ersten Anbieter zertifizierte Pflicht-Trainings gemäß EU AI Act an – immer mit dem Anspruch, Mitarbeitende tatsächlich zu befähigen, die ersten Schritte mit KI-gestützter Arbeit zu gehen.",
+    description: "Yellow-Boat bietet als einer der ersten Anbieter Pflicht-Trainings gemäß EU AI Act an – immer mit dem Anspruch, Mitarbeitende tatsächlich zu befähigen, die ersten Schritte mit KI-gestützter Arbeit zu gehen.",
     category: "yellowboat"
   },
   {

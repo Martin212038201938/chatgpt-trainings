@@ -97,7 +97,7 @@ const moduleCategories: ModuleCategory[] = [
       { id: "openai-security", title: "OpenAI Sicherheitsarchitektur: Datenflüsse, Verschlüsselung, Audit-Logs, Privacy", levels: ["advanced"], category: "compliance" },
       { id: "sensitive-data", title: "Umgang mit sensiblen Daten: Was darf rein, was nicht – Klassifizierung, Policies", levels: ["advanced"], category: "compliance" },
       { id: "legal-ip", title: "Rechtliche Aspekte: Urheberrecht, Haftungsfragen, Vertragsgestaltung, IP-Rechte", levels: ["essentials", "advanced"], category: "compliance" },
-      { id: "eu-ai-certificate", title: "Schulungszertifikat gemäß EU AI Act für Audits und Behörden", levels: ["essentials", "advanced"], category: "compliance" },
+
     ]
   },
   {

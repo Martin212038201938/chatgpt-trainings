@@ -597,11 +597,6 @@ export const generateTrainingSchemas = (modules: TrainingModule[], faqs?: FAQ[])
           "KI Governance und Compliance",
           "ChatGPT Adoption und Change Management"
         ],
-        "hasCredential": {
-          "@type": "EducationalOccupationalCredential",
-          "name": "ChatGPT Training Zertifikat",
-          "credentialCategory": "Professional Development"
-        }
       },
       // All Courses
       ...courses,

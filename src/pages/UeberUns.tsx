@@ -90,7 +90,6 @@ const UeberUns = () => {
           "@id": "https://yellow-boat.com/#organization"
         },
         "areaServed": "DACH",
-        "educationalCredentialAwarded": "ChatGPT Zertifikat",
         "teaches": [
           "ChatGPT für Büroarbeit",
           "ChatGPT für Entwickler",
@@ -367,7 +366,7 @@ const UeberUns = () => {
                 <div className="font-bold text-lg text-yellow-600 mb-1">Februar 2025</div>
                 <h3 className="text-xl font-semibold mb-2">Erste Pflicht-Trainings nach EU AI Act</h3>
                 <p className="text-muted-foreground">
-                  Yellow-Boat bietet als einer der ersten Anbieter zertifizierte Pflicht-Trainings gemäß EU AI Act an – immer mit dem Anspruch, Mitarbeitende tatsächlich zu befähigen, die ersten Schritte mit KI-gestützter Arbeit zu gehen.
+                  Yellow-Boat bietet als einer der ersten Anbieter Pflicht-Trainings gemäß EU AI Act an – immer mit dem Anspruch, Mitarbeitende tatsächlich zu befähigen, die ersten Schritte mit KI-gestützter Arbeit zu gehen.
                 </p>
               </div>
 

@@ -4,7 +4,6 @@ import {
   Radar,
   Headset,
   Gauge,
-  Award,
   Medal,
   ChevronDown
 } from "lucide-react";
@@ -52,16 +51,6 @@ const sections = [
       "Keine theoretischen Slides, sondern Live-Arbeit an echten Aufgaben aus dem Berufsalltag.",
       "Was im Training funktioniert, funktioniert auch am Schreibtisch – weil es dort entwickelt wurde.",
       "Jeder Teilnehmer nimmt konkrete Ergebnisse mit, nicht nur Wissen."
-    ]
-  },
-  {
-    icon: Award,
-    title: "Zertifikat auf Wunsch",
-    summary: "Dokumentierter Kompetenznachweis nach Abschluss des Trainings.",
-    details: [
-      "Teilnehmer erhalten auf Wunsch ein Zertifikat als Kompetenznachweis.",
-      "Aufeinander aufbauende Stufen (Beginner bis Expert) ermöglichen einen strukturierten Lernweg.",
-      "Belastbarer Nachweis für Mitarbeiter, Planungssicherheit für die Organisation."
     ]
   },
   {
