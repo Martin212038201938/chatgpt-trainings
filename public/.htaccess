@@ -67,6 +67,13 @@ RewriteRule ^(.+)/$ /$1 [R=301,L]
 RewriteRule ^betreute-it-leistungen/?$ /unsere-angebote [R=301,L]
 RewriteRule ^agb/?$ /impressum [R=301,L]
 
+# URLs die Google fälschlicherweise crawlt (Canonical-Bug Fix 2026-03-30)
+# Ohne 301 würden diese den SPA-Fallback bekommen → Homepage-Duplikat
+RewriteRule ^blog/?$ /wissen [R=301,L]
+RewriteRule ^schulungen/?$ /unsere-angebote [R=301,L]
+RewriteRule ^inhouse-schulungen/?$ /unsere-angebote [R=301,L]
+RewriteRule ^kontakt/?$ /ueber-uns [R=301,L]
+
 # ============================================
 # 301 REDIRECTS: Wissensseiten-Konsolidierung unter /wissen/
 # Alle Knowledge-Artikel leben jetzt unter /wissen/slug
@@ -98,10 +105,17 @@ RewriteRule ^(.+)$ $1/index.html [L]
 # index.html direkt ausliefern
 RewriteRule ^index\.html$ - [L]
 
-# Nur wenn Datei/Verzeichnis NICHT existiert → SPA
+# _fallback.html direkt ausliefern (falls direkt angefragt)
+RewriteRule ^_fallback\.html$ - [L]
+
+# Nur wenn Datei/Verzeichnis NICHT existiert → SPA Fallback
+# WICHTIG: _fallback.html statt index.html verwenden!
+# index.html ist nach react-snap die pre-gerenderte Homepage
+# (enthält Homepage-Canonical → Google-Duplikat-Problem).
+# _fallback.html ist das saubere Template mit noindex-Tag.
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /index.html [L]
+RewriteRule . /_fallback.html [L]
 
 # ============================================
 # MIME-TYPEN
