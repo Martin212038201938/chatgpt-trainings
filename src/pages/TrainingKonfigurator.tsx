@@ -32,6 +32,19 @@ interface TrainingModule {
 // Alle auswählbaren Trainingsmodule – nach Kompetenzstufe kategorisiert
 const moduleCategories: ModuleCategory[] = [
   {
+    id: "chatgpt-ui-settings",
+    title: "ChatGPT einrichten & Oberfläche",
+    description: "Vollständige Einrichtung des ChatGPT-Accounts – Sicherheit, Custom Instructions, Gedächtnis, Projekte und Custom GPTs",
+    modules: [
+      { id: "ui-overview", title: "ChatGPT-Oberfläche & Navigation: alle Hauptbereiche kennen und effizient nutzen", levels: ["essentials"], category: "chatgpt-ui-settings" },
+      { id: "security-settings", title: "Sicherheitseinstellungen: Datenschutz, Datenspeicherung und Modelltraining konfigurieren", levels: ["essentials"], category: "chatgpt-ui-settings" },
+      { id: "custom-instructions", title: "Custom Instructions: ChatGPT dauerhaft auf die eigene Arbeitsweise einstellen", levels: ["essentials"], category: "chatgpt-ui-settings" },
+      { id: "memory-feature", title: "Gedächtnis (Memory): Persistentes Wissen aufbauen, verwalten und gezielt steuern", levels: ["essentials"], category: "chatgpt-ui-settings" },
+      { id: "projects-feature", title: "Projekte: Kontext organisieren, Chats gruppieren, Wissensgrundlagen anlegen", levels: ["essentials"], category: "chatgpt-ui-settings" },
+      { id: "tools-overview", title: "Überblick alle Werkzeuge: Suche, Canvas, Deep Research, Spracheingabe & Co.", levels: ["essentials"], category: "chatgpt-ui-settings" },
+    ]
+  },
+  {
     id: "chatgpt-basics",
     title: "ChatGPT Grundlagen",
     description: "Einstieg in die produktive Nutzung von ChatGPT – Prompt Engineering und KI-Kompetenz",
