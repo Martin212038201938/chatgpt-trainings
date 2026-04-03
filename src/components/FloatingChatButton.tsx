@@ -37,7 +37,7 @@ const FloatingChatButton = () => {
           <X className="w-3.5 h-3.5" />
         </button>
         <p className="font-semibold text-gray-900 mb-0.5 pr-4">Teams Chat</p>
-        <p className="text-gray-500 leading-snug">Kurze Frage? Direkt anschreiben – oft antworten wir noch heute.</p>
+        <p className="text-gray-500 leading-snug">Kurze Frage? Direkt anschreiben – oft antworten wir sofort.</p>
       </div>
 
       {/* Chat-Button */}

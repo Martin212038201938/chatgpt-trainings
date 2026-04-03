@@ -232,7 +232,7 @@ const Contact = () => {
                 <div className="flex-1">
                   <h3 className="font-semibold mb-1">Teams Chat – direkt anschreiben</h3>
                   <p className="text-sm text-white/80 mb-4">
-                    Kurze Frage? Schreiben Sie uns direkt – oft antworten wir noch am gleichen Tag.
+                    Kurze Frage? Schreiben Sie uns direkt – oft antworten wir sofort.
                   </p>
                   <button
                     onClick={() => window.open("https://teams.microsoft.com/l/chat/0/0?users=martin@yellow-boat.com", "_blank", "width=700,height=700,noopener,noreferrer")}
