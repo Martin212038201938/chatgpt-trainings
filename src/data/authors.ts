@@ -46,7 +46,7 @@ export const authors: Record<string, Author> = {
     bio: 'Martin Lang ist Gründer der Yellow-Boat Consulting (2011) und der chatgpt-trainings.de (2025). Er verbindet über ein Jahrzehnt Erfahrung in digitaler Transformation mit tiefem Verständnis für Large Language Models und Prompt Engineering. Als KI-Workflow-Experte entwickelt er systematische Ansätze, mit denen Unternehmen ChatGPT nicht als Spielzeug, sondern als strategisches Arbeitsinstrument einsetzen – von der Prompt-Architektur über Custom GPTs bis zum produktiven Dauerbetrieb.',
     image: '/images/authors/martin-lang.png',
     linkedin: 'https://www.linkedin.com/in/martin-lang-a95b1010',
-    email: 'post@yellow-boat.com',
+    email: 'Info@ChatGPT-Trainings.de',
     sameAs: [
       'https://www.linkedin.com/in/martin-lang-a95b1010',
       'https://www.springest.de/u/martin-lang#bewertungen',

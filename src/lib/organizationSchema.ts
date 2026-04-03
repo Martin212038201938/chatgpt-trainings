@@ -53,7 +53,7 @@ export const founderSchema = {
   "worksFor": {
     "@id": "https://chatgpt-trainings.de/#organization"
   },
-  "email": "mailto:post@yellow-boat.com"
+  "email": "mailto:Info@ChatGPT-Trainings.de"
 };
 
 // Muttergesellschaft: Yellow-Boat Consulting

@@ -63,7 +63,7 @@ const UeberUns = () => {
         "contactPoint": {
           "@type": "ContactPoint",
           "contactType": "customer service",
-          "email": "post@yellow-boat.com",
+          "email": "Info@ChatGPT-Trainings.de",
           "telephone": "+49 221 950 187 74",
           "availableLanguage": ["de", "en"]
         },

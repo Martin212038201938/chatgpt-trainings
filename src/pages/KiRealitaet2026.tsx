@@ -698,7 +698,7 @@ const KiRealitaet2026 = () => {
                         <Linkedin className="w-3 h-3" /> LinkedIn
                       </a>
                     )}
-                    <a href="mailto:martin@yellow-boat.com"
+                    <a href="mailto:Info@ChatGPT-Trainings.de"
                       className="flex items-center gap-1 text-xs text-orange-600 hover:underline">
                       <Mail className="w-3 h-3" /> Kontakt
                     </a>
