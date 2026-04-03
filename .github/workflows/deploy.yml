@@ -54,7 +54,7 @@ jobs:
         run: |
           echo "Starting IndexNow notification..."
           SITEMAP_URL="https://chatgpt-trainings.de/sitemap.xml"
-          INDEXNOW_KEY="695afc50b8ee44729593fd861c4e96e9"
+          INDEXNOW_KEY="02184b6b954d4a158c75668dbf809161"
           sleep 10
           URLS=$(curl -s "$SITEMAP_URL" | grep -oP '(?<=<loc>)[^<]+' | head -100)
           URL_COUNT=$(echo "$URLS" | wc -l)

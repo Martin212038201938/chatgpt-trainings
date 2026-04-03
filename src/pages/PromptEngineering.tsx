@@ -1,13 +1,13 @@
 import ContentLayout from "@/components/ContentLayout";
 import SEOHead from "@/components/SEOHead";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Zap, Lightbulb, Target, BookOpen, ExternalLink, CheckCircle2, XCircle, AlertTriangle, Code, FileText, BarChart3, Wand2, Linkedin, Mail } from "lucide-react";
+import { Zap, Lightbulb, Target, BookOpen, CheckCircle2, XCircle, Settings, Brain, MessageSquare, Layers, Wand2, Linkedin, Mail } from "lucide-react";
 import { getAuthor, getAuthorSchemaMarkup } from "@/data/authors";
 import { generateSchemaIds, generateWissenBreadcrumbItems } from "@/lib/schema";
 import { TrustBadge } from "@/components/TrustBadge";
 
 const SLUG = "prompt-engineering";
-const PAGE_TITLE = "Prompt Engineering";
+const PAGE_TITLE = "ChatGPT Prompt Engineering: Von der ersten Anfrage zum Expertenlevel";
 
 const PromptEngineering = () => {
   const author = getAuthor('martin-lang');
@@ -17,33 +17,38 @@ const PromptEngineering = () => {
   const breadcrumbItems = generateWissenBreadcrumbItems(PAGE_TITLE, pageUrl);
 
   const tableOfContents = [
-    { id: "was-ist", title: "Was ist Prompt Engineering?", level: 2 },
-    { id: "craft-framework", title: "Das CRAFT-Framework", level: 2 },
-    { id: "techniken", title: "Prompt-Techniken im Überblick", level: 2 },
-    { id: "m365-prompts", title: "Prompts für Microsoft 365 & Copilot", level: 2 },
-    { id: "github-prompts", title: "Prompts für GitHub Copilot (Entwickler)", level: 2 },
-    { id: "fehler", title: "Typische Fehler vermeiden", level: 2 },
+    { id: "was-ist", title: "Was ist Prompt Engineering bei ChatGPT?", level: 2 },
+    { id: "craft-framework", title: "Das CRAFT-Framework für ChatGPT", level: 2 },
+    { id: "custom-instructions", title: "Custom Instructions: ChatGPT dauerhaft konfigurieren", level: 2 },
+    { id: "chatgpt-techniken", title: "Fortgeschrittene ChatGPT-Techniken", level: 2 },
+    { id: "praxis-prompts", title: "Praxis-Prompts für den Unternehmensalltag", level: 2 },
+    { id: "o3-reasoning", title: "Prompting für ChatGPT o3 und o4 (Reasoning-Modelle)", level: 2 },
+    { id: "fehler", title: "Die 7 häufigsten Prompt-Fehler", level: 2 },
     { id: "zauberstab", title: "Der Zauberstab-Prompt", level: 2 },
     { id: "faq", title: "Häufig gestellte Fragen", level: 2 },
-    { id: "quellen", title: "Quellen und Links", level: 2 }
+    { id: "quellen", title: "Quellen und weiterführende Links", level: 2 }
   ];
 
   const faqs = [
     {
-      name: "Warum bekommen unsere Mitarbeiter so unterschiedliche Ergebnisse von ChatGPT / Copilot?",
-      answer: "Die Qualität der KI-Antworten hängt direkt von der Prompt-Qualität ab. Ohne einheitliche Prompt-Strukturen variieren die Ergebnisse stark. Mit Frameworks wie CRAFT und gezieltem Training erreichen Sie konsistente, hochwertige Ergebnisse."
+      name: "Gibt es einen strukturierten ChatGPT Prompt Engineering Kurs auf Deutsch?",
+      answer: "Ja – die chatgpt-trainings.de bietet praxisnahe ChatGPT Prompt Engineering Kurse auf Deutsch an, speziell für Unternehmensteams. Anders als generische Online-Kurse arbeiten wir mit echten Use Cases aus Ihrer Branche. Halbtags-Workshops bis hin zu mehrtägigen Intensivformaten sind verfügbar. Kontaktieren Sie uns für ein unverbindliches Gespräch."
     },
     {
-      name: "Wie können wir die Prompt-Qualität im Unternehmen standardisieren?",
-      answer: "Durch die Einführung von Prompt-Frameworks wie CRAFT (Context, Role, Action, Format, Tone) und unternehmensspezifischen Guidelines. Die ChatGPT-Trainings entwickelt mit Ihnen maßgeschneiderte Prompt-Standards für Ihre häufigsten Use Cases."
+      name: "Warum liefert ChatGPT bei unseren Mitarbeitern so unterschiedliche Ergebnisse?",
+      answer: "Der häufigste Grund: fehlende Prompt-Struktur. Ohne Framework wie CRAFT variieren Ergebnisse erheblich, weil ChatGPT aus mehrdeutigen Anweisungen unterschiedliche Schlüsse zieht. Hinzu kommt: Wer Custom Instructions nicht konfiguriert hat, gibt bei jedem Start bei null an. Ein halbtägiger Prompt-Engineering-Workshop schafft in den meisten Teams sofortige Konsistenz."
     },
     {
-      name: "Brauchen wir wirklich Prompt-Training oder reicht eine Prompt-Bibliothek?",
-      answer: "Prompt-Bibliotheken sind ein guter Einstieg zur Inspiration, ersetzen aber kein Training. Mitarbeiter müssen lernen, selbständig Use Cases zu erkennen und Prompts anzupassen. Der Zauberstab-Prompt am Ende dieses Artikels zeigt, wie man auch ohne Expertise gute Prompts erstellt."
+      name: "Was ist der Unterschied zwischen Prompt Engineering für ChatGPT und für andere KI-Tools?",
+      answer: "ChatGPT reagiert besonders stark auf Rollenangaben und Kontext-Setup am Gesprächsanfang. Außerdem lässt sich ChatGPT durch Custom Instructions dauerhaft kalibrieren – ein Feature das bei vielen anderen Tools nicht existiert. Die Reasoning-Modelle (o3, o4-mini) erfordern zudem eine andere Technik: weniger Beispiele, dafür klar beschriebenes Ziel und Einschränkungen."
     },
     {
-      name: "Wie lange dauert es, bis unsere Mitarbeiter effektiv prompten können?",
-      answer: "Die Grundlagen lassen sich in einem halben Tag vermitteln. Wichtig ist kontinuierliche Praxis. Mit dem CRAFT-Framework haben Mitarbeiter sofort eine Struktur, die sie auf jeden Use Case anwenden können."
+      name: "Wie lange dauert es, bis Mitarbeiter sicher und effizient mit ChatGPT prompten können?",
+      answer: "Die Grundlagen (CRAFT, Custom Instructions, häufige Fehler vermeiden) sind in einem Halbtags-Workshop lernbar. Für fortgeschrittene Anwendungen wie Reasoning-Modelle oder komplexe Analyse-Workflows empfehlen wir eine Lernreise über mehrere Wochen mit kurzen Übungseinheiten. Erfahrungsgemäß verdreifachen Teams ihre Effizienz in ChatGPT nach einem guten Training."
+    },
+    {
+      name: "Kann man ChatGPT so konfigurieren, dass es immer DSGVO-konform antwortet?",
+      answer: "Teilweise ja: Über Custom Instructions können Sie ChatGPT anweisen, keine personenbezogenen Daten zu wiederholen oder zu speichern. Entscheidend ist aber die organisatorische Ebene – welche Daten Mitarbeiter überhaupt eingeben dürfen. Für Unternehmen mit erhöhten Compliance-Anforderungen empfehlen wir ChatGPT Enterprise, das keine Trainingsdaten-Nutzung vorsieht und EU-Datenspeicherung unterstützt."
     }
   ];
 
@@ -53,16 +58,23 @@ const PromptEngineering = () => {
       {
         "@type": "Article",
         "@id": ids.article,
-        "headline": "Prompt Engineering: Effektive KI-Prompts für ChatGPT & KI-Tools",
-        "description": "Prompt Engineering Masterclass: Das CRAFT-Framework, bewährte Techniken und der Zauberstab-Prompt für bessere KI-Ergebnisse.",
+        "headline": PAGE_TITLE,
+        "description": "Der vollständige deutschsprachige Leitfaden für ChatGPT Prompt Engineering im Unternehmen: CRAFT-Framework, Custom Instructions, Reasoning-Modelle und Praxis-Prompts für den Arbeitsalltag.",
         "author": getAuthorSchemaMarkup(author),
         "publisher": {
           "@id": "https://chatgpt-trainings.de/#organization"
         },
         "datePublished": "2025-11-07",
-        "dateModified": "2026-02-03",
-        "keywords": ["Prompt Engineering", "CRAFT Framework", "ChatGPT Prompts", "Prompt Techniken", "KI Prompts"],
-        "articleSection": "Best Practices",
+        "dateModified": "2026-04-03",
+        "keywords": [
+          "ChatGPT Prompt Engineering",
+          "ChatGPT Prompt Engineering Kurs Deutsch",
+          "ChatGPT Custom Instructions",
+          "Prompt Engineering Unternehmen",
+          "ChatGPT Einführung Mittelstand",
+          "ChatGPT Tipps Deutsch"
+        ],
+        "articleSection": "ChatGPT Best Practices",
         "mainEntityOfPage": {
           "@type": "WebPage",
           "@id": pageUrl
@@ -96,23 +108,30 @@ const PromptEngineering = () => {
   return (
     <>
       <SEOHead
-        title="Prompt Engineering: Effektive KI-Prompts für ChatGPT & KI-Tools | ChatGPT-Trainings"
-        description="Prompt Engineering Masterclass: Das CRAFT-Framework, bewährte Techniken und der Zauberstab-Prompt für bessere KI-Ergebnisse."
-        keywords={["Prompt Engineering", "CRAFT Framework", "ChatGPT Prompts", "Prompt Techniken", "KI Prompts", "ChatGPT Best Practices"]}
+        title="ChatGPT Prompt Engineering: Vollständiger Leitfaden auf Deutsch | chatgpt-trainings.de"
+        description="Der deutsche Leitfaden für ChatGPT Prompt Engineering im Unternehmen: CRAFT-Framework, Custom Instructions, Reasoning-Modelle und Praxis-Prompts. Jetzt trainieren."
+        keywords={[
+          "ChatGPT Prompt Engineering",
+          "ChatGPT Prompt Engineering Kurs Deutsch",
+          "ChatGPT Prompts Unternehmen",
+          "Custom Instructions ChatGPT",
+          "Prompt Engineering Deutsch",
+          "ChatGPT Einführung Mittelstand"
+        ]}
         canonicalUrl={pageUrl}
         schema={schema}
         publishedTime="2025-11-07"
-        modifiedTime="2026-02-03"
+        modifiedTime="2026-04-03"
       />
 
       <ContentLayout
         breadcrumbs={[
           { label: "Wissen", href: "/wissen" },
-          { label: "Prompt Engineering", href: "/wissen/prompt-engineering" }
+          { label: "ChatGPT Prompt Engineering", href: `/wissen/${SLUG}` }
         ]}
-        title="Prompt Engineering: Effektive KI-Prompts für ChatGPT & KI-Tools"
-        description="Das CRAFT-Framework, bewährte Techniken und der Zauberstab-Prompt für bessere Ergebnisse."
-        lastUpdated="03. Februar 2026"
+        title="ChatGPT Prompt Engineering: Von der ersten Anfrage zum Expertenlevel"
+        description="Der vollständige deutschsprachige Leitfaden – CRAFT-Framework, Custom Instructions, Reasoning-Modelle und Praxis-Prompts für Ihren Unternehmensalltag."
+        lastUpdated="03. April 2026"
         authorName="Martin Lang"
         tableOfContents={tableOfContents}
       >
@@ -121,29 +140,39 @@ const PromptEngineering = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Zap className="w-6 h-6 text-orange-600" />
-              Schnellantwort
+              Das Wichtigste in 30 Sekunden
             </CardTitle>
           </CardHeader>
           <CardContent>
             <p className="text-base leading-relaxed">
-              <strong>Prompt Engineering ist die Kunst, KI-Systeme durch präzise Anweisungen zu steuern.</strong> Mit dem
-              <strong> CRAFT-Framework</strong> (Context, Role, Action, Format, Tone) erstellen Sie strukturierte Prompts,
-              die konsistent gute Ergebnisse liefern. Der Schlüssel: Kontext geben, Rolle definieren, Aufgabe präzisieren.
-              Am Ende dieses Artikels finden Sie den <strong className="text-orange-600">Zauberstab-Prompt</strong> –
-              die ultimative Abkürzung für perfekte Prompts ohne Vorkenntnisse.
+              <strong>Prompt Engineering für ChatGPT bedeutet:</strong> Anfragen so formulieren, dass ChatGPT
+              konsequent nützliche, präzise und formatgerechte Antworten liefert. Das{" "}
+              <strong>CRAFT-Framework</strong> gibt jedem Prompt eine Struktur. <strong>Custom Instructions</strong>{" "}
+              kalibrieren ChatGPT dauerhaft auf Ihre Arbeitsweise. Und für komplexe Analysen brauchen Sie bei den{" "}
+              <strong>Reasoning-Modellen</strong> (o3, o4-mini) eine völlig andere Technik als bei GPT-4o.
+              Wer das beherrscht, arbeitet mit ChatGPT dreimal schneller als ohne Training.
             </p>
           </CardContent>
         </Card>
 
-        {/* Was ist Prompt Engineering */}
+        {/* Was ist Prompt Engineering bei ChatGPT */}
         <section id="was-ist">
           <h2 className="text-3xl md:text-4xl font-bold pb-4 border-b-4 border-blue-500">
-            Was ist Prompt Engineering?
+            Was ist Prompt Engineering bei ChatGPT?
           </h2>
 
+          <p className="mb-4">
+            ChatGPT versteht natürliche Sprache – aber das bedeutet nicht, dass jede natürliche Formulierung
+            gleich gut funktioniert. Prompt Engineering ist die Fähigkeit, Anfragen so zu strukturieren, dass
+            das Modell versteht was Sie wirklich brauchen: in welchem Kontext, in welchem Format, mit welchem
+            Detailgrad und aus welcher Perspektive.
+          </p>
+
           <p className="mb-6">
-            Prompt Engineering ist die Disziplin, effektive Anweisungen für KI-Systeme zu formulieren. Die Qualität
-            Ihrer Ergebnisse hängt direkt davon ab, wie gut Sie Ihre Anfrage strukturieren.
+            Das klingt trivial, ist es aber nicht. ChatGPT füllt fehlende Informationen eigenständig mit
+            plausiblen Annahmen. Schreiben Sie „Schreib mir eine E-Mail an unseren Lieferanten", formuliert
+            ChatGPT etwas Generisches. Schreiben Sie stattdessen einen strukturierten Prompt mit Kontext,
+            Ton und Ziel – erhalten Sie einen Entwurf, der kaum noch Nacharbeit braucht.
           </p>
 
           <div className="grid md:grid-cols-3 gap-6 my-8">
@@ -156,7 +185,8 @@ const PromptEngineering = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-sm text-muted-foreground">
-                  Je präziser Ihr Prompt, desto genauer das Ergebnis. Vermeiden Sie Mehrdeutigkeiten und seien Sie spezifisch.
+                  ChatGPT interpretiert Mehrdeutigkeiten selbst. Präzise Prompts eliminieren unerwünschte
+                  Interpretationsspielräume und liefern vorhersehbare Ergebnisse.
                 </p>
               </CardContent>
             </Card>
@@ -170,7 +200,8 @@ const PromptEngineering = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-sm text-muted-foreground">
-                  Geben Sie relevanten Kontext. Die KI versteht Ihre Situation besser mit Hintergrundinformationen.
+                  Je mehr relevanter Kontext Sie mitgeben, desto weniger muss ChatGPT erraten. Branche,
+                  Zielgruppe, Vorwissen des Empfängers – alles zählt.
                 </p>
               </CardContent>
             </Card>
@@ -184,26 +215,29 @@ const PromptEngineering = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-sm text-muted-foreground">
-                  Verfeinern Sie Prompts iterativ. Lernen Sie aus den Antworten und optimieren Sie schrittweise.
+                  Ein gutes Ergebnis entsteht selten im ersten Versuch. ChatGPT-Gespräche sind Dialoge –
+                  Nachfragen und Verfeinern gehört zum professionellen Arbeiten.
                 </p>
               </CardContent>
             </Card>
           </div>
 
           <blockquote className="my-6 border-l-4 border-blue-500 bg-blue-50 dark:bg-blue-950/30 p-6 rounded-r-lg italic text-lg">
-            Die Erfahrung zeigt: Ein gut strukturierter Prompt spart mehr Zeit als zehn Versuche mit vagen Anweisungen.
+            In unseren Trainings beobachten wir immer dasselbe: Wer ChatGPT zum ersten Mal nutzt, schreibt
+            einen Satz. Wer trainiert hat, schreibt einen Absatz – und bekommt dafür zehnmal bessere Ergebnisse.
           </blockquote>
         </section>
 
         {/* CRAFT Framework */}
         <section id="craft-framework">
           <h2 className="text-3xl md:text-4xl font-bold pb-4 border-b-4 border-green-500">
-            Das CRAFT-Framework
+            Das CRAFT-Framework für ChatGPT
           </h2>
 
-          <p className="mb-6">
-            CRAFT ist ein bewährtes Framework für strukturierte Prompts. Jeder Buchstabe steht für einen
-            essenziellen Baustein eines effektiven Prompts.
+          <p className="mb-4">
+            CRAFT ist ein Strukturierungsrahmen, den wir in unseren ChatGPT-Trainings einsetzen. Er macht aus
+            einer vagen Anfrage einen vollständigen Prompt – ohne dass man lange nachdenken muss. Einmal
+            verinnerlicht, wird er zur zweiten Natur.
           </p>
 
           <div className="space-y-4 my-8">
@@ -212,40 +246,40 @@ const PromptEngineering = () => {
                 letter: "C",
                 name: "Context",
                 deutsch: "Kontext",
-                beschreibung: "Geben Sie Hintergrundinformationen zur Situation",
-                beispiel: "Ich arbeite in einer IT-Beratung und bereite ein Angebot für einen mittelständischen Kunden vor...",
+                beschreibung: "Schildern Sie Ihre Ausgangssituation. ChatGPT kennt Ihr Unternehmen nicht – geben Sie die relevanten Rahmenbedingungen mit.",
+                beispiel: "Ich bin Projektleiterin in einem Maschinenbauunternehmen mit 200 Mitarbeitern. Wir führen gerade ChatGPT Enterprise ein und bereiten die Kommunikation ans Team vor.",
                 color: "blue"
               },
               {
                 letter: "R",
                 name: "Role",
                 deutsch: "Rolle",
-                beschreibung: "Definieren Sie die Perspektive, aus der die KI antworten soll",
-                beispiel: "Du bist ein erfahrener Solution Architect mit Expertise in Microsoft 365...",
+                beschreibung: "Weisen Sie ChatGPT eine Perspektive zu. Das Modell ändert messbar seinen Stil, seine Tiefe und seinen Fokus je nach zugewiesener Rolle.",
+                beispiel: "Du bist ein erfahrener Change-Management-Berater mit Schwerpunkt digitale Transformation im Mittelstand.",
                 color: "purple"
               },
               {
                 letter: "A",
                 name: "Action",
                 deutsch: "Aktion",
-                beschreibung: "Beschreiben Sie klar, was getan werden soll",
-                beispiel: "Erstelle eine Aufwandsschätzung für die Migration von 500 Postfächern zu Exchange Online...",
+                beschreibung: "Benennen Sie die konkrete Aufgabe. Ein Verb am Anfang hilft: Erstelle, Analysiere, Überarbeite, Fasse zusammen, Vergleiche.",
+                beispiel: "Erstelle eine interne FAQ für Mitarbeitende, die Bedenken gegenüber KI-Tools haben. Gehe besonders auf Datenschutz und Arbeitsplatzsicherheit ein.",
                 color: "orange"
               },
               {
                 letter: "F",
                 name: "Format",
                 deutsch: "Format",
-                beschreibung: "Spezifizieren Sie das gewünschte Output-Format",
-                beispiel: "Ausgabe als Tabelle mit Spalten: Aufgabe, Stunden, Komplexität, Voraussetzungen...",
+                beschreibung: "Legen Sie fest, wie das Ergebnis aussehen soll. ChatGPT kann Markdown, Listen, Tabellen, fließenden Text, Code und mehr produzieren.",
+                beispiel: "Format: Maximal 10 Fragen mit jeweils 2–3 Sätzen Antwort. Ton: sachlich, beruhigend, kein Marketing-Jargon.",
                 color: "cyan"
               },
               {
                 letter: "T",
                 name: "Tone",
                 deutsch: "Tonalität",
-                beschreibung: "Legen Sie den Stil und die Sprache fest",
-                beispiel: "Professionell aber verständlich, keine technischen Abkürzungen ohne Erklärung...",
+                beschreibung: "Definieren Sie den Kommunikationsstil. Formell oder locker? Technisch oder laienverständlich? Motivierend oder nüchtern?",
+                beispiel: "Professionell und vertrauensbildend. Keine Worthülsen wie 'state of the art'. Direkte Ansprache, Du-Form.",
                 color: "emerald"
               }
             ].map((item, idx) => (
@@ -275,289 +309,400 @@ const PromptEngineering = () => {
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <CheckCircle2 className="w-5 h-5 text-green-600" />
-                CRAFT in Aktion: Komplettes Beispiel
+                CRAFT komplett: Ein reales Beispiel aus dem Unternehmensalltag
               </CardTitle>
             </CardHeader>
             <CardContent>
               <div className="p-4 bg-gray-900 text-gray-100 rounded-lg font-mono text-sm leading-relaxed">
                 <p className="text-blue-400">[CONTEXT]</p>
-                <p className="mb-2">Ich leite das Marketing-Team eines B2B-SaaS-Unternehmens mit 50 Mitarbeitern.</p>
+                <p className="mb-3">Ich leite das HR-Team eines mittelständischen Handelsunternehmens (150 MA). Wir wollen ChatGPT für Stellenausschreibungen einführen, haben aber noch keine klaren Prozesse.</p>
                 <p className="text-purple-400">[ROLE]</p>
-                <p className="mb-2">Du bist ein erfahrener Content-Stratege mit Fokus auf LinkedIn.</p>
+                <p className="mb-3">Du bist ein HR-Spezialist mit Erfahrung in Employer Branding und modernem Recruiting im DACH-Raum.</p>
                 <p className="text-orange-400">[ACTION]</p>
-                <p className="mb-2">Erstelle 5 LinkedIn-Post-Ideen zum Thema "KI im Vertrieb".</p>
+                <p className="mb-3">Erstelle eine Stellenausschreibung für eine Teamleitung Logistik (m/w/d). Schwerpunkt Lagerhaltung, Teamgröße 8 Personen, Einstieg Q3 2026.</p>
                 <p className="text-cyan-400">[FORMAT]</p>
-                <p className="mb-2">Für jeden Post: Headline, Hook (erster Satz), 3 Key Points, Call-to-Action.</p>
+                <p className="mb-3">Klassische Stellenausschreibungsstruktur: Aufgaben (5–7 Bullets), Anforderungen (5 Bullets), Was wir bieten (4 Bullets). Max. 350 Wörter.</p>
                 <p className="text-emerald-400">[TONE]</p>
-                <p>Professionell, aber nahbar. Keine Buzzwords. Praxisorientiert.</p>
+                <p>Professionell, aber ansprechend. Keine Worthülsen. Zielgruppe: erfahrene Fachkräfte 30–45 Jahre.</p>
               </div>
             </CardContent>
           </Card>
         </section>
 
-        {/* Prompt-Techniken */}
-        <section id="techniken">
+        {/* Custom Instructions */}
+        <section id="custom-instructions">
           <h2 className="text-3xl md:text-4xl font-bold pb-4 border-b-4 border-purple-500">
-            Prompt-Techniken im Überblick
+            Custom Instructions: ChatGPT dauerhaft konfigurieren
           </h2>
+
+          <p className="mb-4">
+            Einer der größten Produktivitätsgewinne bei ChatGPT ist die konsequente Nutzung von{" "}
+            <strong>Custom Instructions</strong> – und gleichzeitig das am häufigsten übersehene Feature.
+            Custom Instructions sind eine Art dauerhafter Systemanweisung: Sie konfigurieren ChatGPT einmalig
+            so, dass Sie bei jeder neuen Unterhaltung nicht mehr von vorne beginnen müssen.
+          </p>
 
           <div className="grid md:grid-cols-2 gap-6 my-8">
-            {[
-              {
-                technik: "Zero-Shot Prompting",
-                beschreibung: "Direkte Anweisung ohne Beispiele – funktioniert bei klaren, einfachen Aufgaben",
-                beispiel: "Fasse diesen Text in 3 Sätzen zusammen: [Text]",
-                wann: "Bei Standardaufgaben mit klarer Erwartung",
-                color: "blue"
-              },
-              {
-                technik: "Few-Shot Learning",
-                beschreibung: "Geben Sie Beispiele für das gewünschte Verhalten – die KI erkennt das Muster",
-                beispiel: "Input: 'Hund' → Output: 'Tier'\nInput: 'Auto' → Output: 'Fahrzeug'\nInput: 'Apfel' → ?",
-                wann: "Bei spezifischen Formatierungen oder Klassifizierungen",
-                color: "green"
-              },
-              {
-                technik: "Chain-of-Thought",
-                beschreibung: "Bitten Sie um schrittweises Denken – verbessert komplexe Analysen",
-                beispiel: "Löse Schritt für Schritt und erkläre dein Vorgehen bei jedem Schritt.",
-                wann: "Bei mathematischen oder logischen Problemen",
-                color: "orange"
-              },
-              {
-                technik: "Self-Consistency",
-                beschreibung: "Lassen Sie die KI mehrere Lösungswege prüfen und die beste wählen",
-                beispiel: "Generiere 3 verschiedene Ansätze und bewerte dann, welcher am besten passt.",
-                wann: "Bei wichtigen Entscheidungen oder kreativen Aufgaben",
-                color: "purple"
-              }
-            ].map((tech, idx) => (
-              <Card key={idx} className={`border-t-4 border-t-${tech.color}-500`}>
-                <CardHeader>
-                  <CardTitle className={`text-lg text-${tech.color}-700 dark:text-${tech.color}-400`}>
-                    {tech.technik}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm mb-4">{tech.beschreibung}</p>
-                  <div className="p-3 bg-muted rounded-lg mb-3">
-                    <code className="text-xs whitespace-pre-line">{tech.beispiel}</code>
-                  </div>
-                  <p className="text-xs text-muted-foreground">
-                    <strong>Wann nutzen:</strong> {tech.wann}
-                  </p>
-                </CardContent>
-              </Card>
-            ))}
+            <Card className="border-t-4 border-t-purple-500">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2 text-base">
+                  <Settings className="w-5 h-5 text-purple-600" />
+                  Was Sie in Custom Instructions hinterlegen
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-2 text-sm">
+                <p>✓ Ihre Rolle und Branche</p>
+                <p>✓ Bevorzugte Antwortlänge und -struktur</p>
+                <p>✓ Sprach- und Tonvorgaben (z. B. immer Deutsch, immer Sie-Form)</p>
+                <p>✓ Wiederkehrende Kontextinfos (Firmengröße, Zielgruppe)</p>
+                <p>✓ Was ChatGPT <em>nicht</em> tun soll (z. B. keine Einleitungsfloskeln)</p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-t-4 border-t-orange-500">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2 text-base">
+                  <MessageSquare className="w-5 h-5 text-orange-600" />
+                  Praxis-Beispiel: Custom Instruction für Führungskräfte
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="p-3 bg-gray-100 dark:bg-gray-800 rounded-lg text-xs font-mono leading-relaxed">
+                  <p>Ich bin Geschäftsführerin eines Beratungsunternehmens in Deutschland (15 MA, B2B-Fokus). Antworte immer auf Deutsch, in Sie-Form. Halte Antworten prägnant – maximal 200 Wörter, außer ich frage explizit nach mehr. Keine einleitenden Sätze wie "Gerne helfe ich Ihnen dabei". Beginne direkt mit dem Inhalt.</p>
+                </div>
+              </CardContent>
+            </Card>
           </div>
-        </section>
 
-        {/* M365 Prompts */}
-        <section id="m365-prompts">
-          <h2 className="text-3xl md:text-4xl font-bold pb-4 border-b-4 border-cyan-500">
-            Prompts für Microsoft 365 & Copilot
-          </h2>
-
-          <p className="mb-6">
-            Diese Prompts sind speziell für Microsoft 365 Copilot optimiert und nutzen die Integration
-            mit Outlook, Word, Excel, PowerPoint und Teams.
-          </p>
-
-          <div className="space-y-4 my-8">
-            {[
-              {
-                app: "Outlook",
-                icon: "📧",
-                prompts: [
-                  {
-                    aufgabe: "E-Mails priorisieren",
-                    prompt: "Fasse die wichtigsten Punkte aus meinen ungelesenen E-Mails der letzten 2 Tage zusammen. Priorisiere nach Dringlichkeit und zeige Action Items."
-                  },
-                  {
-                    aufgabe: "Professionelle Antwort",
-                    prompt: "Schreibe eine höfliche aber bestimmte Antwort auf diese E-Mail. Ich muss den Termin verschieben, möchte aber die Beziehung nicht belasten."
-                  }
-                ],
-                color: "blue"
-              },
-              {
-                app: "Word",
-                icon: "📄",
-                prompts: [
-                  {
-                    aufgabe: "Dokument erstellen",
-                    prompt: "Erstelle ein Projektvorschlagsdokument mit: Executive Summary, Ziele, Timeline, Budget, Risiken. Ton: Professionell, max. 3 Seiten."
-                  },
-                  {
-                    aufgabe: "Text verbessern",
-                    prompt: "Verbessere diesen Text: Mache ihn prägnanter, entferne Füllwörter, behalte den fachlichen Ton. Markiere Änderungen."
-                  }
-                ],
-                color: "purple"
-              },
-              {
-                app: "Excel",
-                icon: "📊",
-                prompts: [
-                  {
-                    aufgabe: "Datenanalyse",
-                    prompt: "Analysiere die Verkaufsdaten in Spalte A-E. Zeige Trends, Ausreißer und erstelle eine Pivot-Tabelle nach Regionen."
-                  },
-                  {
-                    aufgabe: "Formel erklären",
-                    prompt: "Erkläre diese Formel Schritt für Schritt und zeige, was jeder Teil macht. Schlage Verbesserungen vor."
-                  }
-                ],
-                color: "green"
-              },
-              {
-                app: "Teams",
-                icon: "💬",
-                prompts: [
-                  {
-                    aufgabe: "Meeting zusammenfassen",
-                    prompt: "Fasse dieses Meeting zusammen: Wichtigste Entscheidungen, Action Items mit Verantwortlichen und Deadlines, offene Fragen."
-                  },
-                  {
-                    aufgabe: "Agenda vorbereiten",
-                    prompt: "Erstelle eine Agenda für unser Quartals-Review basierend auf den letzten 3 Meetings und offenen Projekten."
-                  }
-                ],
-                color: "orange"
-              }
-            ].map((app, idx) => (
-              <Card key={idx} className={`border-l-4 border-l-${app.color}-500`}>
-                <CardHeader className={`bg-gradient-to-r from-${app.color}-500/10 to-${app.color}-600/5`}>
-                  <CardTitle className="flex items-center gap-3">
-                    <span className="text-2xl">{app.icon}</span>
-                    <span className={`text-${app.color}-700 dark:text-${app.color}-400`}>{app.app}</span>
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="pt-4">
-                  <div className="space-y-4">
-                    {app.prompts.map((p, pidx) => (
-                      <div key={pidx} className="p-4 border rounded-lg">
-                        <div className="font-semibold text-sm mb-2">{p.aufgabe}</div>
-                        <code className="text-xs bg-muted p-3 rounded block">{p.prompt}</code>
-                      </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </section>
-
-        {/* GitHub Copilot */}
-        <section id="github-prompts">
-          <h2 className="text-3xl md:text-4xl font-bold pb-4 border-b-4 border-emerald-500">
-            Prompts für GitHub Copilot (Entwickler)
-          </h2>
-
-          <p className="mb-6">
-            GitHub Copilot versteht Kommentare als Prompts. Je präziser der Kommentar, desto besser der generierte Code.
-          </p>
-
-          <Card className="my-8">
+          <Card className="border-2 border-purple-500/20 bg-purple-50/30 dark:bg-purple-950/10">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <Code className="w-5 h-5 text-emerald-600" />
-                Code-Prompts nach Aufgabentyp
+                <Layers className="w-5 h-5 text-purple-600" />
+                ChatGPT Projects: Kontexte organisieren
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="space-y-4">
-                {[
-                  {
-                    typ: "Funktion generieren",
-                    prompt: "// Function to validate email address using regex\n// Returns: boolean\n// Handles: empty input, special characters, international domains",
-                    tipp: "Immer Rückgabetyp und Edge Cases angeben"
-                  },
-                  {
-                    typ: "Unit Test schreiben",
-                    prompt: "// Unit test for calculateShipping function\n// Test cases: valid input, invalid input, edge cases (0, negative, very large)\n// Use Jest, expect assertions",
-                    tipp: "Testframework und erwartete Szenarien definieren"
-                  },
-                  {
-                    typ: "Refactoring",
-                    prompt: "// Refactor: Convert to async/await, add try-catch error handling\n// Preserve existing functionality, add TypeScript types",
-                    tipp: "Klar machen, was erhalten bleiben soll"
-                  },
-                  {
-                    typ: "Dokumentation",
-                    prompt: "// Add JSDoc: @param types, @returns, @throws, @example usage\n// Include edge cases in examples",
-                    tipp: "Gewünschte Dokumentations-Elemente auflisten"
-                  }
-                ].map((item, idx) => (
-                  <div key={idx} className="p-4 border rounded-lg">
-                    <div className="flex justify-between items-start mb-3">
-                      <span className="font-semibold text-emerald-600">{item.typ}</span>
-                      <span className="text-xs bg-emerald-100 dark:bg-emerald-900 text-emerald-700 dark:text-emerald-300 px-2 py-1 rounded">
-                        💡 {item.tipp}
-                      </span>
-                    </div>
-                    <code className="text-sm bg-gray-900 text-gray-100 p-3 rounded block font-mono whitespace-pre-line">
-                      {item.prompt}
-                    </code>
+              <p className="mb-3">
+                Seit Ende 2024 bietet ChatGPT <strong>Projects</strong> an – separate Arbeitsbereiche mit
+                eigenem Kontext, eigenen Dateien und eigenen Instruktionen. Das ist besonders für Teams relevant:
+              </p>
+              <ul className="space-y-2 text-sm">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-purple-600 mt-0.5 flex-shrink-0" />
+                  <span>Projekt „Kundenkommunikation" mit Firmenstyle-Guide als hochgeladenem Dokument</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-purple-600 mt-0.5 flex-shrink-0" />
+                  <span>Projekt „Analyse" mit statistischem Kontext und bevorzugten Darstellungsformaten</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-purple-600 mt-0.5 flex-shrink-0" />
+                  <span>Projekt „Interne Docs" mit Unternehmenskontext und Tonalitätsvorgaben</span>
+                </li>
+              </ul>
+              <p className="mt-3 text-sm text-muted-foreground">
+                ChatGPT-Nutzer, die Projects konsequent einsetzen, berichten von deutlich kürzeren
+                Prompt-Texten bei gleichzeitig besseren Ergebnissen – weil der Kontext bereits gesetzt ist.
+              </p>
+            </CardContent>
+          </Card>
+        </section>
+
+        {/* Fortgeschrittene Techniken */}
+        <section id="chatgpt-techniken">
+          <h2 className="text-3xl md:text-4xl font-bold pb-4 border-b-4 border-orange-500">
+            Fortgeschrittene ChatGPT-Techniken
+          </h2>
+
+          <p className="mb-6">
+            Jenseits von CRAFT und Custom Instructions gibt es eine Reihe von Techniken, die in unserem
+            ChatGPT Prompt Engineering Kurs auf Deutsch regelmäßig für Aha-Momente sorgen:
+          </p>
+
+          <div className="space-y-4">
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2 text-base">
+                  <Brain className="w-5 h-5 text-blue-600" />
+                  Chain-of-Thought: Denkschritte sichtbar machen
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm mb-2">
+                  Fügen Sie „Denke Schritt für Schritt" oder „Zeige deine Überlegung" zu komplexen Aufgaben
+                  hinzu. ChatGPT macht seinen Denkprozess transparent – das führt zu nachvollziehbareren
+                  und oft präziseren Ergebnissen.
+                </p>
+                <div className="p-2 bg-gray-100 dark:bg-gray-800 rounded text-xs font-mono">
+                  ✓ "Analysiere diese Lieferantenverträge auf Risikopunkte. Denke Schritt für Schritt vor, welche Kategorien du prüfst."
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2 text-base">
+                  <Layers className="w-5 h-5 text-green-600" />
+                  Few-Shot Prompting: Durch Beispiele führen
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm mb-2">
+                  Geben Sie ChatGPT 2–3 Beispiele des gewünschten Outputs, bevor Sie die eigentliche
+                  Aufgabe stellen. Das Modell erkennt das Muster und reproduziert es – auch für ungewöhnliche
+                  Formate oder Firmenstile.
+                </p>
+                <div className="p-2 bg-gray-100 dark:bg-gray-800 rounded text-xs font-mono">
+                  ✓ "Hier sind zwei Beispiele unserer bisherigen Produktbeschreibungen: [Beispiel 1] [Beispiel 2]. Schreibe jetzt eine für Produkt XY im gleichen Stil."
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2 text-base">
+                  <Target className="w-5 h-5 text-orange-600" />
+                  Constraint Prompting: Durch Grenzen besser werden
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm mb-2">
+                  Definieren Sie explizit, was ChatGPT <em>nicht</em> tun soll. Einschränkungen führen
+                  überraschend oft zu fokussierteren und relevanteren Ergebnissen.
+                </p>
+                <div className="p-2 bg-gray-100 dark:bg-gray-800 rounded text-xs font-mono">
+                  ✓ "Erstelle eine Marketingstrategie. Keine Social Media, kein Paid Advertising, Budget unter 5.000 €, nur organische Maßnahmen."
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2 text-base">
+                  <MessageSquare className="w-5 h-5 text-purple-600" />
+                  Perspektivwechsel: ChatGPT als kritischen Sparringspartner nutzen
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm mb-2">
+                  Lassen Sie ChatGPT Ihre eigenen Ideen hinterfragen. Das geht am besten mit expliziter
+                  Rollenangabe und der Aufforderung, konkrete Schwachstellen zu nennen – nicht nur
+                  diplomatisch zu kommentieren.
+                </p>
+                <div className="p-2 bg-gray-100 dark:bg-gray-800 rounded text-xs font-mono">
+                  ✓ "Du bist ein skeptischer Investor. Hier ist unser Businessplan. Nenne die drei schwächsten Argumente und erkläre warum. Keine Höflichkeitsfloskeln."
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
+
+        {/* Praxis-Prompts */}
+        <section id="praxis-prompts">
+          <h2 className="text-3xl md:text-4xl font-bold pb-4 border-b-4 border-cyan-500">
+            Praxis-Prompts für den Unternehmensalltag
+          </h2>
+
+          <p className="mb-6">
+            Die folgenden Prompts sind direkt einsetzbar und basieren auf den häufigsten Anwendungsfällen,
+            die wir in unseren ChatGPT-Trainings mit Unternehmensteams erarbeiten. Passen Sie die
+            eckigen Klammern an Ihren Kontext an.
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-4">
+            {[
+              {
+                kategorie: "E-Mail & Kommunikation",
+                color: "blue",
+                prompt: "Ich habe eine unbefriedigende Antwort von unserem Dienstleister [Name] zu Ticket [Thema] erhalten. Hier ist ihre Antwort: [Antwort einfügen]. Schreibe eine Nachfass-E-Mail: bestimmt, professionell, ohne Aggressivität. Ziel: konkrete Lösung bis [Datum] einfordern. Max. 150 Wörter."
+              },
+              {
+                kategorie: "Analyse & Zusammenfassung",
+                color: "green",
+                prompt: "Hier ist ein Bericht/Protokoll/Artikel: [Text einfügen]. Fasse in maximal 5 Stichpunkten die wichtigsten Aussagen zusammen. Markiere danach die 2 Punkte, die sofortige Entscheidungen erfordern. Zielgruppe: Geschäftsführung, keine Fachkenntnisse voraussetzen."
+              },
+              {
+                kategorie: "Präsentation & Konzepte",
+                color: "orange",
+                prompt: "Ich halte einen 20-minütigen Vortrag zu [Thema] für [Zielgruppe, z. B. Betriebsrat, Vertrieb, Neukunden]. Erstelle eine Gliederung mit 5–7 Folien. Pro Folie: Titel und 3 Kernaussagen als Bullets. Abschluss mit einer konkreten Handlungsempfehlung."
+              },
+              {
+                kategorie: "Entscheidungsvorbereitung",
+                color: "purple",
+                prompt: "Wir stehen vor der Entscheidung: [Entscheidung beschreiben, z. B. Softwarewechsel, Lieferantenwechsel]. Erstelle eine strukturierte Pro-/Contra-Analyse mit je 4–5 Punkten. Berücksichtige dabei besonders: Kosten, Implementierungsaufwand, Risiken, langfristige Flexibilität."
+              },
+              {
+                kategorie: "Recruiting & HR",
+                color: "pink",
+                prompt: "Ich führe nächste Woche ein Erstgespräch mit einem Bewerber für [Position]. Seine Unterlagen zeigen [kurze Beschreibung]. Erstelle 8 strukturierte Interviewfragen: 3 zur fachlichen Eignung, 3 zu Soft Skills und Teamfit, 2 situative Fragen ('Was würden Sie tun, wenn...'). Kein Small Talk."
+              },
+              {
+                kategorie: "Textüberarbeitung",
+                color: "teal",
+                prompt: "Überarbeite folgenden Text für unsere Unternehmenswebsite: [Text einfügen]. Ziele: klarer, kürzer, lesefreundlicher. Behalte alle inhaltlichen Aussagen. Zielgruppe: [z. B. Einkaufsleiter im Mittelstand]. Maximale Länge nach der Überarbeitung: [Zeichenanzahl]."
+              }
+            ].map((item, idx) => (
+              <Card key={idx} className={`border-t-4 border-t-${item.color}-500`}>
+                <CardHeader className="pb-2">
+                  <CardTitle className={`text-sm text-${item.color}-700 dark:text-${item.color}-400`}>
+                    {item.kategorie}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-xs font-mono leading-relaxed text-muted-foreground bg-gray-50 dark:bg-gray-900 p-3 rounded">
+                    {item.prompt}
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </section>
+
+        {/* O3 / Reasoning */}
+        <section id="o3-reasoning">
+          <h2 className="text-3xl md:text-4xl font-bold pb-4 border-b-4 border-rose-500">
+            Prompting für ChatGPT o3 und o4 (Reasoning-Modelle)
+          </h2>
+
+          <p className="mb-4">
+            ChatGPT o3 und o4-mini sind keine normalen Sprachmodelle – sie sind{" "}
+            <strong>Reasoning-Modelle</strong>, die komplexe Aufgaben durch ausgedehntes internes
+            „Nachdenken" lösen. Das verändert die optimale Prompt-Strategie fundamental.
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-6 my-6">
+            <Card className="border-l-4 border-l-red-500">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2 text-base">
+                  <XCircle className="w-5 h-5 text-red-600" />
+                  Was bei o3/o4 NICHT funktioniert
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-2 text-sm">
+                <p className="flex items-start gap-2">
+                  <XCircle className="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0" />
+                  <span>„Denke Schritt für Schritt" – das tut o3 intern bereits, der Zusatz stört eher</span>
+                </p>
+                <p className="flex items-start gap-2">
+                  <XCircle className="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0" />
+                  <span>Viele Few-Shot-Beispiele – das schränkt das eigenständige Reasoning ein</span>
+                </p>
+                <p className="flex items-start gap-2">
+                  <XCircle className="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0" />
+                  <span>Sehr kurze Prompts – o3 braucht klar beschriebene Ziele und Grenzen</span>
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-l-4 border-l-green-500">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2 text-base">
+                  <CheckCircle2 className="w-5 h-5 text-green-600" />
+                  Was bei o3/o4 besonders gut funktioniert
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-2 text-sm">
+                <p className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                  <span>Klar beschriebenes Ziel + Einschränkungen + Bewertungskriterien</span>
+                </p>
+                <p className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                  <span>Direkte Aufgabenstellung ohne Umwege – o3 liest und analysiert selbst</span>
+                </p>
+                <p className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                  <span>Komplexe, mehrstufige Aufgaben die GPT-4o überfordern würden</span>
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+
+          <Card className="border-2 border-rose-500/20 bg-rose-50/20 dark:bg-rose-950/10">
+            <CardHeader>
+              <CardTitle className="text-base">Beispiel: Gleiche Aufgabe, unterschiedliche Prompt-Strategie</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="grid md:grid-cols-2 gap-4 text-xs font-mono">
+                <div>
+                  <p className="text-blue-500 font-bold mb-1">GPT-4o Prompt:</p>
+                  <div className="p-3 bg-gray-100 dark:bg-gray-800 rounded leading-relaxed">
+                    "Du bist ein erfahrener Finanzanalyst. Denke Schritt für Schritt. Analysiere diese Kostenaufstellung [Daten] und identifiziere die 3 größten Einsparpotenziale. Format: Tabelle mit Potenzial, Aufwand, Empfehlung."
                   </div>
-                ))}
+                </div>
+                <div>
+                  <p className="text-rose-500 font-bold mb-1">o3 Prompt:</p>
+                  <div className="p-3 bg-gray-100 dark:bg-gray-800 rounded leading-relaxed">
+                    "Hier ist eine Kostenaufstellung unseres Unternehmens [Daten]. Ziel: Identifiziere die 3 größten Einsparpotenziale. Kriterien: Einsparvolumen in €, Implementierungsaufwand (gering/mittel/hoch), Risiko. Ausgabe als Tabelle. Begründe jede Empfehlung in max. 2 Sätzen."
+                  </div>
+                </div>
               </div>
             </CardContent>
           </Card>
         </section>
 
-        {/* Typische Fehler */}
+        {/* Fehler */}
         <section id="fehler">
           <h2 className="text-3xl md:text-4xl font-bold pb-4 border-b-4 border-red-500">
-            Typische Fehler vermeiden
+            Die 7 häufigsten Prompt-Fehler
           </h2>
 
-          <div className="space-y-4 my-8">
+          <p className="mb-6">
+            Diese Fehler sehen wir in fast jedem ChatGPT-Training am ersten Tag. Sie sind leicht zu beheben
+            – aber man muss erst wissen, dass man sie macht.
+          </p>
+
+          <div className="space-y-3">
             {[
               {
-                fehler: "Zu vage Prompts",
-                schlecht: "Schreib was über KI",
-                gut: "Schreibe einen 500-Wörter Blogpost über KI-Einsatz im Kundenservice, Zielgruppe: IT-Manager, Fokus: ROI und Quick Wins",
-                warum: "Ohne Kontext, Zielgruppe und Format kann die KI nur raten"
+                fehler: "Kein Kontext = Generisches Ergebnis",
+                erklärung: "\"Schreib einen Blogbeitrag über KI\" liefert immer dasselbe generische Ergebnis. ChatGPT weiß weder für wen noch in welchem Ton noch in welcher Tiefe.",
+                fix: "Immer: Branche, Zielgruppe, Zweck des Textes mitgeben."
               },
               {
-                fehler: "Fehlender Kontext",
-                schlecht: "Erstelle eine Präsentation",
-                gut: "Erstelle eine 10-Folien Präsentation für die Geschäftsführung über Q4-Verkaufszahlen, Fokus DACH-Region, Vergleich zum Vorjahr",
-                warum: "Die KI kennt weder Publikum noch Inhalt noch Umfang"
+                fehler: "Zu viele Aufgaben in einem Prompt",
+                erklärung: "\"Analysiere den Text, überarbeite ihn, erstelle eine Zusammenfassung und leite drei Maßnahmen ab\" – das Modell kompromittiert jede Teilaufgabe.",
+                fix: "Eine Aufgabe pro Prompt. Ergebnisse sequenziell aufbauen."
               },
               {
-                fehler: "Zu komplexe Aufgaben auf einmal",
-                schlecht: "Erstelle komplette Marketing-Strategie inklusive Budget, Kampagnen, Timeline, Content-Plan und KPIs",
-                gut: "Schritt 1: Erstelle eine Zielgruppenanalyse für unser B2B-SaaS-Produkt [dann weitere Schritte separat]",
-                warum: "Komplexe Aufgaben in Teilschritte aufteilen führt zu besseren Ergebnissen"
+                fehler: "Format nicht spezifiziert",
+                erklärung: "ChatGPT wählt selbst ein Format. Das ist selten das, was Sie brauchen – besonders für Präsentationen, Berichte oder strukturierte Ausgaben.",
+                fix: "Immer explizit: \"Format: Tabelle\", \"Format: 5 Bullets\", \"max. 200 Wörter\"."
               },
               {
-                fehler: "Keine Beispiele bei spezifischen Formaten",
-                schlecht: "Erstelle Produktbeschreibungen im Unternehmensstil",
-                gut: "Erstelle Produktbeschreibungen. Beispiel unseres Stils: '[Beispieltext]'. Erstelle 5 weitere in diesem Stil.",
-                warum: "Ohne Beispiel kann die KI Ihren Stil nicht kennen"
+                fehler: "Zu höfliche Aufforderungen",
+                erklärung: "\"Könntest du vielleicht...\" und \"Wenn du Zeit hast...\" sind für Menschen höflich, für KI schlicht unnötig und manchmal verwirrend.",
+                fix: "Direkte Imperative: \"Erstelle\", \"Analysiere\", \"Überarbeite\"."
+              },
+              {
+                fehler: "Kein Widerspruch eingefordert",
+                erklärung: "ChatGPT neigt dazu, Ihren Ansatz zu bestätigen, wenn Sie nicht explizit um Kritik bitten. Das ist die \"Ja-Sager-Falle\".",
+                fix: "Aktiv formulieren: \"Nenne konkrete Schwächen\", \"Was spricht dagegen?\", \"Wo bin ich falsch?\"."
+              },
+              {
+                fehler: "Erste Antwort als final akzeptieren",
+                erklärung: "ChatGPT liefert auf Aufforderung oft besser überarbeitete Versionen als die erste Ausgabe – besonders bei kreativen Aufgaben.",
+                fix: "\"Überarbeite das mit Fokus auf [Aspekt]\" oder \"Mach Version 2 mit mehr [X] und weniger [Y]\"."
+              },
+              {
+                fehler: "Custom Instructions nie eingerichtet",
+                erklärung: "Wer Custom Instructions ignoriert, gibt bei jeder neuen Konversation Kontext neu ein – oder bekommt generische Ergebnisse.",
+                fix: "Einmalig 15 Minuten investieren und Custom Instructions konfigurieren. Danach dauerhafter Produktivitätsgewinn."
               }
             ].map((item, idx) => (
-              <Card key={idx} className="border-l-4 border-l-red-500">
-                <CardContent className="pt-6">
-                  <h4 className="font-bold text-red-600 mb-4 flex items-center gap-2">
-                    <AlertTriangle className="w-5 h-5" />
-                    {item.fehler}
-                  </h4>
-                  <div className="grid md:grid-cols-2 gap-4 mb-4">
-                    <div className="p-3 bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-800 rounded-lg">
-                      <p className="text-sm font-semibold text-red-600 mb-1">❌ Schlecht:</p>
-                      <p className="text-sm">{item.schlecht}</p>
-                    </div>
-                    <div className="p-3 bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-800 rounded-lg">
-                      <p className="text-sm font-semibold text-green-600 mb-1">✓ Besser:</p>
-                      <p className="text-sm">{item.gut}</p>
+              <Card key={idx} className="border-l-4 border-l-red-400">
+                <CardContent className="pt-4">
+                  <div className="flex items-start gap-3">
+                    <XCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
+                    <div>
+                      <p className="font-semibold text-red-700 dark:text-red-400 mb-1">#{idx + 1} {item.fehler}</p>
+                      <p className="text-sm text-muted-foreground mb-2">{item.erklärung}</p>
+                      <p className="text-sm">
+                        <span className="text-green-600 font-medium">Fix: </span>
+                        {item.fix}
+                      </p>
                     </div>
                   </div>
-                  <p className="text-sm text-muted-foreground">
-                    <strong>Warum:</strong> {item.warum}
-                  </p>
                 </CardContent>
               </Card>
             ))}
@@ -570,93 +715,37 @@ const PromptEngineering = () => {
             Der Zauberstab-Prompt
           </h2>
 
-          <p className="mb-6">
-            Sie müssen kein Prompt-Engineering-Experte sein. Mit diesem einen Prompt lassen Sie die KI
-            die Arbeit für Sie machen – sie fragt Sie nach allem, was sie für den perfekten Prompt braucht.
+          <p className="mb-4">
+            Der Zauberstab-Prompt ist unser Lieblingsformat für alle, die noch keine Lust haben, lange
+            Prompt-Strukturen auswendig zu lernen. Die Idee: ChatGPT hilft Ihnen, den optimalen Prompt
+            selbst zu entwickeln.
           </p>
 
-          <Card className="border-4 border-amber-500 bg-gradient-to-br from-amber-500/10 to-orange-500/10 shadow-xl">
-            <CardHeader className="bg-gradient-to-r from-amber-600 to-orange-600 text-white rounded-t-lg">
-              <CardTitle className="flex items-center gap-3 text-xl">
-                <Wand2 className="w-7 h-7" />
+          <Card className="border-2 border-amber-500/40 bg-amber-50/30 dark:bg-amber-950/10 my-6">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Wand2 className="w-6 h-6 text-amber-600" />
                 Der Zauberstab-Prompt
               </CardTitle>
             </CardHeader>
-            <CardContent className="pt-6">
-              <div className="p-6 bg-gray-900 text-gray-100 rounded-lg font-mono text-base leading-relaxed">
+            <CardContent>
+              <div className="p-4 bg-gray-900 text-amber-100 rounded-lg font-mono text-sm leading-relaxed">
                 <p>
-                  Hilf mir einen perfekten Copilot Prompt für folgendes Problem zu schreiben,
-                  indem du mir die nötigen Fragen stellst um den Kontext bereitzustellen den du
-                  benötigst für den perfekten Prompt.
+                  Ich möchte ChatGPT für folgende Aufgabe nutzen: [Kurze Beschreibung Ihrer Aufgabe].
+                  Stelle mir zunächst 3–5 klärende Fragen, damit du den Kontext, das Format und
+                  die Anforderungen besser verstehst. Sobald ich geantwortet habe, erstelle dann
+                  den optimalen Prompt für diese Aufgabe – und führe ihn direkt aus.
                 </p>
               </div>
-
-              <div className="mt-6 grid md:grid-cols-2 gap-4">
-                <div className="p-4 bg-amber-50 dark:bg-amber-950/30 rounded-lg">
-                  <h4 className="font-bold text-amber-700 dark:text-amber-400 mb-2">✨ So funktioniert's:</h4>
-                  <ol className="text-sm space-y-2 list-decimal list-inside">
-                    <li>Sie geben den Zauberstab-Prompt ein</li>
-                    <li>Die KI stellt Ihnen gezielte Fragen</li>
-                    <li>Sie beantworten die Fragen</li>
-                    <li>Die KI erstellt den perfekten Prompt für Sie</li>
-                  </ol>
-                </div>
-                <div className="p-4 bg-green-50 dark:bg-green-950/30 rounded-lg">
-                  <h4 className="font-bold text-green-700 dark:text-green-400 mb-2">💡 Warum das funktioniert:</h4>
-                  <ul className="text-sm space-y-2">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
-                      <span>Die KI weiß, welche Infos sie braucht</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
-                      <span>Sie vergessen keine wichtigen Details</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
-                      <span>Das Ergebnis ist maßgeschneidert</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
+              <p className="mt-4 text-sm text-muted-foreground">
+                ChatGPT fragt dann gezielt nach Zielgruppe, Format, Umfang und anderen relevanten
+                Parametern – und erstellt anschließend einen sauberen Prompt, den Sie für ähnliche
+                Aufgaben wiederverwenden können.
+              </p>
             </CardContent>
           </Card>
 
-          <blockquote className="my-6 border-l-4 border-amber-500 bg-amber-50 dark:bg-amber-950/30 p-6 rounded-r-lg text-lg">
-            <strong>Der Meta-Trick:</strong> Statt die KI zu prompten, lassen Sie sich von der KI prompten.
-            Das funktioniert für jeden Use Case – ohne Prompt-Bibliothek, ohne Vorkenntnisse.
-          </blockquote>
-        </section>
-
-        {/* Kernaussagen */}
-        <section id="kernaussagen">
-          <h2 className="text-3xl md:text-4xl font-bold pb-4 border-b-4 border-indigo-500">
-            Kernaussagen für Entscheider
-          </h2>
-
-          <div className="space-y-4 my-6">
-            <Card className="border-l-4 border-l-indigo-500">
-              <CardContent className="pt-6">
-                <p className="font-bold mb-2">Faktische Kernaussage:</p>
-                <p className="mb-4">Die Qualität von KI-Ergebnissen hängt direkt von der Prompt-Qualität ab – nicht vom Tool.</p>
-                <p className="font-bold mb-2">Praktische Konsequenz:</p>
-                <p className="mb-4">Investieren Sie in Prompt-Kompetenz Ihrer Mitarbeiter, nicht nur in Lizenzen.</p>
-                <p className="font-bold mb-2">Typischer Fehler:</p>
-                <p>Erwarten, dass Copilot "einfach funktioniert" ohne Schulung der Nutzer.</p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-l-4 border-l-indigo-500">
-              <CardContent className="pt-6">
-                <p className="font-bold mb-2">Faktische Kernaussage:</p>
-                <p className="mb-4">Strukturierte Frameworks wie CRAFT führen zu konsistenten Ergebnissen im gesamten Unternehmen.</p>
-                <p className="font-bold mb-2">Praktische Konsequenz:</p>
-                <p className="mb-4">Etablieren Sie unternehmensweite Prompt-Standards statt individuelle Lösungen.</p>
-                <p className="font-bold mb-2">Typischer Fehler:</p>
-                <p>Jeder Mitarbeiter erfindet das Rad neu – ohne gemeinsame Best Practices.</p>
-              </CardContent>
-            </Card>
-          </div>
+          <TrustBadge className="mt-6" />
         </section>
 
         {/* FAQ */}
@@ -665,14 +754,14 @@ const PromptEngineering = () => {
             Häufig gestellte Fragen
           </h2>
 
-          <div className="space-y-4 my-6">
+          <div className="space-y-4">
             {faqs.map((faq, idx) => (
               <Card key={idx}>
                 <CardHeader>
                   <CardTitle className="text-base font-semibold">{faq.name}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm text-muted-foreground">{faq.answer}</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{faq.answer}</p>
                 </CardContent>
               </Card>
             ))}
@@ -681,66 +770,92 @@ const PromptEngineering = () => {
 
         {/* Quellen */}
         <section id="quellen">
-          <h2 className="text-3xl md:text-4xl font-bold pb-4 border-b-4 border-gray-500">
+          <h2 className="text-3xl md:text-4xl font-bold pb-4 border-b-4 border-gray-400">
             Quellen und weiterführende Links
           </h2>
 
-          <div className="grid md:grid-cols-2 gap-4 my-6">
+          <div className="grid md:grid-cols-2 gap-4">
             {[
               {
-                href: "https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/prompt-engineering",
-                title: "Microsoft Learn: Prompt Engineering",
-                desc: "Offizielle Dokumentation zu Prompt-Techniken"
+                title: "OpenAI Prompt Engineering Guide",
+                url: "https://platform.openai.com/docs/guides/prompt-engineering",
+                beschreibung: "Offizielle OpenAI-Dokumentation zu Prompting-Strategien für GPT-Modelle"
               },
               {
-                href: "https://support.microsoft.com/en-us/topic/learn-about-copilot-prompts-f6c3b467-f07c-4db1-ae54-ffac96184dd5",
-                title: "Microsoft: Copilot Prompting Guide",
-                desc: "Praktische Tipps für M365 Copilot"
+                title: "Anthropic Prompting Guide",
+                url: "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview",
+                beschreibung: "Vergleichende Perspektive: Wie Anthropic Prompting für Claude beschreibt (viele Prinzipien gelten auch für ChatGPT)"
               },
               {
-                href: "https://www.promptingguide.ai/",
-                title: "Prompt Engineering Guide",
-                desc: "Umfassende Open-Source-Ressource"
+                title: "Learn Prompting (Open Source)",
+                url: "https://learnprompting.org",
+                beschreibung: "Kostenlose, regelmäßig aktualisierte Ressource mit Techniken und Beispielen"
               },
               {
-                href: "https://adoption.microsoft.com/en-us/copilot/",
-                title: "Microsoft Copilot Adoption Hub",
-                desc: "Best Practices für Copilot-Einführung"
+                title: "ChatGPT Enterprise – OpenAI",
+                url: "https://openai.com/enterprise",
+                beschreibung: "Informationen zu ChatGPT Enterprise und dessen Datenschutz-Garantien für Unternehmenseinsatz"
               }
-            ].map((link, idx) => (
+            ].map((quelle, idx) => (
               <a
                 key={idx}
-                href={link.href}
+                href={quelle.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-start gap-3 p-4 border rounded-lg hover:border-primary/50 hover:bg-muted/50 transition-colors group"
+                className="block"
               >
-                <ExternalLink className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                <div>
-                  <div className="font-semibold group-hover:text-primary transition-colors">{link.title}</div>
-                  <div className="text-sm text-muted-foreground">{link.desc}</div>
-                </div>
+                <Card className="h-full hover:border-orange-500/50 transition-colors cursor-pointer">
+                  <CardHeader className="pb-2">
+                    <CardTitle className="flex items-center gap-2 text-sm text-orange-600 dark:text-orange-400">
+                      {quelle.title}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-xs text-muted-foreground">{quelle.beschreibung}</p>
+                  </CardContent>
+                </Card>
               </a>
             ))}
           </div>
         </section>
 
-        <TrustBadge />
-
-        {/* CTA */}
-        <div className="bg-gradient-to-r from-orange-500/10 to-amber-500/10 rounded-xl p-8 text-center my-12 border-2 border-orange-500/20">
-          <h3 className="text-2xl font-bold mb-4">Prompt Engineering Workshops</h3>
-          <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-            Lernen Sie in praxisorientierten Workshops, wie Sie das CRAFT-Framework anwenden
-            und Ihre Mitarbeiter zu Prompt-Profis machen.
-          </p>
-          <a
-            href="/#contact"
-            className="inline-flex items-center justify-center px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors font-medium"
-          >
-            Workshop anfragen
-          </a>
-        </div>
+        {/* Autor */}
+        {author && (
+          <Card className="border-2 border-orange-500/20 bg-gradient-to-br from-orange-50/50 to-amber-50/50 dark:from-orange-950/20 dark:to-amber-950/20">
+            <CardContent className="pt-6">
+              <div className="flex items-start gap-4">
+                <img
+                  src={author.image}
+                  alt={author.name}
+                  className="w-16 h-16 rounded-full object-cover flex-shrink-0"
+                />
+                <div>
+                  <p className="font-bold text-lg">{author.name}</p>
+                  <p className="text-sm text-muted-foreground mb-2">{author.role}</p>
+                  <p className="text-sm leading-relaxed">{author.bio}</p>
+                  <div className="flex gap-3 mt-3">
+                    {author.linkedin && (
+                      <a
+                        href={author.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-1 text-xs text-blue-600 hover:underline"
+                      >
+                        <Linkedin className="w-3 h-3" /> LinkedIn
+                      </a>
+                    )}
+                    <a
+                      href="mailto:martin@yellow-boat.com"
+                      className="flex items-center gap-1 text-xs text-orange-600 hover:underline"
+                    >
+                      <Mail className="w-3 h-3" /> Kontakt
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        )}
       </ContentLayout>
     </>
   );
