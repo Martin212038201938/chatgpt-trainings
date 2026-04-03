@@ -223,7 +223,29 @@ const Contact = () => {
           </div>
 
           <div className="space-y-6">
-            {/* Microsoft Bookings - Prominente CTA Card */}
+            {/* Teams Chat – prominenteste Option */}
+            <Card className="p-6 bg-green-600 text-white border-green-600 shadow-lg">
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <MessageSquare className="w-5 h-5" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="font-semibold mb-1">Teams Chat – direkt anschreiben</h3>
+                  <p className="text-sm text-white/80 mb-4">
+                    Kurze Frage? Schreiben Sie mir jetzt direkt – oft antworte ich noch am gleichen Tag.
+                  </p>
+                  <button
+                    onClick={() => window.open("https://teams.microsoft.com/l/chat/0/0?users=martin@yellow-boat.com", "_blank", "width=700,height=700,noopener,noreferrer")}
+                    className="w-full bg-white text-green-700 font-semibold py-2 px-4 rounded-md flex items-center justify-center gap-2 hover:bg-green-50 transition-colors"
+                  >
+                    <MessageSquare className="w-4 h-4" />
+                    Chat starten →
+                  </button>
+                </div>
+              </div>
+            </Card>
+
+            {/* Microsoft Bookings */}
             <Card className="p-6 bg-primary text-primary-foreground border-primary shadow-lg">
               <div className="flex items-start gap-4">
                 <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -243,30 +265,6 @@ const Contact = () => {
                     <Button variant="secondary" className="w-full font-semibold">
                       <Calendar className="w-4 h-4 mr-2" />
                       Jetzt Termin buchen →
-                    </Button>
-                  </a>
-                </div>
-              </div>
-            </Card>
-
-            <Card className="p-6 border-primary/20">
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <MessageSquare className="w-5 h-5 text-primary" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="font-semibold mb-1">Teams Chat</h3>
-                  <p className="text-sm text-muted-foreground mb-3">
-                    Kurze Frage? Schreiben Sie mir direkt im Teams-Chat.
-                  </p>
-                  <a
-                    href="https://teams.microsoft.com/l/chat/0/0?users=martin@yellow-boat.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Button variant="outline" className="w-full">
-                      <MessageSquare className="w-4 h-4 mr-2" />
-                      Chat starten →
                     </Button>
                   </a>
                 </div>

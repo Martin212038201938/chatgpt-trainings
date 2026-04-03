@@ -1,4 +1,4 @@
-import { Brain, GraduationCap, Mic, PartyPopper, Rocket, TrendingUp, Users, Zap } from "lucide-react";
+import { Brain, GraduationCap, LayoutDashboard, Mic, PartyPopper, Rocket, TrendingUp, Users, Zap } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 /**
@@ -42,12 +42,63 @@ export const competencyLabels: Record<CompetencyLevel, { label: string; color: s
 export const trainings: Training[] = [
   // ── ESSENTIALS ──
   {
+    slug: "chatgpt-ui-und-einstellungen",
+    icon: LayoutDashboard,
+    title: "ChatGPT vollständig einrichten – Oberfläche, Sicherheit & Persönlichkeit",
+    duration: "90–120 Minuten (Einzelmodul) · Teil aller Basis-Trainings",
+    description: "Die meisten Nutzer kennen nur einen Bruchteil dessen, was ChatGPT bietet. Dieses Modul schließt die Lücke: Von der Benutzeroberfläche und den Sicherheitseinstellungen über Custom Instructions und Gedächtnis bis hin zu Projekten und Custom GPTs – Teilnehmer verlassen das Training mit einem vollständig auf ihre Arbeitsweise zugeschnittenen ChatGPT-Account.",
+    features: [
+      "ChatGPT-Oberfläche & Navigation: Hauptbereiche kennen und effizient nutzen",
+      "Sicherheitseinstellungen: Datenschutz, Datenspeicherung, Modelltraining deaktivieren",
+      "Custom Instructions: ChatGPT dauerhaft auf die eigene Arbeitsweise einstellen",
+      "Gedächtnis (Memory): Persistentes Wissen aufbauen, verwalten und gezielt einsetzen",
+      "Projekte: Kontext organisieren, Chats gruppieren, Wissensgrundlagen anlegen",
+      "Custom GPTs: Spezialisierte KI-Assistenten erstellen, anpassen und teilen",
+      "Überblick über alle Werkzeuge: Suche, Canvas, Deep Research, Spracheingabe & Co."
+    ],
+    levels: ["essentials"],
+    questionLead: "Wie richte ich ChatGPT so ein, dass es wirklich zu meiner Arbeitsweise passt?",
+    targetAudience: [
+      "Alle ChatGPT-Nutzer, die bisher nur die Oberfläche kennen – ohne die Einstellungen zu nutzen",
+      "Teams, die nach dem Einstieg ihren Account gezielt optimieren wollen",
+      "Führungskräfte, die verstehen möchten, was Custom Instructions und Projekte im Alltag leisten",
+      "Mitarbeitende, die Custom GPTs für sich oder ihr Team einrichten wollen"
+    ],
+    learningOutcomes: [
+      "Die Teilnehmer kennen alle relevanten Bereiche der ChatGPT-Oberfläche und nutzen sie sicher",
+      "Sie haben ihre Sicherheitseinstellungen bewusst konfiguriert und verstehen die Datenschutz-Implikationen",
+      "Sie haben eigene Custom Instructions eingerichtet, die ChatGPT dauerhaft auf ihre Arbeitsweise abstimmen",
+      "Sie nutzen das Gedächtnis-Feature gezielt und wissen, wie sie es verwalten und kontrollieren",
+      "Sie können Projekte anlegen und ChatGPT-Kontext strukturiert organisieren",
+      "Sie haben einen ersten Custom GPT gebaut oder angepasst"
+    ],
+    businessImpact: [
+      "Sofortiger Mehrwert: Korrekt eingestellte Accounts arbeiten von Anfang an effizienter als uneingerichtete",
+      "Weniger Wiederholungen: Custom Instructions und Gedächtnis eliminieren wiederkehrende Kontext-Eingaben",
+      "Skalierbare Workflows: Custom GPTs ermöglichen standardisierte KI-Prozesse im Team ohne technisches Know-how"
+    ],
+    metaTitle: "ChatGPT Einstellungen & UI – Custom Instructions, Gedächtnis, Projekte",
+    metaDescription: "ChatGPT vollständig einrichten: Sicherheitseinstellungen, Custom Instructions, Gedächtnis, Projekte & Custom GPTs. Modul für alle Basis-Trainings.",
+    keywords: ["ChatGPT Einstellungen", "Custom Instructions", "ChatGPT Gedächtnis", "ChatGPT Projekte", "Custom GPTs erstellen", "ChatGPT Oberfläche"],
+    faqs: [
+      {
+        question: "Lohnt sich dieses Modul auch für erfahrene ChatGPT-Nutzer?",
+        answer: "Ja – erfahrungsgemäß kennen selbst regelmäßige Nutzer weniger als die Hälfte der verfügbaren Einstellungen und Funktionen. Custom Instructions, das Gedächtnis-Feature und Projekte werden häufig gar nicht oder falsch konfiguriert. Dieses Modul schließt diese Lücke systematisch."
+      },
+      {
+        question: "Ist das Modul Bestandteil anderer Trainings?",
+        answer: "Ja – die Inhalte dieses Moduls sind fester Bestandteil des ChatGPT Kick-Off (4 Stunden) und des ChatGPT Starter Trainings (7 Stunden). Als Einzelmodul empfehlen wir es für Teams, die einen laufenden ChatGPT-Einsatz haben und gezielt die Account-Einrichtung nachschärfen möchten."
+      }
+    ]
+  },
+  {
     slug: "chatgpt-kick-off",
     icon: Zap,
     title: "ChatGPT Kick-Off – Der kompakte Einstieg in 4 Stunden",
     duration: "4 Stunden (Halbtag)",
     description: "Vier Stunden, die den Umgang mit ChatGPT grundlegend verändern. Statt planlosem Ausprobieren lernen Ihre Teams, wie professionelles Prompting funktioniert: Kontext setzen, Rollen zuweisen, Ergebnisse steuern. Inklusive Datenschutz-Modul für den sicheren Einsatz im Unternehmen.",
     features: [
+      "ChatGPT richtig einrichten: Sicherheitseinstellungen, Custom Instructions und Gedächtnis konfigurieren",
       "Wie ChatGPT Sprache verarbeitet – und warum das für gute Prompts entscheidend ist",
       "Die Anatomie eines guten Prompts: Kontext, Aufgabe, Format, Constraints",
       "Zehn Prompt-Muster, die in jedem Bürojob sofort funktionieren",
@@ -95,6 +146,7 @@ export const trainings: Training[] = [
     duration: "1 Tag (7h) oder 3,5 Stunden (Kompaktversion)",
     description: "Acht Module – von KI-Grundlagen und AI-Mindset \u00fcber Prompting-Techniken und Textarbeit bis hin zu Datenanalyse und agentischen Arbeitsweisen. Im Ganztagsformat mit praktischen \u00dcbungen und eigenem Use-Case-Transfer, in der Kompaktversion als fokussierte Wissensvermittlung. Datenschutz und sicherer Einsatz sind fester Bestandteil des Trainings.",
     features: [
+      "ChatGPT vollst\u00e4ndig einrichten: Oberfl\u00e4che, Sicherheitseinstellungen, Custom Instructions, Ged\u00e4chtnis & Projekte",
       "Grundlagen generativer KI und AI-Mindset: Assistenten vs. Agenten, Denkmodelle f\u00fcr die Zusammenarbeit mit KI",
       "Datenschutz, Sicherheit und verantwortungsvoller Einsatz von ChatGPT im Unternehmen",
       "Prompting-Basics und fortgeschrittene Techniken: Zero-Shot, Few-Shot, Chain-of-Thought, Retrieval-Konzepte",
