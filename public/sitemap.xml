@@ -4,7 +4,7 @@
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <!-- Automatisch generiert am 2026-04-03 -->
-  <!-- 30 URLs insgesamt -->
+  <!-- 31 URLs insgesamt -->
   <url>
     <loc>https://chatgpt-trainings.de/</loc>
     <lastmod>2026-04-03</lastmod>
@@ -127,6 +127,12 @@
   </url>
   <url>
     <loc>https://chatgpt-trainings.de/wissen/chatgpt-gpt-5-4-bueroalltag</loc>
+    <lastmod>2026-04-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://chatgpt-trainings.de/trainings/chatgpt-ui-und-einstellungen</loc>
     <lastmod>2026-04-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
