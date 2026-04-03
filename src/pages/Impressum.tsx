@@ -76,7 +76,7 @@ const Impressum = () => {
               <h3 className="text-xl font-semibold mt-6 mb-3">Kontakt</h3>
               <p>
                 Telefon: +49 221 950 187 74<br />
-                E-Mail: <a href="mailto:post@yellow-boat.com" className="text-primary hover:underline">post@yellow-boat.com</a>
+                E-Mail: <a href="mailto:Info@ChatGPT-Trainings.de" className="text-primary hover:underline">Info@ChatGPT-Trainings.de</a>
               </p>
 
               <h3 className="text-xl font-semibold mt-6 mb-3">Umsatzsteuer-ID</h3>

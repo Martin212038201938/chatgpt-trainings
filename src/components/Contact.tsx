@@ -92,7 +92,7 @@ const Contact = () => {
       console.error('Error submitting form:', error);
       toast({
         title: "Fehler",
-        description: error instanceof Error ? error.message : "Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut oder kontaktieren Sie uns direkt unter post@yellow-boat.com",
+        description: error instanceof Error ? error.message : "Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut oder kontaktieren Sie uns direkt unter Info@ChatGPT-Trainings.de",
         variant: "destructive",
       });
     } finally {
@@ -232,7 +232,7 @@ const Contact = () => {
                 <div className="flex-1">
                   <h3 className="font-semibold mb-1">Teams Chat – direkt anschreiben</h3>
                   <p className="text-sm text-white/80 mb-4">
-                    Kurze Frage? Schreiben Sie mir jetzt direkt – oft antworte ich noch am gleichen Tag.
+                    Kurze Frage? Schreiben Sie uns direkt – oft antworten wir noch am gleichen Tag.
                   </p>
                   <button
                     onClick={() => window.open("https://teams.microsoft.com/l/chat/0/0?users=martin@yellow-boat.com", "_blank", "width=700,height=700,noopener,noreferrer")}
@@ -278,8 +278,8 @@ const Contact = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1">E-Mail</h3>
-                  <a href="mailto:post@yellow-boat.com" className="text-muted-foreground hover:text-primary transition-colors">
-                    post@yellow-boat.com
+                  <a href="mailto:Info@ChatGPT-Trainings.de" className="text-muted-foreground hover:text-primary transition-colors">
+                    Info@ChatGPT-Trainings.de
                   </a>
                 </div>
               </div>

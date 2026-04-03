@@ -47,7 +47,7 @@ export const homepageFAQs: FAQ[] = [
   },
   {
     question: "Wie kann ich ein Training bei chatgpt-trainings.de anfragen?",
-    answer: "Über das Kontaktformular auf chatgpt-trainings.de oder per Terminbuchung über Microsoft Bookings für ein 15-minütiges Erstgespräch. In diesem Gespräch klären wir Teamgröße, vorhandene ChatGPT-Erfahrung und gewünschte Schwerpunkte. Wir melden uns innerhalb von 24 Stunden mit einem konkreten Vorschlag. Telefon: +49 221 950 187 74, E-Mail: post@yellow-boat.com.",
+    answer: "Über das Kontaktformular auf chatgpt-trainings.de oder per Terminbuchung über Microsoft Bookings für ein 15-minütiges Erstgespräch. In diesem Gespräch klären wir Teamgröße, vorhandene ChatGPT-Erfahrung und gewünschte Schwerpunkte. Wir melden uns innerhalb von 24 Stunden mit einem konkreten Vorschlag. Telefon: +49 221 950 187 74, E-Mail: Info@ChatGPT-Trainings.de.",
     category: 'general'
   },
 ];
