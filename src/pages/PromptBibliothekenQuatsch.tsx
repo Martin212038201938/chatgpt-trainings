@@ -1,7 +1,7 @@
 import ContentLayout from "@/components/ContentLayout";
 import SEOHead from "@/components/SEOHead";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { AlertTriangle, BookOpen, Brain, Wand2, XCircle, CheckCircle2, Bot, Lightbulb, Layers, Linkedin, Mail } from "lucide-react";
+import { AlertTriangle, BookOpen, Brain, Bot, XCircle, CheckCircle2, Lightbulb, Layers, Linkedin, Mail } from "lucide-react";
 import { TrustBadge } from "@/components/TrustBadge";
 import { getAuthor, getAuthorSchemaMarkup } from "@/data/authors";
 import { generateSchemaIds, generateWissenBreadcrumbItems } from "@/lib/schema";
@@ -22,7 +22,7 @@ const PromptBibliothekenQuatsch = () => {
     { id: "kompetenz-statt-listen", title: "Kompetenz statt Listen: Was wirklich hilft", level: 2 },
     { id: "custom-gpts", title: "Custom GPTs: Die smarte Unternehmens-Alternative", level: 2 },
     { id: "wann-sinnvoll", title: "Wann Prompt-Sammlungen doch sinnvoll sind", level: 2 },
-    { id: "zauberstab", title: "Der Zauberstab-Prompt", level: 2 },
+    { id: "chatgpt-memory-als-bibliothek", title: "ChatGPT Memory: Prompts dauerhaft behalten", level: 2 },
     { id: "faq", title: "Häufig gestellte Fragen", level: 2 }
   ];
 
@@ -62,7 +62,7 @@ const PromptBibliothekenQuatsch = () => {
           "@id": "https://chatgpt-trainings.de/#organization"
         },
         "datePublished": "2026-02-03",
-        "dateModified": "2026-04-03",
+        "dateModified": "2026-04-07",
         "keywords": [
           "ChatGPT Prompt Bibliothek",
           "ChatGPT Custom GPTs",
@@ -118,7 +118,7 @@ const PromptBibliothekenQuatsch = () => {
         canonicalUrl={pageUrl}
         schema={schema}
         publishedTime="2026-02-03"
-        modifiedTime="2026-04-03"
+        modifiedTime="2026-04-07"
       />
 
       <ContentLayout
@@ -128,7 +128,7 @@ const PromptBibliothekenQuatsch = () => {
         ]}
         title="Warum ChatGPT-Prompt-Bibliotheken scheitern – und was wirklich hilft"
         description="Die ehrliche Analyse: Warum Prompt-Listen im Unternehmensalltag fast immer ungenutzt verstauben – und welche Alternativen dauerhaft Wirkung zeigen."
-        lastUpdated="03. April 2026"
+        lastUpdated="07. April 2026"
         authorName="Martin Lang"
         tableOfContents={tableOfContents}
       >
@@ -460,37 +460,95 @@ const PromptBibliothekenQuatsch = () => {
           </div>
         </section>
 
-        {/* Zauberstab */}
-        <section id="zauberstab">
+        {/* ChatGPT Memory als Bibliothek */}
+        <section id="chatgpt-memory-als-bibliothek">
           <h2 className="text-3xl md:text-4xl font-bold pb-4 border-b-4 border-blue-500">
-            Der Zauberstab-Prompt
+            ChatGPT Memory: Prompts dauerhaft behalten
           </h2>
 
           <p className="mb-4">
-            Für alle, die keine Lust haben, ein ganzes Framework zu lernen – und trotzdem sofort
-            gute Prompts produzieren wollen: Der Zauberstab-Prompt überbrückt beides.
+            Wer Prompt-Bibliotheken ablösen will, ohne ein komplexes System aufzubauen, sollte
+            eine der leistungsstärksten – und am meisten unterschätzten – ChatGPT-Funktionen
+            nutzen: <strong>ChatGPT Memory</strong>. Verfügbar ab ChatGPT Plus, ermöglicht Memory
+            dem Modell, sich dauerhaft an Ihre Arbeitsweise, Ihren Kontext und Ihre Präferenzen
+            zu erinnern – konversationsübergreifend.
           </p>
 
-          <Card className="border-2 border-blue-500/40 bg-blue-50/20 dark:bg-blue-950/10">
+          <div className="grid md:grid-cols-2 gap-6 my-8">
+            <Card className="border-t-4 border-t-blue-500">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2 text-base">
+                  <Brain className="w-5 h-5 text-blue-600" />
+                  So funktioniert ChatGPT Memory als Prompt-Ersatz
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3 text-sm">
+                <p>Sagen Sie ChatGPT einmalig, wie Sie arbeiten:</p>
+                <div className="p-3 bg-gray-100 dark:bg-gray-800 rounded-lg font-mono text-xs leading-relaxed">
+                  "Merke dir: Ich schreibe alle E-Mails auf Deutsch in Sie-Form, maximal 150 Wörter,
+                  kein Einleitungssatz. Ich arbeite in der Logistikbranche, B2B-Kundschaft."
+                </div>
+                <p className="text-muted-foreground">
+                  ChatGPT speichert diese Information dauerhaft. Bei der nächsten E-Mail-Aufgabe –
+                  auch Wochen später, in einem völlig neuen Chat – wendet ChatGPT automatisch
+                  diese Vorgaben an. Kein Kopieren aus einer Prompt-Liste mehr.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-t-4 border-t-green-500">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2 text-base">
+                  <Layers className="w-5 h-5 text-green-600" />
+                  Memory vs. klassische Prompt-Bibliothek
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-2 text-sm">
+                <div className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                  <span>Kein manuelles Kopieren – Kontext liegt dauerhaft vor</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                  <span>Passt sich durch Nutzung automatisch an Ihre Routine an</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                  <span>Auch für Team-Workflows nutzbar: Custom GPTs mit festem Kontext</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <XCircle className="w-4 h-4 text-red-400 mt-0.5 flex-shrink-0" />
+                  <span>Nicht für geteilte Team-Memories – hier kommen Custom GPTs ins Spiel</span>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          <Card className="border-2 border-blue-500/30 bg-blue-50/20 dark:bg-blue-950/10">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <Wand2 className="w-6 h-6 text-blue-600" />
-                Der Zauberstab-Prompt
+                <Lightbulb className="w-5 h-5 text-blue-600" />
+                Praxis-Tipp: Memory gezielt aufbauen
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="p-4 bg-gray-900 text-blue-100 rounded-lg font-mono text-sm leading-relaxed mb-4">
+              <p className="mb-3 text-sm">
+                Starten Sie in einer neuen Unterhaltung mit diesem Initialisierungs-Prompt –
+                einmalig, dann arbeitet ChatGPT dauerhaft mit Ihrem Kontext:
+              </p>
+              <div className="p-4 bg-gray-900 text-blue-100 rounded-lg font-mono text-sm leading-relaxed">
                 <p>
-                  Ich möchte ChatGPT für folgende Aufgabe nutzen: [Ihre Aufgabe kurz beschreiben].
-                  Stelle mir zunächst 3–5 klärende Fragen zu Kontext, Zielgruppe, Format und Umfang.
-                  Sobald ich geantwortet habe, erstelle den optimalen Prompt für diese Aufgabe
-                  und führe ihn direkt aus.
+                  Ich möchte, dass du dir folgende Informationen über meine Arbeit dauerhaft merkst:
+                  Branche: [Ihre Branche]. Typische Aufgaben mit ChatGPT: [E-Mails / Protokolle / Analysen].
+                  Bevorzugter Ton: [formell / locker]. Sprache: immer Deutsch. Länge: immer kompakt,
+                  maximal [X] Wörter außer ich bitte explizit um mehr. Was ich nicht möchte:
+                  [Einleitungsfloskeln / Aufzählungspunkte / etc.]. Bestätige kurz, was du gespeichert hast.
                 </p>
               </div>
-              <p className="text-sm text-muted-foreground">
-                Das Ergebnis: ChatGPT fragt gezielt nach, sammelt den nötigen Kontext – und generiert
-                dann einen vollständigen, strukturierten Prompt, den Sie für ähnliche Situationen
-                wiederverwenden können. Kein Bibliotheks-Aufwand. Keine Vorkenntnisse nötig.
+              <p className="mt-3 text-sm text-muted-foreground">
+                Nach der Bestätigung hat ChatGPT diese Präferenzen im Memory hinterlegt –
+                und wendet sie in jedem zukünftigen Chat automatisch an. Deutlich mächtiger
+                als jede statische Prompt-Sammlung.
               </p>
             </CardContent>
           </Card>

@@ -1,7 +1,7 @@
 import ContentLayout from "@/components/ContentLayout";
 import SEOHead from "@/components/SEOHead";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Zap, Lightbulb, Target, BookOpen, CheckCircle2, XCircle, Settings, Brain, MessageSquare, Layers, Wand2, Linkedin, Mail } from "lucide-react";
+import { Zap, Lightbulb, Target, BookOpen, CheckCircle2, XCircle, Settings, Brain, MessageSquare, Layers, Linkedin, Mail } from "lucide-react";
 import { getAuthor, getAuthorSchemaMarkup } from "@/data/authors";
 import { generateSchemaIds, generateWissenBreadcrumbItems } from "@/lib/schema";
 import { TrustBadge } from "@/components/TrustBadge";
@@ -24,7 +24,7 @@ const PromptEngineering = () => {
     { id: "praxis-prompts", title: "Praxis-Prompts für den Unternehmensalltag", level: 2 },
     { id: "o3-reasoning", title: "Prompting für ChatGPT o3 und o4 (Reasoning-Modelle)", level: 2 },
     { id: "fehler", title: "Die 7 häufigsten Prompt-Fehler", level: 2 },
-    { id: "zauberstab", title: "Der Zauberstab-Prompt", level: 2 },
+    { id: "custom-gpt-prompting", title: "Prompts skalieren: Custom GPTs bauen", level: 2 },
     { id: "faq", title: "Häufig gestellte Fragen", level: 2 },
     { id: "quellen", title: "Quellen und weiterführende Links", level: 2 }
   ];
@@ -65,7 +65,7 @@ const PromptEngineering = () => {
           "@id": "https://chatgpt-trainings.de/#organization"
         },
         "datePublished": "2025-11-07",
-        "dateModified": "2026-04-03",
+        "dateModified": "2026-04-07",
         "keywords": [
           "ChatGPT Prompt Engineering",
           "ChatGPT Prompt Engineering Kurs Deutsch",
@@ -121,7 +121,7 @@ const PromptEngineering = () => {
         canonicalUrl={pageUrl}
         schema={schema}
         publishedTime="2025-11-07"
-        modifiedTime="2026-04-03"
+        modifiedTime="2026-04-07"
       />
 
       <ContentLayout
@@ -131,7 +131,7 @@ const PromptEngineering = () => {
         ]}
         title="ChatGPT Prompt Engineering: Von der ersten Anfrage zum Expertenlevel"
         description="Der vollständige deutschsprachige Leitfaden – CRAFT-Framework, Custom Instructions, Reasoning-Modelle und Praxis-Prompts für Ihren Unternehmensalltag."
-        lastUpdated="03. April 2026"
+        lastUpdated="07. April 2026"
         authorName="Martin Lang"
         tableOfContents={tableOfContents}
       >
@@ -709,38 +709,76 @@ const PromptEngineering = () => {
           </div>
         </section>
 
-        {/* Zauberstab-Prompt */}
-        <section id="zauberstab">
+        {/* Custom GPT Prompting */}
+        <section id="custom-gpt-prompting">
           <h2 className="text-3xl md:text-4xl font-bold pb-4 border-b-4 border-amber-500">
-            Der Zauberstab-Prompt
+            Prompts skalieren: Custom GPTs bauen
           </h2>
 
           <p className="mb-4">
-            Der Zauberstab-Prompt ist unser Lieblingsformat für alle, die noch keine Lust haben, lange
-            Prompt-Strukturen auswendig zu lernen. Die Idee: ChatGPT hilft Ihnen, den optimalen Prompt
-            selbst zu entwickeln.
+            Wenn ein Prompt so gut ist, dass Ihr Team ihn täglich nutzen soll – dann gehört er
+            nicht in eine SharePoint-Liste, sondern in einen <strong>Custom GPT</strong>.
+            Custom GPTs sind spezialisierte ChatGPT-Versionen, die Sie direkt im GPT Builder
+            (verfügbar ab ChatGPT Plus) konfigurieren – mit festem System-Prompt, Wissensdateien
+            und einem klaren Aufgabenfokus. Das Team öffnet einfach den Custom GPT und fängt
+            an zu arbeiten – keine Prompt-Kenntnisse nötig.
           </p>
 
-          <Card className="border-2 border-amber-500/40 bg-amber-50/30 dark:bg-amber-950/10 my-6">
+          <div className="grid md:grid-cols-3 gap-4 my-8">
+            {[
+              {
+                titel: "E-Mail-GPT",
+                beschreibung: "Kennt Ihren Firmenstil, Ihre Tonalität und häufige Empfänger. Mitarbeitende beschreiben nur das Anliegen – der GPT formuliert.",
+                icon: "✉️"
+              },
+              {
+                titel: "Protokoll-GPT",
+                beschreibung: "Strukturiert Gesprächsnotizen automatisch in Ihr bevorzugtes Protokollformat – mit Beschlüssen, Aufgaben und Verantwortlichen.",
+                icon: "📋"
+              },
+              {
+                titel: "Analyse-GPT",
+                beschreibung: "Interpretiert hochgeladene Daten nach Ihrer Branchenlogik. Kann Referenzdokumente als Wissensquelle hinterlegt bekommen.",
+                icon: "📊"
+              }
+            ].map((gpt, idx) => (
+              <Card key={idx} className="border-t-4 border-t-amber-500 text-center">
+                <CardHeader>
+                  <CardTitle className="text-3xl mb-1">{gpt.icon}</CardTitle>
+                  <CardTitle className="text-base">{gpt.titel}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground">{gpt.beschreibung}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          <Card className="border-2 border-amber-500/30 bg-amber-50/20 dark:bg-amber-950/10">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <Wand2 className="w-6 h-6 text-amber-600" />
-                Der Zauberstab-Prompt
+                <Settings className="w-5 h-5 text-amber-600" />
+                Custom GPT in 5 Minuten: Die System-Prompt-Vorlage
               </CardTitle>
             </CardHeader>
             <CardContent>
+              <p className="mb-3 text-sm">
+                Dieser System-Prompt reicht für einen funktionsfähigen Unternehmens-GPT:
+              </p>
               <div className="p-4 bg-gray-900 text-amber-100 rounded-lg font-mono text-sm leading-relaxed">
+                <p className="text-amber-400 mb-2">// GPT Builder → "Configure" → "Instructions"</p>
                 <p>
-                  Ich möchte ChatGPT für folgende Aufgabe nutzen: [Kurze Beschreibung Ihrer Aufgabe].
-                  Stelle mir zunächst 3–5 klärende Fragen, damit du den Kontext, das Format und
-                  die Anforderungen besser verstehst. Sobald ich geantwortet habe, erstelle dann
-                  den optimalen Prompt für diese Aufgabe – und führe ihn direkt aus.
+                  Du bist ein spezialisierter Assistent für [Aufgabenbereich] bei [Firmenname].
+                  Antworte immer auf Deutsch, in [Sie/Du]-Form. Deine Ausgaben folgen diesem Format:
+                  [Format beschreiben]. Verwende keine Einleitungsfloskeln. Wenn du Kontext brauchst,
+                  stelle maximal zwei gezielte Fragen. Ausgaben sollen [X] Wörter nicht überschreiten,
+                  außer der Nutzer bittet explizit um mehr. Du kennst unsere Branche: [Branche, 2–3 Sätze Kontext].
                 </p>
               </div>
-              <p className="mt-4 text-sm text-muted-foreground">
-                ChatGPT fragt dann gezielt nach Zielgruppe, Format, Umfang und anderen relevanten
-                Parametern – und erstellt anschließend einen sauberen Prompt, den Sie für ähnliche
-                Aufgaben wiederverwenden können.
+              <p className="mt-3 text-sm text-muted-foreground">
+                Wenn dieser System-Prompt gut funktioniert, teilen Sie den Custom GPT intern –
+                jedes Teammitglied hat damit sofort einen perfekt konfigurierten ChatGPT-Assistenten,
+                ohne selbst prompten zu müssen.
               </p>
             </CardContent>
           </Card>

@@ -26,6 +26,7 @@ const KiRealitaet2026 = () => {
     { id: "einfuehrung-schritt", title: "ChatGPT-Einführung Schritt für Schritt", level: 2 },
     { id: "quick-wins", title: "Quick Wins: Wo ChatGPT sofort Wirkung zeigt", level: 2 },
     { id: "enterprise-vs-standard", title: "ChatGPT Free vs. Plus vs. Team vs. Enterprise", level: 2 },
+    { id: "chatgpt-vs-copilot", title: "ChatGPT oder Microsoft 365 Copilot? Ehrliche Entscheidungshilfe", level: 2 },
     { id: "erfolgsfaktoren", title: "Was erfolgreiche Einführungen gemeinsam haben", level: 2 },
     { id: "faq", title: "Häufig gestellte Fragen", level: 2 },
     { id: "quellen", title: "Studien und Quellen", level: 2 }
@@ -67,7 +68,7 @@ const KiRealitaet2026 = () => {
           "@id": "https://chatgpt-trainings.de/#organization"
         },
         "datePublished": "2026-02-02",
-        "dateModified": "2026-04-03",
+        "dateModified": "2026-04-07",
         "keywords": [
           "ChatGPT Einführung Mittelstand",
           "ChatGPT Unternehmen einführen",
@@ -123,7 +124,7 @@ const KiRealitaet2026 = () => {
         canonicalUrl={pageUrl}
         schema={schema}
         publishedTime="2026-02-02"
-        modifiedTime="2026-04-03"
+        modifiedTime="2026-04-07"
       />
 
       <ContentLayout
@@ -133,7 +134,7 @@ const KiRealitaet2026 = () => {
         ]}
         title="ChatGPT Einführung im Mittelstand: Was wirklich funktioniert – und was nicht"
         description="Ein Praxisleitfaden für Entscheider: Quick Wins, ROI-Realität, Lizenzvergleich und was erfolgreiche ChatGPT-Projekte von gescheiterten unterscheidet."
-        lastUpdated="03. April 2026"
+        lastUpdated="07. April 2026"
         authorName="Martin Lang"
         tableOfContents={tableOfContents}
       >
@@ -576,6 +577,92 @@ const KiRealitaet2026 = () => {
             inklusive GPT-4o und Bildgenerierung. Bei spezifischen Compliance-Anforderungen
             lohnt sich das Gespräch über Enterprise.
           </p>
+        </section>
+
+        {/* ChatGPT vs Copilot */}
+        <section id="chatgpt-vs-copilot">
+          <h2 className="text-3xl md:text-4xl font-bold pb-4 border-b-4 border-cyan-500">
+            ChatGPT oder Microsoft 365 Copilot? Ehrliche Entscheidungshilfe
+          </h2>
+
+          <p className="mb-4">
+            Die häufigste Frage in Erstgesprächen mit Mittelständlern: „Wir haben schon Microsoft 365 –
+            brauchen wir dann überhaupt ChatGPT?" Die ehrliche Antwort: Es kommt darauf an.
+            Beide Tools haben klare Stärken, unterschiedliche Einsatzbereiche und unterschiedliche
+            Lernkurven. Hier ist die nüchterne Einschätzung aus der Praxis.
+          </p>
+
+          <div className="overflow-x-auto my-8">
+            <table className="w-full text-sm border-collapse">
+              <thead>
+                <tr className="bg-slate-100 dark:bg-slate-800">
+                  <th className="text-left p-3 font-semibold border border-slate-200 dark:border-slate-700">Kriterium</th>
+                  <th className="text-left p-3 font-semibold border border-slate-200 dark:border-slate-700 text-green-700 dark:text-green-400">ChatGPT</th>
+                  <th className="text-left p-3 font-semibold border border-slate-200 dark:border-slate-700 text-blue-700 dark:text-blue-400">Microsoft 365 Copilot</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  {
+                    kriterium: "Stärke",
+                    chatgpt: "Freies Arbeiten, kreative Aufgaben, Deep Research, Custom GPTs, Coding",
+                    copilot: "Integration in Word, Excel, Outlook, Teams – Daten aus Ihrem M365-Tenant"
+                  },
+                  {
+                    kriterium: "Lizenzkosten",
+                    chatgpt: "Ab $0 (Free) bis $30/Nutzer/Monat (Team) – kein M365-Abo nötig",
+                    copilot: "Zusätzlich zum M365-Abo: ca. €30/Nutzer/Monat – hoher Grundpreis"
+                  },
+                  {
+                    kriterium: "Datenzugriff",
+                    chatgpt: "Kein Zugriff auf interne Systeme (ohne Integration)",
+                    copilot: "Zugriff auf SharePoint, E-Mails, Teams-Chats, Kalender"
+                  },
+                  {
+                    kriterium: "Flexibilität",
+                    chatgpt: "Sehr hoch – Custom GPTs, API, Voice, Canvas, Web-Suche",
+                    copilot: "Mittelhoch – auf M365-Ecosystem optimiert"
+                  },
+                  {
+                    kriterium: "Einstiegshürde",
+                    chatgpt: "Niedrig – jeder kann sofort loslegen",
+                    copilot: "Mittel – erfordert M365-Kenntnisse, IT-Freigabe"
+                  },
+                  {
+                    kriterium: "Empfehlung",
+                    chatgpt: "Für vielseitige Nutzung, KMU-Einstieg, kreative Teams",
+                    copilot: "Für M365-intensive Teams, die interne Daten einbinden wollen"
+                  }
+                ].map((row, idx) => (
+                  <tr key={idx} className={idx % 2 === 0 ? "bg-white dark:bg-slate-900" : "bg-slate-50 dark:bg-slate-800/50"}>
+                    <td className="p-3 font-medium border border-slate-200 dark:border-slate-700">{row.kriterium}</td>
+                    <td className="p-3 border border-slate-200 dark:border-slate-700 text-green-800 dark:text-green-300">{row.chatgpt}</td>
+                    <td className="p-3 border border-slate-200 dark:border-slate-700 text-blue-800 dark:text-blue-300">{row.copilot}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <Card className="border-2 border-cyan-500/30 bg-cyan-50/20 dark:bg-cyan-950/10">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Target className="w-5 h-5 text-cyan-600" />
+                Unsere Empfehlung für den Mittelstand
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm leading-relaxed">
+                Für die meisten Mittelständler gilt: <strong>Starten Sie mit ChatGPT</strong> – weil der
+                Einstieg sofort möglich ist, die Kosten überschaubar bleiben und das Tool die breiteste
+                Anwendungspalette bietet. Microsoft 365 Copilot macht erst dann Sinn, wenn Ihr Team
+                bereits produktiv mit KI arbeitet und konkrete Anforderungen an die M365-Integration
+                formulieren kann. Eine Einführung beider Tools gleichzeitig überfordert Teams regelmäßig –
+                und führt zu geringer Nutzung von beiden. <a href="/wissen/chatgpt-kosten-und-lizenzen-unternehmen"
+                className="text-cyan-600 hover:underline">Alle Lizenzoptionen im Detail.</a>
+              </p>
+            </CardContent>
+          </Card>
         </section>
 
         {/* Erfolgsfaktoren */}

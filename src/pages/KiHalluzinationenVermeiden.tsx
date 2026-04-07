@@ -24,6 +24,7 @@ const KiHalluzinationenVermeiden = () => {
     { id: "chatgpt-prueft-chatgpt", title: "ChatGPT prüft ChatGPT: Der Self-Review-Workflow", level: 2 },
     { id: "team-workflows", title: "Verlässlichkeits-Workflows für Unternehmensteams", level: 2 },
     { id: "risikoklassen", title: "Wann ist Prüfung Pflicht? Risikoklassen im Unternehmensalltag", level: 2 },
+    { id: "o3-reasoning-vorteil", title: "o3 und o4-mini: Weniger Halluzinationen durch Reasoning", level: 2 },
     { id: "faq", title: "Häufig gestellte Fragen", level: 2 }
   ];
 
@@ -63,7 +64,7 @@ const KiHalluzinationenVermeiden = () => {
           "@id": "https://chatgpt-trainings.de/#organization"
         },
         "datePublished": "2026-02-15",
-        "dateModified": "2026-04-03",
+        "dateModified": "2026-04-07",
         "keywords": [
           "ChatGPT Halluzinationen",
           "ChatGPT Fehler vermeiden",
@@ -119,7 +120,7 @@ const KiHalluzinationenVermeiden = () => {
         canonicalUrl={pageUrl}
         schema={schema}
         publishedTime="2026-02-15"
-        modifiedTime="2026-04-03"
+        modifiedTime="2026-04-07"
       />
 
       <ContentLayout
@@ -129,7 +130,7 @@ const KiHalluzinationenVermeiden = () => {
         ]}
         title="ChatGPT-Halluzinationen verstehen und verlässlich damit umgehen"
         description="Wie ChatGPT-Halluzinationen entstehen, welche 5 Fehlertypen im Unternehmensalltag auftreten – und was Teams tun können, um verlässlich damit umzugehen."
-        lastUpdated="03. April 2026"
+        lastUpdated="07. April 2026"
         authorName="Martin Lang"
         tableOfContents={tableOfContents}
       >
@@ -629,6 +630,102 @@ const KiHalluzinationenVermeiden = () => {
           </div>
 
           <TrustBadge className="mt-8" />
+        </section>
+
+        {/* o3 Reasoning Vorteil */}
+        <section id="o3-reasoning-vorteil">
+          <h2 className="text-3xl md:text-4xl font-bold pb-4 border-b-4 border-violet-500">
+            o3 und o4-mini: Weniger Halluzinationen durch Reasoning
+          </h2>
+
+          <p className="mb-4">
+            Seit der Einführung von ChatGPTs Reasoning-Modellen – o1, o3 und o4-mini – hat sich
+            die Halluzinationslandschaft strukturell verändert. Diese Modelle „denken" vor der
+            Antwort: Sie durchlaufen eine interne Schrittfolge, prüfen ihre eigenen Schlüsse und
+            werfen Widersprüche auf – bevor sie eine Antwort ausgeben. Das reduziert Halluzinationen
+            in analytischen und faktenschweren Aufgaben messbar.
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-6 my-8">
+            <Card className="border-t-4 border-t-violet-500">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2 text-base">
+                  <Brain className="w-5 h-5 text-violet-600" />
+                  Wann Reasoning-Modelle Halluzinationen reduzieren
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-2 text-sm">
+                <div className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                  <span>Mehrstufige Berechnungen (Finanzen, Statistik, Logik)</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                  <span>Argumentation mit internen Widersprüchen (Verträge, juristische Texte)</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                  <span>Analyse langer Dokumente mit widersprüchlichen Aussagen</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                  <span>Planung und Optimierungsaufgaben mit vielen Variablen</span>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="border-t-4 border-t-orange-400">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2 text-base">
+                  <AlertTriangle className="w-5 h-5 text-orange-500" />
+                  Wo Reasoning-Modelle trotzdem halluzinieren
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-2 text-sm">
+                <div className="flex items-start gap-2">
+                  <XCircle className="w-4 h-4 text-red-400 mt-0.5 flex-shrink-0" />
+                  <span>Fakten aus der realen Welt (Daten, Ereignisse, Personen nach Trainings-Cutoff)</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <XCircle className="w-4 h-4 text-red-400 mt-0.5 flex-shrink-0" />
+                  <span>Zitate und Quellenangaben – auch o3 erfindet gelegentlich Literatur</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <XCircle className="w-4 h-4 text-red-400 mt-0.5 flex-shrink-0" />
+                  <span>Branchenspezifisches Fachwissen außerhalb des Trainings-Korpus</span>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          <Card className="border-2 border-violet-500/30 bg-violet-50/20 dark:bg-violet-950/10">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Shield className="w-5 h-5 text-violet-600" />
+                Praxis-Empfehlung: Modell nach Aufgabe wählen
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-3 text-sm">
+                <div className="flex items-start gap-3 p-3 bg-violet-100/50 dark:bg-violet-900/20 rounded-lg">
+                  <span className="font-bold text-violet-700 dark:text-violet-300 flex-shrink-0">GPT-4o</span>
+                  <span>Texte, Kommunikation, kreative Aufgaben, schnelle Zusammenfassungen – wo Halluzinationsrisiko gering ist</span>
+                </div>
+                <div className="flex items-start gap-3 p-3 bg-violet-100/50 dark:bg-violet-900/20 rounded-lg">
+                  <span className="font-bold text-violet-700 dark:text-violet-300 flex-shrink-0">o4-mini</span>
+                  <span>Kosteneffizientes Reasoning für mittlere Komplexität: Kalkulationen, strukturierte Analysen, Planungsaufgaben</span>
+                </div>
+                <div className="flex items-start gap-3 p-3 bg-violet-100/50 dark:bg-violet-900/20 rounded-lg">
+                  <span className="font-bold text-violet-700 dark:text-violet-300 flex-shrink-0">o3</span>
+                  <span>Höchste Zuverlässigkeit bei komplexen Analysen, rechtlichen Prüfungen, mehrstufigen Planungsprozessen – wenn Fehler teuer sind</span>
+                </div>
+              </div>
+              <p className="mt-4 text-sm text-muted-foreground">
+                Kein Modell ist halluzinationsfrei. Aber die richtige Modellwahl für den richtigen
+                Use Case ist der erste Schritt zu verlässlicherer KI-Arbeit im Unternehmen.
+              </p>
+            </CardContent>
+          </Card>
         </section>
 
         {/* FAQ */}
