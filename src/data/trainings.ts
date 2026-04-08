@@ -177,7 +177,7 @@ export const trainings: Training[] = [
       "Breitere KI-Adoption: Das systematische Fundament senkt die Hemmschwelle für den täglichen Einsatz",
       "Use-Case-Pipeline: Die im Training erarbeiteten Anwendungsfälle liefern sofort umsetzbare Quick Wins"
     ],
-    metaTitle: "ChatGPT Starter Training – KI-Kompetenz aufbauen | 1 Tag oder 3,5h",
+    metaTitle: "ChatGPT Starter Training – Fundament",
     metaDescription: "Umfassendes ChatGPT Training in 8 Modulen: KI-Grundlagen, Prompting, Textarbeit, Datenanalyse, Automatisierung. Inkl. Datenschutz-Modul.",
     keywords: ["ChatGPT Starter Training", "Prompt Engineering Grundlagen", "ChatGPT Ganztag", "KI Training Unternehmen", "ChatGPT Workshop", "ChatGPT Datenschutz"],
     faqs: [
