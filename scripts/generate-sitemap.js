@@ -48,6 +48,7 @@ const knowledgePages = [
   { loc: '/wissen/chatgpt-kosten-und-lizenzen-unternehmen', lastmod: TODAY, changefreq: 'monthly', priority: 0.8 },
   { loc: '/wissen/chatgpt-im-unternehmen-dsgvo-konform', lastmod: TODAY, changefreq: 'monthly', priority: 0.8 },
   { loc: '/wissen/chatgpt-gpt-5-4-bueroalltag', lastmod: TODAY, changefreq: 'monthly', priority: 0.8 },
+  { loc: '/wissen/chatgpt-schulung-unternehmen-kosten', lastmod: TODAY, changefreq: 'monthly', priority: 0.9 },
 ];
 
 // Trainingsseiten - Slugs aus trainings.ts

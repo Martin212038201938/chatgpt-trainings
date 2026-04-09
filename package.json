@@ -62,7 +62,8 @@
       "/wissen/chatgpt-agent-mode",
       "/wissen/chatgpt-kosten-und-lizenzen-unternehmen",
       "/wissen/chatgpt-im-unternehmen-dsgvo-konform",
-      "/wissen/chatgpt-gpt-5-4-bueroalltag"
+      "/wissen/chatgpt-gpt-5-4-bueroalltag",
+      "/wissen/chatgpt-schulung-unternehmen-kosten"
     ],
     "skipThirdPartyRequests": true,
     "crawl": false

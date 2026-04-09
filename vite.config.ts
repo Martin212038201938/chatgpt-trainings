@@ -23,5 +23,7 @@ export default defineConfig(({ mode }) => ({
     // Note: manualChunks removed – causes circular dependency (vendor <-> react-vendor)
     // which breaks react-snap pre-rendering with "Cannot access 'V' before initialization"
     chunkSizeWarningLimit: 600,
+    // Don't wipe dist before build (preserves .htaccess on restricted filesystems)
+    emptyOutDir: false,
   },
 }));

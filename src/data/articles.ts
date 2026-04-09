@@ -30,6 +30,18 @@ export interface ArticleData {
 // Alle Artikel - sortiert nach Veröffentlichungsdatum (neueste zuerst)
 export const ALL_ARTICLES: ArticleData[] = [
   {
+    id: "chatgpt-schulung-unternehmen-kosten",
+    title: "ChatGPT Schulung: Kosten, Formate und ROI für Unternehmen im Vergleich",
+    description: "Was kosten ChatGPT-Schulungen für Unternehmen? Formate im Vergleich, kritischer Blick auf ROI-Versprechen – und warum Training über den Erfolg der KI-Investition entscheidet.",
+    link: "/wissen/chatgpt-schulung-unternehmen-kosten",
+    badge: "ChatGPT Schulung",
+    icon: "🎓",
+    lastUpdated: "9. Apr. 2026",
+    publishDate: "2026-04-09",
+    publishTime: "09:00",
+    isDraft: false
+  },
+  {
     id: "chatgpt-gpt-5-4-bueroalltag",
     title: "GPT-5.4 und der Büroalltag: Was sich für Anwender wirklich verändert hat",
     description: "Was GPT-5.4 für den Büroalltag verändert: Computer Use, Excel-Integration, weniger Fehler – und warum kompetente Anwender jetzt wichtiger sind als je zuvor.",

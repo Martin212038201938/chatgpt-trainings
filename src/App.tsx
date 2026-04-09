@@ -32,6 +32,7 @@ import KiHalluzinationenVermeiden from "./pages/KiHalluzinationenVermeiden";
 import ChatgptKostenUndLizenzen from "./pages/ChatgptKostenUndLizenzen";
 import ChatgptDsgvoKonform from "./pages/ChatgptDsgvoKonform";
 import ChatgptGpt54Bueroalltag from "./pages/ChatgptGpt54Bueroalltag";
+import ChatgptSchulungUnternehmenKosten from "./pages/ChatgptSchulungUnternehmenKosten";
 
 const queryClient = new QueryClient();
 
@@ -68,6 +69,7 @@ const App = () => (
           <Route path="/wissen/chatgpt-kosten-und-lizenzen-unternehmen" element={<ChatgptKostenUndLizenzen />} />
           <Route path="/wissen/chatgpt-im-unternehmen-dsgvo-konform" element={<ChatgptDsgvoKonform />} />
           <Route path="/wissen/chatgpt-gpt-5-4-bueroalltag" element={<ChatgptGpt54Bueroalltag />} />
+          <Route path="/wissen/chatgpt-schulung-unternehmen-kosten" element={<ChatgptSchulungUnternehmenKosten />} />
           <Route path="/admin" element={<Admin />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
