@@ -1,234 +1,66 @@
 # ============================================
 # .htaccess für chatgpt-trainings.de
-# Optimiert für SEO, SPA und Sicherheit
+# DOMAIN-MIGRATION ZU copilotenschule.de
+# ============================================
+# Alle URLs dieser Domain werden dauerhaft (301) auf die
+# Startseite von copilotenschule.de weitergeleitet.
+#
+# Ausgenommen sind:
+#   - robots.txt  → muss für Crawler erreichbar bleiben,
+#                   damit sie die 301-Redirects überhaupt verarbeiten
+#   - IndexNow Key-Dateien (32-Hex .txt im Root)
+#   - favicon.ico → vermeidet unnötige Browser-Fehler
+#
+# Hinweis: React-SPA, index.html und sitemap.xml werden
+# bewusst nicht mehr ausgeliefert. Alles fließt in den 301.
 # ============================================
 
 RewriteEngine On
 RewriteBase /
 
 # ============================================
-# HTTPS REDIRECT (301) - Fallback für AlwaysData
-# Falls Server-Einstellung "Force HTTPS" ausfällt
+# HTTPS erzwingen (Fallback, falls Server-Setting ausfällt)
 # ============================================
-
 RewriteCond %{HTTP:X-Forwarded-Proto} !https
 RewriteCond %{HTTPS} off
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L,NE]
 
 # ============================================
-# WWW → NON-WWW REDIRECT (301)
-# Verhindert Duplicate Content & Crawl-Budget-Verschwendung
+# AUSNAHMEN (dürfen NICHT umgeleitet werden)
 # ============================================
 
-RewriteCond %{HTTP_HOST} ^www\.chatgpt-trainings\.de$ [NC]
-RewriteRule ^ https://chatgpt-trainings.de%{REQUEST_URI} [R=301,L,NE]
-
-# ============================================
-# SEO & CRAWLER DATEIEN - HÖCHSTE PRIORITÄT
-# Diese Dateien DIREKT ausliefern (keine Rewrites!)
-# ============================================
-
-# robots.txt
+# robots.txt direkt ausliefern
 RewriteRule ^robots\.txt$ - [L,NC]
 
-# sitemap.xml
-RewriteRule ^sitemap\.xml$ - [L,NC]
-
-# llms.txt und llm.txt (beide Konventionen)
-RewriteRule ^llms?\.txt$ - [L,NC]
-
-# IndexNow Key-Dateien (32-char hex .txt im Root)
+# IndexNow Key-Dateien im Root (32-char hex .txt)
 RewriteRule ^[0-9a-f]{32}\.txt$ - [L,NC]
 
 # favicon
 RewriteRule ^favicon\.ico$ - [L,NC]
 
 # ============================================
-# TRAILING-SLASH NORMALISIERUNG
-# React-snap erstellt Verzeichnisse (slug/index.html).
-# Apache mod_dir würde automatisch 301 → slug/ machen.
-# Das erzeugt einen Canonical-Mismatch (Sitemap/Canonicals
-# nutzen URLs OHNE Trailing Slash).
-# Fix: DirectorySlash Off + explizite index.html-Auslieferung.
+# GLOBALER 301-REDIRECT AUF copilotenschule.de
+# ============================================
+# Alle übrigen Anfragen (egal ob Homepage, /wissen/*, /ueber-uns,
+# Sitemap, Assets oder 404-Pfade) werden permanent zur
+# Startseite der copilotenschule.de umgeleitet.
+#
+# QSD = Query String Discard (verhindert, dass UTM-Parameter etc.
+#       an die Zielseite mitgeschleift werden → saubere Ziel-URL).
+# R=301 = dauerhafte Weiterleitung (SEO: Signal-Transfer).
+# L     = Regel als letzte behandeln.
 # ============================================
 
-DirectorySlash Off
-
-# Trailing Slash entfernen per 301 (außer Root /)
-# Damit gecachte /slug/-URLs auf /slug konsolidiert werden
-RewriteCond %{REQUEST_URI} !^/$
-RewriteRule ^(.+)/$ /$1 [R=301,L]
-
-# ============================================
-# 301 REDIRECTS: Alte Seiten die nicht mehr existieren
-# Verhindert 404er für alte URLs (z.B. aus Bing-Index)
-# ============================================
-
-RewriteRule ^betreute-it-leistungen/?$ /unsere-angebote [R=301,L]
-RewriteRule ^agb/?$ /impressum [R=301,L]
-
-# URLs die Google fälschlicherweise crawlt (Canonical-Bug Fix 2026-03-30)
-# Ohne 301 würden diese den SPA-Fallback bekommen → Homepage-Duplikat
-RewriteRule ^blog/?$ /wissen [R=301,L]
-RewriteRule ^schulungen/?$ /unsere-angebote [R=301,L]
-RewriteRule ^inhouse-schulungen/?$ /unsere-angebote [R=301,L]
-RewriteRule ^kontakt/?$ /ueber-uns [R=301,L]
-
-# ============================================
-# 301 REDIRECTS: Wissensseiten-Konsolidierung unter /wissen/
-# Alle Knowledge-Artikel leben jetzt unter /wissen/slug
-# ============================================
-
-# prompt-engineering existiert als /wissen/prompt-engineering
-RewriteRule ^prompt-engineering/?$ /wissen/prompt-engineering [R=301,L]
-
-# Entfernt: Alte copilotenschule.de-Redirects (Zielseiten existieren nicht)
-# github-copilot, copilot-studio, copilot-fehler-vermeiden,
-# ki-agenten, microsoft-copilot-lizenzen
-
-# ============================================
-# ============================================
-# VERZEICHNIS → index.html DIREKT AUSLIEFERN
-# Wenn ein Verzeichnis angefragt wird und index.html
-# darin existiert, direkt ausliefern (kein Redirect).
-# ============================================
-
-RewriteCond %{REQUEST_FILENAME} -d
-RewriteCond %{REQUEST_FILENAME}/index.html -f
-RewriteRule ^(.+)$ $1/index.html [L]
-
-# ============================================
-# SPA Fallback für React Router
-# MUSS nach allen anderen Regeln kommen!
-# ============================================
-
-# index.html direkt ausliefern
-RewriteRule ^index\.html$ - [L]
-
-# _fallback.html direkt ausliefern (falls direkt angefragt)
-RewriteRule ^_fallback\.html$ - [L]
-
-# Nur wenn Datei/Verzeichnis NICHT existiert → SPA Fallback
-# WICHTIG: _fallback.html statt index.html verwenden!
-# index.html ist nach react-snap die pre-gerenderte Homepage
-# (enthält Homepage-Canonical → Google-Duplikat-Problem).
-# _fallback.html ist das saubere Template mit noindex-Tag.
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /_fallback.html [L]
-
-# ============================================
-# MIME-TYPEN
-# ============================================
-
-AddType "text/plain; charset=utf-8" .txt
-AddType text/xml .xml
-AddType application/xml .xml
-AddType image/webp .webp
-AddType image/avif .avif
-AddType font/woff2 .woff2
-AddType application/javascript .js
-AddType text/css .css
-
-# ============================================
-# GZIP / DEFLATE KOMPRESSION
-# Reduziert Dateigröße um 60-80% bei Textdateien
-# ============================================
-
-<IfModule mod_deflate.c>
-    # HTML, CSS, JavaScript
-    AddOutputFilterByType DEFLATE text/html
-    AddOutputFilterByType DEFLATE text/css
-    AddOutputFilterByType DEFLATE application/javascript
-    AddOutputFilterByType DEFLATE text/javascript
-
-    # XML, JSON, SVG
-    AddOutputFilterByType DEFLATE text/xml
-    AddOutputFilterByType DEFLATE application/xml
-    AddOutputFilterByType DEFLATE application/json
-    AddOutputFilterByType DEFLATE image/svg+xml
-
-    # Fonts
-    AddOutputFilterByType DEFLATE font/woff
-    AddOutputFilterByType DEFLATE font/woff2
-    AddOutputFilterByType DEFLATE application/font-woff
-    AddOutputFilterByType DEFLATE application/font-woff2
-
-    # Plain Text
-    AddOutputFilterByType DEFLATE text/plain
-</IfModule>
-
-# Brotli-Kompression (falls verfügbar, besser als gzip)
-<IfModule mod_brotli.c>
-    AddOutputFilterByType BROTLI_COMPRESS text/html
-    AddOutputFilterByType BROTLI_COMPRESS text/css
-    AddOutputFilterByType BROTLI_COMPRESS application/javascript
-    AddOutputFilterByType BROTLI_COMPRESS text/javascript
-    AddOutputFilterByType BROTLI_COMPRESS text/xml
-    AddOutputFilterByType BROTLI_COMPRESS application/xml
-    AddOutputFilterByType BROTLI_COMPRESS application/json
-    AddOutputFilterByType BROTLI_COMPRESS image/svg+xml
-    AddOutputFilterByType BROTLI_COMPRESS font/woff
-    AddOutputFilterByType BROTLI_COMPRESS font/woff2
-</IfModule>
-
-# ============================================
-# CACHE-CONTROL
-# ============================================
-
-<IfModule mod_headers.c>
-    # SEO-Dateien: kurzes Caching
-    <FilesMatch "\.(txt|xml)$">
-        Header set Cache-Control "max-age=3600, must-revalidate"
-    </FilesMatch>
-
-    # Favicon: längeres Caching
-    <FilesMatch "\.(ico)$">
-        Header set Cache-Control "max-age=86400, must-revalidate"
-    </FilesMatch>
-
-    # Gehashte Assets (JS, CSS von Vite): Langzeit-Cache (1 Jahr)
-    # Vite generiert content-hashed Dateinamen, daher immutable
-    <FilesMatch "\.(js|css)$">
-        Header set Cache-Control "public, max-age=31536000, immutable"
-    </FilesMatch>
-
-    # Bilder: 30 Tage Cache
-    <FilesMatch "\.(jpg|jpeg|png|gif|webp|avif|svg)$">
-        Header set Cache-Control "public, max-age=2592000"
-    </FilesMatch>
-
-    # Fonts: 1 Jahr Cache
-    <FilesMatch "\.(woff|woff2|eot|ttf|otf)$">
-        Header set Cache-Control "public, max-age=31536000, immutable"
-    </FilesMatch>
-
-    # HTML: kein Cache (immer frisch)
-    <FilesMatch "\.html$">
-        Header set Cache-Control "no-cache, must-revalidate"
-    </FilesMatch>
-
-    # Sicherheits-Header
-    Header always set X-Frame-Options "SAMEORIGIN"
-    Header always set X-Content-Type-Options "nosniff"
-    Header always set Referrer-Policy "strict-origin-when-cross-origin"
-</IfModule>
-
-# ============================================
-# ETAG OPTIMIERUNG
-# ============================================
-
-# ETags deaktivieren für gehashte Assets (redundant mit immutable Cache)
-<IfModule mod_headers.c>
-    <FilesMatch "\.(js|css|jpg|jpeg|png|gif|webp|avif|svg|woff|woff2)$">
-        Header unset ETag
-    </FilesMatch>
-</IfModule>
-FileETag None
+RewriteRule ^ https://copilotenschule.de/ [R=301,L,QSD]
 
 # ============================================
 # SICHERHEIT
 # ============================================
-
-# Verzeichnislistung deaktivieren
 Options -Indexes
+
+# Sicherheits-Header (falls doch mal Content direkt ausgeliefert wird)
+<IfModule mod_headers.c>
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>

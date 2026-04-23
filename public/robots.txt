@@ -1,18 +1,12 @@
 # robots.txt für chatgpt-trainings.de
-# Letzte Aktualisierung: 2026-02-04
+# Letzte Aktualisierung: 2026-04-23
+#
+# Diese Domain wurde mit copilotenschule.de zusammengelegt.
+# Alle URLs leiten per 301 dauerhaft auf copilotenschule.de weiter.
+#
+# WICHTIG: Crawling bleibt explizit erlaubt, damit Suchmaschinen
+# die 301-Redirects entdecken und verarbeiten können
+# (Ranking-Signal-Transfer zu copilotenschule.de).
 
-# Alle Crawler erlaubt
 User-agent: *
 Allow: /
-
-# Nur Admin-Bereich blockieren
-Disallow: /admin
-
-# Sitemap
-Sitemap: https://chatgpt-trainings.de/sitemap.xml
-
-# IndexNow - Sofortige Indexierung für Bing, Yandex, Seznam, Naver
-# Key-Datei: https://chatgpt-trainings.de/02184b6b954d4a158c75668dbf809161.txt
-
-# LLMs.txt für KI-Crawler
-# https://chatgpt-trainings.de/llms.txt
